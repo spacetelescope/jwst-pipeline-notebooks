@@ -1,0 +1,7 @@
+name: Manual Notebook Execution
+on:
+  workflow_dispatch:
+  
+jobs:
+  ScheduledBuild:
+   uses: spacetelescope/notebook-ci-actions/.github/workflows/ci_scheduled.yml@main

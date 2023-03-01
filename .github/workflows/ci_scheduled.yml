@@ -1,0 +1,8 @@
+name: Scheduled Notebook Execution
+on:
+  schedule:
+    - cron: '0 0 * * 0' # midnight sunday UTC
+
+jobs:
+  ScheduledBuild:
+   uses: spacetelescope/notebook-ci-actions/.github/workflows/ci_scheduled.yml@main
