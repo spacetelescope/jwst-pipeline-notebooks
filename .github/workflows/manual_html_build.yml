@@ -1,7 +1,0 @@
-name: Manual Build HTML
-on:
-  workflow_dispatch:
-
-jobs:
-  GenerateHTML:
-   uses: spacetelescope/notebook-ci-actions/.github/workflows/ci_builder_manual.yml@main

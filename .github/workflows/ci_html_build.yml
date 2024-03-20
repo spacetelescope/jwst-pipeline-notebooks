@@ -1,4 +1,4 @@
-name: Build HTML
+name: Build HTML on merge
 on:
   pull_request:
    branches:
@@ -8,5 +8,11 @@ on:
   workflow_dispatch:
 
 jobs:
-  GenerateHTML:
-   uses: spacetelescope/notebook-ci-actions/.github/workflows/ci_builder.yml@main
+  Generate_HTML:
+    if: github.event.pull_request.merged == true
+    uses: spacetelescope/notebook-ci-actions/.github/workflows/ci_builder.yml@v3
+    with:
+      python-version: ${{ vars.PYTHON_VERSION }}
+   # permissions:
+   #  contents: write
+
