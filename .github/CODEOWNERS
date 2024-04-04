@@ -1,0 +1,12 @@
+# These owners will be the default owners for everything in
+# the repo. Unless a later match takes precedence
+*   @sosey
+
+/notebooks/ @drlaw1558  @sosey
+
+# Order is important; the last matching pattern takes the most
+# precedence.
+/MIRI/   @skendrew  @drlaw1558
+/NIRISS/   @spacetelescope/NIRISS  @drlaw1558
+/NIRSPEC/   @PatrickOgle  @drlaw1558
+/NIRCAM/   @spacetelescope/NIRCam  @drlaw1558
