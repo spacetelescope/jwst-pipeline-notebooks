@@ -39,7 +39,7 @@ launch_buttons:
 
 # Information about where the book exists on the web
 repository:
-  url: https://github.com/spacetelescope/roman_notebooks/  # Online location of your book
+  url: https://github.com/spacetelescope/jwst-pipeline-notebooks/  # Online location of your book
   path_to_book: notebooks  # Optional path to your book, relative to the repository root
   branch: main  # Which branch of the repository should be used when creating links (optional)
 

@@ -7,4 +7,4 @@ jobs:
   Scheduled:
    uses: spacetelescope/notebook-ci-actions/.github/workflows/broken_link_checker.yml@main
    with:
-     website_url: "https://spacetelescope.github.io/jdat_notebooks/"
+     website_url: "https://spacetelescope.github.io/jwst-pipeline-notebooks/"

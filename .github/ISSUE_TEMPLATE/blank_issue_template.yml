@@ -13,7 +13,7 @@ body:
         issue, or suggestion with as much detail as possible. Good descriptions include 
         specific steps to reproduce the issue, documentation of the observed versus expected behavior,
         and any relevant screenshots or error messages. Your detailed account helps us to address 
-        your concerns promptly and improve the `jdat-notebooks` for everyone.
+        your concerns promptly and improve the `jwst-pipeline-notebooks` for everyone.
   - type: input
     id: notebook-name
     attributes:
