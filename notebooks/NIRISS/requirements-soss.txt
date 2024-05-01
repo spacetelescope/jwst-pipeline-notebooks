@@ -1,0 +1,10 @@
+jwst
+numpy
+scipy
+astropy
+matplotlib
+astroquery
+pastasoss
+ipython
+jupyter
+watermark
