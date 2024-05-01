@@ -1,5 +1,6 @@
-jwst
 numpy
+crds
+jwst>=1.13.3
 scipy
 astropy
 matplotlib
