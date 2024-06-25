@@ -1,4 +1,2 @@
-numpy>=2.0
-crds
-jwst>=1.13.3
+jwst>=1.14.0
 astroquery
