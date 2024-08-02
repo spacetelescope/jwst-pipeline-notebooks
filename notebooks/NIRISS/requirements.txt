@@ -1,3 +1,5 @@
-numpy
-crds
-jwst>=1.13.3
+numpy<2.0
+jwst==1.14.0
+astroquery
+jdaviz
+astropy>=4.3.1
