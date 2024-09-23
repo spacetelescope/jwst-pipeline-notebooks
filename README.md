@@ -1,6 +1,6 @@
-# JWST Pipeline Notebooks
-
 ![STScI Logo](_static/stsci_header.png)
+
+# JWST Pipeline Notebooks $${\color{red}UNDER---CONSTRUCTION}$$
 
 > [!IMPORTANT]
 > JWST requires a C compiler for dependencies and is currently limited to Python 3.10, 3.11, or 3.12.
@@ -14,14 +14,12 @@ Notebooks are organized according to instrument and observing mode.  Each notebo
 
 These notebooks are modular, allowing users to enable or disable different stages of processing.  Likewise, they provide examples of how to customize pipeline processing for specific science cases. 
 
-The following table summarizes the notebooks currently available:
+The following table summarizes the notebooks currently available and the JWST [pipeline versions](https://jwst-docs.stsci.edu/jwst-science-calibration-pipeline/jwst-operations-pipeline-build-information) that they have been tested with:
 
-| Instrument | Observing Mode | JWST Build | Minimum ``jwst`` version | Notes                                         |
+| Instrument | Observing Mode | JWST Build | ``jwst`` version | Notes                                         |
 |------------|----------------|------------|--------------------------|-----------------------------------------------|
-| MIRI       | MRS            | 11.0       | 1.15.1                   |                                               |
+| MIRI       | MRS            | 11.0, 11.1       | 1.15.1, 1.16.0                   |                                               |
 | NIRISS     | Imaging        | 11.0       | 1.15.1                   |                                               |
-
-While each notebook has been constructed for use with a given minimum version of the ``jwst`` pipeline software, they are generally compatible with more-recent versions (see the JWST pipeline [version history](https://jwst-docs.stsci.edu/jwst-science-calibration-pipeline/jwst-operations-pipeline-build-information)).
 
 ## Installation
 
@@ -34,7 +32,7 @@ These notebooks can be downloaded individually from the GitHub repository and ru
 If desired, you can also clone the entire ``jwst_pipeline_notebooks`` repository to your local computer and set up a new virtual or conda environment
 to avoid version conflicts with other packages you may have installed, for example::
 
-    conda create -n jpnb python=3.9
+    conda create -n jpnb python=3.11
     conda activate jpnb
     git clone https://github.com/spacetelescope/jwst_pipeline_notebooks.git
 
