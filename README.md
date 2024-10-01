@@ -25,22 +25,24 @@ The following table summarizes the notebooks currently available and the JWST [p
 
 ### Individual Notebooks
 
-These notebooks can be downloaded individually from the GitHub repository and run in any python environment in which the [``jwst``](https://github.com/spacetelescope/jwst) package meeting the indicated minimum version has been installed.  Note that some notebooks have additional dependencies (e.g., [jdaviz](https://github.com/spacetelescope/jdaviz/)) as given in the associated requirements files.
+For advanced users, these notebooks can be downloaded individually from the GitHub repository and run in any python environment in which the [``jwst``](https://github.com/spacetelescope/jwst) package meeting the indicated minimum version has been installed.  Note that some notebooks have additional dependencies (e.g., [jdaviz](https://github.com/spacetelescope/jdaviz/)) as given in the associated requirements files.
 
 ### Package Installation
 
 If desired, you can also clone the entire ``jwst_pipeline_notebooks`` repository to your local computer and set up a new virtual or conda environment
-to avoid version conflicts with other packages you may have installed, for example::
+to avoid version conflicts with other packages you may have installed, for example:
 
     conda create -n jpnb python=3.11
     conda activate jpnb
     git clone https://github.com/spacetelescope/jwst_pipeline_notebooks.git
 
-Next, move into the directory of the notebook you want to install and set up the requirements::
+Next, move into the directory of the notebook you want to install and set up the requirements:
 
     cd jwst_pipeline_notebooks/notebooks/<whatever-notebook>
     pip install -r requirements.txt
     jupyter notebook
+
+We recommend setting up a new environment for each notebook to ensure that there are no conflicting dependencies.
 
 ## Help
 
