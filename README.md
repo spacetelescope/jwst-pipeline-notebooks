@@ -12,7 +12,7 @@ The ``jwst_pipeline_notebooks`` repository contains python-based Jupyter noteboo
 
 Notebooks are organized according to instrument and observing mode.  Each notebook is designed to process data from uncalibrated raw FITS files to end-stage Level 3 data products (calibrated imaging mosaics, 3-D data cubes, 1-D extracted spectra, etc.).  These notebooks by default run in 'demo' mode, for which they will download and process example data drawn from the [MAST archive](https://archive.stsci.edu/).  They are, however, designed to be simple to run on arbitrary local data sets as well by configuring input directories accordingly.
 
-These notebooks are modular, allowing users to enable or disable different stages of processing.  Likewise, they provide examples of how to customize pipeline processing for specific science cases. 
+These notebooks are modular, allowing users to enable or disable different stages of processing.  Likewise, they provide examples of how to customize pipeline processing for specific science cases.
 
 The following table summarizes the notebooks currently available and the JWST [pipeline versions](https://jwst-docs.stsci.edu/jwst-science-calibration-pipeline/jwst-operations-pipeline-build-information) that they have been tested with:
 
@@ -20,6 +20,10 @@ The following table summarizes the notebooks currently available and the JWST [p
 |------------|----------------|------------|--------------------------|-----------------------------------------------|
 | MIRI       | MRS            | 11.0, 11.1       | 1.15.1, 1.16.0                   |                                               |
 | NIRISS     | Imaging        | 11.0       | 1.15.1                   |                                               |
+
+## Reference Files
+
+As of October 2024, the JWST pipeline will automatically select the best reference file context appropriate to each pipeline version by default.  The notebooks provided here allow users to override this default if desired and choose specific contexts instead.  See [https://jwst-docs.stsci.edu/jwst-science-calibration-pipeline#JWSTScienceCalibrationPipeline-crds_contextChoosingacontext](Choosing a Context) for guidance.
 
 ## Installation
 
