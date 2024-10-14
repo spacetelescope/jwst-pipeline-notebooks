@@ -23,7 +23,7 @@ The following table summarizes the notebooks currently available and the JWST [p
 
 ## Reference Files
 
-As of October 2024, the JWST pipeline will automatically select the best reference file context appropriate to each pipeline version by default.  The notebooks provided here allow users to override this default if desired and choose specific contexts instead.  See [https://jwst-docs.stsci.edu/jwst-science-calibration-pipeline#JWSTScienceCalibrationPipeline-crds_contextChoosingacontext](Choosing a Context) for guidance.
+As of October 2024, the JWST pipeline will automatically select the best reference file context appropriate to each pipeline version by default.  The notebooks provided here allow users to override this default if desired and choose specific contexts instead.  See [Choosing a Context](https://jwst-docs.stsci.edu/jwst-science-calibration-pipeline#JWSTScienceCalibrationPipeline-crds_contextChoosingacontext) for guidance.
 
 ## Installation
 
