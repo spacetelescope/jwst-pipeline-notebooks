@@ -1,0 +1,1491 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>NIRISS Imaging Pipeline Notebook &#8212; JWST Pipeline Notebooks</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/main.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/NIRISS/JWpipeNB-niriss-imaging';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/stsci_logo2.png" class="logo__image only-light" alt="JWST Pipeline Notebooks - Home"/>
+    <script>document.write(`<img src="../../_static/stsci_logo2.png" class="logo__image only-dark" alt="JWST Pipeline Notebooks - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    JWST Pipeline Notebooks $${\color{red}UNDER—CONSTRUCTION}$$
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Example</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../example_notebook/example_notebook.html">Draft: Notebook title</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/spacetelescope/jwst-pipeline-notebooks" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/spacetelescope/jwst-pipeline-notebooks/issues/new?title=Issue%20on%20page%20%2Fnotebooks/NIRISS/JWpipeNB-niriss-imaging.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/NIRISS/JWpipeNB-niriss-imaging.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>NIRISS Imaging Pipeline Notebook</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">NIRISS Imaging Pipeline Notebook</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose"><strong>Purpose</strong>:</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">1. Configuration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-dependencies-and-parameters">Install dependencies and parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-crds-context-and-server">Set CRDS context and server</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#package-imports">2. Package Imports</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demo-mode-setup-ignore-if-not-using-demo-data">3. Demo Mode Setup (ignore if not using demo data)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#directory-setup">4. Directory Setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#detector1-pipeline">5. Detector1 Pipeline</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-the-data">Exploring the data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image2-pipeline">6. Image2 Pipeline</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verify-which-pipeline-steps-were-run">Verify which pipeline steps were run</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image3-pipeline">7. Image3 Pipeline</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-association-file">Create Association File</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-image3-stage-of-the-pipeline">Run Image3 stage of the pipeline</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Verify which pipeline steps were run</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-the-drizzle-combined-image">8. Visualize the drizzle-combined image</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-id-detections-visualize-detected-sources-a"><a id="detections">Visualize Detected Sources</a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-in-catalog-file-and-identify-point-extended-sources">Read in catalog file and identify point/extended sources</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mark-the-extended-and-point-sources-on-the-image">Mark the extended and point sources on the image</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <a class="reference internal image-reference" href="https://github.com/spacetelescope/jwst-pipeline-notebooks/raw/main/_static/stsci_header.png"><img alt="stsci_logo" src="https://github.com/spacetelescope/jwst-pipeline-notebooks/raw/main/_static/stsci_header.png" style="width: 900px;" /></a>
+<section id="niriss-imaging-pipeline-notebook">
+<h1>NIRISS Imaging Pipeline Notebook<a class="headerlink" href="#niriss-imaging-pipeline-notebook" title="Permalink to this heading">#</a></h1>
+<p><strong>Authors</strong>: S. LaMassa, R. Diaz<br>
+<strong>Last Updated</strong>: September 3, 2024<br>
+<strong>Pipeline Version</strong>: 1.15.1 (Build 11.0)</p>
+</section>
+<section id="purpose">
+<h1><strong>Purpose</strong>:<a class="headerlink" href="#purpose" title="Permalink to this heading">#</a></h1>
+<p>This notebook provides a framework for processing generic Near-Infrared
+Imager and Slitless Spectrograph (NIRISS) Imaging data through all
+three James Webb Space Telescope (JWST) pipeline stages.  Data is assumed
+to be located in one observation folder according to paths set up below.
+It should not be necessary to edit any cells other than in the
+<span class="xref myst">Configuration</span> section unless modifying the standard
+pipeline processing options.</p>
+<p><strong>Data</strong>:
+This example is set up to use an example dataset is from
+<a class="reference external" href="https://www.stsci.edu/jwst/science-execution/program-information">Program ID</a>
+1475 (PI: Boyer, CoI: Volk) which is a sky flat calibration program.
+NIRCam is used as the primary instrument with NIRISS as a
+<a class="reference external" href="https://jwst-docs.stsci.edu/methods-and-roadmaps/jwst-parallel-observations/jwst-coordinated-parallels-roadmap">coordinated parallel instrument</a>.
+The NIRISS imaging dataset uses a 17-step dither pattern.</p>
+<p>Example input data to use will be downloaded automatically unless
+disabled (i.e., to use local files instead).</p>
+<p><strong>JWST pipeline version and CRDS context</strong> This notebook was written for the
+calibration pipeline version given above. It sets the CRDS context
+to use the most recent version available in the JWST Calibration
+Reference Data System (CRDS). If you use different pipeline versions or
+CRDS context, please read the relevant release notes
+(<a class="reference external" href="https://github.com/spacetelescope/jwst">here for pipeline</a>,
+<a class="reference external" href="https://jwst-crds.stsci.edu/">here for CRDS</a>) for possibly relevant
+changes.<BR></p>
+<p><strong>Updates</strong>:
+This notebook is regularly updated as improvements are made to the
+pipeline. Find the most up to date version of this notebook at:
+https://github.com/spacetelescope/jwst-pipeline-notebooks/</p>
+<p><strong>Recent Changes</strong>:<br>
+January 24, 2024: original notebook released<br>
+Septemer 3, 2024: Updated text to highlight that <code class="docutils literal notranslate"><span class="pre">IRAFStarFinder</span></code> is the default
+centroiding algorithm used in the <code class="docutils literal notranslate"><span class="pre">Image3</span></code> tweakreg step of the pipeline for NIRISS imaging, as of
+pipeline version 1.14.0 (build 10.2).<br></p>
+<section id="table-of-contents">
+<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><span class="xref myst">Configuration</span></p></li>
+<li><p><span class="xref myst">Package Imports</span></p></li>
+<li><p><span class="xref myst">Demo Mode Setup (ignore if not using demo data)</span></p></li>
+<li><p><span class="xref myst">Directory Setup</span></p></li>
+<li><p><span class="xref myst">Detector 1 Pipelineg</span></p></li>
+<li><p><span class="xref myst">Image2 Pipeline</span></p></li>
+<li><p><span class="xref myst">Image3 Pipeline</span></p></li>
+<li><p><span class="xref myst">Visualize the data</span></p></li>
+</ol>
+</section>
+<section id="configuration">
+<h2>1. Configuration<a class="headerlink" href="#configuration" title="Permalink to this heading">#</a></h2>
+<hr class="docutils" />
+<p>Set basic configuration for runing notebook.</p>
+<section id="install-dependencies-and-parameters">
+<h3>Install dependencies and parameters<a class="headerlink" href="#install-dependencies-and-parameters" title="Permalink to this heading">#</a></h3>
+<p>To make sure that the pipeline version is compatabile with the steps
+discussed below and the required dependencies and packages are installed,
+you can create a fresh conda environment and install the provided
+<code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">niriss_imaging_pipeline</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.11</span>
+<span class="n">conda</span> <span class="n">activate</span> <span class="n">niriss_imaging_pipeline</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p>Set the basic parameters to use with this notebook. These will affect
+what data is used, where data is located (if already in disk), and
+pipeline modules run in this data. The list of parameters are:</p>
+<ul class="simple">
+<li><p>demo_mode</p></li>
+<li><p>directories with data</p></li>
+<li><p>pipeline modules</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Basic import necessary for configuration</span>
+<span class="kn">import</span> <span class="nn">os</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-warning">
+Note that <code>demo_mode</code> must be set appropriately below.
+</div>
+<p>Set <code>demo_mode = True </code> to run in demonstration mode. In this
+mode this notebook will download example data from the Barbara A.
+Mikulski Archive for Space Telescopes (MAST) and process it through the
+pipeline. This will all happen in a local directory unless modified
+in <span class="xref myst">Section 3</span>
+below.</p>
+<p>Set <code>demo_mode = False</code> if you want to process your own data
+that has already been downloaded and provide the location of the data.<br></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set parameters for demo_mode, channel, band, data mode directories, and </span>
+<span class="c1"># processing steps.</span>
+
+<span class="c1"># -----------------------------Demo Mode---------------------------------</span>
+<span class="n">demo_mode</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="k">if</span> <span class="n">demo_mode</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Running in demonstration mode using online example data!&#39;</span><span class="p">)</span>
+
+<span class="c1"># --------------------------User Mode Directories------------------------</span>
+<span class="c1"># If demo_mode = False, look for user data in these paths</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">demo_mode</span><span class="p">:</span>
+    <span class="c1"># Set directory paths for processing specific data; these will need</span>
+    <span class="c1"># to be changed to your local directory setup (below are given as</span>
+    <span class="c1"># examples)</span>
+    <span class="n">user_home_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">&#39;~&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Point to where science observation data are</span>
+    <span class="c1"># Assumes uncalibrated data in sci_dir/uncal/ and results in stage1,</span>
+    <span class="c1"># stage2, stage3 directories</span>
+    <span class="n">sci_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">user_home_dir</span><span class="p">,</span> <span class="s1">&#39;FlightData/APT1475/data/Obs006/&#39;</span><span class="p">)</span>
+
+<span class="c1"># --------------------------Set Processing Steps--------------------------</span>
+<span class="c1"># Individual pipeline stages can be turned on/off here.  Note that a later</span>
+<span class="c1"># stage won&#39;t be able to run unless data products have already been</span>
+<span class="c1"># produced from the prior stage.</span>
+
+<span class="c1"># Science processing</span>
+<span class="n">dodet1</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># calwebb_detector1</span>
+<span class="n">doimage2</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># calwebb_image2</span>
+<span class="n">doimage3</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># calwebb_image3</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="set-crds-context-and-server">
+<h3>Set CRDS context and server<a class="headerlink" href="#set-crds-context-and-server" title="Permalink to this heading">#</a></h3>
+<p>Before importing <code>CRDS</code> and <code>JWST</code> modules, we need
+to configure our environment. This includes defining a CRDS cache
+directory in which to keep the reference files that will be used by the
+calibration pipeline.</p>
+<p>If the root directory for the local CRDS cache directory has not been set
+already, it will be set to create one in the home directory.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ------------------------Set CRDS context and paths----------------------</span>
+
+<span class="c1"># Set CRDS context (if overriding to use a specific version of reference</span>
+<span class="c1"># files; leave commented out to use latest reference files by default)</span>
+<span class="c1">#%env CRDS_CONTEXT  jwst_1254.pmap</span>
+
+<span class="c1"># Check whether the local CRDS cache directory has been set.</span>
+<span class="c1"># If not, set it to the user home directory</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;CRDS_PATH&#39;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;CRDS_PATH&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">&#39;~&#39;</span><span class="p">),</span> <span class="s1">&#39;crds&#39;</span><span class="p">)</span>
+<span class="c1"># Check whether the CRDS server URL has been set.  If not, set it.</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;CRDS_SERVER_URL&#39;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;CRDS_SERVER_URL&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;https://jwst-crds.stsci.edu&#39;</span>
+
+<span class="c1"># Echo CRDS path in use</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;CRDS local filepath: </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;CRDS_PATH&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;CRDS file server: </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;CRDS_SERVER_URL&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="package-imports">
+<h2>2. Package Imports<a class="headerlink" href="#package-imports" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use the entire available screen width for this notebook</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&lt;style&gt;.container { width:95% !important; }&lt;/style&gt;&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Basic system utilities for interacting with files</span>
+<span class="c1"># ----------------------General Imports------------------------------------</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="c1">#import urllib.request</span>
+
+<span class="c1"># Numpy for doing calculations</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># -----------------------Astroquery Imports--------------------------------</span>
+<span class="c1"># ASCII files, and downloading demo files</span>
+<span class="kn">from</span> <span class="nn">astroquery.mast</span> <span class="kn">import</span> <span class="n">Observations</span>
+
+<span class="c1"># For visualizing images</span>
+<span class="kn">from</span> <span class="nn">jdaviz</span> <span class="kn">import</span> <span class="n">Imviz</span>
+
+<span class="c1"># Astropy routines for visualizing detected sources:</span>
+<span class="kn">from</span> <span class="nn">astropy.table</span> <span class="kn">import</span> <span class="n">Table</span>
+<span class="kn">from</span> <span class="nn">astropy.coordinates</span> <span class="kn">import</span> <span class="n">SkyCoord</span>
+
+<span class="c1"># for JWST calibration pipeline</span>
+<span class="kn">import</span> <span class="nn">jwst</span>
+<span class="kn">import</span> <span class="nn">crds</span>
+
+<span class="kn">from</span> <span class="nn">jwst.pipeline</span> <span class="kn">import</span> <span class="n">Detector1Pipeline</span>
+<span class="kn">from</span> <span class="nn">jwst.pipeline</span> <span class="kn">import</span> <span class="n">Image2Pipeline</span>
+<span class="kn">from</span> <span class="nn">jwst.pipeline</span> <span class="kn">import</span> <span class="n">Image3Pipeline</span>
+
+<span class="c1"># JWST pipeline utilities</span>
+<span class="kn">from</span> <span class="nn">jwst</span> <span class="kn">import</span> <span class="n">datamodels</span>
+<span class="kn">from</span> <span class="nn">jwst.associations</span> <span class="kn">import</span> <span class="n">asn_from_list</span>  <span class="c1"># Tools for creating association files</span>
+<span class="kn">from</span> <span class="nn">jwst.associations.lib.rules_level3_base</span> <span class="kn">import</span> <span class="n">DMS_Level3_Base</span>  <span class="c1"># Definition of a Lvl3 association file</span>
+
+<span class="c1"># Echo pipeline version and CRDS context in use</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;JWST Calibration Pipeline Version: </span><span class="si">{</span><span class="n">jwst</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Using CRDS Context: </span><span class="si">{</span><span class="n">crds</span><span class="o">.</span><span class="n">get_context_name</span><span class="p">(</span><span class="s1">&#39;jwst&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Start a timer to keep track of runtime</span>
+<span class="n">time0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="demo-mode-setup-ignore-if-not-using-demo-data">
+<h2>3. Demo Mode Setup (ignore if not using demo data)<a class="headerlink" href="#demo-mode-setup-ignore-if-not-using-demo-data" title="Permalink to this heading">#</a></h2>
+<hr class="docutils" />
+<p>If running in demonstration mode, set up the program information to
+retrieve the uncalibrated data automatically from MAST using
+<a class="reference external" href="https://astroquery.readthedocs.io/en/latest/mast/mast.html">astroquery</a>.
+MAST allows for flexibility of searching by the proposal ID and the
+observation ID instead of just filenames.<br></p>
+<p>For illustrative purposes, we focus on data taken through the NIRISS
+<a class="reference external" href="https://jwst-docs.stsci.edu/jwst-near-infrared-imager-and-slitless-spectrograph/niriss-instrumentation/niriss-filters">F150W filter</a>
+and start with uncalibrated data products. The files are named
+<code class="docutils literal notranslate"><span class="pre">jw01475006001_02201_000nn_nis_uncal.fits</span></code>, where <em>nn</em> refers to the
+dither step number which ranges from 01 - 17.</p>
+<p>More information about the JWST file naming conventions can be found at:
+https://jwst-pipeline.readthedocs.io/en/latest/jwst/data_products/file_naming.html</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up the program information and paths for demo program</span>
+<span class="k">if</span> <span class="n">demo_mode</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Running in demonstration mode and will download example data from MAST!&#39;</span><span class="p">)</span>
+    <span class="n">program</span> <span class="o">=</span> <span class="s1">&#39;01475&#39;</span>
+    <span class="n">sci_observtn</span> <span class="o">=</span> <span class="s2">&quot;006&quot;</span>
+    <span class="n">visit</span> <span class="o">=</span> <span class="s2">&quot;001&quot;</span>
+    <span class="n">data_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;nis_im_demo_data&#39;</span><span class="p">)</span>
+    <span class="n">download_dir</span> <span class="o">=</span> <span class="n">data_dir</span>
+    <span class="n">sci_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="s1">&#39;Obs&#39;</span> <span class="o">+</span> <span class="n">sci_observtn</span><span class="p">)</span>
+    <span class="n">uncal_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sci_dir</span><span class="p">,</span> <span class="s1">&#39;uncal&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Ensure filepaths for input data exist</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">uncal_dir</span><span class="p">):</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">uncal_dir</span><span class="p">)</span>
+        
+    <span class="c1"># Create directory if it does not exist</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">data_dir</span><span class="p">):</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">data_dir</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Identify list of science (SCI) uncalibrated files associated with visits.</p>
+<div class="alert alert-block alert-warning">
+Selects only filter <i>f150w</i> data
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Obtain a list of observation IDs for the specified demo program</span>
+<span class="k">if</span> <span class="n">demo_mode</span><span class="p">:</span>
+    <span class="c1"># Science data</span>
+    <span class="n">sci_obs_id_table</span> <span class="o">=</span> <span class="n">Observations</span><span class="o">.</span><span class="n">query_criteria</span><span class="p">(</span><span class="n">instrument_name</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;NIRISS/IMAGE&quot;</span><span class="p">],</span>
+                                                   <span class="n">provenance_name</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;CALJWST&quot;</span><span class="p">],</span>  <span class="c1"># Executed observations</span>
+                                                   <span class="n">filters</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;F150W&#39;</span><span class="p">],</span>  <span class="c1"># Data for Specific Filter</span>
+                                                   <span class="n">obs_id</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;jw&#39;</span> <span class="o">+</span> <span class="n">program</span> <span class="o">+</span> <span class="s1">&#39;-o&#39;</span> <span class="o">+</span> <span class="n">sci_observtn</span> <span class="o">+</span> <span class="s1">&#39;*&#39;</span><span class="p">]</span>
+                                                   <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Turn the list of visits into a list of uncalibrated data files</span>
+<span class="k">if</span> <span class="n">demo_mode</span><span class="p">:</span>
+    <span class="c1"># Define types of files to select</span>
+    <span class="n">file_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;uncal&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;product_type&#39;</span><span class="p">:</span> <span class="s1">&#39;SCIENCE&#39;</span><span class="p">,</span>
+                           <span class="s1">&#39;productSubGroupDescription&#39;</span><span class="p">:</span> <span class="s1">&#39;UNCAL&#39;</span><span class="p">,</span>
+                           <span class="s1">&#39;calib_level&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">]}}</span>
+
+    <span class="c1"># Science files</span>
+    <span class="n">sci_files_to_download</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="c1"># Loop over visits identifying uncalibrated files that are associated</span>
+    <span class="c1"># with them</span>
+    <span class="k">for</span> <span class="n">exposure</span> <span class="ow">in</span> <span class="p">(</span><span class="n">sci_obs_id_table</span><span class="p">):</span>
+        <span class="n">products</span> <span class="o">=</span> <span class="n">Observations</span><span class="o">.</span><span class="n">get_product_list</span><span class="p">(</span><span class="n">exposure</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">filetype</span><span class="p">,</span> <span class="n">query_dict</span> <span class="ow">in</span> <span class="n">file_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">filtered_products</span> <span class="o">=</span> <span class="n">Observations</span><span class="o">.</span><span class="n">filter_products</span><span class="p">(</span><span class="n">products</span><span class="p">,</span> <span class="n">productType</span><span class="o">=</span><span class="n">query_dict</span><span class="p">[</span><span class="s1">&#39;product_type&#39;</span><span class="p">],</span>
+                                                             <span class="n">productSubGroupDescription</span><span class="o">=</span><span class="n">query_dict</span><span class="p">[</span><span class="s1">&#39;productSubGroupDescription&#39;</span><span class="p">],</span>
+                                                             <span class="n">calib_level</span><span class="o">=</span><span class="n">query_dict</span><span class="p">[</span><span class="s1">&#39;calib_level&#39;</span><span class="p">])</span>
+            <span class="n">sci_files_to_download</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">filtered_products</span><span class="p">[</span><span class="s1">&#39;dataURI&#39;</span><span class="p">])</span>
+ 
+    <span class="n">sci_files_to_download</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">sci_files_to_download</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Science files selected for downloading: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">sci_files_to_download</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Download all the uncal files and place them into the appropriate
+directories.</p>
+<div class="alert alert-block alert-warning">
+Warning: If this notebook is halted during this step the downloaded file
+may be incomplete, and cause crashes later on!
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">demo_mode</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">sci_files_to_download</span><span class="p">:</span>
+        <span class="n">sci_manifest</span> <span class="o">=</span> <span class="n">Observations</span><span class="o">.</span><span class="n">download_file</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span>
+                                                  <span class="n">local_path</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">uncal_dir</span><span class="p">,</span> <span class="n">Path</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="directory-setup">
+<h2>4. Directory Setup<a class="headerlink" href="#directory-setup" title="Permalink to this heading">#</a></h2>
+<hr class="docutils" />
+<p>Set up detailed paths to input/output stages here.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define output subdirectories to keep science data products organized</span>
+<span class="n">uncal_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sci_dir</span><span class="p">,</span> <span class="s1">&#39;uncal&#39;</span><span class="p">)</span>  <span class="c1"># Uncalibrated pipeline inputs should be here</span>
+<span class="n">det1_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sci_dir</span><span class="p">,</span> <span class="s1">&#39;stage1&#39;</span><span class="p">)</span>  <span class="c1"># calwebb_detector1 pipeline outputs will go here</span>
+<span class="n">image2_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sci_dir</span><span class="p">,</span> <span class="s1">&#39;stage2&#39;</span><span class="p">)</span>  <span class="c1"># calwebb_spec2 pipeline outputs will go here</span>
+<span class="n">image3_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sci_dir</span><span class="p">,</span> <span class="s1">&#39;stage3&#39;</span><span class="p">)</span>  <span class="c1"># calwebb_spec3 pipeline outputs will go here</span>
+
+<span class="c1"># We need to check that the desired output directories exist, and if not</span>
+<span class="c1"># create them</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">det1_dir</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">det1_dir</span><span class="p">)</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">image2_dir</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">image2_dir</span><span class="p">)</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">image3_dir</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">image3_dir</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Look at the first file to determine exposure parameters and practice using
+JWST datamodels¶</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">uncal_files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">uncal_dir</span><span class="p">,</span> <span class="s1">&#39;*_uncal.fits&#39;</span><span class="p">)))</span>
+
+<span class="c1"># print file name</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">uncal_files</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># Open file as JWST datamodel</span>
+<span class="n">examine</span> <span class="o">=</span> <span class="n">datamodels</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">uncal_files</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># Print out exposure info</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Instrument: </span><span class="si">{</span><span class="n">examine</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">instrument</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Filter: </span><span class="si">{</span><span class="n">examine</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">instrument</span><span class="o">.</span><span class="n">filter</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Pupil: </span><span class="si">{</span><span class="n">examine</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">instrument</span><span class="o">.</span><span class="n">pupil</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number of integrations: </span><span class="si">{</span><span class="n">examine</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">exposure</span><span class="o">.</span><span class="n">nints</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number of groups: </span><span class="si">{</span><span class="n">examine</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">exposure</span><span class="o">.</span><span class="n">ngroups</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Readout pattern: </span><span class="si">{</span><span class="n">examine</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">exposure</span><span class="o">.</span><span class="n">readpatt</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dither position number: </span><span class="si">{</span><span class="n">examine</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">dither</span><span class="o">.</span><span class="n">position_number</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>From the above, we confirm that the data file is for the NIRISS instrument
+using the <code class="docutils literal notranslate"><span class="pre">F150W</span></code> filter in the <a class="reference external" href="https://jwst-docs.stsci.edu/jwst-near-infrared-imager-and-slitless-spectrograph/niriss-instrumentation/niriss-pupil-and-filter-wheels">Pupil Wheel</a>
+crossed with the <code class="docutils literal notranslate"><span class="pre">CLEAR</span></code> filter in the Filter Wheel. This observation uses
+the <a class="reference external" href="https://jwst-docs.stsci.edu/jwst-near-infrared-imager-and-slitless-spectrograph/niriss-instrumentation/niriss-detector-overview/niriss-detector-readout-patterns"><code class="docutils literal notranslate"><span class="pre">NIS</span></code> readout pattern</a>,
+16 groups per integration, and 1 integration per exposure. This data file
+is the 1st dither position in this exposure sequence. For more information
+about how JWST exposures are defined by up-the-ramp sampling, see the
+<a class="reference external" href="https://jwst-docs.stsci.edu/understanding-exposure-times">Understanding Exposure Times JDox article</a>.</p>
+<p>This metadata will be the same for all exposures in this observation other
+than the dither position number.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print out the time benchmark</span>
+<span class="n">time1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Runtime so far: </span><span class="si">{</span><span class="n">time1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">time0</span><span class="si">:</span><span class="s2">0.0f</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="detector1-pipeline">
+<h2>5. Detector1 Pipeline<a class="headerlink" href="#detector1-pipeline" title="Permalink to this heading">#</a></h2>
+<p>Run the datasets through the
+<a class="reference external" href="https://jwst-docs.stsci.edu/jwst-science-calibration-pipeline-overview/stages-of-jwst-data-processing/calwebb_detector1">Detector1</a>
+stage of the pipelineto apply detector level calibrations and create a
+countrate data product where slopes are fitted to the integration ramps.
+These <code class="docutils literal notranslate"><span class="pre">*_rate.fits</span></code> products are 2D (nrows x ncols), averaged over all
+integrations. 3D countrate data products (<code class="docutils literal notranslate"><span class="pre">*_rateints.fits</span></code>) are also
+created (nintegrations x nrows x ncols) which have the fitted ramp slopes
+for each integration.</p>
+<p>By default, all steps in the Detector1 stage of the pipeline are run for
+NIRISS except: the <code class="docutils literal notranslate"><span class="pre">ipc</span></code> correction step and the <code class="docutils literal notranslate"><span class="pre">gain_scale</span></code> step. Note
+that while the <a class="reference external" href="https://jwst-pipeline.readthedocs.io/en/latest/jwst/persistence/description.html"><code class="docutils literal notranslate"><span class="pre">persistence</span></code> step</a>
+is set to run by default, this step does not automatically correct the
+science data for persistence. The <code class="docutils literal notranslate"><span class="pre">persistence</span></code> step creates a
+<code class="docutils literal notranslate"><span class="pre">*_trapsfilled.fits</span></code> file which is a model that records the number
+of traps filled at each pixel at the end of an exposure. This file would be
+used as an input to the <code class="docutils literal notranslate"><span class="pre">persistence</span></code> step, via the <code class="docutils literal notranslate"><span class="pre">input_trapsfilled</span></code>
+argument, to correct a science exposure for persistence. Since persistence
+is not well calibrated for NIRISS, we do not perform a persistence
+correction and thus turn off this step to speed up calibration and to not
+create files that will not be used in the subsequent analysis. This step
+can be turned off when running the pipeline in Python by doing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rate_result</span> <span class="o">=</span> <span class="n">Detector1Pipeline</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">uncal</span><span class="p">,</span><span class="n">steps</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;persistence&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;skip&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}})</span>
+</pre></div>
+</div>
+<p>or as indicated in the cell bellow using a dictionary.</p>
+<p>The <a class="reference external" href="https://jwst-pipeline.readthedocs.io/en/latest/jwst/charge_migration/index.html#charge-migration-step">charge_migration step</a>
+is particularly important for NIRISS images to mitigate apparent flux loss
+in resampled images due to the spilling of charge from a central pixel into
+its neighboring pixels (see <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2023arXiv231116301G/abstract">Goudfrooij et al. 2023</a>
+for details). Charge migration occurs when the accumulated charge in a
+central pixel exceeds a certain signal limit, which is ~25,000 ADU. This
+step is turned on by default for NIRISS imaging mode when using CRDS
+contexts of <code class="docutils literal notranslate"><span class="pre">jwst_1159.pmap</span></code> or later. Different signal limits for each filter are provided by the
+<a class="reference external" href="https://jwst-crds.stsci.edu">pars-chargemigrationstep parameter files</a>.
+Users can specify a different signal limit by running this step with the
+<code class="docutils literal notranslate"><span class="pre">signal_threshold</span></code> flag and entering another signal limit in units of ADU.</p>
+<p>As of CRDS context <code class="docutils literal notranslate"><span class="pre">jwst_1155.pmap</span></code> and later, the
+<a class="reference external" href="https://jwst-pipeline.readthedocs.io/en/latest/api/jwst.jump.JumpStep.html"><code class="docutils literal notranslate"><span class="pre">jump</span></code> step</a>
+of the <code class="docutils literal notranslate"><span class="pre">DETECTOR1</span></code> stage of the pipeline will remove residuals associated
+with <a class="reference external" href="https://jwst-docs.stsci.edu/known-issues-with-jwst-data/shower-and-snowball-artifacts">snowballs</a>
+for the NIRISS imaging mode. The default parameters for this correction,
+where <code class="docutils literal notranslate"><span class="pre">expand_large_events</span></code> set to <code class="docutils literal notranslate"><span class="pre">True</span></code> turns on the snowball halo
+removal algorithm, are specified in the <code class="docutils literal notranslate"><span class="pre">pars-jumpstep</span></code> parameter
+reference files. Users may wish to alter parameters to optimize removal of
+snowball residuals. Available parameters are discussed in the
+<a class="reference external" href="https://www.stsci.edu/files/live/sites/www/files/home/jwst/documentation/technical-documents/_documents/JWST-STScI-008545.pdf">Detection and Flagging of Showers and Snowballs in JWST Technical Report (Regan 2023)</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up a dictionary to define how the Detector1 pipeline should be configured</span>
+
+<span class="c1"># Boilerplate dictionary setup</span>
+<span class="n">det1dict</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;group_scale&#39;</span><span class="p">],</span> <span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;dq_init&#39;</span><span class="p">],</span> <span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;saturation&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{}</span>
+<span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;ipc&#39;</span><span class="p">],</span> <span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;superbias&#39;</span><span class="p">],</span> <span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;refpix&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{}</span>
+<span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;linearity&#39;</span><span class="p">],</span> <span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;persistence&#39;</span><span class="p">],</span> <span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;dark_current&#39;</span><span class="p">],</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{}</span>
+<span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;charge_migration&#39;</span><span class="p">],</span> <span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;jump&#39;</span><span class="p">],</span> <span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;ramp_fit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{}</span>
+<span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;gain_scale&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="c1"># Overrides for whether or not certain steps should be skipped</span>
+<span class="c1"># skipping the persistence step</span>
+<span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;persistence&#39;</span><span class="p">][</span><span class="s1">&#39;skip&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="c1">#det1dict[&#39;jump&#39;][&#39;find_showers&#39;] = False # Turn off detection of cosmic ray showers</span>
+
+<span class="c1"># Overrides for various reference files</span>
+<span class="c1"># Files should be in the base local directory or provide full path</span>
+<span class="c1">#det1dict[&#39;dq_init&#39;][&#39;override_mask&#39;] = &#39;myfile.fits&#39; # Bad pixel mask</span>
+<span class="c1">#det1dict[&#39;saturation&#39;][&#39;override_saturation&#39;] = &#39;myfile.fits&#39; # Saturation</span>
+<span class="c1">#det1dict[&#39;reset&#39;][&#39;override_reset&#39;] = &#39;myfile.fits&#39; # Reset</span>
+<span class="c1">#det1dict[&#39;linearity&#39;][&#39;override_linearity&#39;] = &#39;myfile.fits&#39; # Linearity</span>
+<span class="c1">#det1dict[&#39;rscd&#39;][&#39;override_rscd&#39;] = &#39;myfile.fits&#39; # RSCD</span>
+<span class="c1">#det1dict[&#39;dark_current&#39;][&#39;override_dark&#39;] = &#39;myfile.fits&#39; # Dark current subtraction</span>
+<span class="c1">#det1dict[&#39;jump&#39;][&#39;override_gain&#39;] = &#39;myfile.fits&#39; # Gain used by jump step</span>
+<span class="c1">#det1dict[&#39;ramp_fit&#39;][&#39;override_gain&#39;] = &#39;myfile.fits&#39; # Gain used by ramp fitting step</span>
+<span class="c1">#det1dict[&#39;jump&#39;][&#39;override_readnoise&#39;] = &#39;myfile.fits&#39; # Read noise used by jump step</span>
+<span class="c1">#det1dict[&#39;ramp_fit&#39;][&#39;override_readnoise&#39;] = &#39;myfile.fits&#39; # Read noise used by ramp fitting step</span>
+
+<span class="c1"># Turn on multi-core processing (off by default).  Choose what fraction of cores to use (quarter, half, or all)</span>
+<span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;jump&#39;</span><span class="p">][</span><span class="s1">&#39;maximum_cores&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;half&#39;</span>
+
+<span class="c1"># Alter parameters to optimize removal of snowball residuals (example)</span>
+<span class="c1">#det1dict[&#39;jump&#39;][&#39;expand_large_events&#39;] = True</span>
+<span class="c1">#det1dict[&#39;charge_migration&#39;][&#39;signal_threshold&#39;] = X</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run Detector1 stage of pipeline, specifying:</span>
+<span class="c1"># output directory to save *_rate.fits files</span>
+<span class="c1"># save_results flag set to True so the rate files are saved</span>
+
+<span class="k">if</span> <span class="n">dodet1</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">uncal</span> <span class="ow">in</span> <span class="n">uncal_files</span><span class="p">:</span>
+        <span class="n">rate_result</span> <span class="o">=</span> <span class="n">Detector1Pipeline</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">uncal</span><span class="p">,</span> <span class="n">output_dir</span><span class="o">=</span><span class="n">det1_dir</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="n">det1dict</span><span class="p">,</span> <span class="n">save_results</span><span class="o">=</span><span class="kc">True</span><span class="p">,)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Skipping Detector1 processing&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print out the time benchmark</span>
+<span class="n">time1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Runtime for Detector1: </span><span class="si">{</span><span class="n">time1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">time0</span><span class="si">:</span><span class="s2">0.0f</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="exploring-the-data">
+<h3>Exploring the data<a class="headerlink" href="#exploring-the-data" title="Permalink to this heading">#</a></h3>
+<p>Identify <code class="docutils literal notranslate"><span class="pre">*_rate.fits</span></code> files and verify which pipeline steps were run and
+which calibration reference files were applied.</p>
+<p>The header contains information about which calibration steps were
+completed and skipped and which reference files were used to process the
+data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># find rate files</span>
+<span class="n">rate_files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">det1_dir</span><span class="p">,</span> <span class="s1">&#39;*_rate.fits&#39;</span><span class="p">)))</span>
+
+<span class="c1"># Read in file as datamodel</span>
+<span class="n">rate_f</span> <span class="o">=</span> <span class="n">datamodels</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">rate_files</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># Check which steps were run</span>
+<span class="n">rate_f</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">cal_step</span><span class="o">.</span><span class="n">instance</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Check which reference files were used to calibrate the dataset:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rate_f</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">ref_file</span><span class="o">.</span><span class="n">instance</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="image2-pipeline">
+<h2>6. Image2 Pipeline<a class="headerlink" href="#image2-pipeline" title="Permalink to this heading">#</a></h2>
+<p>In the <a class="reference external" href="https://jwst-pipeline.readthedocs.io/en/latest/jwst/pipeline/calwebb_image2.html">Image2 stage of the pipeline</a>,
+calibrated unrectified data products are created (<code class="docutils literal notranslate"><span class="pre">*_cal.fits</span></code> or
+<code class="docutils literal notranslate"><span class="pre">*_calints.fits</span></code> files, depending on whether the input files are
+<code class="docutils literal notranslate"><span class="pre">*_rate.fits</span></code> or <code class="docutils literal notranslate"><span class="pre">*_rateints.fits</span></code>).</p>
+<p>In this pipeline processing stage, the <a class="reference external" href="https://jwst-pipeline.readthedocs.io/en/latest/jwst/assign_wcs/index.html#assign-wcs-step">world coordinate system (WCS)</a>
+is assigned, the data are <a class="reference external" href="https://jwst-pipeline.readthedocs.io/en/latest/jwst/flatfield/index.html#flatfield-step">flat fielded</a>,
+and a <a class="reference external" href="https://jwst-pipeline.readthedocs.io/en/latest/jwst/photom/index.html#photom-step">photometric calibration</a>
+is applied to convert from units of countrate (ADU/s) to surface brightness (MJy/sr).</p>
+<p>By default, the <a class="reference external" href="https://jwst-pipeline.readthedocs.io/en/latest/jwst/background_step/index.html#background-step">background subtraction step</a>
+and the <a class="reference external" href="https://jwst-pipeline.readthedocs.io/en/latest/jwst/resample/index.html#resample-step">resampling step</a>
+are turned off for NIRISS at this stage of the pipeline. The background
+subtraction is turned off since there is no background template for the
+imaging mode and the local background is removed during the background
+correction for photometric measurements around individual sources. The
+resampling step occurs during the <code class="docutils literal notranslate"><span class="pre">Image3</span></code> stage by default. While the
+resampling step can be turned on during the <code class="docutils literal notranslate"><span class="pre">Image2</span></code> stage to, e.g.,
+generate a source catalog for each image, the data quality from the
+<code class="docutils literal notranslate"><span class="pre">Image3</span></code> stage will be better since the bad pixels, which adversely affect
+both the centroids and photometry in individual images, will be mostly
+removed.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time_image2</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up a dictionary to define how the Image2 pipeline should be configured.</span>
+
+<span class="c1"># Boilerplate dictionary setup</span>
+<span class="n">image2dict</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">image2dict</span><span class="p">[</span><span class="s1">&#39;assign_wcs&#39;</span><span class="p">],</span> <span class="n">image2dict</span><span class="p">[</span><span class="s1">&#39;flat_field&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{}</span>
+<span class="n">image2dict</span><span class="p">[</span><span class="s1">&#39;photom&#39;</span><span class="p">],</span> <span class="n">image2dict</span><span class="p">[</span><span class="s1">&#39;resample&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{}</span>
+
+<span class="c1"># Overrides for whether or not certain steps should be skipped (example)</span>
+<span class="c1">#image2dict[&#39;resample&#39;][&#39;skip&#39;] = False</span>
+
+<span class="c1"># Overrides for various reference files</span>
+<span class="c1"># Files should be in the base local directory or provide full path</span>
+<span class="c1">#image2dict[&#39;assign_wcs&#39;][&#39;override_distortion&#39;] = &#39;myfile.asdf&#39;  # Spatial distortion (ASDF file)</span>
+<span class="c1">#image2dict[&#39;assign_wcs&#39;][&#39;override_filteroffset&#39;] = &#39;myfile.asdf&#39;  # Imager filter offsets (ASDF file)</span>
+<span class="c1">#image2dict[&#39;assign_wcs&#39;][&#39;override_specwcs&#39;] = &#39;myfile.asdf&#39;  # Spectral distortion (ASDF file)</span>
+<span class="c1">#image2dict[&#39;assign_wcs&#39;][&#39;override_wavelengthrange&#39;] = &#39;myfile.asdf&#39;  # Wavelength channel mapping (ASDF file)</span>
+<span class="c1">#image2dict[&#39;flat_field&#39;][&#39;override_flat&#39;] = &#39;myfile.fits&#39;  # Pixel flatfield</span>
+<span class="c1">#image2dict[&#39;photom&#39;][&#39;override_photom&#39;] = &#39;myfile.fits&#39;  # Photometric calibration array</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Find and sort all of the input files, ensuring use of absolute paths</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sstring</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">det1_dir</span><span class="p">,</span> <span class="s1">&#39;jw*rate.fits&#39;</span><span class="p">)</span>  <span class="c1"># Use files from the detector1 output folder</span>
+<span class="n">rate_files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">sstring</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">rate_files</span><span class="p">)):</span>
+    <span class="n">rate_files</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">rate_files</span><span class="p">[</span><span class="n">ii</span><span class="p">])</span>
+<span class="n">rate_files</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">rate_files</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Found  </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">rate_files</span><span class="p">))</span><span class="si">}</span><span class="s2"> science files&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run Image2 stage of pipeline, specifying:</span>
+<span class="c1"># output directory to save *_cal.fits files</span>
+<span class="c1"># save_results flag set to True so the rate files are saved</span>
+
+<span class="k">if</span> <span class="n">doimage2</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">rate</span> <span class="ow">in</span> <span class="n">rate_files</span><span class="p">:</span>
+        <span class="n">cal_result</span> <span class="o">=</span> <span class="n">Image2Pipeline</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">rate</span><span class="p">,</span> <span class="n">output_dir</span><span class="o">=</span><span class="n">image2_dir</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="n">image2dict</span><span class="p">,</span> <span class="n">save_results</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Skipping Image2 processing.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print out the time benchmark</span>
+<span class="n">time1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Runtime so far: </span><span class="si">{</span><span class="n">time1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">time0</span><span class="si">:</span><span class="s2">0.0f</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Runtime for Image2: </span><span class="si">{</span><span class="n">time1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">time_image2</span><span class="si">:</span><span class="s2">0.0f</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="verify-which-pipeline-steps-were-run">
+<h3>Verify which pipeline steps were run<a class="headerlink" href="#verify-which-pipeline-steps-were-run" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Identify *_cal.fits files</span>
+<span class="n">cal_files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image2_dir</span><span class="p">,</span> <span class="s1">&#39;*_cal.fits&#39;</span><span class="p">)))</span>
+
+<span class="n">cal_f</span> <span class="o">=</span> <span class="n">datamodels</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">cal_files</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># Check which steps were run:</span>
+<span class="n">cal_f</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">cal_step</span><span class="o">.</span><span class="n">instance</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Check which reference files were used to calibrate the dataset:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cal_f</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">ref_file</span><span class="o">.</span><span class="n">instance</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="image3-pipeline">
+<h2>7. Image3 Pipeline<a class="headerlink" href="#image3-pipeline" title="Permalink to this heading">#</a></h2>
+<p>In the <a class="reference external" href="https://jwst-pipeline.readthedocs.io/en/latest/jwst/pipeline/calwebb_image3.html">Image3 stage of the pipeline</a>,
+the individual <code class="docutils literal notranslate"><span class="pre">*_cal.fits</span></code> files for each of the dither positions are combined to one single
+distortion corrected image. First, an <a class="reference external" href="https://jwst-pipeline.readthedocs.io/en/latest/jwst/associations/overview.html">Association</a>
+needs to be created to inform the pipeline that these individual exposures are linked together.</p>
+<p>By default, the <code class="docutils literal notranslate"><span class="pre">Image3</span></code> stage of the pipeline performs the following steps on NIRISS data:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://jwst-pipeline.readthedocs.io/en/latest/jwst/tweakreg/index.html#tweakreg-step">tweakreg</a> -
+creates source catalogs of pointlike sources for each input image. The source catalog for each input image is compared to each other to derive coordinate transforms to align the images relative to each other.</p></li>
+<li><p>As of CRDS context <code class="docutils literal notranslate"><span class="pre">jwst_1156.pmap</span></code> and later, the <code class="docutils literal notranslate"><span class="pre">pars-tweakreg</span></code> parameter reference file for NIRISS performs an absolute astrometric correction to GAIA data release 3 by default (i.e., the <code class="docutils literal notranslate"><span class="pre">abs_refcat</span></code> parameter is set to <code class="docutils literal notranslate"><span class="pre">GAIADR3</span></code>). Though this default correction generally improves results compared with not doing this alignment, it could potentially result in poor performance in crowded or sparse fields, so users are encouraged to check astrometric accuracy and revisit this step if necessary.</p></li>
+<li><p>As of pipeline version 1.14.0, the default source finding algorithm for NIRISS is <code class="docutils literal notranslate"><span class="pre">IRAFStarFinder</span></code> which testing shows returns good accuracy for undersampled NIRISS PSFs at short wavelengths <a class="reference external" href="https://www.stsci.edu/files/live/sites/www/files/home/jwst/documentation/technical-documents/_documents/JWST-STScI-008116.pdf">(Goudfrooij 2022)</a>.</p></li>
+<li><p><a class="reference external" href="https://jwst-pipeline.readthedocs.io/en/latest/jwst/skymatch/index.html#skymatch-step">skymatch</a> - measures the background level from the sky to use as input into the subsequent <code class="docutils literal notranslate"><span class="pre">outlier</span> <span class="pre">detection</span></code> and <code class="docutils literal notranslate"><span class="pre">resample</span></code> steps.</p></li>
+<li><p><a class="reference external" href="https://jwst-pipeline.readthedocs.io/en/latest/jwst/outlier_detection/index.html#outlier-detection-step">outlier detection</a> - flags any remaining cosmic rays, bad pixels, or other artifacts not already flagged during the <code class="docutils literal notranslate"><span class="pre">DETECTOR1</span></code> stage of the pipeline, using all input images to create a median image so that outliers in individual images can be identified.</p></li>
+<li><p><a class="reference external" href="https://jwst-pipeline.readthedocs.io/en/latest/jwst/resample/index.html#resample-step">resample</a> - resamples each input image based on its WCS and distortion information and creates a single undistorted image.</p></li>
+<li><p><a class="reference external" href="https://jwst-pipeline.readthedocs.io/en/latest/jwst/source_catalog/index.html#source-catalog-step">source catalog</a> - creates a catalog of detected sources along with measured photometries and morphologies (i.e., point-like vs extended). Useful for quicklooks, but optimization is likely needed for specific science cases, which is an on-going investigation for the NIRISS team. Users may wish to experiment with changing the <code class="docutils literal notranslate"><span class="pre">snr_threshold</span></code> and <code class="docutils literal notranslate"><span class="pre">deblend</span></code> options. Modifications to the following parameters will not significantly improve data quality and it is advised to keep them at their default values: <code class="docutils literal notranslate"><span class="pre">aperture_ee1</span></code>, <code class="docutils literal notranslate"><span class="pre">aperture_ee2</span></code>, <code class="docutils literal notranslate"><span class="pre">aperture_ee3</span></code>, <code class="docutils literal notranslate"><span class="pre">ci1_star_threshold</span></code>, <code class="docutils literal notranslate"><span class="pre">ci2_star_threshold</span></code>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time_image3</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up a dictionary to define how the Image3 pipeline should be configured</span>
+<span class="c1"># Boilerplate dictionary setup</span>
+<span class="n">image3dict</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">image3dict</span><span class="p">[</span><span class="s1">&#39;assign_mtwcs&#39;</span><span class="p">],</span> <span class="n">image3dict</span><span class="p">[</span><span class="s1">&#39;tweakreg&#39;</span><span class="p">],</span> <span class="n">image3dict</span><span class="p">[</span><span class="s1">&#39;skymatch&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{}</span>
+<span class="n">image3dict</span><span class="p">[</span><span class="s1">&#39;outlier_detection&#39;</span><span class="p">],</span> <span class="n">image3dict</span><span class="p">[</span><span class="s1">&#39;resample&#39;</span><span class="p">],</span> <span class="n">image3dict</span><span class="p">[</span><span class="s1">&#39;source_catalog&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{}</span>
+
+<span class="c1"># Overrides for whether or not certain steps should be skipped (example)</span>
+<span class="c1">#image3dict[&#39;outlier_detection&#39;][&#39;skip&#39;] = True</span>
+
+<span class="c1"># Overrides for various reference files</span>
+<span class="c1"># Files should be in the base local directory or provide full path</span>
+<span class="c1">#image3dict[&#39;source_catalog&#39;][&#39;override_apcorr&#39;] = &#39;myfile.fits&#39;  # Aperture correction parameters</span>
+<span class="c1">#image3dict[&#39;source_catalog&#39;][&#39;override_abvegaoffset&#39;] = &#39;myfile.asdf&#39;  # Data to convert from AB to Vega magnitudes (ASDF file)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Find and sort all of the input files, ensuring use of absolute paths</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Science Files need the cal.fits files</span>
+<span class="n">sstring</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image2_dir</span><span class="p">,</span> <span class="s1">&#39;jw*cal.fits&#39;</span><span class="p">)</span>
+<span class="n">cal_files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">sstring</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">cal_files</span><span class="p">)):</span>
+    <span class="n">cal_files</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">cal_files</span><span class="p">[</span><span class="n">ii</span><span class="p">])</span>
+<span class="n">calfiles</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">cal_files</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Found </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">cal_files</span><span class="p">))</span><span class="si">}</span><span class="s1"> science files to process&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="create-association-file">
+<h3>Create Association File<a class="headerlink" href="#create-association-file" title="Permalink to this heading">#</a></h3>
+<p>An association file lists the exposures to calibrated together in <code class="docutils literal notranslate"><span class="pre">Stage</span> <span class="pre">3</span></code>
+of the pipeline. Note that an association file is available for download
+from MAST, with a filename of <code class="docutils literal notranslate"><span class="pre">*_asn.json</span></code>. Here we show how to create an
+association file to point to the data products created when processing data
+through the pipeline. Note that the output products will have a rootname
+that is specified by the <code class="docutils literal notranslate"><span class="pre">product_name</span></code> in the association file. For
+this tutorial, the rootname of the output products will be
+<code class="docutils literal notranslate"><span class="pre">image3_association</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a Level 3 Association</span>
+<span class="k">if</span> <span class="n">doimage3</span><span class="p">:</span>
+    <span class="n">associations</span> <span class="o">=</span> <span class="n">asn_from_list</span><span class="o">.</span><span class="n">asn_from_list</span><span class="p">(</span><span class="n">cal_files</span><span class="p">,</span>
+                                               <span class="n">rule</span><span class="o">=</span><span class="n">DMS_Level3_Base</span><span class="p">,</span>
+                                               <span class="n">product_name</span><span class="o">=</span><span class="s1">&#39;image3_association&#39;</span><span class="p">)</span>
+    
+    <span class="n">associations</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;asn_type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;image3&#39;</span>
+    <span class="n">associations</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;program&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">program</span>
+    
+    <span class="c1"># Format association as .json file</span>
+    <span class="n">asn_filename</span><span class="p">,</span> <span class="n">serialized</span> <span class="o">=</span> <span class="n">associations</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">&quot;json&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Write out association file</span>
+    <span class="n">association_im3</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sci_dir</span><span class="p">,</span> <span class="n">asn_filename</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">association_im3</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fd</span><span class="p">:</span>
+        <span class="n">fd</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">serialized</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="run-image3-stage-of-the-pipeline">
+<h3>Run Image3 stage of the pipeline<a class="headerlink" href="#run-image3-stage-of-the-pipeline" title="Permalink to this heading">#</a></h3>
+<p>Given the grouped exposures in the association file, the
+<code class="docutils literal notranslate"><span class="pre">Image3</span></code> stage of the pipeline will produce:</p>
+<ul class="simple">
+<li><p>a <code class="docutils literal notranslate"><span class="pre">*_cr.fits</span></code> file produced by the <code class="docutils literal notranslate"><span class="pre">outlier_detection</span></code> step, where the <code class="docutils literal notranslate"><span class="pre">DQ</span></code> array marks the pixels flagged as outliers.</p></li>
+<li><p>a final combined, rectified image with name <code class="docutils literal notranslate"><span class="pre">*_i2d.fits</span></code>,</p></li>
+<li><p>a source catalog with name <code class="docutils literal notranslate"><span class="pre">*_cat.ecsv</span></code>,</p></li>
+<li><p>a segmentation map file (<code class="docutils literal notranslate"><span class="pre">*_segm.fits</span></code>) which has integer values at the pixel locations where a source is detected where the pixel values match the source ID number in the catalog.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run Stage 3</span>
+<span class="k">if</span> <span class="n">doimage3</span><span class="p">:</span>
+    <span class="n">i2d_result</span> <span class="o">=</span> <span class="n">Image3Pipeline</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">association_im3</span><span class="p">,</span> <span class="n">output_dir</span><span class="o">=</span><span class="n">image3_dir</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="n">image3dict</span><span class="p">,</span> <span class="n">save_results</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Skipping Spec3 processing&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print out the time benchmark</span>
+<span class="n">time1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Runtime so far: </span><span class="si">{</span><span class="n">time1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">time0</span><span class="si">:</span><span class="s2">0.0f</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Runtime for Image3: </span><span class="si">{</span><span class="n">time1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">time_image3</span><span class="si">:</span><span class="s2">0.0f</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id1">
+<h3>Verify which pipeline steps were run<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Identify *_i2d file and open as datamodel</span>
+<span class="n">i2d</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image3_dir</span><span class="p">,</span> <span class="s2">&quot;*_i2d.fits&quot;</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">i2d_f</span> <span class="o">=</span> <span class="n">datamodels</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">i2d</span><span class="p">)</span>
+
+<span class="c1"># Check which steps were run</span>
+<span class="n">i2d_f</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">cal_step</span><span class="o">.</span><span class="n">instance</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Check which reference files were used to calibrate the dataset</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">i2d_f</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">ref_file</span><span class="o">.</span><span class="n">instance</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="visualize-the-drizzle-combined-image">
+<h2>8. Visualize the drizzle-combined image<a class="headerlink" href="#visualize-the-drizzle-combined-image" title="Permalink to this heading">#</a></h2>
+<p>We are using the <a class="reference external" href="https://jdaviz.readthedocs.io/en/latest/imviz/index.html">Imviz tool</a>
+within the <code class="docutils literal notranslate"><span class="pre">jdaviz</span></code> package to visualize the NIRISS image.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create an Imviz instance and set up default viewer</span>
+<span class="n">imviz_i2d</span> <span class="o">=</span> <span class="n">Imviz</span><span class="p">()</span>
+<span class="n">viewer_i2d</span> <span class="o">=</span> <span class="n">imviz_i2d</span><span class="o">.</span><span class="n">default_viewer</span>
+
+<span class="c1"># Read in the science array for our visualization dataset:</span>
+<span class="n">i2d_science</span> <span class="o">=</span> <span class="n">i2d_f</span><span class="o">.</span><span class="n">data</span>
+
+<span class="c1"># Load the dataset into Imviz</span>
+<span class="n">imviz_i2d</span><span class="o">.</span><span class="n">load_data</span><span class="p">(</span><span class="n">i2d_science</span><span class="p">)</span>
+
+<span class="c1"># Visualize the dataset:</span>
+<span class="n">imviz_i2d</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">viewer_i2d</span><span class="o">.</span><span class="n">stretch</span> <span class="o">=</span> <span class="s1">&#39;sqrt&#39;</span>
+<span class="n">viewer_i2d</span><span class="o">.</span><span class="n">set_colormap</span><span class="p">(</span><span class="s1">&#39;Viridis&#39;</span><span class="p">)</span>
+<span class="n">viewer_i2d</span><span class="o">.</span><span class="n">cuts</span> <span class="o">=</span> <span class="s1">&#39;95%&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="a-id-detections-visualize-detected-sources-a">
+<h2><a id='detections'>Visualize Detected Sources</a><a class="headerlink" href="#a-id-detections-visualize-detected-sources-a" title="Permalink to this heading">#</a></h2>
+<p>Using the source catalog created by the <code class="docutils literal notranslate"><span class="pre">IMAGE3</span></code> stage of the pipeline,
+mark the detected sources, using different markers for point sources
+and extended sources. The source catalog is saved in
+<code class="docutils literal notranslate"><span class="pre">image3/image3_association_cat.ecsv</span></code> file. We will need to
+read in the <code class="docutils literal notranslate"><span class="pre">i2d</span></code> file again to make sure the world
+coordinate system (WCS) info is read in.</p>
+<section id="read-in-catalog-file-and-identify-point-extended-sources">
+<h3>Read in catalog file and identify point/extended sources<a class="headerlink" href="#read-in-catalog-file-and-identify-point-extended-sources" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">catalog_file</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image3_dir</span><span class="p">,</span> <span class="s2">&quot;*_cat.ecsv&quot;</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">catalog</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">catalog_file</span><span class="p">)</span>
+
+<span class="c1"># To identify point/extended sources, use the &#39;is_extended&#39; column in the source catalog</span>
+<span class="n">pt_src</span><span class="p">,</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="o">~</span><span class="n">catalog</span><span class="p">[</span><span class="s1">&#39;is_extended&#39;</span><span class="p">])</span>
+<span class="n">ext_src</span><span class="p">,</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">catalog</span><span class="p">[</span><span class="s1">&#39;is_extended&#39;</span><span class="p">])</span>
+
+<span class="c1"># Define coordinates of point and extended sources</span>
+<span class="n">pt_coord</span> <span class="o">=</span> <span class="n">Table</span><span class="p">({</span><span class="s1">&#39;coord&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">SkyCoord</span><span class="p">(</span><span class="n">ra</span><span class="o">=</span><span class="n">catalog</span><span class="p">[</span><span class="s1">&#39;sky_centroid&#39;</span><span class="p">][</span><span class="n">pt_src</span><span class="p">]</span><span class="o">.</span><span class="n">ra</span><span class="p">,</span>
+                                     <span class="n">dec</span><span class="o">=</span><span class="n">catalog</span><span class="p">[</span><span class="s1">&#39;sky_centroid&#39;</span><span class="p">][</span><span class="n">pt_src</span><span class="p">]</span><span class="o">.</span><span class="n">dec</span><span class="p">)]})</span>
+<span class="n">ext_coord</span> <span class="o">=</span> <span class="n">Table</span><span class="p">({</span><span class="s1">&#39;coord&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">SkyCoord</span><span class="p">(</span><span class="n">ra</span><span class="o">=</span><span class="n">catalog</span><span class="p">[</span><span class="s1">&#39;sky_centroid&#39;</span><span class="p">][</span><span class="n">ext_src</span><span class="p">]</span><span class="o">.</span><span class="n">ra</span><span class="p">,</span>
+                                      <span class="n">dec</span><span class="o">=</span><span class="n">catalog</span><span class="p">[</span><span class="s1">&#39;sky_centroid&#39;</span><span class="p">][</span><span class="n">ext_src</span><span class="p">]</span><span class="o">.</span><span class="n">dec</span><span class="p">)]})</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="mark-the-extended-and-point-sources-on-the-image">
+<h3>Mark the extended and point sources on the image<a class="headerlink" href="#mark-the-extended-and-point-sources-on-the-image" title="Permalink to this heading">#</a></h3>
+<p>Display combined image:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read in i2d file to Imviz</span>
+<span class="n">imviz_cat</span> <span class="o">=</span> <span class="n">Imviz</span><span class="p">()</span>
+<span class="n">viewer_cat</span> <span class="o">=</span> <span class="n">imviz_cat</span><span class="o">.</span><span class="n">default_viewer</span>
+<span class="n">imviz_cat</span><span class="o">.</span><span class="n">load_data</span><span class="p">(</span><span class="n">i2d</span><span class="p">)</span>
+
+<span class="c1"># Adjust settings for viewer</span>
+<span class="n">viewer_cat</span><span class="o">.</span><span class="n">stretch</span> <span class="o">=</span> <span class="s1">&#39;sqrt&#39;</span>
+<span class="n">viewer_cat</span><span class="o">.</span><span class="n">set_colormap</span><span class="p">(</span><span class="s1">&#39;Viridis&#39;</span><span class="p">)</span>
+<span class="n">viewer_cat</span><span class="o">.</span><span class="n">cuts</span> <span class="o">=</span> <span class="s1">&#39;95%&#39;</span>
+
+<span class="c1"># Show the plot</span>
+<span class="n">imviz_cat</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Point sources will be marked by small pink circles and extended sources will be marked by larger white circles.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add marker for point sources:</span>
+<span class="n">viewer_cat</span><span class="o">.</span><span class="n">marker</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;pink&#39;</span><span class="p">,</span> <span class="s1">&#39;markersize&#39;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="s1">&#39;fill&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
+<span class="n">viewer_cat</span><span class="o">.</span><span class="n">add_markers</span><span class="p">(</span><span class="n">pt_coord</span><span class="p">,</span> <span class="n">use_skycoord</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">marker_name</span><span class="o">=</span><span class="s1">&#39;point_sources&#39;</span><span class="p">)</span>
+
+<span class="c1"># Add marker for extended sources:</span>
+<span class="n">viewer_cat</span><span class="o">.</span><span class="n">marker</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="s1">&#39;markersize&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;fill&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
+<span class="n">viewer_cat</span><span class="o">.</span><span class="n">add_markers</span><span class="p">(</span><span class="n">ext_coord</span><span class="p">,</span> <span class="n">use_skycoord</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">marker_name</span><span class="o">=</span><span class="s1">&#39;extended_sources&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<a class="reference internal image-reference" href="https://github.com/spacetelescope/jwst-pipeline-notebooks/raw/main/_static/stsci_footer.png"><img alt="stsci_logo" src="https://github.com/spacetelescope/jwst-pipeline-notebooks/raw/main/_static/stsci_footer.png" style="width: 200px;" /></a>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "spacetelescope/jwst-pipeline-notebooks",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks/NIRISS"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">NIRISS Imaging Pipeline Notebook</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose"><strong>Purpose</strong>:</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">1. Configuration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-dependencies-and-parameters">Install dependencies and parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-crds-context-and-server">Set CRDS context and server</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#package-imports">2. Package Imports</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demo-mode-setup-ignore-if-not-using-demo-data">3. Demo Mode Setup (ignore if not using demo data)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#directory-setup">4. Directory Setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#detector1-pipeline">5. Detector1 Pipeline</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-the-data">Exploring the data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image2-pipeline">6. Image2 Pipeline</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verify-which-pipeline-steps-were-run">Verify which pipeline steps were run</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image3-pipeline">7. Image3 Pipeline</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-association-file">Create Association File</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-image3-stage-of-the-pipeline">Run Image3 stage of the pipeline</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Verify which pipeline steps were run</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-the-drizzle-combined-image">8. Visualize the drizzle-combined image</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-id-detections-visualize-detected-sources-a"><a id="detections">Visualize Detected Sources</a></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-in-catalog-file-and-identify-point-extended-sources">Read in catalog file and identify point/extended sources</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mark-the-extended-and-point-sources-on-the-image">Mark the extended and point sources on the image</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By STScI
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
