@@ -10,6 +10,6 @@ parts:
    chapters:
    - file: notebooks/MIRI/JWpipeNB-MIRI-imaging.ipynb
    - file: notebooks/MIRI/JWPipeNB-MIRI-MRS.ipynb
- caption: NIRISS
- - chapters:
+ - caption: NIRISS
+   chapters:
    - file: notebooks/NIRISS/JWPipelineNB-niriss-imaging.ipynb
