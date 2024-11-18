@@ -1,4 +1,4 @@
-name: Manual Full Archive Execute-Store-Generate HTML
+name: LARGE Manual Full Archive Execute-Store-Generate HTML
 on:
   workflow_dispatch:
 
