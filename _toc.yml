@@ -6,3 +6,10 @@ parts:
  - caption: Example
    chapters:
    - file: notebooks/example_notebook/example_notebook.ipynb
+ - caption: MIRI
+   chapters:
+   - file: notebooks/MIRI/JWpipeNB-MIRI-imaging.ipynb
+   - file: notebooks/MIRI/JWPipeNB-MIRI-MRS.ipynb
+ - caption: NIRISS
+   chapters:
+   - file: notebooks/NIRISS/JWPipelineNB-niriss-imaging.ipynb
