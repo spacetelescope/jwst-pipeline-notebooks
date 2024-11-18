@@ -18,7 +18,9 @@ The following table summarizes the notebooks currently available and the JWST [p
 
 | Instrument | Observing Mode | JWST Build | ``jwst`` version | Notes                                         |
 |------------|----------------|------------|--------------------------|-----------------------------------------------|
-| MIRI       | MRS            | 11.0, 11.1       | 1.15.1, 1.16.0                   |                                               |
+| MIRI       | Imaging        | 11.0       | 1.15.1                   |                                               |
+| MIRI       | MRS            | 11.0       | 1.15.1                   |                                               |
+| NIRCam     | Imaging        | 11.0       | 1.15.1                   |                                               |
 | NIRISS     | Imaging        | 11.0       | 1.15.1                   |                                               |
 
 ## Reference Files
