@@ -3,9 +3,6 @@
 format: jb-book
 root: intro
 parts:
- - caption: Example
-   chapters:
-   - file: notebooks/example_notebook/example_notebook.ipynb
  - caption: MIRI
    chapters:
    - file: notebooks/MIRI/JWpipeNB-MIRI-imaging.ipynb
@@ -13,3 +10,6 @@ parts:
  - caption: NIRISS
    chapters:
    - file: notebooks/NIRISS/JWPipelineNB-niriss-imaging.ipynb
+ - caption: NIRCAM
+   chapters:
+    - file: notebooks/NIRCAM/JWpipeNB-nircam-imaging.ipynb
