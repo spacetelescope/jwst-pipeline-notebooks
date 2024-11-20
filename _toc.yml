@@ -3,13 +3,15 @@
 format: jb-book
 root: intro
 parts:
- - caption: MIRI
+ - caption: MIRI Imaging
    chapters:
-   - file: notebooks/MIRI/JWpipeNB-MIRI-imaging.ipynb
-   - file: notebooks/MIRI/JWPipeNB-MIRI-MRS.ipynb
+   - file: notebooks/MIRI/Imaging/JWPipeNB-MIRI-imaging.ipynb
+ - caption: MIRI MRS
+   chapters:
+   - file: notebooks/MIRI/MRS/JWPipeNB-MIRI-MRS.ipynb
  - caption: NIRISS
    chapters:
-   - file: notebooks/NIRISS/JWPipelineNB-niriss-imaging.ipynb
- - caption: NIRCAM
+   - file: notebooks/NIRISS/Imaging/JWPipeNB-niriss-imaging.ipynb
+ - caption: NIRCAM Imaging
    chapters:
-    - file: notebooks/NIRCAM/JWpipeNB-nircam-imaging.ipynb
+    - file: notebooks/NIRCAM/Imaging/JWPipeNB-nircam-imaging.ipynb 
