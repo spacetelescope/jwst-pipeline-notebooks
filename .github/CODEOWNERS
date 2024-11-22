@@ -8,5 +8,5 @@
 # precedence.
 /notebooks/MIRI/   @skendrew  @drlaw1558
 /notebooks/NIRISS/Imaging/   @spacetelescope/niriss  @drlaw1558
-/NIRSPEC/Slit/   @spacetelescope/nirspec  @drlaw1558
-/NIRCAM/Imaging/   @spacetelescope/nircam  @drlaw1558
+/notebooks/NIRSPEC/Slit/   @spacetelescope/nirspec  @drlaw1558
+/notebooks/NIRCAM/Imaging/   @spacetelescope/nircam  @drlaw1558
