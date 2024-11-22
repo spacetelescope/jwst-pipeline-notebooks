@@ -6,7 +6,7 @@
 
 # Order is important; the last matching pattern takes the most
 # precedence.
-/MIRI/   @skendrew  @drlaw1558
-/NIRISS/   @spacetelescope/niriss  @drlaw1558
-/NIRSPEC/   @spacetelescope/nirspec  @drlaw1558
-/NIRCAM/   @spacetelescope/nircam  @drlaw1558
+/notebooks/MIRI/   @skendrew  @drlaw1558
+/notebooks/NIRISS/Imaging/   @spacetelescope/niriss  @drlaw1558
+/NIRSPEC/Slit/   @spacetelescope/nirspec  @drlaw1558
+/NIRCAM/Imaging/   @spacetelescope/nircam  @drlaw1558
