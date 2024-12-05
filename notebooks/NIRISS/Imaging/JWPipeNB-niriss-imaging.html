@@ -503,24 +503,25 @@ https://github.com/spacetelescope/jwst-pipeline-notebooks/</p>
 January 24, 2024: original notebook released<br>
 Septemer 3, 2024: Updated text to highlight that <code class="docutils literal notranslate"><span class="pre">IRAFStarFinder</span></code> is the default
 centroiding algorithm used in the <code class="docutils literal notranslate"><span class="pre">Image3</span></code> tweakreg step of the pipeline for NIRISS imaging, as of
-pipeline version 1.14.0 (build 10.2).<br></p>
-<section id="table-of-contents">
+pipeline version 1.14.0 (build 10.2).<br>
+November 22, 2024: Updates to workflow when skipping pipeline modules<br><br></p>
+<hr style="border:1px solid gray"> </hr><section id="table-of-contents">
 <h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p><span class="xref myst">Configuration</span></p></li>
 <li><p><span class="xref myst">Package Imports</span></p></li>
 <li><p><span class="xref myst">Demo Mode Setup (ignore if not using demo data)</span></p></li>
 <li><p><span class="xref myst">Directory Setup</span></p></li>
-<li><p><span class="xref myst">Detector 1 Pipelineg</span></p></li>
+<li><p><span class="xref myst">Detector 1 Pipeline</span></p></li>
 <li><p><span class="xref myst">Image2 Pipeline</span></p></li>
 <li><p><span class="xref myst">Image3 Pipeline</span></p></li>
 <li><p><span class="xref myst">Visualize the data</span></p></li>
 </ol>
-</section>
+<hr style="border:1px solid gray"> </hr></section>
 <section id="configuration">
 <h2>1. Configuration<a class="headerlink" href="#configuration" title="Permalink to this heading">#</a></h2>
 <hr class="docutils" />
-<p>Set basic configuration for runing notebook.</p>
+<p>Set basic configuration for running notebook.</p>
 <section id="install-dependencies-and-parameters">
 <h3>Install dependencies and parameters<a class="headerlink" href="#install-dependencies-and-parameters" title="Permalink to this heading">#</a></h3>
 <p>To make sure that the pipeline version is compatabile with the steps
@@ -592,6 +593,7 @@ that has already been downloaded and provide the location of the data.<br></p>
 <span class="n">dodet1</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># calwebb_detector1</span>
 <span class="n">doimage2</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># calwebb_image2</span>
 <span class="n">doimage3</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># calwebb_image3</span>
+<span class="n">doviz</span> <span class="o">=</span> <span class="kc">True</span> <span class="c1"># Visualize calwebb_image3 output</span>
 </pre></div>
 </div>
 </div>
@@ -628,7 +630,7 @@ already, it will be set to create one in the home directory.</p>
 </div>
 </div>
 </div>
-</section>
+<hr style="border:1px solid gray"> </hr></section>
 </section>
 <section id="package-imports">
 <h2>2. Package Imports<a class="headerlink" href="#package-imports" title="Permalink to this heading">#</a></h2>
@@ -692,7 +694,7 @@ already, it will be set to create one in the home directory.</p>
 </div>
 </div>
 </div>
-</section>
+<hr style="border:1px solid gray"> </hr></section>
 <section id="demo-mode-setup-ignore-if-not-using-demo-data">
 <h2>3. Demo Mode Setup (ignore if not using demo data)<a class="headerlink" href="#demo-mode-setup-ignore-if-not-using-demo-data" title="Permalink to this heading">#</a></h2>
 <hr class="docutils" />
@@ -791,7 +793,7 @@ may be incomplete, and cause crashes later on!
 </div>
 </div>
 </div>
-</section>
+<hr style="border:1px solid gray"> </hr></section>
 <section id="directory-setup">
 <h2>4. Directory Setup<a class="headerlink" href="#directory-setup" title="Permalink to this heading">#</a></h2>
 <hr class="docutils" />
@@ -860,7 +862,7 @@ than the dither position number.</p>
 </div>
 </div>
 </div>
-</section>
+<hr style="border:1px solid gray"> </hr></section>
 <section id="detector1-pipeline">
 <h2>5. Detector1 Pipeline<a class="headerlink" href="#detector1-pipeline" title="Permalink to this heading">#</a></h2>
 <p>Run the datasets through the
@@ -982,14 +984,15 @@ completed and skipped and which reference files were used to process the
 data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># find rate files</span>
-<span class="n">rate_files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">det1_dir</span><span class="p">,</span> <span class="s1">&#39;*_rate.fits&#39;</span><span class="p">)))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">dodet1</span><span class="p">:</span>
+    <span class="c1"># find rate files</span>
+    <span class="n">rate_files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">det1_dir</span><span class="p">,</span> <span class="s1">&#39;*_rate.fits&#39;</span><span class="p">)))</span>
 
-<span class="c1"># Read in file as datamodel</span>
-<span class="n">rate_f</span> <span class="o">=</span> <span class="n">datamodels</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">rate_files</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="c1"># Read in file as datamodel</span>
+    <span class="n">rate_f</span> <span class="o">=</span> <span class="n">datamodels</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">rate_files</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 
-<span class="c1"># Check which steps were run</span>
-<span class="n">rate_f</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">cal_step</span><span class="o">.</span><span class="n">instance</span>
+    <span class="c1"># Check which steps were run</span>
+    <span class="n">rate_f</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">cal_step</span><span class="o">.</span><span class="n">instance</span>
 </pre></div>
 </div>
 </div>
@@ -997,12 +1000,13 @@ data.</p>
 <p>Check which reference files were used to calibrate the dataset:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rate_f</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">ref_file</span><span class="o">.</span><span class="n">instance</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">dodet1</span><span class="p">:</span>
+    <span class="n">rate_f</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">ref_file</span><span class="o">.</span><span class="n">instance</span>
 </pre></div>
 </div>
 </div>
 </div>
-</section>
+<hr style="border:1px solid gray"> </hr></section>
 </section>
 <section id="image2-pipeline">
 <h2>6. Image2 Pipeline<a class="headerlink" href="#image2-pipeline" title="Permalink to this heading">#</a></h2>
@@ -1099,13 +1103,14 @@ removed.</p>
 <h3>Verify which pipeline steps were run<a class="headerlink" href="#verify-which-pipeline-steps-were-run" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Identify *_cal.fits files</span>
-<span class="n">cal_files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image2_dir</span><span class="p">,</span> <span class="s1">&#39;*_cal.fits&#39;</span><span class="p">)))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">doimage2</span><span class="p">:</span>
+    <span class="c1"># Identify *_cal.fits files</span>
+    <span class="n">cal_files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image2_dir</span><span class="p">,</span> <span class="s1">&#39;*_cal.fits&#39;</span><span class="p">)))</span>
 
-<span class="n">cal_f</span> <span class="o">=</span> <span class="n">datamodels</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">cal_files</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">cal_f</span> <span class="o">=</span> <span class="n">datamodels</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">cal_files</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 
-<span class="c1"># Check which steps were run:</span>
-<span class="n">cal_f</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">cal_step</span><span class="o">.</span><span class="n">instance</span>
+    <span class="c1"># Check which steps were run:</span>
+    <span class="n">cal_f</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">cal_step</span><span class="o">.</span><span class="n">instance</span>
 </pre></div>
 </div>
 </div>
@@ -1113,12 +1118,13 @@ removed.</p>
 <p>Check which reference files were used to calibrate the dataset:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cal_f</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">ref_file</span><span class="o">.</span><span class="n">instance</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">doimage2</span><span class="p">:</span>
+    <span class="n">cal_f</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">ref_file</span><span class="o">.</span><span class="n">instance</span>
 </pre></div>
 </div>
 </div>
 </div>
-</section>
+<hr style="border:1px solid gray"> </hr></section>
 </section>
 <section id="image3-pipeline">
 <h2>7. Image3 Pipeline<a class="headerlink" href="#image3-pipeline" title="Permalink to this heading">#</a></h2>
@@ -1197,6 +1203,7 @@ this tutorial, the rootname of the output products will be
                                                <span class="n">product_name</span><span class="o">=</span><span class="s1">&#39;image3_association&#39;</span><span class="p">)</span>
     
     <span class="n">associations</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;asn_type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;image3&#39;</span>
+    <span class="n">program</span> <span class="o">=</span> <span class="n">datamodels</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">cal_files</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">observation</span><span class="o">.</span><span class="n">program_number</span>
     <span class="n">associations</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;program&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">program</span>
     
     <span class="c1"># Format association as .json file</span>
@@ -1247,12 +1254,13 @@ this tutorial, the rootname of the output products will be
 <h3>Verify which pipeline steps were run<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Identify *_i2d file and open as datamodel</span>
-<span class="n">i2d</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image3_dir</span><span class="p">,</span> <span class="s2">&quot;*_i2d.fits&quot;</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">i2d_f</span> <span class="o">=</span> <span class="n">datamodels</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">i2d</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">doimage3</span><span class="p">:</span>
+    <span class="c1"># Identify *_i2d file and open as datamodel</span>
+    <span class="n">i2d</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image3_dir</span><span class="p">,</span> <span class="s2">&quot;*_i2d.fits&quot;</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">i2d_f</span> <span class="o">=</span> <span class="n">datamodels</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">i2d</span><span class="p">)</span>
 
-<span class="c1"># Check which steps were run</span>
-<span class="n">i2d_f</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">cal_step</span><span class="o">.</span><span class="n">instance</span>
+    <span class="c1"># Check which steps were run</span>
+    <span class="n">i2d_f</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">cal_step</span><span class="o">.</span><span class="n">instance</span>
 </pre></div>
 </div>
 </div>
@@ -1260,12 +1268,13 @@ this tutorial, the rootname of the output products will be
 <p>Check which reference files were used to calibrate the dataset</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">i2d_f</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">ref_file</span><span class="o">.</span><span class="n">instance</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">doimage3</span><span class="p">:</span>
+    <span class="n">i2d_f</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">ref_file</span><span class="o">.</span><span class="n">instance</span>
 </pre></div>
 </div>
 </div>
 </div>
-</section>
+<hr style="border:1px solid gray"> </hr></section>
 </section>
 <section id="visualize-the-drizzle-combined-image">
 <h2>8. Visualize the drizzle-combined image<a class="headerlink" href="#visualize-the-drizzle-combined-image" title="Permalink to this heading">#</a></h2>
@@ -1273,27 +1282,27 @@ this tutorial, the rootname of the output products will be
 within the <code class="docutils literal notranslate"><span class="pre">jdaviz</span></code> package to visualize the NIRISS image.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create an Imviz instance and set up default viewer</span>
-<span class="n">imviz_i2d</span> <span class="o">=</span> <span class="n">Imviz</span><span class="p">()</span>
-<span class="n">viewer_i2d</span> <span class="o">=</span> <span class="n">imviz_i2d</span><span class="o">.</span><span class="n">default_viewer</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">doviz</span><span class="p">:</span>
+    <span class="c1"># Identify *_i2d file and open as datamodel</span>
+    <span class="n">i2d</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image3_dir</span><span class="p">,</span> <span class="s2">&quot;*_i2d.fits&quot;</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">i2d_f</span> <span class="o">=</span> <span class="n">datamodels</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">i2d</span><span class="p">)</span>
+    
+    <span class="c1"># Create an Imviz instance and set up default viewer</span>
+    <span class="n">imviz_i2d</span> <span class="o">=</span> <span class="n">Imviz</span><span class="p">()</span>
+    <span class="n">viewer_i2d</span> <span class="o">=</span> <span class="n">imviz_i2d</span><span class="o">.</span><span class="n">default_viewer</span>
 
-<span class="c1"># Read in the science array for our visualization dataset:</span>
-<span class="n">i2d_science</span> <span class="o">=</span> <span class="n">i2d_f</span><span class="o">.</span><span class="n">data</span>
+    <span class="c1"># Read in the science array for our visualization dataset:</span>
+    <span class="n">i2d_science</span> <span class="o">=</span> <span class="n">i2d_f</span><span class="o">.</span><span class="n">data</span>
 
-<span class="c1"># Load the dataset into Imviz</span>
-<span class="n">imviz_i2d</span><span class="o">.</span><span class="n">load_data</span><span class="p">(</span><span class="n">i2d_science</span><span class="p">)</span>
+    <span class="c1"># Load the dataset into Imviz</span>
+    <span class="n">imviz_i2d</span><span class="o">.</span><span class="n">load_data</span><span class="p">(</span><span class="n">i2d_science</span><span class="p">)</span>
 
-<span class="c1"># Visualize the dataset:</span>
-<span class="n">imviz_i2d</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">viewer_i2d</span><span class="o">.</span><span class="n">stretch</span> <span class="o">=</span> <span class="s1">&#39;sqrt&#39;</span>
-<span class="n">viewer_i2d</span><span class="o">.</span><span class="n">set_colormap</span><span class="p">(</span><span class="s1">&#39;Viridis&#39;</span><span class="p">)</span>
-<span class="n">viewer_i2d</span><span class="o">.</span><span class="n">cuts</span> <span class="o">=</span> <span class="s1">&#39;95%&#39;</span>
+    <span class="c1"># Visualize the dataset:</span>
+    <span class="n">imviz_i2d</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    
+    <span class="n">viewer_i2d</span><span class="o">.</span><span class="n">stretch</span> <span class="o">=</span> <span class="s1">&#39;sqrt&#39;</span>
+    <span class="n">viewer_i2d</span><span class="o">.</span><span class="n">set_colormap</span><span class="p">(</span><span class="s1">&#39;Viridis&#39;</span><span class="p">)</span>
+    <span class="n">viewer_i2d</span><span class="o">.</span><span class="n">cuts</span> <span class="o">=</span> <span class="s1">&#39;95%&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -1311,18 +1320,19 @@ coordinate system (WCS) info is read in.</p>
 <h3>Read in catalog file and identify point/extended sources<a class="headerlink" href="#read-in-catalog-file-and-identify-point-extended-sources" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">catalog_file</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image3_dir</span><span class="p">,</span> <span class="s2">&quot;*_cat.ecsv&quot;</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">catalog</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">catalog_file</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">doviz</span><span class="p">:</span>
+    <span class="n">catalog_file</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image3_dir</span><span class="p">,</span> <span class="s2">&quot;*_cat.ecsv&quot;</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">catalog</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">catalog_file</span><span class="p">)</span>
 
-<span class="c1"># To identify point/extended sources, use the &#39;is_extended&#39; column in the source catalog</span>
-<span class="n">pt_src</span><span class="p">,</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="o">~</span><span class="n">catalog</span><span class="p">[</span><span class="s1">&#39;is_extended&#39;</span><span class="p">])</span>
-<span class="n">ext_src</span><span class="p">,</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">catalog</span><span class="p">[</span><span class="s1">&#39;is_extended&#39;</span><span class="p">])</span>
+    <span class="c1"># To identify point/extended sources, use the &#39;is_extended&#39; column in the source catalog</span>
+    <span class="n">pt_src</span><span class="p">,</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="o">~</span><span class="n">catalog</span><span class="p">[</span><span class="s1">&#39;is_extended&#39;</span><span class="p">])</span>
+    <span class="n">ext_src</span><span class="p">,</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">catalog</span><span class="p">[</span><span class="s1">&#39;is_extended&#39;</span><span class="p">])</span>
 
-<span class="c1"># Define coordinates of point and extended sources</span>
-<span class="n">pt_coord</span> <span class="o">=</span> <span class="n">Table</span><span class="p">({</span><span class="s1">&#39;coord&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">SkyCoord</span><span class="p">(</span><span class="n">ra</span><span class="o">=</span><span class="n">catalog</span><span class="p">[</span><span class="s1">&#39;sky_centroid&#39;</span><span class="p">][</span><span class="n">pt_src</span><span class="p">]</span><span class="o">.</span><span class="n">ra</span><span class="p">,</span>
-                                     <span class="n">dec</span><span class="o">=</span><span class="n">catalog</span><span class="p">[</span><span class="s1">&#39;sky_centroid&#39;</span><span class="p">][</span><span class="n">pt_src</span><span class="p">]</span><span class="o">.</span><span class="n">dec</span><span class="p">)]})</span>
-<span class="n">ext_coord</span> <span class="o">=</span> <span class="n">Table</span><span class="p">({</span><span class="s1">&#39;coord&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">SkyCoord</span><span class="p">(</span><span class="n">ra</span><span class="o">=</span><span class="n">catalog</span><span class="p">[</span><span class="s1">&#39;sky_centroid&#39;</span><span class="p">][</span><span class="n">ext_src</span><span class="p">]</span><span class="o">.</span><span class="n">ra</span><span class="p">,</span>
-                                      <span class="n">dec</span><span class="o">=</span><span class="n">catalog</span><span class="p">[</span><span class="s1">&#39;sky_centroid&#39;</span><span class="p">][</span><span class="n">ext_src</span><span class="p">]</span><span class="o">.</span><span class="n">dec</span><span class="p">)]})</span>
+    <span class="c1"># Define coordinates of point and extended sources</span>
+    <span class="n">pt_coord</span> <span class="o">=</span> <span class="n">Table</span><span class="p">({</span><span class="s1">&#39;coord&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">SkyCoord</span><span class="p">(</span><span class="n">ra</span><span class="o">=</span><span class="n">catalog</span><span class="p">[</span><span class="s1">&#39;sky_centroid&#39;</span><span class="p">][</span><span class="n">pt_src</span><span class="p">]</span><span class="o">.</span><span class="n">ra</span><span class="p">,</span>
+                                         <span class="n">dec</span><span class="o">=</span><span class="n">catalog</span><span class="p">[</span><span class="s1">&#39;sky_centroid&#39;</span><span class="p">][</span><span class="n">pt_src</span><span class="p">]</span><span class="o">.</span><span class="n">dec</span><span class="p">)]})</span>
+    <span class="n">ext_coord</span> <span class="o">=</span> <span class="n">Table</span><span class="p">({</span><span class="s1">&#39;coord&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">SkyCoord</span><span class="p">(</span><span class="n">ra</span><span class="o">=</span><span class="n">catalog</span><span class="p">[</span><span class="s1">&#39;sky_centroid&#39;</span><span class="p">][</span><span class="n">ext_src</span><span class="p">]</span><span class="o">.</span><span class="n">ra</span><span class="p">,</span>
+                                          <span class="n">dec</span><span class="o">=</span><span class="n">catalog</span><span class="p">[</span><span class="s1">&#39;sky_centroid&#39;</span><span class="p">][</span><span class="n">ext_src</span><span class="p">]</span><span class="o">.</span><span class="n">dec</span><span class="p">)]})</span>
 </pre></div>
 </div>
 </div>
@@ -1330,40 +1340,35 @@ coordinate system (WCS) info is read in.</p>
 </section>
 <section id="mark-the-extended-and-point-sources-on-the-image">
 <h3>Mark the extended and point sources on the image<a class="headerlink" href="#mark-the-extended-and-point-sources-on-the-image" title="Permalink to this heading">#</a></h3>
-<p>Display combined image:</p>
+<p>Display combined image; point sources will be marked by small pink circles and extended sources will be marked by larger white circles.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read in i2d file to Imviz</span>
-<span class="n">imviz_cat</span> <span class="o">=</span> <span class="n">Imviz</span><span class="p">()</span>
-<span class="n">viewer_cat</span> <span class="o">=</span> <span class="n">imviz_cat</span><span class="o">.</span><span class="n">default_viewer</span>
-<span class="n">imviz_cat</span><span class="o">.</span><span class="n">load_data</span><span class="p">(</span><span class="n">i2d</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">doviz</span><span class="p">:</span>
+    <span class="c1"># Read in i2d file to Imviz</span>
+    <span class="n">imviz_cat</span> <span class="o">=</span> <span class="n">Imviz</span><span class="p">()</span>
+    <span class="n">viewer_cat</span> <span class="o">=</span> <span class="n">imviz_cat</span><span class="o">.</span><span class="n">default_viewer</span>
+    <span class="n">imviz_cat</span><span class="o">.</span><span class="n">load_data</span><span class="p">(</span><span class="n">i2d</span><span class="p">)</span>
 
-<span class="c1"># Adjust settings for viewer</span>
-<span class="n">viewer_cat</span><span class="o">.</span><span class="n">stretch</span> <span class="o">=</span> <span class="s1">&#39;sqrt&#39;</span>
-<span class="n">viewer_cat</span><span class="o">.</span><span class="n">set_colormap</span><span class="p">(</span><span class="s1">&#39;Viridis&#39;</span><span class="p">)</span>
-<span class="n">viewer_cat</span><span class="o">.</span><span class="n">cuts</span> <span class="o">=</span> <span class="s1">&#39;95%&#39;</span>
+    <span class="c1"># Adjust settings for viewer</span>
+    <span class="n">viewer_cat</span><span class="o">.</span><span class="n">stretch</span> <span class="o">=</span> <span class="s1">&#39;sqrt&#39;</span>
+    <span class="n">viewer_cat</span><span class="o">.</span><span class="n">set_colormap</span><span class="p">(</span><span class="s1">&#39;Viridis&#39;</span><span class="p">)</span>
+    <span class="n">viewer_cat</span><span class="o">.</span><span class="n">cuts</span> <span class="o">=</span> <span class="s1">&#39;95%&#39;</span>
 
-<span class="c1"># Show the plot</span>
-<span class="n">imviz_cat</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="c1"># Show the plot</span>
+    <span class="n">imviz_cat</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    
+    <span class="c1"># Add marker for point sources:</span>
+    <span class="n">viewer_cat</span><span class="o">.</span><span class="n">marker</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;pink&#39;</span><span class="p">,</span> <span class="s1">&#39;markersize&#39;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="s1">&#39;fill&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
+    <span class="n">viewer_cat</span><span class="o">.</span><span class="n">add_markers</span><span class="p">(</span><span class="n">pt_coord</span><span class="p">,</span> <span class="n">use_skycoord</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">marker_name</span><span class="o">=</span><span class="s1">&#39;point_sources&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Add marker for extended sources:</span>
+    <span class="n">viewer_cat</span><span class="o">.</span><span class="n">marker</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="s1">&#39;markersize&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;fill&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
+    <span class="n">viewer_cat</span><span class="o">.</span><span class="n">add_markers</span><span class="p">(</span><span class="n">ext_coord</span><span class="p">,</span> <span class="n">use_skycoord</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">marker_name</span><span class="o">=</span><span class="s1">&#39;extended_sources&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Point sources will be marked by small pink circles and extended sources will be marked by larger white circles.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add marker for point sources:</span>
-<span class="n">viewer_cat</span><span class="o">.</span><span class="n">marker</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;pink&#39;</span><span class="p">,</span> <span class="s1">&#39;markersize&#39;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="s1">&#39;fill&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
-<span class="n">viewer_cat</span><span class="o">.</span><span class="n">add_markers</span><span class="p">(</span><span class="n">pt_coord</span><span class="p">,</span> <span class="n">use_skycoord</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">marker_name</span><span class="o">=</span><span class="s1">&#39;point_sources&#39;</span><span class="p">)</span>
-
-<span class="c1"># Add marker for extended sources:</span>
-<span class="n">viewer_cat</span><span class="o">.</span><span class="n">marker</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="s1">&#39;markersize&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;fill&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
-<span class="n">viewer_cat</span><span class="o">.</span><span class="n">add_markers</span><span class="p">(</span><span class="n">ext_coord</span><span class="p">,</span> <span class="n">use_skycoord</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">marker_name</span><span class="o">=</span><span class="s1">&#39;extended_sources&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<a class="reference internal image-reference" href="https://github.com/spacetelescope/jwst-pipeline-notebooks/raw/main/_static/stsci_footer.png"><img alt="stsci_logo" src="https://github.com/spacetelescope/jwst-pipeline-notebooks/raw/main/_static/stsci_footer.png" style="width: 200px;" /></a>
+<hr style="border:1px solid gray"> </hr><a class="reference internal image-reference" href="https://github.com/spacetelescope/jwst-pipeline-notebooks/raw/main/_static/stsci_footer.png"><img alt="stsci_logo" src="https://github.com/spacetelescope/jwst-pipeline-notebooks/raw/main/_static/stsci_footer.png" style="width: 200px;" /></a>
 </section>
 </section>
 </section>
