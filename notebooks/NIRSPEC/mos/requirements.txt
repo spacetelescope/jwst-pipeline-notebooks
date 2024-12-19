@@ -1,0 +1,5 @@
+astropy>=6.1.4
+astroquery>=0.4.8.dev9474
+jwst==1.16.0
+matplotlib>=3.9.2
+numpy==1.26.4
