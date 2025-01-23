@@ -2,3 +2,4 @@ numpy<2.0
 jwst==1.15.1
 astroquery
 jupyter
+gwcs==0.21.0
