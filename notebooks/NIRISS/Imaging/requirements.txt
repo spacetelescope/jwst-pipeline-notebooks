@@ -3,3 +3,4 @@ jwst==1.15.1
 astroquery
 jdaviz
 astropy>=4.3.1
+gwcs==0.21.0
