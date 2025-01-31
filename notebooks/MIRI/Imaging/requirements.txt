@@ -1,4 +1,3 @@
-numpy<2.0
-jwst==1.15.1
+jwst==1.17.1
 astroquery
 jupyter
