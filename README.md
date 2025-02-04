@@ -21,7 +21,7 @@ The following table summarizes the notebooks currently available and the JWST [p
 | MIRI       | Imaging        | [11.2]     | 1.17.1 |   |
 | MIRI       | MRS            | [11.2]     | 1.17.1 |   |
 | NIRCam     | Imaging        | [11.2]     | 1.17.1 |   |
-| NIRISS     | Imaging        | [11.0]     | 1.15.1 |   |
+| NIRISS     | Imaging        | [11.2]     | 1.17.1 |   |
 | NIRSpec    | Fixed Slit     | [11.2]     | 1.17.1 |   |
 | NIRSpec    | IFU            | [11.2]     | 1.17.1 |   |
 
