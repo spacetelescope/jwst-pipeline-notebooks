@@ -18,10 +18,12 @@ The following table summarizes the notebooks currently available and the JWST [p
 
 | Instrument | Observing Mode | JWST Build | ``jwst`` version | Notes                                         |
 |------------|----------------|------------|--------------------------|-----------------------------------------------|
-| MIRI       | Imaging        | [11.0](https://jwst-docs.stsci.edu/jwst-science-calibration-pipeline/jwst-operations-pipeline-build-information/jwst-operations-pipeline-build-11-0-release-notes) | 1.15.1 |   |
-| MIRI       | MRS            | [11.0](https://jwst-docs.stsci.edu/jwst-science-calibration-pipeline/jwst-operations-pipeline-build-information/jwst-operations-pipeline-build-11-0-release-notes) | 1.15.1 |   |
-| NIRCam     | Imaging        | [11.0](https://jwst-docs.stsci.edu/jwst-science-calibration-pipeline/jwst-operations-pipeline-build-information/jwst-operations-pipeline-build-11-0-release-notes) | 1.15.1 |   |
-| NIRISS     | Imaging        | [11.0](https://jwst-docs.stsci.edu/jwst-science-calibration-pipeline/jwst-operations-pipeline-build-information/jwst-operations-pipeline-build-11-0-release-notes) | 1.15.1 |   |
+| MIRI       | Imaging        | [11.2]     | 1.17.1 |   |
+| MIRI       | MRS            | [11.2]     | 1.17.1 |   |
+| NIRCam     | Imaging        | [11.2]     | 1.17.1 |   |
+| NIRISS     | Imaging        | [11.0]     | 1.15.1 |   |
+| NIRSpec    | Fixed Slit     | [11.2]     | 1.17.1 |   |
+| NIRSpec    | IFU            | [11.2]     | 1.17.1 |   |
 
 ## Reference Files
 
