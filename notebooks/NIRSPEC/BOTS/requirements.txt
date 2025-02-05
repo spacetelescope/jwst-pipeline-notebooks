@@ -1,0 +1,3 @@
+astroquery>=0.4.8.dev9474
+jwst==1.17.01
+matplotlib>=3.9.2
