@@ -1,0 +1,1216 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>MIRI Imaging TSO Pipeline Notebook &#8212; JWST Pipeline Notebooks</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/main.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/MIRI/Imaging-TSO/JWPipeNB-MIRI-imaging-TSO';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/stsci_logo2.png" class="logo__image only-light" alt="JWST Pipeline Notebooks - Home"/>
+    <script>document.write(`<img src="../../../_static/stsci_logo2.png" class="logo__image only-dark" alt="JWST Pipeline Notebooks - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    JWST Pipeline Notebooks $${\color{red}UNDER—CONSTRUCTION}$$
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">MIRI Imaging</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Imaging/JWPipeNB-MIRI-imaging.html">MIRI Imaging Pipeline Notebook</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MIRI MRS</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../MRS/JWPipeNB-MIRI-MRS.html">MIRI MRS Pipeline Notebook</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">NIRISS</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../NIRISS/Imaging/JWPipeNB-niriss-imaging.html">NIRISS Imaging Pipeline Notebook</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">NIRCAM Imaging</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../NIRCAM/Imaging/JWPipeNB-nircam-imaging.html">NIRCam Imaging Pipeline Notebook</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/spacetelescope/jwst-pipeline-notebooks" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/spacetelescope/jwst-pipeline-notebooks/issues/new?title=Issue%20on%20page%20%2Fnotebooks/MIRI/Imaging-TSO/JWPipeNB-MIRI-imaging-TSO.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/notebooks/MIRI/Imaging-TSO/JWPipeNB-MIRI-imaging-TSO.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>MIRI Imaging TSO Pipeline Notebook</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">1. Configuration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-dependencies">Install dependencies</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-run-parameters">Set run parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-crds-context-and-server">Set CRDS context and server</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#package-imports">2. Package Imports</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demo-mode-setup-ignore-if-not-using-demo-data">3. Demo Mode Setup (ignore if not using demo data)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#directory-setup">4. Directory Setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#detector1-pipeline">5. Detector1 Pipeline</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-the-data">Exploring the data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image2-pipeline">6. Image2 Pipeline</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tso3-pipeline">7. Tso3 Pipeline</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-association-file">Create Association File</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-the-tso3-pipeline">Run the Tso3 pipeline</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-the-photometric-light-curve">8. Visualize the photometric light curve</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <a class="reference internal image-reference" href="https://github.com/spacetelescope/jwst-pipeline-notebooks/raw/main/_static/stsci_header.png"><img alt="stsci_logo" src="https://github.com/spacetelescope/jwst-pipeline-notebooks/raw/main/_static/stsci_header.png" style="width: 900px;" /></a>
+<section id="miri-imaging-tso-pipeline-notebook">
+<h1>MIRI Imaging TSO Pipeline Notebook<a class="headerlink" href="#miri-imaging-tso-pipeline-notebook" title="Permalink to this heading">#</a></h1>
+<p><strong>Authors</strong>: Ian Wong; MIRI branch<br>
+<strong>Last Updated</strong>: February 2, 2025<br>
+<strong>Pipeline Version</strong>: 1.17.1 (Build 11.2)</p>
+<p><strong>Purpose</strong>:<br>
+This notebook provides a framework for processing generic Mid-Infrared Instrument
+(MIRI) Imaging time series observations (TSO) data through all
+three James Webb Space Telescope (JWST) pipeline stages.  The data are assumed
+to be located in the observation directory located in the path set up below.
+It should not be necessary to edit any cells other than in the
+<span class="xref myst">Configuration</span> section unless modifying the standard
+pipeline processing options.</p>
+<p>A significant portion of the data processing workflow for Imaging TSOs is identical to the methods used to process (non-TSO) Imaging observations, and much of this notebook mirrors the corresponding steps shown in the general MIRI Imaging notebook.</p>
+<p><strong>Data</strong>:<br>
+This example is set up to use observations of a secondary eclipse event of LHS-1478b, which were obtained as part of Cycle 1 General Observers Proposal ID (PID) 3730 Observation 13 (PI: H. Diamond-Lowe). A continuous series of 964 integrations of the target was collected with the F1500W filter. No dithering was carried out, as is standard practice for Imaging TSOs. The SUB256 subarray readout was used. The example uncalibrated data will be downloaded automatically unless disabled (i.e., to run with user-supplied local files instead).<br></p>
+<p>Most Imaging TSO programs do not have dedicated background observations, with background flux subtraction handled using pixels near the target in the science observations. This version of the notebook does not accommodate cases where dedicated background subtraction is needed. Consult the general MIRI Imaging notebook for a detailed implementation of dedicated background exposures.</p>
+<p><strong>JWST pipeline version and CRDS context</strong>:<br>
+This notebook was written for the above-specified pipeline version and associated build context for this version of the JWST Calibration Pipeline. Information about this and other contexts can be found in the JWST Calibration Reference Data System (CRDS <a class="reference external" href="https://jwst-crds.stsci.edu/">server</a>). If you use different pipeline versions, please refer to the table <a class="reference external" href="https://jwst-crds.stsci.edu/display_build_contexts/">here</a> to determine what context to use. To learn more about the differences for the pipeline, read the relevant <a class="reference external" href="https://jwst-docs.stsci.edu/jwst-science-calibration-pipeline/jwst-operations-pipeline-build-information#references">documentation</a>.</p>
+<p>Please note that pipeline software development is a continuous process, so results in some cases may be slightly different if a subsequent version is used. <strong>For optimal results, users are strongly encouraged to reprocess their data using the most recent pipeline version and <a class="reference external" href="https://jwst-crds.stsci.edu/display_build_contexts/">associated CRDS context</a>, taking advantage of bug fixes and algorithm improvements.</strong> Any <a class="reference external" href="https://jwst-docs.stsci.edu/known-issues-with-jwst-data/nirspec-known-issues/nirspec-ifu-known-issues#gsc.tab=0">known issues</a> for this build are noted in the notebook.<br></p>
+<p><strong>Updates</strong>:<br>
+This notebook is regularly updated as improvements are made to the
+pipeline. Find the most up to date version of this notebook at:
+https://github.com/spacetelescope/jwst-pipeline-notebooks/</p>
+<p><strong>Recent Changes</strong>:<br>
+Feb 2 2025: Notebook created.</p>
+<hr style="border:1px solid gray"> </hr><section id="table-of-contents">
+<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><span class="xref myst">Configuration</span></p></li>
+<li><p><span class="xref myst">Package Imports</span></p></li>
+<li><p><span class="xref myst">Demo Mode Setup (ignore if not using demo data)</span></p></li>
+<li><p><span class="xref myst">Directory Setup</span></p></li>
+<li><p><span class="xref myst">Detector1 Pipeline</span></p></li>
+<li><p><span class="xref myst">Image2 Pipeline</span></p></li>
+<li><p><span class="xref myst">Tso3 Pipeline</span></p></li>
+<li><p><span class="xref myst">Visualize the photometric light curve</span></p></li>
+</ol>
+<hr style="border:1px solid gray"> </hr></section>
+<section id="configuration">
+<h2>1. Configuration<a class="headerlink" href="#configuration" title="Permalink to this heading">#</a></h2>
+<section id="install-dependencies">
+<h3>Install dependencies<a class="headerlink" href="#install-dependencies" title="Permalink to this heading">#</a></h3>
+<p>To make sure that the pipeline version is compatabile with this notebook and the required dependencies and packages are installed,
+it is recommended that users create a new dedicated conda environment and install the provided
+<code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> file before starting this notebook: <br></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">lrs_demo</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.11</span>
+<span class="n">conda</span> <span class="n">activate</span> <span class="n">lrs_demo</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+</section>
+<section id="set-run-parameters">
+<h3>Set run parameters<a class="headerlink" href="#set-run-parameters" title="Permalink to this heading">#</a></h3>
+<p>Set basic parameters to use with the notebook. These will affect
+what observation is used, where the uncalibrated data are located (if already on disk), which
+pipeline modules to run on the data, and whether background subtraction is carried out. The list of parameters are:</p>
+<ul class="simple">
+<li><p>demo_mode</p></li>
+<li><p>directory with data</p></li>
+<li><p>pipeline steps</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Basic import necessary for configuration</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-warning">
+Note that <code>demo_mode</code> must be set appropriately below.
+</div>
+<p>Set <code>demo_mode = True </code> to run in demonstration mode. In this mode, this
+notebook will download the example data from the
+Barbara A. Mikulski Archive for Space Telescopes (<a class="reference external" href="https://mast.stsci.edu/portal/Mashup/Clients/Mast/Portal.html">MAST</a>) and process them through the pipeline.
+All input and output data will be stored in the local directory unless modified
+in <span class="xref myst">Section 3</span> below.</p>
+<p>Set <code>demo_mode = False</code> to process user-specified data that have already
+been downloaded and provide the location of the data.<br></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set parameters for demo_mode and processing steps.</span>
+
+<span class="c1"># -----------------------------Demo Mode---------------------------------</span>
+<span class="n">demo_mode</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="k">if</span> <span class="n">demo_mode</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Running in demonstration mode using online example data!&#39;</span><span class="p">)</span>
+
+<span class="c1"># --------------------------User Mode Directories------------------------</span>
+<span class="c1"># If demo_mode = False, look for user data in these paths</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">demo_mode</span><span class="p">:</span>
+    <span class="c1"># Set directory paths for processing specific data; these will need</span>
+    <span class="c1"># to be changed to your local directory setup (below are given as</span>
+    <span class="c1"># examples)</span>
+    <span class="n">basedir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Point to where science observation data are stored.</span>
+    <span class="c1"># Assumes uncalibrated data in sci_dir/uncal/, with the results stored in stage1,</span>
+    <span class="c1"># stage2, stage3 directories</span>
+    <span class="n">sci_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">basedir</span><span class="p">,</span> <span class="s1">&#39;imaging_demo_data/PID03730Obs013/&#39;</span><span class="p">)</span>
+
+<span class="c1"># --------------------------Set Processing Steps--------------------------</span>
+<span class="c1"># Individual pipeline stages can be turned on/off here.  Note that a later</span>
+<span class="c1"># stage won&#39;t be able to run unless data products have already been</span>
+<span class="c1"># produced from the prior stage.</span>
+
+<span class="c1"># Science processing</span>
+<span class="n">do_det1</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># calwebb_detector1</span>
+<span class="n">do_image2</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># calwebb_image2</span>
+<span class="n">do_tso3</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># calwebb_tso3</span>
+<span class="n">do_viz</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># Visualize calwebb_tso3 results</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="set-crds-context-and-server">
+<h3>Set CRDS context and server<a class="headerlink" href="#set-crds-context-and-server" title="Permalink to this heading">#</a></h3>
+<p>Before importing <code>CRDS</code> and <code>JWST</code> modules, we need
+to configure our environment. This includes defining a CRDS cache
+directory in which to keep the reference files that will be used by the
+calibration pipeline.<br></p>
+<p>If the root directory for the local CRDS cache directory has not been set
+already, it will be set to create one in the home directory.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ------------------------Set CRDS context and paths----------------------</span>
+<span class="c1"># Each version of the calibration pipeline is associated with a specific CRDS</span>
+<span class="c1"># context file. The pipeline will select the appropriate context file behind</span>
+<span class="c1"># the scenes while running. However, if you wish to override the default context</span>
+<span class="c1"># file and run the pipeline with a different context, you can set that using</span>
+<span class="c1"># the CRDS_CONTEXT environment variable. Here we show how this is done,</span>
+<span class="c1"># although we leave the line commented out in order to use the default context.</span>
+<span class="c1"># If you wish to specify a different context, uncomment the line below.</span>
+<span class="c1">#%env CRDS_CONTEXT jwst_1293.pmap</span>
+
+<span class="c1"># Check whether the local CRDS cache directory has been set.</span>
+<span class="c1"># If not, set it to the user home directory</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;CRDS_PATH&#39;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;CRDS_PATH&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">&#39;~&#39;</span><span class="p">),</span> <span class="s1">&#39;crds&#39;</span><span class="p">)</span>
+
+<span class="c1"># Check whether the CRDS server URL has been set.  If not, set it.</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;CRDS_SERVER_URL&#39;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;CRDS_SERVER_URL&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;https://jwst-crds.stsci.edu&#39;</span>
+
+<span class="c1"># Echo CRDS path in use</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;CRDS local filepath: </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;CRDS_PATH&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;CRDS file server: </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;CRDS_SERVER_URL&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr style="border:1px solid gray"> </hr></section>
+</section>
+<section id="package-imports">
+<h2>2. Package Imports<a class="headerlink" href="#package-imports" title="Permalink to this heading">#</a></h2>
+<p>Automatically import necessary Python packages for use in the data processing and visualization.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use the entire available screen width for this notebook</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&lt;style&gt;.container { width:95% !important; }&lt;/style&gt;&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Basic system utilities for interacting with files</span>
+<span class="c1"># ----------------------General Imports------------------------------------</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">glob</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="c1"># Numpy for doing calculations</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># -----------------------Astropy Imports-----------------------------------</span>
+<span class="c1"># Astropy utilities for opening FITS and ASCII files and downloading demo files</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">ascii</span>
+
+<span class="c1"># -----------------------Astrquery Imports-----------------------------------</span>
+<span class="c1"># Utilities to download data </span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astroquery.mast</span><span class="w"> </span><span class="kn">import</span> <span class="n">Observations</span>
+
+<span class="c1"># -----------------------Plotting Imports----------------------------------</span>
+<span class="c1"># Matplotlib for making plots</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">rc</span>
+
+<span class="c1"># ----------------------JWST calibration pipeline--------------------------</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">jwst</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">crds</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">jwst.pipeline</span><span class="w"> </span><span class="kn">import</span> <span class="n">Detector1Pipeline</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">jwst.pipeline</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image2Pipeline</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">jwst.pipeline</span><span class="w"> </span><span class="kn">import</span> <span class="n">Tso3Pipeline</span>
+
+<span class="c1"># JWST pipeline utilities</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">jwst</span><span class="w"> </span><span class="kn">import</span> <span class="n">datamodels</span>
+<span class="c1">#from jwst.datamodels import ImageModel</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">jwst.associations</span><span class="w"> </span><span class="kn">import</span> <span class="n">asn_from_list</span> <span class="k">as</span> <span class="n">afl</span>  <span class="c1"># Tools for creating association files</span>
+<span class="c1">#from jwst.associations.lib.rules_level2_base import DMSLevel2bBase  # Definition of a Lvl2 association file</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">jwst.associations.lib.rules_level3_base</span><span class="w"> </span><span class="kn">import</span> <span class="n">DMS_Level3_Base</span>  <span class="c1"># Definition of a Lvl3 association file</span>
+
+<span class="c1"># Echo pipeline version and CRDS context in use</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;JWST Calibration Pipeline Version: </span><span class="si">{</span><span class="n">jwst</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Using CRDS Context: </span><span class="si">{</span><span class="n">crds</span><span class="o">.</span><span class="n">get_context_name</span><span class="p">(</span><span class="s1">&#39;jwst&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Start a timer to keep track of runtime</span>
+<span class="n">time0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr style="border:1px solid gray"> </hr></section>
+<section id="demo-mode-setup-ignore-if-not-using-demo-data">
+<h2>3. Demo Mode Setup (ignore if not using demo data)<a class="headerlink" href="#demo-mode-setup-ignore-if-not-using-demo-data" title="Permalink to this heading">#</a></h2>
+<p>If running in demonstration mode, set up the program information to
+retrieve the uncalibrated data automatically from MAST using
+<a class="reference external" href="https://astroquery.readthedocs.io/en/latest/mast/mast.html">astroquery</a>.
+MAST allows for flexibility of searching by the proposal ID and the
+observation ID instead of just filenames.<br></p>
+<p>More information about the JWST file naming conventions can be found at:
+https://jwst-pipeline.readthedocs.io/en/latest/jwst/data_products/file_naming.html</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up the program information and paths for demo program</span>
+<span class="k">if</span> <span class="n">demo_mode</span><span class="p">:</span>
+    <span class="n">program</span> <span class="o">=</span> <span class="s1">&#39;03730&#39;</span>
+    <span class="n">sci_obs</span> <span class="o">=</span> <span class="s2">&quot;013&quot;</span>
+    <span class="n">basedir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;imaging_demo_data&#39;</span><span class="p">)</span>
+    <span class="n">sci_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">basedir</span><span class="p">,</span> <span class="s1">&#39;PID&#39;</span> <span class="o">+</span> <span class="n">program</span> <span class="o">+</span> <span class="s1">&#39;Obs&#39;</span> <span class="o">+</span> <span class="n">sci_obs</span><span class="p">)</span>
+    <span class="n">uncal_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sci_dir</span><span class="p">,</span> <span class="s1">&#39;uncal&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Ensure filepaths for input data exists</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">uncal_dir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Identify list of uncalibrated files associated with the observations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Obtain a list of observation IDs for the specified demo program</span>
+<span class="k">if</span> <span class="n">demo_mode</span><span class="p">:</span>
+    <span class="n">obs_id_table</span> <span class="o">=</span> <span class="n">Observations</span><span class="o">.</span><span class="n">query_criteria</span><span class="p">(</span><span class="n">instrument_name</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;MIRI/IMAGE&quot;</span><span class="p">],</span> <span class="n">provenance_name</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;CALJWST&quot;</span><span class="p">],</span> <span class="n">obs_id</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;jw&#39;</span> <span class="o">+</span> <span class="n">program</span> <span class="o">+</span> <span class="n">sci_obs</span> <span class="o">+</span> <span class="s1">&#39;*&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Turn the list of observations into a list of uncalibrated data files</span>
+<span class="k">if</span> <span class="n">demo_mode</span><span class="p">:</span>
+    <span class="c1"># Define types of files to select</span>
+    <span class="n">file_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;uncal&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;product_type&#39;</span><span class="p">:</span> <span class="s1">&#39;SCIENCE&#39;</span><span class="p">,</span>
+                           <span class="s1">&#39;productSubGroupDescription&#39;</span><span class="p">:</span> <span class="s1">&#39;UNCAL&#39;</span><span class="p">,</span>
+                           <span class="s1">&#39;calib_level&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">]}}</span>
+
+    <span class="c1"># Science files</span>
+    <span class="n">files_to_download</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="c1"># Loop over visits identifying uncalibrated files that are associated with them</span>
+    <span class="k">for</span> <span class="n">exposure</span> <span class="ow">in</span> <span class="p">(</span><span class="n">obs_id_table</span><span class="p">):</span>
+        <span class="n">products</span> <span class="o">=</span> <span class="n">Observations</span><span class="o">.</span><span class="n">get_product_list</span><span class="p">(</span><span class="n">exposure</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">filetype</span><span class="p">,</span> <span class="n">query_dict</span> <span class="ow">in</span> <span class="n">file_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">filtered_products</span> <span class="o">=</span> <span class="n">Observations</span><span class="o">.</span><span class="n">filter_products</span><span class="p">(</span><span class="n">products</span><span class="p">,</span> <span class="n">productType</span><span class="o">=</span><span class="n">query_dict</span><span class="p">[</span><span class="s1">&#39;product_type&#39;</span><span class="p">],</span>
+                                                             <span class="n">productSubGroupDescription</span><span class="o">=</span><span class="n">query_dict</span><span class="p">[</span><span class="s1">&#39;productSubGroupDescription&#39;</span><span class="p">],</span>
+                                                             <span class="n">calib_level</span><span class="o">=</span><span class="n">query_dict</span><span class="p">[</span><span class="s1">&#39;calib_level&#39;</span><span class="p">])</span>
+            <span class="n">files_to_download</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">filtered_products</span><span class="p">[</span><span class="s1">&#39;dataURI&#39;</span><span class="p">])</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of files selected for downloading: &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">files_to_download</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Due to data file size constraints, long TSOs have their exposures broken up into multiple segment files. In this case, there should be a total of 5 segments, which together comprise the full duration of the time series observation.</p>
+<p>Now, download all the uncal files and place them into the appropriate
+directories.<br></p>
+<div class="alert alert-block alert-warning">
+Warning: If this notebook is halted during this step the downloaded file
+may be incomplete, and cause crashes later on!
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">demo_mode</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">files_to_download</span><span class="p">:</span>
+        <span class="n">obs_manifest</span> <span class="o">=</span> <span class="n">Observations</span><span class="o">.</span><span class="n">download_file</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">local_path</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">uncal_dir</span><span class="p">,</span> <span class="n">Path</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr style="border:1px solid gray"> </hr></section>
+<section id="directory-setup">
+<h2>4. Directory Setup<a class="headerlink" href="#directory-setup" title="Permalink to this heading">#</a></h2>
+<p>Set up detailed paths to input/output stages here. When running this notebook outside of demo mode, the uncalibrated pipeline input files must be placed into the appropriate directories before proceeding to the JWST pipeline processing.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define output subdirectories to keep the data products organized</span>
+<span class="n">uncal_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sci_dir</span><span class="p">,</span> <span class="s1">&#39;uncal&#39;</span><span class="p">)</span>  <span class="c1"># Uncalibrated pipeline inputs should be here</span>
+<span class="n">det1_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sci_dir</span><span class="p">,</span> <span class="s1">&#39;stage1&#39;</span><span class="p">)</span>  <span class="c1"># calwebb_detector1 pipeline outputs will go here</span>
+<span class="n">image2_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sci_dir</span><span class="p">,</span> <span class="s1">&#39;stage2&#39;</span><span class="p">)</span>  <span class="c1"># calwebb_spec2 pipeline outputs will go here</span>
+<span class="n">tso3_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sci_dir</span><span class="p">,</span> <span class="s1">&#39;stage3&#39;</span><span class="p">)</span>  <span class="c1"># calwebb_tso3 pipeline outputs will go here</span>
+
+<span class="c1"># Create desired output directories, if needed</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">det1_dir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">image2_dir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">tso3_dir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr style="border:1px solid gray"> </hr></section>
+<section id="detector1-pipeline">
+<h2>5. Detector1 Pipeline<a class="headerlink" href="#detector1-pipeline" title="Permalink to this heading">#</a></h2>
+<p>Run the datasets through the
+<a class="reference external" href="https://jwst-docs.stsci.edu/jwst-science-calibration-pipeline-overview/stages-of-jwst-data-processing/calwebb_detector1">Detector1</a>
+stage of the pipeline to apply detector level calibrations and create a
+countrate data product where slopes are fitted to the integration ramps.
+The <code class="docutils literal notranslate"><span class="pre">*_rate.fits</span></code> products are 2D countrate images, averaged over all
+integrations within each segment. Meanwhile, 3D countrate data stacks containing an image for each integration (<code class="docutils literal notranslate"><span class="pre">*_rateints.fits</span></code> files) are also
+created, which will be used in the subsequent stage to preserve the temporal information in the exposure series.<br></p>
+<p>When processing MIRI Imaging TSOs, the Detector1 pipeline skips a few pipeline steps by default that would otherwise be run for non-TSO data. These are <code class="docutils literal notranslate"><span class="pre">rscd</span></code> and <code class="docutils literal notranslate"><span class="pre">firstframe</span></code>, which both essentially instruct the pipeline to ignore initial frames within each ramp. The motivation behind the different settings here is that most TSOs have short ramps, and ignoring too many frames can leave too little of the ramp to adequately produce a ramp slope fit. See https://jwst-docs.stsci.edu/jwst-science-calibration-pipeline/stages-of-jwst-data-processing/calwebb_detector1 for a detailed overview of the various pipeline steps that comprise Detector1.</p>
+<p>As of CRDS context <code class="docutils literal notranslate"><span class="pre">jwst_1201.pmap</span></code> and later, the
+<code class="docutils literal notranslate"><span class="pre">jump</span></code> step
+in the Detector1 pipeline allows for the removal of residuals associated
+with <a class="reference external" href="https://jwst-docs.stsci.edu/known-issues-with-jwst-data/shower-and-snowball-artifacts">showers</a>
+for MIRI Imaging observations, but only for data taken with filters shortward (inclusive) of F1500W.
+Setting the <code class="docutils literal notranslate"><span class="pre">find_showers</span></code> parameter to <code class="docutils literal notranslate"><span class="pre">True</span></code> in the <code class="docutils literal notranslate"><span class="pre">jump</span></code> step activates this functionality. The default parameters for this correction are specified in the <code class="docutils literal notranslate"><span class="pre">pars-jumpstep</span></code> parameter reference files. Users may wish to alter parameters to optimize removal of
+shower residuals. Available parameters are discussed in the
+<a class="reference external" href="https://www.stsci.edu/files/live/sites/www/files/home/jwst/documentation/technical-documents/_documents/JWST-STScI-008545.pdf">Detection and Flagging of Showers and Snowballs in JWST Technical Report (Regan 2023)</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up a dictionary to define how the Detector1 pipeline should be configured</span>
+
+<span class="c1"># Boilerplate dictionary setup</span>
+<span class="n">det1dict</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;group_scale&#39;</span><span class="p">],</span> <span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;dq_init&#39;</span><span class="p">],</span> <span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;emicorr&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{}</span>
+<span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;saturation&#39;</span><span class="p">],</span> <span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;firstframe&#39;</span><span class="p">],</span> <span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;lastframe&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{}</span>
+<span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;reset&#39;</span><span class="p">],</span> <span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;linearity&#39;</span><span class="p">],</span> <span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;rscd&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{}</span>
+<span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;dark_current&#39;</span><span class="p">],</span> <span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;refpix&#39;</span><span class="p">],</span> <span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;jump&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{}</span>
+<span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;ramp_fit&#39;</span><span class="p">],</span> <span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;gain_scale&#39;</span><span class="p">],</span> <span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;clean_flicker_noise&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{}</span>
+
+<span class="c1"># Overrides for whether or not certain steps should be skipped</span>
+<span class="c1">#det1dict[&#39;refpix&#39;][&#39;skip&#39;] = True</span>
+<span class="c1">#det1dict[&#39;jump&#39;][&#39;find_showers&#39;] = True  # Turn on detection of cosmic ray showers</span>
+<span class="c1">#det1dict[&#39;clean_flicker_noise&#39;][&#39;skip&#39;] = True  # Skipped by default</span>
+
+<span class="c1"># Overrides for various reference files</span>
+<span class="c1"># Files should be in the base local directory or provide full path</span>
+<span class="c1">#det1dict[&#39;dq_init&#39;][&#39;override_mask&#39;] = &#39;myfile.fits&#39;  # Bad pixel mask</span>
+<span class="c1">#det1dict[&#39;saturation&#39;][&#39;override_saturation&#39;] = &#39;myfile.fits&#39;  # Saturation</span>
+<span class="c1">#det1dict[&#39;reset&#39;][&#39;override_reset&#39;] = &#39;myfile.fits&#39;  # Reset</span>
+<span class="c1">#det1dict[&#39;linearity&#39;][&#39;override_linearity&#39;] = &#39;myfile.fits&#39;  # Linearity</span>
+<span class="c1">#det1dict[&#39;rscd&#39;][&#39;override_rscd&#39;] = &#39;myfile.fits&#39;  # RSCD</span>
+<span class="c1">#det1dict[&#39;dark_current&#39;][&#39;override_dark&#39;] = &#39;myfile.fits&#39;  # Dark current subtraction</span>
+<span class="c1">#det1dict[&#39;jump&#39;][&#39;override_gain&#39;] = &#39;myfile.fits&#39;  # Gain used by jump step</span>
+<span class="c1">#det1dict[&#39;ramp_fit&#39;][&#39;override_gain&#39;] = &#39;myfile.fits&#39;  # Gain used by ramp fitting step</span>
+<span class="c1">#det1dict[&#39;jump&#39;][&#39;override_readnoise&#39;] = &#39;myfile.fits&#39;  # Read noise used by jump step</span>
+<span class="c1">#det1dict[&#39;ramp_fit&#39;][&#39;override_readnoise&#39;] = &#39;myfile.fits&#39;  # Read noise used by ramp fitting step</span>
+
+<span class="c1"># Turn on multi-core processing (off by default).  Choose what fraction of cores to use (quarter, half, or all)</span>
+<span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;jump&#39;</span><span class="p">][</span><span class="s1">&#39;maximum_cores&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;half&#39;</span>
+
+<span class="c1"># Alter parameters to optimize removal of shower residuals (example)</span>
+<span class="c1">#det1dict[&#39;jump&#39;][&#39;after_jump_flag_dn1&#39;] = X  # A floating point value in units of DN</span>
+<span class="c1">#det1dict[&#39;jump&#39;][&#39;after_jump_flag_time1&#39;] = x.x  # A floating point value in units of seconds</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Grab all of the uncalibrated files, which comprise the full time series observation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">uncal_files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">uncal_dir</span><span class="p">,</span> <span class="s1">&#39;*_uncal.fits&#39;</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">uncal_files</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Found &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">uncal_files</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39; input uncal files&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Run the Detector1 pipeline on the selected uncalibrated data using the call method. For long TSOs with full array readouts, this process may take more than 10 minutes per file, particularly if <code>find_showers = True</code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run the pipeline on the selected uncal files one by one with the custom parameter dictionary </span>
+<span class="k">if</span> <span class="n">do_det1</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">uncal_files</span><span class="p">:</span>
+        <span class="n">Detector1Pipeline</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="n">det1dict</span><span class="p">,</span> <span class="n">save_results</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">output_dir</span><span class="o">=</span><span class="n">det1_dir</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Skipping Detector1 processing...&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print out the time benchmark</span>
+<span class="n">time1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Runtime for Detector1: </span><span class="si">{</span><span class="n">time1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">time0</span><span class="si">:</span><span class="s2">0.0f</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="exploring-the-data">
+<h3>Exploring the data<a class="headerlink" href="#exploring-the-data" title="Permalink to this heading">#</a></h3>
+<p>Identify the <code class="docutils literal notranslate"><span class="pre">*_rateints.fits</span></code> files and verify which pipeline steps were run and
+which calibration reference files were applied.<br></p>
+<p>The header contains information about which calibration steps were
+completed and skipped and which reference files were used to process the
+data.<br></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">do_det1</span><span class="p">:</span>
+    <span class="c1"># Find rate files</span>
+    <span class="n">rate_files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">det1_dir</span><span class="p">,</span> <span class="s1">&#39;*_rateints.fits&#39;</span><span class="p">)))</span>
+
+    <span class="c1"># Read in file as datamodel</span>
+    <span class="n">rate_f</span> <span class="o">=</span> <span class="n">datamodels</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">rate_files</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+    <span class="c1"># Check which steps were run</span>
+    <span class="n">rate_f</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">cal_step</span><span class="o">.</span><span class="n">instance</span>
+
+    <span class="c1"># Check which reference files were used to calibrate the dataset:</span>
+    <span class="n">rate_f</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">ref_file</span><span class="o">.</span><span class="n">instance</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr style="border:1px solid gray"> </hr></section>
+</section>
+<section id="image2-pipeline">
+<h2>6. Image2 Pipeline<a class="headerlink" href="#image2-pipeline" title="Permalink to this heading">#</a></h2>
+<p>In the <a class="reference external" href="https://jwst-pipeline.readthedocs.io/en/latest/jwst/pipeline/calwebb_image2.html">Image2</a> stage of the pipeline,
+flat-fielded and flux-calibrated data products (<code class="docutils literal notranslate"><span class="pre">*_calints.fits</span></code> files) are created from the <code class="docutils literal notranslate"><span class="pre">*_rateints.fits</span></code> files produced by Detector1.</p>
+<p>See https://jwst-docs.stsci.edu/jwst-science-calibration-pipeline/stages-of-jwst-data-processing/calwebb_image2 for a detailed overview of the various pipeline steps that comprise Image2.</p>
+<div class="alert alert-block alert-warning">
+To override certain steps and reference files, use the examples below.
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time_image2</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up a dictionary to define how the Image2 pipeline should be configured.</span>
+
+<span class="c1"># Boilerplate dictionary setup</span>
+<span class="n">image2dict</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">image2dict</span><span class="p">[</span><span class="s1">&#39;assign_wcs&#39;</span><span class="p">],</span> <span class="n">image2dict</span><span class="p">[</span><span class="s1">&#39;flat_field&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{}</span>
+<span class="n">image2dict</span><span class="p">[</span><span class="s1">&#39;photom&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="c1"># Overrides for whether or not certain steps should be skipped (example)</span>
+<span class="c1">#image2dict[&#39;photom&#39;][&#39;skip&#39;] = True </span>
+
+<span class="c1"># Overrides for various reference files</span>
+<span class="c1"># Files should be in the base local directory or provide full path</span>
+<span class="c1">#image2dict[&#39;assign_wcs&#39;][&#39;override_distortion&#39;] = &#39;myfile.asdf&#39;  # Spatial distortion (ASDF file)</span>
+<span class="c1">#image2dict[&#39;assign_wcs&#39;][&#39;override_filteroffset&#39;] = &#39;myfile.asdf&#39;  # Imager filter offsets (ASDF file)</span>
+<span class="c1">#image2dict[&#39;assign_wcs&#39;][&#39;override_specwcs&#39;] = &#39;myfile.asdf&#39;  # Spectral distortion (ASDF file)</span>
+<span class="c1">#image2dict[&#39;assign_wcs&#39;][&#39;override_wavelengthrange&#39;] = &#39;myfile.asdf&#39;  # Wavelength channel mapping (ASDF file)</span>
+<span class="c1">#image2dict[&#39;flat_field&#39;][&#39;override_flat&#39;] = &#39;myfile.fits&#39;  # Pixel flatfield</span>
+<span class="c1">#image2dict[&#39;photom&#39;][&#39;override_photom&#39;] = &#39;myfile.fits&#39;  # Photometric calibration array</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Grab the <code class="docutils literal notranslate"><span class="pre">*rateints.fits</span></code> files, ensuring the use of absolute paths.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get rate files from the Detector1 output folder</span>
+<span class="n">rate_files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">det1_dir</span><span class="p">,</span> <span class="s1">&#39;*rateints.fits&#39;</span><span class="p">)))</span>
+
+<span class="c1"># Use the absolute file paths</span>
+<span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">rate_files</span><span class="p">)):</span>
+    <span class="n">rate_files</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">rate_files</span><span class="p">[</span><span class="n">ii</span><span class="p">])</span>
+<span class="n">rate_files</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">rate_files</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Run the files through the Image2 pipeline.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run the pipeline on the selected rate files one by one with the custom parameter dictionary</span>
+<span class="k">if</span> <span class="n">do_image2</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">ii</span><span class="p">,</span> <span class="n">file</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">rate_files</span><span class="p">):</span>
+        <span class="n">Image2Pipeline</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="n">image2dict</span><span class="p">,</span> <span class="n">save_results</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">output_dir</span><span class="o">=</span><span class="n">image2_dir</span><span class="p">)</span>
+
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Skipping Image2 processing...&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print out the time benchmark</span>
+<span class="n">time1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Runtime so far: </span><span class="si">{</span><span class="n">time1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">time0</span><span class="si">:</span><span class="s2">0.0f</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Runtime for Image2: </span><span class="si">{</span><span class="n">time1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">time_image2</span><span class="si">:</span><span class="s2">0.0f</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr style="border:1px solid gray"> </hr></section>
+<section id="tso3-pipeline">
+<h2>7. Tso3 Pipeline<a class="headerlink" href="#tso3-pipeline" title="Permalink to this heading">#</a></h2>
+<p>The Stage 3 pipeline for TSOs, <a class="reference external" href="https://jwst-pipeline.readthedocs.io/en/latest/jwst/pipeline/calwebb_tso3.html">Tso3</a>, is significantly simpler than the analogous processing stage for non-TSO data sets. First, an
+<a class="reference external" href="https://jwst-pipeline.readthedocs.io/en/latest/jwst/associations/overview.html">association file</a>
+needs to be created that contains all of the <code class="docutils literal notranslate"><span class="pre">*_calints.fits</span></code> files produced from Stage 2.<br></p>
+<p>By default, the Tso3 pipeline performs the following steps on MIRI Imaging TSO data sets:<br></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">outlier_detection</span></code> flags any remaining cosmic rays, bad pixels, or other artifacts not already flagged during the Detector1 stage of the pipeline. For TSOs, a moving median filtering process is carried out that searches for outlier pixel values along the time axis. This method is designed to guard against the spurious flagging of true astrophysical variability in the target. The default rolling window width is 25 integrations, but that parameter can be adjusted in the user-specified dictionary below.<br></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tso_photometry</span></code> does aperture photometry using a circular aperture centered on the target. The sky background is computed as the mean within a circular annulus. The output is a table (ASCII ecsv format) containing the time at the midpoint of each integration and the photometry values. The default extraction aperture and background annulus sizes are stored in the <code class="docutils literal notranslate"><span class="pre">tsophot</span></code> <a class="reference external" href="https://jwst-crds.stsci.edu/browse/jwst_miri_tsophot_0001.asdf">reference file</a>. <br></p></li>
+</ul>
+<div class="alert alert-block alert-warning">
+IMPORTANT NOTE: the position of the photometric aperture is determined by the world coordinate solution (WCS) in the header, which can be offset from the true position of the target due to pointing and/or target coordinate inaccuracies. It is recommended that users carry out their own photometric extraction using a computed centroid position for the target aperture.
+</div>
+<div class="alert alert-block alert-warning">
+To override certain steps and reference files, use the examples below.
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time_tso3</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up a dictionary to define how the Tso3 pipeline should be configured</span>
+
+<span class="c1"># Boilerplate dictionary setup</span>
+<span class="n">tso3dict</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">tso3dict</span><span class="p">[</span><span class="s1">&#39;outlier_detection&#39;</span><span class="p">],</span> <span class="n">tso3dict</span><span class="p">[</span><span class="s1">&#39;tso_photometry&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{}</span>
+
+<span class="c1"># Overrides for whether or not certain steps should be skipped (example)</span>
+<span class="c1">#tso3dict[&#39;outlier_detection&#39;][&#39;skip&#39;] = True</span>
+
+<span class="c1"># Overrides for specific parameters in the step (examples)</span>
+<span class="c1">#tso3dict[&#39;outlier_detection&#39;][&#39;rolling_window_width&#39;] = 35</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Collect all of the Stage 2 <code class="docutils literal notranslate"><span class="pre">*calints.fits</span></code> files, ensuring the use of absolute paths.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Grab all the calints.fits files</span>
+<span class="n">cal_files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image2_dir</span><span class="p">,</span> <span class="s1">&#39;*calints.fits&#39;</span><span class="p">)))</span>
+<span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">cal_files</span><span class="p">)):</span>
+    <span class="n">cal_files</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">cal_files</span><span class="p">[</span><span class="n">ii</span><span class="p">])</span>
+<span class="n">calfiles</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">cal_files</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="create-association-file">
+<h3>Create Association File<a class="headerlink" href="#create-association-file" title="Permalink to this heading">#</a></h3>
+<p>An association file lists the exposures to be calibrated together in Stage 3
+of the JWST pipeline. The code below creates an
+association file from the <code class="docutils literal notranslate"><span class="pre">*calints.fits</span></code> files.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a Level 3 Association</span>
+<span class="k">if</span> <span class="n">do_tso3</span><span class="p">:</span>
+    <span class="c1"># Define the basic association of science files</span>
+    <span class="n">asn</span> <span class="o">=</span> <span class="n">afl</span><span class="o">.</span><span class="n">asn_from_list</span><span class="p">(</span><span class="n">cal_files</span><span class="p">,</span> <span class="n">rule</span><span class="o">=</span><span class="n">DMS_Level3_Base</span><span class="p">,</span> <span class="n">product_name</span><span class="o">=</span><span class="s1">&#39;Stage3&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Write the association to a json file</span>
+    <span class="n">asnfile</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tso3_dir</span><span class="p">,</span> <span class="s1">&#39;stage3_asn.json&#39;</span><span class="p">)</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">serialized</span> <span class="o">=</span> <span class="n">asn</span><span class="o">.</span><span class="n">dump</span><span class="p">()</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">asnfile</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">outfile</span><span class="p">:</span>
+        <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">serialized</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="run-the-tso3-pipeline">
+<h3>Run the Tso3 pipeline<a class="headerlink" href="#run-the-tso3-pipeline" title="Permalink to this heading">#</a></h3>
+<p>In addition to the photometry file <code class="docutils literal notranslate"><span class="pre">Stage3_phot.ecsv</span></code>, the Tso3 pipeline produces outlier-masked calibrated image stacks <code class="docutils literal notranslate"><span class="pre">*crfints.fits</span></code> for each segment of integrations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">do_tso3</span><span class="p">:</span>
+    <span class="n">Tso3Pipeline</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">asnfile</span><span class="p">,</span> <span class="n">output_dir</span><span class="o">=</span><span class="n">tso3_dir</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="n">tso3dict</span><span class="p">,</span> <span class="n">save_results</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Skipping Tso3 processing...&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print out the time benchmark</span>
+<span class="n">time1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Runtime so far: </span><span class="si">{</span><span class="n">time1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">time0</span><span class="si">:</span><span class="s2">0.0f</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Runtime for Image3: </span><span class="si">{</span><span class="n">time1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">time_tso3</span><span class="si">:</span><span class="s2">0.0f</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr style="border:1px solid gray"> </hr></section>
+</section>
+<section id="visualize-the-photometric-light-curve">
+<h2>8. Visualize the photometric light curve<a class="headerlink" href="#visualize-the-photometric-light-curve" title="Permalink to this heading">#</a></h2>
+<p>Plot the extracted photometric light curve produced by the pipeline. For the demo mode example, note the handful of outliers that were not addressed by the Tso3 pipeline, as well as the systematic offset in flux level in the last segment of integrations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">do_viz</span><span class="p">:</span>
+    <span class="c1"># Read in photometry file</span>
+    <span class="n">phot_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tso3_dir</span><span class="p">,</span> <span class="s1">&#39;Stage3_phot.ecsv&#39;</span><span class="p">)</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">ascii</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">phot_file</span><span class="p">,</span> <span class="n">comment</span><span class="o">=</span><span class="s1">&#39;#&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+
+    <span class="c1"># Make normal plots</span>
+    <span class="o">%</span><span class="k">matplotlib</span> inline
+    <span class="c1"># Interactive plots</span>
+    <span class="c1">#%matplotlib notebook</span>
+
+    <span class="c1"># Plot result</span>
+    <span class="n">rc</span><span class="p">(</span><span class="s1">&#39;axes&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;MJD&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;aperture_sum&#39;</span><span class="p">],</span> <span class="s1">&#39;b.&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;MJD_UTC (d)&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Flux (Jy)&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tso3_dir</span><span class="p">,</span> <span class="s1">&#39;imaging_tso_example_lc.png&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr style="border:1px solid gray"> </hr><a class="reference internal image-reference" href="https://github.com/spacetelescope/jwst-pipeline-notebooks/raw/main/_static/stsci_footer.png"><img alt="stsci_logo" src="https://github.com/spacetelescope/jwst-pipeline-notebooks/raw/main/_static/stsci_footer.png" style="width: 200px;" /></a>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "spacetelescope/jwst-pipeline-notebooks",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks/MIRI/Imaging-TSO"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">1. Configuration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-dependencies">Install dependencies</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-run-parameters">Set run parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-crds-context-and-server">Set CRDS context and server</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#package-imports">2. Package Imports</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demo-mode-setup-ignore-if-not-using-demo-data">3. Demo Mode Setup (ignore if not using demo data)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#directory-setup">4. Directory Setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#detector1-pipeline">5. Detector1 Pipeline</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-the-data">Exploring the data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image2-pipeline">6. Image2 Pipeline</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tso3-pipeline">7. Tso3 Pipeline</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-association-file">Create Association File</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-the-tso3-pipeline">Run the Tso3 pipeline</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-the-photometric-light-curve">8. Visualize the photometric light curve</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By STScI
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

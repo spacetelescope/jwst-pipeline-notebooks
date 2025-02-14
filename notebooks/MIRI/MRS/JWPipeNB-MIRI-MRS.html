@@ -533,7 +533,7 @@ subtraction (if any). The list of parameters are:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Basic import necessary for configuration</span>
-<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 </pre></div>
 </div>
 </div>
@@ -657,7 +657,7 @@ CRDS file server: https://jwst-crds.stsci.edu
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use the entire available screen width for this notebook</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
 <span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&lt;style&gt;.container { width:95% !important; }&lt;/style&gt;&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -669,23 +669,23 @@ CRDS file server: https://jwst-crds.stsci.edu
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Basic system utilities for interacting with files</span>
 <span class="c1"># ----------------------General Imports------------------------------------</span>
-<span class="kn">import</span> <span class="nn">glob</span>
-<span class="kn">import</span> <span class="nn">copy</span>
-<span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">glob</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">copy</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
 
 <span class="c1"># Numpy for doing calculations</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="c1"># -----------------------Astropy Imports-----------------------------------</span>
 <span class="c1"># Astropy utilities for opening FITS and ASCII files, and downloading demo files</span>
-<span class="kn">from</span> <span class="nn">astropy.io</span> <span class="kn">import</span> <span class="n">fits</span>
-<span class="kn">from</span> <span class="nn">astroquery.mast</span> <span class="kn">import</span> <span class="n">Observations</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">fits</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astroquery.mast</span><span class="w"> </span><span class="kn">import</span> <span class="n">Observations</span>
 
 <span class="c1"># -----------------------Plotting Imports----------------------------------</span>
 <span class="c1"># Matplotlib for making plots</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">rc</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">rc</span>
 </pre></div>
 </div>
 </div>
@@ -694,21 +694,21 @@ CRDS file server: https://jwst-crds.stsci.edu
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># --------------JWST Calibration Pipeline Imports---------------------------</span>
 <span class="c1"># Import the base JWST and calibration reference data packages</span>
-<span class="kn">import</span> <span class="nn">jwst</span>
-<span class="kn">import</span> <span class="nn">crds</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">jwst</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">crds</span>
 
 <span class="c1"># JWST pipelines (each encompassing many steps)</span>
-<span class="kn">from</span> <span class="nn">jwst.pipeline</span> <span class="kn">import</span> <span class="n">Detector1Pipeline</span>
-<span class="kn">from</span> <span class="nn">jwst.pipeline</span> <span class="kn">import</span> <span class="n">Spec2Pipeline</span>
-<span class="kn">from</span> <span class="nn">jwst.pipeline</span> <span class="kn">import</span> <span class="n">Spec3Pipeline</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">jwst.pipeline</span><span class="w"> </span><span class="kn">import</span> <span class="n">Detector1Pipeline</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">jwst.pipeline</span><span class="w"> </span><span class="kn">import</span> <span class="n">Spec2Pipeline</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">jwst.pipeline</span><span class="w"> </span><span class="kn">import</span> <span class="n">Spec3Pipeline</span>
 
 <span class="c1"># JWST pipeline utilities</span>
-<span class="kn">from</span> <span class="nn">jwst</span> <span class="kn">import</span> <span class="n">datamodels</span>  <span class="c1"># JWST datamodels</span>
-<span class="kn">from</span> <span class="nn">jwst.associations</span> <span class="kn">import</span> <span class="n">asn_from_list</span> <span class="k">as</span> <span class="n">afl</span>  <span class="c1"># Tools for creating association files</span>
-<span class="kn">from</span> <span class="nn">jwst.associations.lib.rules_level2_base</span> <span class="kn">import</span> <span class="n">DMSLevel2bBase</span>  <span class="c1"># Definition of a Lvl2 association file</span>
-<span class="kn">from</span> <span class="nn">jwst.associations.lib.rules_level3_base</span> <span class="kn">import</span> <span class="n">DMS_Level3_Base</span>  <span class="c1"># Definition of a Lvl3 association file</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">jwst</span><span class="w"> </span><span class="kn">import</span> <span class="n">datamodels</span>  <span class="c1"># JWST datamodels</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">jwst.associations</span><span class="w"> </span><span class="kn">import</span> <span class="n">asn_from_list</span> <span class="k">as</span> <span class="n">afl</span>  <span class="c1"># Tools for creating association files</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">jwst.associations.lib.rules_level2_base</span><span class="w"> </span><span class="kn">import</span> <span class="n">DMSLevel2bBase</span>  <span class="c1"># Definition of a Lvl2 association file</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">jwst.associations.lib.rules_level3_base</span><span class="w"> </span><span class="kn">import</span> <span class="n">DMS_Level3_Base</span>  <span class="c1"># Definition of a Lvl3 association file</span>
 
-<span class="kn">from</span> <span class="nn">jwst.stpipe</span> <span class="kn">import</span> <span class="n">Step</span>  <span class="c1"># Import the wrapper class for pipeline steps</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">jwst.stpipe</span><span class="w"> </span><span class="kn">import</span> <span class="n">Step</span>  <span class="c1"># Import the wrapper class for pipeline steps</span>
 
 <span class="c1"># Echo pipeline version and CRDS context in use</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;JWST Calibration Pipeline Version = </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">jwst</span><span class="o">.</span><span class="n">__version__</span><span class="p">))</span>
@@ -733,7 +733,7 @@ CRDS file server: https://jwst-crds.stsci.edu
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define a convenience function to select only files of a given channel/band from an input set</span>
-<span class="k">def</span> <span class="nf">select_ch_band_files</span><span class="p">(</span><span class="n">files</span><span class="p">,</span> <span class="n">use_ch</span><span class="p">,</span> <span class="n">use_band</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">select_ch_band_files</span><span class="p">(</span><span class="n">files</span><span class="p">,</span> <span class="n">use_ch</span><span class="p">,</span> <span class="n">use_band</span><span class="p">):</span>
     <span class="k">if</span> <span class="p">((</span><span class="n">use_ch</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">use_band</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">)):</span>
         <span class="n">keep</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">files</span><span class="p">))</span>
         <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">files</span><span class="p">)):</span>
@@ -1214,12 +1214,12 @@ pre-hook/post-hook framework.
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define a new step called XplyStep that multiplies everything by 1.0</span>
 <span class="c1"># I.e., it does nothing, but could be changed to do something more interesting.</span>
-<span class="k">class</span> <span class="nc">XplyStep</span><span class="p">(</span><span class="n">Step</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">XplyStep</span><span class="p">(</span><span class="n">Step</span><span class="p">):</span>
     <span class="n">spec</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
 <span class="s1">    &#39;&#39;&#39;</span>
     <span class="n">class_alias</span> <span class="o">=</span> <span class="s1">&#39;xply&#39;</span>
 
-    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_data</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_data</span><span class="p">):</span>
         <span class="k">with</span> <span class="n">datamodels</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">input_data</span><span class="p">)</span> <span class="k">as</span> <span class="n">model</span><span class="p">:</span>
             <span class="n">result</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
         <span class="n">sci</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">data</span>
@@ -28462,7 +28462,7 @@ applied during this stage.
 Note that the background will not be applied properly to all files if more than *one* SCI file is included in the association.
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">writel2asn</span><span class="p">(</span><span class="n">onescifile</span><span class="p">,</span> <span class="n">bgfiles</span><span class="p">,</span> <span class="n">selfcalfiles</span><span class="p">,</span> <span class="n">asnfile</span><span class="p">,</span> <span class="n">prodname</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">writel2asn</span><span class="p">(</span><span class="n">onescifile</span><span class="p">,</span> <span class="n">bgfiles</span><span class="p">,</span> <span class="n">selfcalfiles</span><span class="p">,</span> <span class="n">asnfile</span><span class="p">,</span> <span class="n">prodname</span><span class="p">):</span>
     <span class="c1"># Define the basic association of science files</span>
     <span class="n">asn</span> <span class="o">=</span> <span class="n">afl</span><span class="o">.</span><span class="n">asn_from_list</span><span class="p">([</span><span class="n">onescifile</span><span class="p">],</span> <span class="n">rule</span><span class="o">=</span><span class="n">DMSLevel2bBase</span><span class="p">,</span> <span class="n">product_name</span><span class="o">=</span><span class="n">prodname</span><span class="p">)</span>  <span class="c1"># Wrap in array since input was single exposure</span>
 
@@ -64189,7 +64189,7 @@ Set certain parameters here to:
 <p>Define a function to create association files for Stage 3.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">writel3asn</span><span class="p">(</span><span class="n">scifiles</span><span class="p">,</span> <span class="n">bgfiles</span><span class="p">,</span> <span class="n">asnfile</span><span class="p">,</span> <span class="n">prodname</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">writel3asn</span><span class="p">(</span><span class="n">scifiles</span><span class="p">,</span> <span class="n">bgfiles</span><span class="p">,</span> <span class="n">asnfile</span><span class="p">,</span> <span class="n">prodname</span><span class="p">):</span>
     <span class="c1"># Define the basic association of science files</span>
     <span class="n">asn</span> <span class="o">=</span> <span class="n">afl</span><span class="o">.</span><span class="n">asn_from_list</span><span class="p">(</span><span class="n">scifiles</span><span class="p">,</span> <span class="n">rule</span><span class="o">=</span><span class="n">DMS_Level3_Base</span><span class="p">,</span> <span class="n">product_name</span><span class="o">=</span><span class="n">prodname</span><span class="p">)</span>
 
