@@ -1,6 +1,6 @@
 ![STScI Logo](_static/stsci_header.png)
 
-# JWST Pipeline Notebooks $${\color{red}UNDER---CONSTRUCTION}$$
+# JWST Pipeline Notebooks
 
 > [!IMPORTANT]
 > JWST requires a C compiler for dependencies and is currently limited to Python 3.10, 3.11, or 3.12.
