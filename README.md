@@ -18,7 +18,7 @@ The following table summarizes the notebooks currently available and the JWST [p
 
 | Instrument | Observing Mode | JWST Build | ``jwst`` version | Notes                                         |
 |------------|----------------|------------|--------------------------|-----------------------------------------------|
-| MIRI       | [Imaging](https://jwst-docs.stsci.edu/jwst-mid-infrared-instrument/miri-observing-modes/miri-imaging)                                          | [11.2]     | 1.17.1 |   |
+| MIRI       | [Imaging]                                          | [11.2]     | 1.17.1 | [JDox mode overview](https://jwst-docs.stsci.edu/jwst-mid-infrared-instrument/miri-observing-modes/miri-imaging)  |
 | MIRI       | [Imaging TSO](https://jwst-docs.stsci.edu/jwst-mid-infrared-instrument/miri-observing-modes/miri-time-series-observations/miri-imaging-tsos)   | [11.2]     | 1.17.1 |   |
 | MIRI       | [LRS Slit](https://jwst-docs.stsci.edu/jwst-mid-infrared-instrument/miri-observing-modes/miri-low-resolution-spectroscopy)                     | [11.2]     | 1.17.1 |   |
 | MIRI       | [LRS Slitless](https://jwst-docs.stsci.edu/jwst-mid-infrared-instrument/miri-observing-modes/miri-time-series-observations/miri-lrs-tsos)      | [11.2]     | 1.17.1 |   |
