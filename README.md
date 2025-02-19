@@ -1,6 +1,6 @@
 ![STScI Logo](_static/stsci_header.png)
 
-# JWST Pipeline Notebooks $${\color{red}UNDER---CONSTRUCTION}$$
+# JWST Pipeline Notebooks
 
 > [!IMPORTANT]
 > JWST requires a C compiler for dependencies and is currently limited to Python 3.10, 3.11, or 3.12.
@@ -18,12 +18,16 @@ The following table summarizes the notebooks currently available and the JWST [p
 
 | Instrument | Observing Mode | JWST Build | ``jwst`` version | Notes                                         |
 |------------|----------------|------------|--------------------------|-----------------------------------------------|
-| MIRI       | Imaging        | [11.2]     | 1.17.1 |   |
-| MIRI       | MRS            | [11.2]     | 1.17.1 |   |
-| NIRCam     | Imaging        | [11.2]     | 1.17.1 |   |
-| NIRISS     | Imaging        | [11.2]     | 1.17.1 |   |
-| NIRSpec    | Fixed Slit     | [11.2]     | 1.17.1 |   |
-| NIRSpec    | IFU            | [11.2]     | 1.17.1 |   |
+| MIRI       | Imaging        | 11.2       | 1.17.1 | [JDox mode overview](https://jwst-docs.stsci.edu/jwst-mid-infrared-instrument/miri-observing-modes/miri-imaging)  |
+| MIRI       | Imaging TSO    | 11.2       | 1.17.1 | [JDox mode overview](https://jwst-docs.stsci.edu/jwst-mid-infrared-instrument/miri-observing-modes/miri-time-series-observations/miri-imaging-tsos)  |
+| MIRI       | LRS Slit       | 11.2       | 1.17.1 | [JDox mode overview](https://jwst-docs.stsci.edu/jwst-mid-infrared-instrument/miri-observing-modes/miri-low-resolution-spectroscopy)  |
+| MIRI       | LRS Slitless   | 11.2       | 1.17.1 | [JDox mode overview](https://jwst-docs.stsci.edu/jwst-mid-infrared-instrument/miri-observing-modes/miri-time-series-observations/miri-lrs-tsos)  |
+| MIRI       | MRS            | 11.2       | 1.17.1 | [JDox mode overview](https://jwst-docs.stsci.edu/jwst-mid-infrared-instrument/miri-observing-modes/miri-medium-resolution-spectroscopy)  |
+| NIRCam     | Imaging        | 11.2       | 1.17.1 | [JDox mode overview](https://jwst-docs.stsci.edu/jwst-near-infrared-camera/nircam-observing-modes/nircam-imaging)  |
+| NIRISS     | Imaging        | 11.2       | 1.17.1 | [JDox mode overview](https://jwst-docs.stsci.edu/jwst-near-infrared-imager-and-slitless-spectrograph/niriss-observing-modes/niriss-imaging)  |
+| NIRSpec    | BOTS           | 11.2       | 1.17.1 | [JDox mode overview](https://jwst-docs.stsci.edu/jwst-near-infrared-spectrograph/nirspec-observing-modes/nirspec-bright-object-time-series-spectroscopy)  |
+| NIRSpec    | Fixed Slit     | 11.2       | 1.17.1 | [JDox mode overview](https://jwst-docs.stsci.edu/jwst-near-infrared-spectrograph/nirspec-observing-modes/nirspec-fixed-slits-spectroscopy)  |
+| NIRSpec    | IFU            | 11.2       | 1.17.1 | [JDox mode overview](https://jwst-docs.stsci.edu/jwst-near-infrared-spectrograph/nirspec-observing-modes/nirspec-ifu-spectroscopy)  |
 
 ## Reference Files
 
