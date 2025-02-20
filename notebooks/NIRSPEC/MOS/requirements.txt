@@ -1,0 +1,4 @@
+astroquery
+jwst==1.17.1
+matplotlib>=3.9.2
+jupyter
