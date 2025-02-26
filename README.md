@@ -28,6 +28,7 @@ The following table summarizes the notebooks currently available and the JWST [p
 | NIRSpec    | BOTS           | 11.2       | 1.17.1 | [JDox mode overview](https://jwst-docs.stsci.edu/jwst-near-infrared-spectrograph/nirspec-observing-modes/nirspec-bright-object-time-series-spectroscopy)  |
 | NIRSpec    | Fixed Slit     | 11.2       | 1.17.1 | [JDox mode overview](https://jwst-docs.stsci.edu/jwst-near-infrared-spectrograph/nirspec-observing-modes/nirspec-fixed-slits-spectroscopy)  |
 | NIRSpec    | IFU            | 11.2       | 1.17.1 | [JDox mode overview](https://jwst-docs.stsci.edu/jwst-near-infrared-spectrograph/nirspec-observing-modes/nirspec-ifu-spectroscopy)  |
+| NIRSpec    | MOS            | 11.2       | 1.17.1 | [JDox mode overview](https://jwst-docs.stsci.edu/jwst-near-infrared-spectrograph/nirspec-observing-modes/nirspec-multi-object-spectroscopy)  |
 
 ## Reference Files
 
