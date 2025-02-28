@@ -1,6 +1,6 @@
 ![STScI Logo](_static/stsci_header.png)
 
-# JWST Pipeline Notebooks $${\color{red}UNDER---CONSTRUCTION}$$
+# JWST Pipeline Notebooks
 
 > [!IMPORTANT]
 > JWST requires a C compiler for dependencies and is currently limited to Python 3.10, 3.11, or 3.12.
@@ -8,7 +8,7 @@
 > [!NOTE]
 > Linux and MacOS platforms are tested and supported.  Windows is not currently supported.
 
-The ``jwst_pipeline_notebooks`` repository contains python-based Jupyter notebooks that illustrate how to process JWST data through the STScI science calibration pipeline (``jwst``;  [https://github.com/spacetelescope/jwst](https://github.com/spacetelescope/jwst)).  An overview of the pipeline can be found at [https://jwst-docs.stsci.edu/jwst-science-calibration-pipeline](https://jwst-docs.stsci.edu/jwst-science-calibration-pipeline).
+The ``jwst-pipeline-notebooks`` repository contains python-based Jupyter notebooks that illustrate how to process JWST data through the STScI science calibration pipeline (``jwst``;  [https://github.com/spacetelescope/jwst](https://github.com/spacetelescope/jwst)).  An overview of the pipeline can be found at [https://jwst-docs.stsci.edu/jwst-science-calibration-pipeline](https://jwst-docs.stsci.edu/jwst-science-calibration-pipeline).
 
 Notebooks are organized according to instrument and observing mode.  Each notebook is designed to process data from uncalibrated raw FITS files to end-stage Level 3 data products (calibrated imaging mosaics, 3-D data cubes, 1-D extracted spectra, etc.).  These notebooks by default run in 'demo' mode, for which they will download and process example data drawn from the [MAST archive](https://archive.stsci.edu/).  They are, however, designed to be simple to run on arbitrary local data sets as well by configuring input directories accordingly.
 
@@ -18,12 +18,17 @@ The following table summarizes the notebooks currently available and the JWST [p
 
 | Instrument | Observing Mode | JWST Build | ``jwst`` version | Notes                                         |
 |------------|----------------|------------|--------------------------|-----------------------------------------------|
-| MIRI       | Imaging        | [11.2]     | 1.17.1 |   |
-| MIRI       | MRS            | [11.2]     | 1.17.1 |   |
-| NIRCam     | Imaging        | [11.2]     | 1.17.1 |   |
-| NIRISS     | Imaging        | [11.2]     | 1.17.1 |   |
-| NIRSpec    | Fixed Slit     | [11.2]     | 1.17.1 |   |
-| NIRSpec    | IFU            | [11.2]     | 1.17.1 |   |
+| MIRI       | Imaging        | 11.2       | 1.17.1 | [JDox mode overview](https://jwst-docs.stsci.edu/jwst-mid-infrared-instrument/miri-observing-modes/miri-imaging)  |
+| MIRI       | Imaging TSO    | 11.2       | 1.17.1 | [JDox mode overview](https://jwst-docs.stsci.edu/jwst-mid-infrared-instrument/miri-observing-modes/miri-time-series-observations/miri-imaging-tsos)  |
+| MIRI       | LRS Slit       | 11.2       | 1.17.1 | [JDox mode overview](https://jwst-docs.stsci.edu/jwst-mid-infrared-instrument/miri-observing-modes/miri-low-resolution-spectroscopy)  |
+| MIRI       | LRS Slitless   | 11.2       | 1.17.1 | [JDox mode overview](https://jwst-docs.stsci.edu/jwst-mid-infrared-instrument/miri-observing-modes/miri-time-series-observations/miri-lrs-tsos)  |
+| MIRI       | MRS            | 11.2       | 1.17.1 | [JDox mode overview](https://jwst-docs.stsci.edu/jwst-mid-infrared-instrument/miri-observing-modes/miri-medium-resolution-spectroscopy)  |
+| NIRCam     | Imaging        | 11.2       | 1.17.1 | [JDox mode overview](https://jwst-docs.stsci.edu/jwst-near-infrared-camera/nircam-observing-modes/nircam-imaging)  |
+| NIRISS     | Imaging        | 11.2       | 1.17.1 | [JDox mode overview](https://jwst-docs.stsci.edu/jwst-near-infrared-imager-and-slitless-spectrograph/niriss-observing-modes/niriss-imaging)  |
+| NIRSpec    | BOTS           | 11.2       | 1.17.1 | [JDox mode overview](https://jwst-docs.stsci.edu/jwst-near-infrared-spectrograph/nirspec-observing-modes/nirspec-bright-object-time-series-spectroscopy)  |
+| NIRSpec    | Fixed Slit     | 11.2       | 1.17.1 | [JDox mode overview](https://jwst-docs.stsci.edu/jwst-near-infrared-spectrograph/nirspec-observing-modes/nirspec-fixed-slits-spectroscopy)  |
+| NIRSpec    | IFU            | 11.2       | 1.17.1 | [JDox mode overview](https://jwst-docs.stsci.edu/jwst-near-infrared-spectrograph/nirspec-observing-modes/nirspec-ifu-spectroscopy)  |
+| NIRSpec    | MOS            | 11.2       | 1.17.1 | [JDox mode overview](https://jwst-docs.stsci.edu/jwst-near-infrared-spectrograph/nirspec-observing-modes/nirspec-multi-object-spectroscopy)  |
 
 ## Reference Files
 
@@ -37,16 +42,16 @@ For advanced users, these notebooks can be downloaded individually from the GitH
 
 ### Package Installation
 
-If desired, you can also clone the entire ``jwst_pipeline_notebooks`` repository to your local computer and set up a new virtual or conda environment
+If desired, you can also clone the entire ``jwst-pipeline-notebooks`` repository to your local computer and set up a new virtual or conda environment
 to avoid version conflicts with other packages you may have installed, for example:
 
     conda create -n jpnb python=3.11
     conda activate jpnb
-    git clone https://github.com/spacetelescope/jwst_pipeline_notebooks.git
+    git clone https://github.com/spacetelescope/jwst-pipeline-notebooks.git
 
 Next, move into the directory of the notebook you want to install and set up the requirements:
 
-    cd jwst_pipeline_notebooks/notebooks/<whatever-notebook>
+    cd jwst-pipeline-notebooks/notebooks/<whatever-notebook>
     pip install -r requirements.txt
     jupyter notebook
 
