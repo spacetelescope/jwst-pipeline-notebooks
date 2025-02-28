@@ -8,7 +8,7 @@
 > [!NOTE]
 > Linux and MacOS platforms are tested and supported.  Windows is not currently supported.
 
-The ``jwst_pipeline_notebooks`` repository contains python-based Jupyter notebooks that illustrate how to process JWST data through the STScI science calibration pipeline (``jwst``;  [https://github.com/spacetelescope/jwst](https://github.com/spacetelescope/jwst)).  An overview of the pipeline can be found at [https://jwst-docs.stsci.edu/jwst-science-calibration-pipeline](https://jwst-docs.stsci.edu/jwst-science-calibration-pipeline).
+The ``jwst-pipeline-notebooks`` repository contains python-based Jupyter notebooks that illustrate how to process JWST data through the STScI science calibration pipeline (``jwst``;  [https://github.com/spacetelescope/jwst](https://github.com/spacetelescope/jwst)).  An overview of the pipeline can be found at [https://jwst-docs.stsci.edu/jwst-science-calibration-pipeline](https://jwst-docs.stsci.edu/jwst-science-calibration-pipeline).
 
 Notebooks are organized according to instrument and observing mode.  Each notebook is designed to process data from uncalibrated raw FITS files to end-stage Level 3 data products (calibrated imaging mosaics, 3-D data cubes, 1-D extracted spectra, etc.).  These notebooks by default run in 'demo' mode, for which they will download and process example data drawn from the [MAST archive](https://archive.stsci.edu/).  They are, however, designed to be simple to run on arbitrary local data sets as well by configuring input directories accordingly.
 
@@ -42,16 +42,16 @@ For advanced users, these notebooks can be downloaded individually from the GitH
 
 ### Package Installation
 
-If desired, you can also clone the entire ``jwst_pipeline_notebooks`` repository to your local computer and set up a new virtual or conda environment
+If desired, you can also clone the entire ``jwst-pipeline-notebooks`` repository to your local computer and set up a new virtual or conda environment
 to avoid version conflicts with other packages you may have installed, for example:
 
     conda create -n jpnb python=3.11
     conda activate jpnb
-    git clone https://github.com/spacetelescope/jwst_pipeline_notebooks.git
+    git clone https://github.com/spacetelescope/jwst-pipeline-notebooks.git
 
 Next, move into the directory of the notebook you want to install and set up the requirements:
 
-    cd jwst_pipeline_notebooks/notebooks/<whatever-notebook>
+    cd jwst-pipeline-notebooks/notebooks/<whatever-notebook>
     pip install -r requirements.txt
     jupyter notebook
 
