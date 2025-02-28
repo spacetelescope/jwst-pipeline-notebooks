@@ -6,12 +6,33 @@ parts:
  - caption: MIRI Imaging
    chapters:
    - file: notebooks/MIRI/Imaging/JWPipeNB-MIRI-imaging.ipynb
+ - caption: MIRI Imaging TSO
+   chapters:
+   - file: notebooks/MIRI/Imaging-TSO/JWPipeNB-MIRI-imaging-TSO.ipynb
+ - caption: MIRI LRS Slit
+   chapters:
+   - file: notebooks/MIRI/LRS-slit/JWPipeNB-MIRI-LRS-slit.ipynb
+ - caption: MIRI LRS Slitless
+   chapters:
+   - file: notebooks/MIRI/LRS-slitless-TSO/JWPipeNB-MIRI-LRS-slitless-TSO.ipynb
  - caption: MIRI MRS
    chapters:
    - file: notebooks/MIRI/MRS/JWPipeNB-MIRI-MRS.ipynb
+ - caption: NIRCAM Imaging
+   chapters:
+    - file: notebooks/NIRCAM/Imaging/JWPipeNB-nircam-imaging.ipynb
  - caption: NIRISS
    chapters:
    - file: notebooks/NIRISS/Imaging/JWPipeNB-niriss-imaging.ipynb
- - caption: NIRCAM Imaging
+ - caption: NIRSpec BOTS
    chapters:
-    - file: notebooks/NIRCAM/Imaging/JWPipeNB-nircam-imaging.ipynb 
+    - file: notebooks/NIRSPEC/BOTS/JWPipeNB-NIRSpec-BOTS.ipynb
+ - caption: NIRSpec Fixed Slit
+   chapters:
+    - file: notebooks/NIRSPEC/FSlit/JWPipeNB-NIRSpec-FS.ipynb
+ - caption: NIRSpec IFU
+   chapters:
+    - file: notebooks/NIRSPEC/IFU/JWPipeNB-NIRSpec-IFU.ipynb
+ - caption: NIRSpec MOS
+   chapters:
+    - file: notebooks/NIRSPEC/MOS/JWPipeNB-NIRSpec-MOS.ipynb
