@@ -1,0 +1,9 @@
+name: Adaptive runner test
+on:
+  workflow_dispatch:
+
+jobs:
+  GenerateHTML:
+   uses: spacetelescope/notebook-ci-testing/.github/workflows/adaptiveTesting.yml@main
+   with:
+      python-version: ${{ vars.PYTHON_VERSION }}
