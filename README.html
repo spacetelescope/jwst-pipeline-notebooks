@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>JWST Pipeline Notebooks $${\color{red}UNDER—CONSTRUCTION}$$ &#8212; JWST Pipeline Notebooks</title>
+    <title>JWST Pipeline Notebooks &#8212; JWST Pipeline Notebooks</title>
   
   
   
@@ -178,18 +178,46 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="notebooks/MIRI/Imaging/JWPipeNB-MIRI-imaging.html">MIRI Imaging Pipeline Notebook</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MIRI Imaging TSO</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="notebooks/MIRI/Imaging-TSO/JWPipeNB-MIRI-imaging-TSO.html">MIRI Imaging TSO Pipeline Notebook</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MIRI LRS Slit</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="notebooks/MIRI/LRS-slit/JWPipeNB-MIRI-LRS-slit.html">MIRI LRS Slit Mode Pipeline Notebook</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MIRI LRS Slitless</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="notebooks/MIRI/LRS-slitless-TSO/JWPipeNB-MIRI-LRS-slitless-TSO.html">MIRI LRS Slitless Mode TSO Pipeline Notebook</a></li>
+</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">MIRI MRS</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="notebooks/MIRI/MRS/JWPipeNB-MIRI-MRS.html">MIRI MRS Pipeline Notebook</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">NIRCAM Imaging</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="notebooks/NIRCAM/Imaging/JWPipeNB-nircam-imaging.html">NIRCam Imaging Pipeline Notebook</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">NIRISS</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="notebooks/NIRISS/Imaging/JWPipeNB-niriss-imaging.html">NIRISS Imaging Pipeline Notebook</a></li>
 
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">NIRCAM Imaging</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">NIRSpec BOTS</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="notebooks/NIRCAM/Imaging/JWPipeNB-nircam-imaging.html">NIRCam Imaging Pipeline Notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/NIRSPEC/BOTS/JWPipeNB-NIRSpec-BOTS.html">NIRSpec BOTS Pipeline Notebook</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">NIRSpec Fixed Slit</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="notebooks/NIRSPEC/FSlit/JWPipeNB-NIRSpec-FS.html">NIRSpec FS Pipeline Notebook</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">NIRSpec IFU</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="notebooks/NIRSPEC/IFU/JWPipeNB-NIRSpec-IFU.html">NIRSpec IFU Pipeline Notebook</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">NIRSpec MOS</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="notebooks/NIRSPEC/MOS/JWPipeNB-NIRSpec-MOS.html">NIRSpec MOS Pipeline Notebook</a></li>
 </ul>
 
     </div>
@@ -375,7 +403,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>JWST Pipeline Notebooks $${\color{red}UNDER—CONSTRUCTION}$$</h1>
+    <h1>JWST Pipeline Notebooks</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -404,8 +432,8 @@ document.write(`
                 <article class="bd-article">
                   
   <p><img alt="STScI Logo" src="_images/stsci_header.png" /></p>
-<section id="jwst-pipeline-notebooks-color-red-under-construction">
-<h1>JWST Pipeline Notebooks $${\color{red}UNDER—CONSTRUCTION}$$<a class="headerlink" href="#jwst-pipeline-notebooks-color-red-under-construction" title="Permalink to this heading">#</a></h1>
+<section id="jwst-pipeline-notebooks">
+<h1>JWST Pipeline Notebooks<a class="headerlink" href="#jwst-pipeline-notebooks" title="Permalink to this heading">#</a></h1>
 <blockquote>
 <div><p>[!IMPORTANT]
 JWST requires a C compiler for dependencies and is currently limited to Python 3.10, 3.11, or 3.12.</p>
@@ -414,7 +442,7 @@ JWST requires a C compiler for dependencies and is currently limited to Python 3
 <div><p>[!NOTE]
 Linux and MacOS platforms are tested and supported.  Windows is not currently supported.</p>
 </div></blockquote>
-<p>The <code class="docutils literal notranslate"><span class="pre">jwst_pipeline_notebooks</span></code> repository contains python-based Jupyter notebooks that illustrate how to process JWST data through the STScI science calibration pipeline (<code class="docutils literal notranslate"><span class="pre">jwst</span></code>;  <a class="github reference external" href="https://github.com/spacetelescope/jwst">spacetelescope/jwst</a>).  An overview of the pipeline can be found at <a class="reference external" href="https://jwst-docs.stsci.edu/jwst-science-calibration-pipeline">https://jwst-docs.stsci.edu/jwst-science-calibration-pipeline</a>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">jwst-pipeline-notebooks</span></code> repository contains python-based Jupyter notebooks that illustrate how to process JWST data through the STScI science calibration pipeline (<code class="docutils literal notranslate"><span class="pre">jwst</span></code>;  <a class="github reference external" href="https://github.com/spacetelescope/jwst">spacetelescope/jwst</a>).  An overview of the pipeline can be found at <a class="reference external" href="https://jwst-docs.stsci.edu/jwst-science-calibration-pipeline">https://jwst-docs.stsci.edu/jwst-science-calibration-pipeline</a>.</p>
 <p>Notebooks are organized according to instrument and observing mode.  Each notebook is designed to process data from uncalibrated raw FITS files to end-stage Level 3 data products (calibrated imaging mosaics, 3-D data cubes, 1-D extracted spectra, etc.).  These notebooks by default run in ‘demo’ mode, for which they will download and process example data drawn from the <a class="reference external" href="https://archive.stsci.edu/">MAST archive</a>.  They are, however, designed to be simple to run on arbitrary local data sets as well by configuring input directories accordingly.</p>
 <p>These notebooks are modular, allowing users to enable or disable different stages of processing.  Likewise, they provide examples of how to customize pipeline processing for specific science cases.</p>
 <p>The following table summarizes the notebooks currently available and the JWST <a class="reference external" href="https://jwst-docs.stsci.edu/jwst-science-calibration-pipeline/jwst-operations-pipeline-build-information">pipeline versions</a> that they have been tested with:</p>
@@ -430,39 +458,69 @@ Linux and MacOS platforms are tested and supported.  Windows is not currently su
 <tbody>
 <tr class="row-even"><td><p>MIRI</p></td>
 <td><p>Imaging</p></td>
-<td><p>[11.2]</p></td>
+<td><p>11.2</p></td>
 <td><p>1.17.1</p></td>
-<td><p></p></td>
+<td><p><a class="reference external" href="https://jwst-docs.stsci.edu/jwst-mid-infrared-instrument/miri-observing-modes/miri-imaging">JDox mode overview</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>MIRI</p></td>
+<td><p>Imaging TSO</p></td>
+<td><p>11.2</p></td>
+<td><p>1.17.1</p></td>
+<td><p><a class="reference external" href="https://jwst-docs.stsci.edu/jwst-mid-infrared-instrument/miri-observing-modes/miri-time-series-observations/miri-imaging-tsos">JDox mode overview</a></p></td>
+</tr>
+<tr class="row-even"><td><p>MIRI</p></td>
+<td><p>LRS Slit</p></td>
+<td><p>11.2</p></td>
+<td><p>1.17.1</p></td>
+<td><p><a class="reference external" href="https://jwst-docs.stsci.edu/jwst-mid-infrared-instrument/miri-observing-modes/miri-low-resolution-spectroscopy">JDox mode overview</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>MIRI</p></td>
+<td><p>LRS Slitless</p></td>
+<td><p>11.2</p></td>
+<td><p>1.17.1</p></td>
+<td><p><a class="reference external" href="https://jwst-docs.stsci.edu/jwst-mid-infrared-instrument/miri-observing-modes/miri-time-series-observations/miri-lrs-tsos">JDox mode overview</a></p></td>
+</tr>
+<tr class="row-even"><td><p>MIRI</p></td>
 <td><p>MRS</p></td>
-<td><p>[11.2]</p></td>
+<td><p>11.2</p></td>
 <td><p>1.17.1</p></td>
-<td><p></p></td>
+<td><p><a class="reference external" href="https://jwst-docs.stsci.edu/jwst-mid-infrared-instrument/miri-observing-modes/miri-medium-resolution-spectroscopy">JDox mode overview</a></p></td>
 </tr>
-<tr class="row-even"><td><p>NIRCam</p></td>
+<tr class="row-odd"><td><p>NIRCam</p></td>
 <td><p>Imaging</p></td>
-<td><p>[11.2]</p></td>
+<td><p>11.2</p></td>
 <td><p>1.17.1</p></td>
-<td><p></p></td>
+<td><p><a class="reference external" href="https://jwst-docs.stsci.edu/jwst-near-infrared-camera/nircam-observing-modes/nircam-imaging">JDox mode overview</a></p></td>
 </tr>
-<tr class="row-odd"><td><p>NIRISS</p></td>
+<tr class="row-even"><td><p>NIRISS</p></td>
 <td><p>Imaging</p></td>
-<td><p>[11.2]</p></td>
+<td><p>11.2</p></td>
 <td><p>1.17.1</p></td>
-<td><p></p></td>
+<td><p><a class="reference external" href="https://jwst-docs.stsci.edu/jwst-near-infrared-imager-and-slitless-spectrograph/niriss-observing-modes/niriss-imaging">JDox mode overview</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>NIRSpec</p></td>
+<td><p>BOTS</p></td>
+<td><p>11.2</p></td>
+<td><p>1.17.1</p></td>
+<td><p><a class="reference external" href="https://jwst-docs.stsci.edu/jwst-near-infrared-spectrograph/nirspec-observing-modes/nirspec-bright-object-time-series-spectroscopy">JDox mode overview</a></p></td>
 </tr>
 <tr class="row-even"><td><p>NIRSpec</p></td>
 <td><p>Fixed Slit</p></td>
-<td><p>[11.2]</p></td>
+<td><p>11.2</p></td>
 <td><p>1.17.1</p></td>
-<td><p></p></td>
+<td><p><a class="reference external" href="https://jwst-docs.stsci.edu/jwst-near-infrared-spectrograph/nirspec-observing-modes/nirspec-fixed-slits-spectroscopy">JDox mode overview</a></p></td>
 </tr>
 <tr class="row-odd"><td><p>NIRSpec</p></td>
 <td><p>IFU</p></td>
-<td><p>[11.2]</p></td>
+<td><p>11.2</p></td>
 <td><p>1.17.1</p></td>
-<td><p></p></td>
+<td><p><a class="reference external" href="https://jwst-docs.stsci.edu/jwst-near-infrared-spectrograph/nirspec-observing-modes/nirspec-ifu-spectroscopy">JDox mode overview</a></p></td>
+</tr>
+<tr class="row-even"><td><p>NIRSpec</p></td>
+<td><p>MOS</p></td>
+<td><p>11.2</p></td>
+<td><p>1.17.1</p></td>
+<td><p><a class="reference external" href="https://jwst-docs.stsci.edu/jwst-near-infrared-spectrograph/nirspec-observing-modes/nirspec-multi-object-spectroscopy">JDox mode overview</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -479,15 +537,15 @@ Linux and MacOS platforms are tested and supported.  Windows is not currently su
 </section>
 <section id="package-installation">
 <h3>Package Installation<a class="headerlink" href="#package-installation" title="Permalink to this heading">#</a></h3>
-<p>If desired, you can also clone the entire <code class="docutils literal notranslate"><span class="pre">jwst_pipeline_notebooks</span></code> repository to your local computer and set up a new virtual or conda environment
+<p>If desired, you can also clone the entire <code class="docutils literal notranslate"><span class="pre">jwst-pipeline-notebooks</span></code> repository to your local computer and set up a new virtual or conda environment
 to avoid version conflicts with other packages you may have installed, for example:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda create -n jpnb python=3.11
 conda activate jpnb
-git clone https://github.com/spacetelescope/jwst_pipeline_notebooks.git
+git clone https://github.com/spacetelescope/jwst-pipeline-notebooks.git
 </pre></div>
 </div>
 <p>Next, move into the directory of the notebook you want to install and set up the requirements:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd jwst_pipeline_notebooks/notebooks/&lt;whatever-notebook&gt;
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd jwst-pipeline-notebooks/notebooks/&lt;whatever-notebook&gt;
 pip install -r requirements.txt
 jupyter notebook
 </pre></div>

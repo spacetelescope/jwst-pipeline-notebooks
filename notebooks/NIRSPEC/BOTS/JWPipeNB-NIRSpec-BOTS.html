@@ -66,6 +66,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/NIRSPEC/BOTS/JWPipeNB-NIRSpec-BOTS';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="NIRSpec FS Pipeline Notebook" href="../FSlit/JWPipeNB-NIRSpec-FS.html" />
+    <link rel="prev" title="NIRISS Imaging Pipeline Notebook" href="../../NIRISS/Imaging/JWPipeNB-niriss-imaging.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -128,8 +130,6 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -178,18 +178,46 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../MIRI/Imaging/JWPipeNB-MIRI-imaging.html">MIRI Imaging Pipeline Notebook</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MIRI Imaging TSO</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../MIRI/Imaging-TSO/JWPipeNB-MIRI-imaging-TSO.html">MIRI Imaging TSO Pipeline Notebook</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MIRI LRS Slit</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../MIRI/LRS-slit/JWPipeNB-MIRI-LRS-slit.html">MIRI LRS Slit Mode Pipeline Notebook</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MIRI LRS Slitless</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../MIRI/LRS-slitless-TSO/JWPipeNB-MIRI-LRS-slitless-TSO.html">MIRI LRS Slitless Mode TSO Pipeline Notebook</a></li>
+</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">MIRI MRS</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../MIRI/MRS/JWPipeNB-MIRI-MRS.html">MIRI MRS Pipeline Notebook</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">NIRCAM Imaging</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../NIRCAM/Imaging/JWPipeNB-nircam-imaging.html">NIRCam Imaging Pipeline Notebook</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">NIRISS</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../NIRISS/Imaging/JWPipeNB-niriss-imaging.html">NIRISS Imaging Pipeline Notebook</a></li>
 
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">NIRCAM Imaging</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">NIRSpec BOTS</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">NIRSpec BOTS Pipeline Notebook</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">NIRSpec Fixed Slit</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../NIRCAM/Imaging/JWPipeNB-nircam-imaging.html">NIRCam Imaging Pipeline Notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FSlit/JWPipeNB-NIRSpec-FS.html">NIRSpec FS Pipeline Notebook</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">NIRSpec IFU</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../IFU/JWPipeNB-NIRSpec-IFU.html">NIRSpec IFU Pipeline Notebook</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">NIRSpec MOS</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../MOS/JWPipeNB-NIRSpec-MOS.html">NIRSpec MOS Pipeline Notebook</a></li>
 </ul>
 
     </div>
@@ -467,6 +495,7 @@ document.write(`
                   
   <section id="nirspec-bots-pipeline-notebook">
 <h1>NIRSpec BOTS Pipeline Notebook<a class="headerlink" href="#nirspec-bots-pipeline-notebook" title="Permalink to this heading">#</a></h1>
+<p><font color="red">This notebook currently fails to execute, use as reference only</font></p>
 <a class="reference internal image-reference" href="https://github.com/spacetelescope/jwst-pipeline-notebooks/raw/main/_static/stsci_header.png"><img alt="stsci_logo" src="https://github.com/spacetelescope/jwst-pipeline-notebooks/raw/main/_static/stsci_header.png" style="width: 900px;" /></a>
 <p><strong>Authors</strong>: Nikolay Nikolov (AURA Associate Scientist, nnikolov&#64;stsci.edu); NIRSpec branch</br>
 <strong>Last Updated</strong>:Feb5,2025</br>
@@ -2162,6 +2191,24 @@ To override specific steps and reference files, use the examples below.
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="../../NIRISS/Imaging/JWPipeNB-niriss-imaging.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">NIRISS Imaging Pipeline Notebook</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../FSlit/JWPipeNB-NIRSpec-FS.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">NIRSpec FS Pipeline Notebook</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
