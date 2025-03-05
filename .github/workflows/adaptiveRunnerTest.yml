@@ -1,9 +1,148 @@
-name: Adaptive runner test
+name: Adaptive Notebook Testing
+
 on:
-  workflow_dispatch:
+  workflow_call:
+    inputs:
+      python-version:
+        description: 'Python version to use'
+        required: true
+        type: string
 
 jobs:
-  GenerateHTML:
-   uses: spacetelescope/notebook-ci-testing/.github/workflows/adaptiveTesting.yml@main
-   with:
-      python-version: ${{ vars.PYTHON_VERSION }}
+  find-notebooks:
+    runs-on: ubuntu-latest
+    outputs:
+      notebooks: ${{ steps.notebooks.outputs.notebooks }}
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: Find all notebooks
+      id: notebooks
+      run: |
+        echo "[]" > notebook_list.json
+        find notebooks/ -type f -name "*.ipynb" 2>/dev/null | while IFS= read -r notebook; do
+          jq --arg nb "$notebook" '. += [$nb]' notebook_list.json > tmp.json && mv tmp.json notebook_list.json
+        done
+        NOTEBOOKS=$(jq -c . notebook_list.json)
+        if [ -z "$NOTEBOOKS" ] || [ "$NOTEBOOKS" = '[]' ]; then
+          echo "No notebooks found in notebooks/ directory"
+          NOTEBOOKS='[]'
+        fi
+        echo "notebooks=$NOTEBOOKS" >> $GITHUB_OUTPUT
+        echo "Found notebooks: $NOTEBOOKS"
+    - name: Debug output
+      run: |
+        echo "Notebooks output: ${{ steps.notebooks.outputs.notebooks }}"
+
+  test-notebook:
+    needs: find-notebooks
+    if: needs.find-notebooks.outputs.notebooks != '' && needs.find-notebooks.outputs.notebooks != '[]'
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        notebook: ${{ fromJson(needs.find-notebooks.outputs.notebooks) }}
+      fail-fast: false
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ inputs.python-version }}
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install jupyter nbconvert
+        notebook_dir=$(dirname "${{ matrix.notebook }}")
+        if [ -f "$notebook_dir/requirements.txt" ]; then
+          pip install -r "$notebook_dir/requirements.txt"
+        fi
+
+    - name: Execute notebook with resource monitoring
+      id: execute
+      continue-on-error: true
+      run: |
+        execute_with_monitoring() {
+          echo "Starting execution of ${{ matrix.notebook }}"
+          
+          timeout 3600 jupyter nbconvert --to notebook --execute "${{ matrix.notebook }}" \
+            --output executed_notebook.ipynb \
+            --ExecutePreprocessor.timeout=3000 --ExecutePreprocessor.allow_errors=false &
+          JUPYTER_PID=$!
+          
+          RESOURCE_EXCEEDED=false
+          while kill -0 $JUPYTER_PID 2>/dev/null; do
+            memory_usage=$(free -m | awk '/Mem:/ {print $3/$2 * 100.0}')
+            disk_usage=$(df / | tail -1 | awk '{print $5}' | sed 's/%//')
+            echo "Memory: ${memory_usage}% | Disk: ${disk_usage}%"
+            
+            if (( $(echo "$memory_usage > 90" | bc -l) )) || [ "$disk_usage" -gt 90 ]; then
+              echo "Resource usage exceeded 90%, terminating..."
+              kill -TERM $JUPYTER_PID
+              sleep 5
+              if kill -0 $JUPYTER_PID 2>/dev/null; then
+                echo "Process still running, forcing termination..."
+                kill -KILL $JUPYTER_PID
+              fi
+              wait $JUPYTER_PID || true
+              RESOURCE_EXCEEDED=true
+              break
+            fi
+            sleep 5
+          done
+          
+          if [ "$RESOURCE_EXCEEDED" = "false" ]; then
+            echo "Waiting for natural completion..."
+            wait $JUPYTER_PID
+            EXIT_CODE=$?
+            if [ $EXIT_CODE -ne 0 ]; then
+              echo "Notebook execution failed naturally (exit code: $EXIT_CODE)"
+            else
+              echo "Notebook completed successfully"
+            fi
+          else
+            echo "Resource failure detected for ${{ matrix.notebook }}"
+            echo "resource_exceeded=true" >> $GITHUB_ENV
+          fi
+          echo "Step completed for ${{ matrix.notebook }}"
+          return 0
+        }
+
+        trap 'if [ -n "$JUPYTER_PID" ] && kill -0 $JUPYTER_PID 2>/dev/null; then kill -TERM $JUPYTER_PID; sleep 2; kill -KILL $JUPYTER_PID 2>/dev/null || true; wait $JUPYTER_PID || true; fi' EXIT
+        
+        unset JUPYTER_PID
+        execute_with_monitoring
+
+    - name: Debug before trigger
+      if: env.resource_exceeded == 'true'
+      run: |
+        echo "Triggering retry for ${{ matrix.notebook }}"
+        echo "Repository: ${{ github.repository }}"
+        echo "Branch: ${{ github.ref_name }}"
+
+    - name: Trigger 16GB retry on resource failure
+      if: env.resource_exceeded == 'true'
+      uses: actions/github-script@v6
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}  # Default token works within same repo
+        script: |
+          await github.rest.actions.createWorkflowDispatch({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            workflow_id: 'retry-16gb.yml',
+            ref: 'main',
+            inputs: {
+              notebook: '${{ matrix.notebook }}',
+              python_version: '${{ inputs.python-version }}'
+            }
+          });
+      env:
+        resource_exceeded: ${{ env.resource_exceeded }}
+
+    - name: Debug outputs
+      if: always()
+      run: |
+        echo "Resource exceeded: ${{ env.resource_exceeded }}"
+        echo "Notebook: ${{ matrix.notebook }}"
