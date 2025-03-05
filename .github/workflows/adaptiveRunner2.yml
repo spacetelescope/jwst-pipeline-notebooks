@@ -1,8 +1,6 @@
 name: Resource Adaptive Jupyter Notebook Processing
 
 on:
-  push:
-    branches: [ main ]
   pull_request:
     branches: [ main ]
   workflow_dispatch:
