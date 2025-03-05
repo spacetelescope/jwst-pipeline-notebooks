@@ -36,7 +36,7 @@ jobs:
           NOTEBOOKS=$(find notebooks/ -type f -name "*.ipynb" | jq -R -s -c 'split("\n") | map(select(length > 0))')
           
           # Format as JSON matrix
-          MATRIX_JSON=$(echo "$NOTEBOOKS" | jq -c '.')
+          MATRIX_JSON=$(echo "$NOTEBOOKS" | jq -c '{args: .}')
           
           # Set output - escape newlines and quotes properly
           echo "matrix=$MATRIX_JSON" >> $GITHUB_OUTPUT
