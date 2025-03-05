@@ -1,0 +1,90 @@
+name: Retry 16GB
+
+on:
+  workflow_call:
+    inputs:
+      notebook:
+        description: 'Notebook to retry'
+        type: string
+        required: true
+      python-version:
+        description: 'Python version to use'
+        required: true
+        type: string
+  workflow_dispatch:
+    inputs:
+      notebook:
+        description: 'Notebook to retry'
+        required: true
+      python_version:
+        description: 'Python version to use'
+        required: true
+        type: string
+
+jobs:
+  retry-16gb:
+    runs-on: jwst-pipeline-notebooks-16gb
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ inputs.python_version }}
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install jupyter nbconvert
+        notebook_dir=$(dirname "${{ inputs.notebook }}")
+        if [ -f "$notebook_dir/requirements.txt" ]; then
+          pip install -r "$notebook_dir/requirements.txt"
+        fi
+
+    - name: Execute notebook with resource monitoring
+      id: execute
+      run: |
+        execute_with_monitoring() {
+          echo "Starting execution of ${{ inputs.notebook }} on 16GB runner"
+          jupyter nbconvert --to notebook --execute "${{ inputs.notebook }}" --output executed_notebook.ipynb \
+            --ExecutePreprocessor.timeout=600 --ExecutePreprocessor.allow_errors=false &
+          JUPYTER_PID=$!
+          
+          RESOURCE_EXCEEDED=false
+          while kill -0 $JUPYTER_PID 2>/dev/null; do
+            memory_usage=$(free -m | awk '/Mem:/ {print $3/$2 * 100.0}')
+            disk_usage=$(df / | tail -1 | awk '{print $5}' | sed 's/%//')
+            echo "Memory: ${memory_usage}% | Disk: ${disk_usage}%"
+            
+            if (( $(echo "$memory_usage > 90" | bc -l) )) || [ "$disk_usage" -gt 90 ]; then
+              echo "Resource usage exceeded 90%, terminating..."
+              kill -TERM $JUPYTER_PID
+              sleep 2
+              wait $JUPYTER_PID || true
+              RESOURCE_EXCEEDED=true
+              break
+            fi
+            sleep 5
+          done
+          
+          if [ "$RESOURCE_EXCEEDED" = "false" ]; then
+            echo "Waiting for natural completion..."
+            wait $JUPYTER_PID
+            EXIT_CODE=$?
+            if [ $EXIT_CODE -ne 0 ]; then
+              echo "Notebook execution failed naturally (exit code: $EXIT_CODE)"
+              exit $EXIT_CODE
+            else
+              echo "Notebook completed successfully"
+            fi
+          else
+            echo "Resource failure detected on 16GB for ${{ inputs.notebook }}"
+            exit 1
+          fi
+        }
+
+        trap 'if [ -n "$JUPYTER_PID" ] && kill -0 $JUPYTER_PID 2>/dev/null; then kill -TERM $JUPYTER_PID; sleep 2; kill -KILL $JUPYTER_PID 2>/dev/null || true; wait $JUPYTER_PID || true; fi' EXIT
+        
+        unset JUPYTER_PID
+        execute_with_monitoring
