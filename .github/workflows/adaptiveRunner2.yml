@@ -1,4 +1,4 @@
-dname: Resource Adaptive Jupyter Notebook Processing
+name: Resource Adaptive Jupyter Notebook Processing
 
 on:
   pull_request:
