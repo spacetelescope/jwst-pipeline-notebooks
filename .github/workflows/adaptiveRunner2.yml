@@ -36,7 +36,7 @@ jobs:
           NOTEBOOKS=$(find notebooks/ -type f -name "*.ipynb" | jq -R -s -c 'split("\n") | map(select(length > 0))')
           
           # Format as JSON matrix
-          MATRIX_JSON=$(echo "$NOTEBOOKS" | jq -c '{args: .}')
+          MATRIX_JSON=$(echo "$NOTEBOOKS" | jq -c '.')
           
           # Set output - escape newlines and quotes properly
           echo "matrix=$MATRIX_JSON" >> $GITHUB_OUTPUT
@@ -74,7 +74,6 @@ jobs:
 
       - name: Run Notebook with Resource Monitoring (Standard)
         id: standard-run
-        continue-on-error: true
         run: |
           # Create the monitoring script in this step
           cat << 'EOF' > monitor_resources.py
@@ -83,8 +82,9 @@ jobs:
           import sys
           import time
           import logging
+          import signal
 
-          def monitor_resources(threshold_mem, threshold_disk_mb, notebook_dir, interval=1):
+          def monitor_resources(threshold_mem, threshold_disk_mb, notebook_dir, pid, interval=1):
               # Set up logging
               logging.basicConfig(level=logging.INFO)
               
@@ -115,6 +115,11 @@ jobs:
                       # Check if resource thresholds are exceeded
                       if mem > threshold_mem or available_mb < threshold_disk_mb:
                           logging.error(f"Resource exceeded: Memory {mem:.1f}% > {threshold_mem}%, Disk {available_mb:.1f}MB < {threshold_disk_mb}MB")
+                          
+                          # Kill the nbconvert process (PID) if resource threshold exceeded
+                          os.kill(pid, signal.SIGTERM)
+                          logging.error(f"Terminating notebook process with PID {pid}")
+                          
                           sys.exit(1)
                       
                       # Sleep before next check
@@ -128,15 +133,16 @@ jobs:
               logging.info(f"Monitoring complete: Max Memory {max_mem:.1f}%, Min Disk Space {min_disk_mb:.1f}MB")
 
           def main():
-              if len(sys.argv) < 4:
-                  print("Usage: monitor_resources.py <threshold_mem> <threshold_disk_mb> <notebook_dir>")
+              if len(sys.argv) < 5:
+                  print("Usage: monitor_resources.py <threshold_mem> <threshold_disk_mb> <notebook_dir> <pid>")
                   sys.exit(1)
               
               threshold_mem = float(sys.argv[1])
               threshold_disk_mb = float(sys.argv[2])
               notebook_dir = sys.argv[3]
+              pid = int(sys.argv[4])
               
-              monitor_resources(threshold_mem, threshold_disk_mb, notebook_dir)
+              monitor_resources(threshold_mem, threshold_disk_mb, notebook_dir, pid)
 
           if __name__ == "__main__":
               main()
@@ -146,8 +152,8 @@ jobs:
           jupyter nbconvert --to notebook --execute "${{ matrix.args }}" &
           NOTEBOOK_PID=$!
           
-          # Start monitoring resources, passing notebook directory
-          python monitor_resources.py ${MEMORY_THRESHOLD} ${DISK_THRESHOLD_MB} "$(dirname "${{ matrix.args }}")"
+          # Start monitoring resources, passing notebook directory and PID
+          python monitor_resources.py ${MEMORY_THRESHOLD} ${DISK_THRESHOLD_MB} "$(dirname "${{ matrix.args }}")" $NOTEBOOK_PID
           
           # Wait for the notebook process to finish
           wait $NOTEBOOK_PID
@@ -161,7 +167,7 @@ jobs:
 
   process-notebooks-16gb-cleanup:
     needs: process-notebooks-standard
-    if: needs.process-notebooks-standard.outputs.outcome == 'failure'
+    if: needs.process-notebooks-standard.result == 'failure'  # This ensures cleanup runs only on failure
     strategy:
       matrix: ${{ fromJson(needs.discover-notebooks.outputs.matrix) }}
       fail-fast: false
@@ -180,7 +186,7 @@ jobs:
 
   process-notebooks-16gb:
     needs: [discover-notebooks, process-notebooks-standard, process-notebooks-16gb-cleanup]
-    if: needs.process-notebooks-standard.outputs.outcome == 'failure'
+    if: needs.process-notebooks-standard.result == 'failure'
     strategy:
       matrix: ${{ fromJson(needs.discover-notebooks.outputs.matrix) }}
       fail-fast: false
