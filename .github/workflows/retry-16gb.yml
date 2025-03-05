@@ -13,7 +13,8 @@ on:
 
 jobs:
   retry-16gb:
-    runs-on: jwst-pipeline-notebooks-16gb
+    runs-on: 
+      group: jwst-pipeline-notebooks-16gb
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
