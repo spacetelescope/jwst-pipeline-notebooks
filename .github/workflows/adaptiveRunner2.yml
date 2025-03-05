@@ -48,7 +48,7 @@ jobs:
       fail-fast: false
     runs-on: ubuntu-latest
     outputs:
-      outcome: ${{ steps.standard-run.outcome }}
+      failed_notebooks: ${{ steps.standard-run.outputs.failed_notebooks }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -74,7 +74,6 @@ jobs:
 
       - name: Run Notebook with Resource Monitoring (Standard)
         id: standard-run
-        continue-on-error: true
         run: |
           # Create the monitoring script in this step
           cat << 'EOF' > monitor_resources.py
@@ -160,37 +159,25 @@ jobs:
           wait $NOTEBOOK_PID
           NOTEBOOK_EXIT_CODE=$?
           
-          # Handle the outcome
+          # If the notebook failed due to resources, mark it as a failure
           if [ $NOTEBOOK_EXIT_CODE -ne 0 ]; then
             echo "Notebook execution failed with exit code $NOTEBOOK_EXIT_CODE"
+            echo "${{ matrix.args }}" >> failed_notebooks.txt
             exit 1
           fi
-
-  process-notebooks-16gb-cleanup:
-    needs: process-notebooks-standard
-    if: needs.process-notebooks-standard.result == 'failure'  # This ensures cleanup runs only on failure
-    strategy:
-      matrix: ${{ fromJson(needs.discover-notebooks.outputs.matrix) }}
-      fail-fast: false
-    runs-on: ubuntu-latest
-    steps:
-      - name: Determine notebook directory
-        id: get-dir
-        run: |
-          NOTEBOOK_DIR=$(dirname "${{ matrix.args }}")
-          echo "notebook_dir=$NOTEBOOK_DIR" >> $GITHUB_OUTPUT
-      - name: Clean notebook directory
-        run: |
-          rm -rf "${{ steps.get-dir.outputs.notebook_dir }}"/*
-      - name: Re-checkout repository
-        uses: actions/checkout@v3
+          
+          # If execution was successful, output no failed notebooks
+          echo "No notebooks failed" >> failed_notebooks.txt
+          
+          # Set the output for failed notebooks
+          echo "failed_notebooks=$(cat failed_notebooks.txt)" >> $GITHUB_OUTPUT
 
   process-notebooks-16gb:
-    needs: [discover-notebooks, process-notebooks-standard, process-notebooks-16gb-cleanup]
-    if: needs.process-notebooks-standard.result == 'failure'
+    needs: process-notebooks-standard
+    if: needs.process-notebooks-standard.outputs.failed_notebooks != ''  # This ensures only failed notebooks trigger the next job
     strategy:
-      matrix: ${{ fromJson(needs.discover-notebooks.outputs.matrix) }}
-      fail-fast: false
+      matrix:
+        args: ${{ fromJson(needs.process-notebooks-standard.outputs.failed_notebooks) }}
     runs-on: 
       group: jwst-pipeline-notebooks-16gb
     outputs:
@@ -240,31 +227,12 @@ jobs:
             exit 1
           fi
 
-  process-notebooks-32gb-cleanup:
-    needs: process-notebooks-16gb
-    if: needs.process-notebooks-16gb.outputs.outcome == 'failure'
-    strategy:
-      matrix: ${{ fromJson(needs.discover-notebooks.outputs.matrix) }}
-      fail-fast: false
-    runs-on: ubuntu-latest
-    steps:
-      - name: Determine notebook directory
-        id: get-dir
-        run: |
-          NOTEBOOK_DIR=$(dirname "${{ matrix.args }}")
-          echo "notebook_dir=$NOTEBOOK_DIR" >> $GITHUB_OUTPUT
-      - name: Clean notebook directory
-        run: |
-          rm -rf "${{ steps.get-dir.outputs.notebook_dir }}"/*
-      - name: Re-checkout repository
-        uses: actions/checkout@v3
-
   process-notebooks-32gb:
-    needs: [discover-notebooks, process-notebooks-16gb, process-notebooks-32gb-cleanup]
+    needs: [process-notebooks-standard, process-notebooks-16gb]
     if: needs.process-notebooks-16gb.outputs.outcome == 'failure'
     strategy:
-      matrix: ${{ fromJson(needs.discover-notebooks.outputs.matrix) }}
-      fail-fast: false
+      matrix:
+        args: ${{ fromJson(needs.process-notebooks-16gb.outputs.failed_notebooks) }}
     runs-on: 
       group: jwst-pipeline-notebooks-32gb
     outputs:
