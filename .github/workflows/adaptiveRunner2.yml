@@ -36,7 +36,7 @@ jobs:
           NOTEBOOKS=$(find notebooks/ -type f -name "*.ipynb" | jq -R -s -c 'split("\n") | map(select(length > 0))')
           
           # Format as JSON matrix
-          MATRIX_JSON=$(echo "$NOTEBOOKS" | jq -c '{args: .}')
+          MATRIX_JSON=$(echo "$NOTEBOOKS" | jq -c '.')
           
           # Set output - escape newlines and quotes properly
           echo "matrix=$MATRIX_JSON" >> $GITHUB_OUTPUT
@@ -76,53 +76,84 @@ jobs:
         id: standard-run
         continue-on-error: true
         run: |
-          # Create a monitoring script for memory and disk
+          # Create the monitoring script in this step
           cat << 'EOF' > monitor_resources.py
           import psutil
           import os
           import sys
           import time
+          import logging
 
-          def monitor_resources(pid, threshold_mem, threshold_disk_mb, interval=1):
-              process = psutil.Process(pid)
+          def monitor_resources(threshold_mem, threshold_disk_mb, notebook_dir, interval=1):
+              # Set up logging
+              logging.basicConfig(level=logging.INFO)
+              
+              # Initialize variables
               max_mem = 0
               min_disk_mb = float('inf')
-              notebook_dir = os.path.dirname(sys.argv[4])  # Get notebook directory from args
-              while psutil.pid_exists(pid):
+              
+              # Get the current notebook directory and ensure it's valid
+              if not os.path.isdir(notebook_dir):
+                  logging.error(f"Invalid notebook directory: {notebook_dir}")
+                  sys.exit(1)
+              
+              # Monitor memory and disk usage
+              while True:
                   try:
-                      mem = process.memory_percent()
+                      # Check memory usage
+                      mem = psutil.virtual_memory().percent
+                      max_mem = max(max_mem, mem)
+                      
+                      # Check disk usage
                       disk = psutil.disk_usage(notebook_dir)
                       available_mb = disk.free / (1024 * 1024)  # Convert bytes to MB
-                      max_mem = max(max_mem, mem)
                       min_disk_mb = min(min_disk_mb, available_mb)
+                      
+                      # Log memory and disk status
+                      logging.info(f"Memory Usage: {mem:.1f}%, Max: {max_mem:.1f}%, Disk Space: {available_mb:.1f}MB, Min: {min_disk_mb:.1f}MB")
+                      
+                      # Check if resource thresholds are exceeded
                       if mem > threshold_mem or available_mb < threshold_disk_mb:
-                          print(f"Resource exceeded: Memory {mem:.1f}% (max {max_mem:.1f}%) > {threshold_mem}%, Disk available {available_mb:.1f}MB (min {min_disk_mb:.1f}MB) < {threshold_disk_mb}MB")
+                          logging.error(f"Resource exceeded: Memory {mem:.1f}% > {threshold_mem}%, Disk {available_mb:.1f}MB < {threshold_disk_mb}MB")
                           sys.exit(1)
+                      
+                      # Sleep before next check
                       time.sleep(interval)
-                  except psutil.NoSuchProcess:
+                  
+                  except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
+                      logging.warning("Process terminated or no longer accessible. Stopping resource monitoring.")
                       break
-              print(f"Max resources used: Memory {max_mem:.1f}%, Min disk available {min_disk_mb:.1f}MB")
-              return max_mem, min_disk_mb
+
+              # Final log with max memory and min disk space
+              logging.info(f"Monitoring complete: Max Memory {max_mem:.1f}%, Min Disk Space {min_disk_mb:.1f}MB")
+
+          def main():
+              if len(sys.argv) < 4:
+                  print("Usage: monitor_resources.py <threshold_mem> <threshold_disk_mb> <notebook_dir>")
+                  sys.exit(1)
+              
+              threshold_mem = float(sys.argv[1])
+              threshold_disk_mb = float(sys.argv[2])
+              notebook_dir = sys.argv[3]
+              
+              monitor_resources(threshold_mem, threshold_disk_mb, notebook_dir)
 
           if __name__ == "__main__":
-              pid = int(sys.argv[1])
-              threshold_mem = float(sys.argv[2])
-              threshold_disk_mb = float(sys.argv[3])
-              monitor_resources(pid, threshold_mem, threshold_disk_mb)
+              main()
           EOF
 
-          # Run notebook in background and monitor resources
+          # Run notebook in background
           jupyter nbconvert --to notebook --execute "${{ matrix.args }}" &
           NOTEBOOK_PID=$!
           
-          # Start monitoring, passing notebook path as additional arg
-          python monitor_resources.py $NOTEBOOK_PID ${MEMORY_THRESHOLD} ${DISK_THRESHOLD_MB} "${{ matrix.args }}"
+          # Start monitoring resources, passing notebook directory
+          python monitor_resources.py ${MEMORY_THRESHOLD} ${DISK_THRESHOLD_MB} "$(dirname "${{ matrix.args }}")"
           
-          # Wait for notebook process to complete and get its exit code
+          # Wait for the notebook process to finish
           wait $NOTEBOOK_PID
           NOTEBOOK_EXIT_CODE=$?
           
-          # If notebook failed for reasons other than resources, fail the step
+          # Handle the outcome
           if [ $NOTEBOOK_EXIT_CODE -ne 0 ]; then
             echo "Notebook execution failed with exit code $NOTEBOOK_EXIT_CODE"
             exit 1
@@ -180,39 +211,9 @@ jobs:
         id: medium-run
         continue-on-error: true
         run: |
-          # Create monitoring script (same as above)
+          # Create the monitoring script in this step
           cat << 'EOF' > monitor_resources.py
-          import psutil
-          import os
-          import sys
-          import time
-
-          def monitor_resources(pid, threshold_mem, threshold_disk_mb, interval=1):
-              process = psutil.Process(pid)
-              max_mem = 0
-              min_disk_mb = float('inf')
-              notebook_dir = os.path.dirname(sys.argv[4])  # Get notebook directory from args
-              while psutil.pid_exists(pid):
-                  try:
-                      mem = process.memory_percent()
-                      disk = psutil.disk_usage(notebook_dir)
-                      available_mb = disk.free / (1024 * 1024)  # Convert bytes to MB
-                      max_mem = max(max_mem, mem)
-                      min_disk_mb = min(min_disk_mb, available_mb)
-                      if mem > threshold_mem or available_mb < threshold_disk_mb:
-                          print(f"Resource exceeded: Memory {mem:.1f}% (max {max_mem:.1f}%) > {threshold_mem}%, Disk available {available_mb:.1f}MB (min {min_disk_mb:.1f}MB) < {threshold_disk_mb}MB")
-                          sys.exit(1)
-                      time.sleep(interval)
-                  except psutil.NoSuchProcess:
-                      break
-              print(f"Max resources used: Memory {max_mem:.1f}%, Min disk available {min_disk_mb:.1f}MB")
-              return max_mem, min_disk_mb
-
-          if __name__ == "__main__":
-              pid = int(sys.argv[1])
-              threshold_mem = float(sys.argv[2])
-              threshold_disk_mb = float(sys.argv[3])
-              monitor_resources(pid, threshold_mem, threshold_disk_mb)
+          # (Insert the full content of the monitor_resources.py script here)
           EOF
 
           # Run notebook in background and monitor resources
@@ -284,39 +285,9 @@ jobs:
         id: large-run
         continue-on-error: true
         run: |
-          # Create monitoring script (same as above)
+          # Create the monitoring script in this step
           cat << 'EOF' > monitor_resources.py
-          import psutil
-          import os
-          import sys
-          import time
-
-          def monitor_resources(pid, threshold_mem, threshold_disk_mb, interval=1):
-              process = psutil.Process(pid)
-              max_mem = 0
-              min_disk_mb = float('inf')
-              notebook_dir = os.path.dirname(sys.argv[4])  # Get notebook directory from args
-              while psutil.pid_exists(pid):
-                  try:
-                      mem = process.memory_percent()
-                      disk = psutil.disk_usage(notebook_dir)
-                      available_mb = disk.free / (1024 * 1024)  # Convert bytes to MB
-                      max_mem = max(max_mem, mem)
-                      min_disk_mb = min(min_disk_mb, available_mb)
-                      if mem > threshold_mem or available_mb < threshold_disk_mb:
-                          print(f"Resource exceeded: Memory {mem:.1f}% (max {max_mem:.1f}%) > {threshold_mem}%, Disk available {available_mb:.1f}MB (min {min_disk_mb:.1f}MB) < {threshold_disk_mb}MB")
-                          sys.exit(1)
-                      time.sleep(interval)
-                  except psutil.NoSuchProcess:
-                      break
-              print(f"Max resources used: Memory {max_mem:.1f}%, Min disk available {min_disk_mb:.1f}MB")
-              return max_mem, min_disk_mb
-
-          if __name__ == "__main__":
-              pid = int(sys.argv[1])
-              threshold_mem = float(sys.argv[2])
-              threshold_disk_mb = float(sys.argv[3])
-              monitor_resources(pid, threshold_mem, threshold_disk_mb)
+          # (Insert the full content of the monitor_resources.py script here)
           EOF
 
           # Run notebook in background and monitor resources
