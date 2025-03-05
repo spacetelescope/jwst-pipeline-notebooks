@@ -74,6 +74,7 @@ jobs:
 
       - name: Run Notebook with Resource Monitoring (Standard)
         id: standard-run
+        continue-on-error: true
         run: |
           # Create the monitoring script in this step
           cat << 'EOF' > monitor_resources.py
