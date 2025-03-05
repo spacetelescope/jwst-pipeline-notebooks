@@ -1,4 +1,4 @@
-name: Resource Adaptive Jupyter Notebook Processing
+dname: Resource Adaptive Jupyter Notebook Processing
 
 on:
   pull_request:
@@ -56,7 +56,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
-          python-version: ${{ github.event.inputs.python-version || '3.x' }}
+          python-version: '3.11'
 
       - name: Install Jupyter and Monitoring Tools
         run: |
@@ -163,7 +163,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
-          python-version: ${{ github.event.inputs.python-version || '3.x' }}
+          python-version: '3.11'
       - name: Install Jupyter and Monitoring Tools
         run: |
           pip install jupyter nbconvert psutil
@@ -267,7 +267,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
-          python-version: ${{ github.event.inputs.python-version || '3.x' }}
+          python-version: '3.11'
       - name: Install Jupyter and Monitoring Tools
         run: |
           pip install jupyter nbconvert psutil
