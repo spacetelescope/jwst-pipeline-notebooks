@@ -58,6 +58,6 @@ authors:
   orcid: "https://orcid.org/0000-0002-6091-7924"
 title: "JWST Pipeline Notebooks"
 version: 11.0
-doi: 
+license: "BSD-3-Clause"
 date-released: 2025-01-23
 url: "https://github.com/spacetelescope/jwst-pipeline-notebooks"
