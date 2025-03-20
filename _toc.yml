@@ -3,7 +3,10 @@
 format: jb-book
 root: intro
 parts:
- - caption: MIRI Imaging
+ - caption: MIRI Coronagraphy
+   chapters:
+   - file: notebooks/MIRI/Coronagraphy/JWPipeNB-MIRI-Coron.ipynb
+- caption: MIRI Imaging
    chapters:
    - file: notebooks/MIRI/Imaging/JWPipeNB-MIRI-imaging.ipynb
  - caption: MIRI Imaging TSO
@@ -18,7 +21,10 @@ parts:
  - caption: MIRI MRS
    chapters:
    - file: notebooks/MIRI/MRS/JWPipeNB-MIRI-MRS.ipynb
- - caption: NIRCAM Imaging
+ - caption: NIRCAM Coronagraphy
+   chapters:
+    - file: notebooks/NIRCAM/Coronagraphy/JWPipeNB-nircam-coronagraphy.ipynb
+- caption: NIRCAM Imaging
    chapters:
     - file: notebooks/NIRCAM/Imaging/JWPipeNB-nircam-imaging.ipynb
  - caption: NIRISS
