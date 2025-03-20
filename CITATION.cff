@@ -65,5 +65,5 @@ authors:
 title: "JWST Pipeline Notebooks"
 version: 11.0
 license: "BSD-3-Clause"
-date-released: 2025-01-23
+date-released: 2025-03-20
 url: "https://github.com/spacetelescope/jwst-pipeline-notebooks"
