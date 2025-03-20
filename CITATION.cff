@@ -63,7 +63,7 @@ authors:
   given-names: "Peter"
   orcid: "https://orcid.org/0000-0002-6091-7924"
 title: "JWST Pipeline Notebooks"
-version: 11.0
+version: 1.0.0
 license: "BSD-3-Clause"
 date-released: 2025-03-20
 url: "https://github.com/spacetelescope/jwst-pipeline-notebooks"
