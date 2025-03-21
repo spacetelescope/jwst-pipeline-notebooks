@@ -1,0 +1,21 @@
+# ci_config.txt
+#
+# This file is used to specify custom runner sizes for specific Jupyter notebooks.
+# Each line defines a notebook and its associated runner size, with the format:
+# notebookName.ipynb:runnerSize
+# 
+# For example, to set a 16GB runner for notebook1.ipynb, add the following line:
+# notebook1.ipynb:16gb-ubuntu
+# 
+# The runner size can be any valid GitHub runner size like 'ubuntu-latest', 'jwst-pipeline-notebooks-16gb', 'jwst-pipeline-notebooks-32gb'.
+# If a notebook does not have a specified runner size, the default will be 'ubuntu-latest'.
+#
+# Add each notebook to this file with its desired runner size below:
+
+notebooks/MIRI/MRS/JWPipeNB-MIRI-MRS.ipynb:jwst-pipeline-notebooks-16gb
+notebooks/NIRISS/Imaging/JWPipeNB-niriss-imaging.ipynb:jwst-pipeline-notebooks-16gb
+notebooks/NIRSPEC/BOTS/JWPipeNB-NIRSpec-BOTS.ipynb:jwst-pipeline-notebooks-32gb
+notebooks/MIRI/LRS-slit/JWPipeNB-MIRI-LRS-slit.ipynb:jwst-pipeline-notebooks-32gb
+notebooks/MIRI/Imaging-TSO/JWPipeNB-MIRI-imaging-TSO.ipynb:jwst-pipeline-notebooks-16gb
+  
+# Add more entries as needed...
