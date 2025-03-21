@@ -2,6 +2,8 @@
 
 # JWST Pipeline Notebooks
 
+[![DOI](https://zenodo.org/badge/782173509.svg)](https://doi.org/10.5281/zenodo.15060584)
+
 > [!IMPORTANT]
 > JWST requires a C compiler for dependencies and is currently limited to Python 3.10, 3.11, or 3.12.
 
@@ -58,6 +60,10 @@ Next, move into the directory of the notebook you want to install and set up the
     jupyter notebook
 
 We recommend setting up a new environment for each notebook to ensure that there are no conflicting dependencies.
+
+## Citation
+
+If you use these notebooks in your work, please cite this repository using https://doi.org/10.5281/zenodo.15060584
 
 ## Help
 
