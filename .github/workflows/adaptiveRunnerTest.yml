@@ -4,7 +4,7 @@ on:
 
 jobs:
   ExecuteNotebooks:
-   uses: spacetelescope/notebook-ci-actions/.github/workflows/ci_runner.yml@jwst-pipeline-dev
+   uses: spacetelescope/notebook-ci-actions/.github/workflows/ci_scheduled.yml@jwst-pipeline-dev
    with:
       python-version: ${{ vars.PYTHON_VERSION || '3.11' }}
    permissions:
