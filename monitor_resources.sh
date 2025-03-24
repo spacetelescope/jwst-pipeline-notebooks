@@ -16,6 +16,6 @@ while true; do
   # Echo the percentages with a timestamp
   echo "$(date '+%Y-%m-%d %H:%M:%S') - Disk: ${DISK_USAGE}% | Memory: ${MEM_USAGE}% | CPU: ${CPU_USAGE}%"
   
-  # Wait 15 seconds
-  sleep 15
+  # Wait 5 seconds
+  sleep 5
 done
