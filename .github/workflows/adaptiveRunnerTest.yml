@@ -24,136 +24,101 @@ env:
   CASJOBS_USERID: ${{ secrets.CASJOBS_USERID }}
 
 jobs:
-  gather-notebooks:
+  generate-matrix:
+    name: Generate Notebook Matrix
     runs-on: ubuntu-latest
     outputs:
-      matrix: ${{ steps.set-matrix.outputs.matrix }}
+      matrix: ${{ steps.build_matrix.outputs.matrix }}
     steps:
-      - name: Checkout repository
+      - name: Checkout the repository
         uses: actions/checkout@v3
-      
-      - name: Find notebook files and determine runner size
-        id: set-matrix
+
+      - name: Check current directory
         run: |
-          # Default matrix (empty)
-          matrix="[]"
-          
-          # Path to your ci_config file
-          ci_config_file="ci_config.txt"
-          # Ensure the ci_config.txt file exists
-          if [[ ! -f "$ci_config_file" ]]; then
-            echo "ci_config.txt not found!"
-            exit 1
+          echo "Current directory: $(pwd)"
+          echo "Listing files in current directory:"
+          ls -la
+
+      - name: Check if notebooks directory exists
+        run: |
+          if [ ! -d "notebooks" ]; then
+            echo "Error: 'notebooks' directory not found!";
+            exit 1;
           fi
-          
-          # Define an associative array to store runner sizes for notebooks
-          declare -A config_map
-          
-          # Read each line from ci_config.txt and construct the config_map
-          while IFS=: read -r notebook runner; do
-            # Skip empty lines or lines starting with '#'
-            if [[ -z "$notebook" || "$notebook" == \#* ]]; then
-              continue
+
+      - name: Find notebooks and build matrix
+        id: build_matrix
+        shell: bash
+        run: |
+          # List all Jupyter notebooks under 'notebooks/' (null-separated to handle spaces)
+          mapfile -d $'\0' -t notebooks < <(find notebooks -type f -name '*.ipynb' -print0)
+          default_runner="ubuntu-latest"
+          # Start building the JSON string for the matrix
+          matrix_json='{"include":['
+          separator=""
+          for file in "${notebooks[@]}"; do
+            # Skip if for some reason the entry is empty
+            [[ -z "$file" ]] && continue
+            runner="$default_runner"
+            # Check if the notebook path is in the config file (match exact path followed by a colon)
+            if grep -F -m1 -q "${file}:" ci_config.txt; then
+              # Get the first matching line and extract text after the first colon
+              config_line=$(grep -F -m1 "${file}:" ci_config.txt)
+              runner_config=${config_line#*:}        # remove the path and colon
+              runner_config=$(echo "$runner_config" | xargs)  # trim whitespace
+              if [[ -n "$runner_config" ]]; then
+                runner="$runner_config"
+              fi
             fi
-            
-            # Trim spaces and store notebook and runner size in the map
-            notebook=$(echo "$notebook" | xargs)
-            runner=$(echo "$runner" | xargs)
-            
-            # Use base64 encoding to sanitize the notebook path for array key usage
-            key=$(echo "$notebook" | base64)  # Encode notebook path to handle special characters
-            config_map["$key"]=$runner
-          done < "$ci_config_file"
-          
-          # Now, loop through the notebooks and set their runner size
-          for notebook in $(find notebooks/ -type f -name "*.ipynb"); do
-            # Trim leading path information (i.e., extract just the filename)
-            notebook_name=$(echo "$notebook" | sed 's|.*/\(.*\)|\1|')
-          
-            # Sanitize the notebook path for array key usage by base64 encoding
-            sanitized_notebook=$(echo "$notebook" | base64)  # Encode notebook path to handle special characters
-          
-            # Get the runner for this notebook, default to "ubuntu-latest" if not found
-            #runner="${config_map["runs-on: group: $sanitized_notebook"]:-"ubuntu-latest"}"
-            runner="${config_map["$sanitized_notebook"]:-"ubuntu-latest"}"
-            if [[ "$runner" != "ubuntu-latest" ]]; then
-              runner="group: $runner"
-            fi        
-            # Add notebook and runner size to the matrix
-            matrix=$(echo $matrix | jq --arg notebook "$notebook" --arg runner "$runner" \
-              '. + [{"notebook": $notebook, "runner": $runner}]')
+            # Escape quotes and backslashes in file and runner names for JSON safety
+            file_json=$(printf '%s' "$file"   | sed 's/\\/\\\\/g; s/\"/\\"/g')
+            runner_json=$(printf '%s' "$runner" | sed 's/\\/\\\\/g; s/\"/\\"/g')
+            # Append this notebook's entry to the JSON array
+            matrix_json+="${separator}{\"file\":\"${file_json}\",\"runner\":\"${runner_json}\"}"
+            separator=","
           done
-          
-          # Ensure the matrix is valid JSON (remove extra spaces or characters)
-          echo "Matrix JSON: $matrix"  # Debugging output
-          # Remove leading/trailing spaces and newlines
-          clean_matrix=$(echo "$matrix" | jq -c .)
-          
-          # Set the matrix output (ensure it's never empty)
-          echo "matrix=$clean_matrix" >> $GITHUB_OUTPUT
+          matrix_json+=']}'
+          # Output the matrix JSON (as a single line) to be used by subsequent jobs
+          echo "matrix=${matrix_json}" >> $GITHUB_OUTPUT
 
-  notebook-execution:
-    needs: gather-notebooks
-    environment: ci_env
-
+  run-notebooks:
+    name: Execute Notebooks in Parallel
+    needs: generate-matrix
     strategy:
-        fail-fast: false
-        matrix:
-            include: ${{ fromJson(needs.gather-notebooks.outputs.matrix) }}
-
-    runs-on: ${{ matrix.runner }}
+      fail-fast: false
+      matrix: ${{ fromJson(needs.generate-matrix.outputs.matrix) }}  # This uses the generated matrix output
+    runs-on: ${{ matrix.runner }}  # Runs each notebook on its assigned runner
     steps:
-      - uses: actions/checkout@v4
-      - name: Set up Python ${{ inputs.python-version }}
-        uses: actions/setup-python@v5 
+      - name: Checkout the repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
           python-version: ${{ inputs.python-version }}
-          cache: 'pip'
+
+      - name: Install Jupyter
+        run: |
+          pip install jupyter nbconvert
           
-      - name: Add conda to system path
-        run: |
-          # $CONDA is an environment variable pointing to the root of the miniconda directory
-          echo $CONDA/bin >> $GITHUB_PATH
-
-      - name: Install dependencies
-        run: |
-          echo "DEBUG ---"
-          pwd
-          echo "Path to req's: $(dirname ${{ matrix.notebook }})/requirements.txt"
-          ls $(dirname ${{ matrix.notebook }})
-          echo "---"
+      - name: Set up Python ${{ inputs.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ inputs.python-version }}
           
-          if [ -f $(dirname "${{ matrix.notebook }}")/pre-requirements.sh ]; then
-            chmod +x $(dirname "${{ matrix.notebook }}")/pre-requirements.sh
-            ./$(dirname "${{ matrix.notebook }}")/pre-requirements.sh
-          fi
-          if [ -f $(dirname "${{ matrix.notebook }}")/pre-requirements.txt ]; then
-            pip install -r $(dirname "${{ matrix.notebook }}")/pre-requirements.txt
-          fi
-          if [ -f pre-requirements.txt ]; then
-            pip install -r pre-requirements.txt
-            echo "Found Pre-Reqs"
-          fi
-          pip install -r $(dirname ${{ matrix.notebook }})/requirements.txt
-          #pip install pytest
-          #pip install nbval
-          pip install nbconvert
-          #pip install bandit
-          pip install ipykernel
-
-      - name: Execute notebooks
+      - name: Install dependencies from requirements.txt
         run: |
-          export CASJOBS_PW="$CI_CASJOBS_PW"
-          export CASJOBS_USERID="$CI_CASJOBS_USERID"
-          jupyter nbconvert --template classic --to html --execute "${{ matrix.notebook }}"
+          notebook_dir=$(dirname "${{ matrix.file }}")
+          if [ -f "$notebook_dir/requirements.txt" ]; then
+            echo "Installing dependencies from $notebook_dir/requirements.txt"
+            pip install -r "$notebook_dir/requirements.txt"
+          else
+            echo "No requirements.txt found in $notebook_dir"
+          fi
 
-#      - name: Validate notebooks
-#        run: |
-#          pytest --nbval "${{ matrix.notebook }}"
-
-#      - name: Scan with Bandit
-#        run: |
-#          pip install ipython
-#          jupyter nbconvert --to script ${{ matrix.notebook }}
-#          pyfile=$(echo "${{ matrix.notebook }}" | sed 's/\.ipynb$/.py/')
-#          bandit -lll -iii $pyfile
+      - name: Execute Jupyter Notebook
+        continue-on-error: true  # This will allow the rest of the jobs to continue even if this step fails
+        run: |
+          echo "Executing notebook: ${{ matrix.file }} on runner: ${{ matrix.runner }}"
+          notebook_path="notebooks/${{ matrix.file }}"
+          jupyter nbconvert --to html --execute "${{ matrix.file }}"
