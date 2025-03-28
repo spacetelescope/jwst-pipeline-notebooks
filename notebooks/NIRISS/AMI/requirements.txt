@@ -1,8 +1,5 @@
-asdf
-astropy>=4.3.1
 astroquery
-crds
-jwst>=1.17.0
-numpy<2.0
+jwst==1.17.0
 stsynphot
 synphot
+jupyter
