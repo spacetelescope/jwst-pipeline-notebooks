@@ -1,0 +1,5 @@
+astroquery
+jwst==1.17.0
+stsynphot
+synphot
+jupyter
