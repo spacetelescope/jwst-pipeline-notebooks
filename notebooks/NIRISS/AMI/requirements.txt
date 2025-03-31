@@ -1,5 +1,3 @@
 astroquery
-jwst==1.17.0
-stsynphot
-synphot
+jwst==1.17.1
 jupyter
