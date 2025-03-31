@@ -2,6 +2,8 @@
 
 # JWST Pipeline Notebooks
 
+[![DOI](https://zenodo.org/badge/782173509.svg)](https://doi.org/10.5281/zenodo.15060584)
+
 > [!IMPORTANT]
 > JWST requires a C compiler for dependencies and is currently limited to Python 3.10, 3.11, or 3.12.
 
@@ -16,20 +18,21 @@ These notebooks are modular, allowing users to enable or disable different stage
 
 The following table summarizes the notebooks currently available and the JWST [pipeline versions](https://jwst-docs.stsci.edu/jwst-science-calibration-pipeline/jwst-operations-pipeline-build-information) that they have been tested with:
 
-| Instrument | Observing Mode | JWST Build | ``jwst`` version | Notes                                         |
+| Instrument | Observing Mode | JWST Build | ``jwst`` version | Notebook                                         |
 |------------|----------------|------------|--------------------------|-----------------------------------------------|
-| MIRI       | Imaging        | 11.2       | 1.17.1 | [JDox mode overview](https://jwst-docs.stsci.edu/jwst-mid-infrared-instrument/miri-observing-modes/miri-imaging)  |
-| MIRI       | Imaging TSO    | 11.2       | 1.17.1 | [JDox mode overview](https://jwst-docs.stsci.edu/jwst-mid-infrared-instrument/miri-observing-modes/miri-time-series-observations/miri-imaging-tsos)  |
-| MIRI       | LRS Slit       | 11.2       | 1.17.1 | [JDox mode overview](https://jwst-docs.stsci.edu/jwst-mid-infrared-instrument/miri-observing-modes/miri-low-resolution-spectroscopy)  |
-| MIRI       | LRS Slitless   | 11.2       | 1.17.1 | [JDox mode overview](https://jwst-docs.stsci.edu/jwst-mid-infrared-instrument/miri-observing-modes/miri-time-series-observations/miri-lrs-tsos)  |
-| MIRI       | MRS            | 11.2       | 1.17.1 | [JDox mode overview](https://jwst-docs.stsci.edu/jwst-mid-infrared-instrument/miri-observing-modes/miri-medium-resolution-spectroscopy)  |
-| NIRCam     | Coronagraphy   | 11.2       | 1.17.1 | [JDox mode overview](https://jwst-docs.stsci.edu/jwst-near-infrared-camera/nircam-observing-modes/nircam-coronagraphic-imaging)  |
-| NIRCam     | Imaging        | 11.2       | 1.17.1 | [JDox mode overview](https://jwst-docs.stsci.edu/jwst-near-infrared-camera/nircam-observing-modes/nircam-imaging)  |
-| NIRISS     | Imaging        | 11.2       | 1.17.1 | [JDox mode overview](https://jwst-docs.stsci.edu/jwst-near-infrared-imager-and-slitless-spectrograph/niriss-observing-modes/niriss-imaging)  |
-| NIRSpec    | BOTS           | 11.2       | 1.17.1 | [JDox mode overview](https://jwst-docs.stsci.edu/jwst-near-infrared-spectrograph/nirspec-observing-modes/nirspec-bright-object-time-series-spectroscopy)  |
-| NIRSpec    | Fixed Slit     | 11.2       | 1.17.1 | [JDox mode overview](https://jwst-docs.stsci.edu/jwst-near-infrared-spectrograph/nirspec-observing-modes/nirspec-fixed-slits-spectroscopy)  |
-| NIRSpec    | IFU            | 11.2       | 1.17.1 | [JDox mode overview](https://jwst-docs.stsci.edu/jwst-near-infrared-spectrograph/nirspec-observing-modes/nirspec-ifu-spectroscopy)  |
-| NIRSpec    | MOS            | 11.2       | 1.17.1 | [JDox mode overview](https://jwst-docs.stsci.edu/jwst-near-infrared-spectrograph/nirspec-observing-modes/nirspec-multi-object-spectroscopy)  |
+| MIRI       | Coronagraphy   | 11.2       | 1.17.1 | [JWPipeNB-MIRI-Coron.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/MIRI/Coronagraphy/JWPipeNB-MIRI-Coron.ipynb) |
+| MIRI       | Imaging        | 11.2       | 1.17.1 | [JWPipeNB-MIRI-imaging.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/MIRI/Imaging/JWPipeNB-MIRI-imaging.ipynb) |
+| MIRI       | Imaging TSO    | 11.2       | 1.17.1 | [JWPipeNB-MIRI-imaging-TSO.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/MIRI/Imaging-TSO/JWPipeNB-MIRI-imaging-TSO.ipynb)  |
+| MIRI       | LRS Slit       | 11.2       | 1.17.1 | [JWPipeNB-MIRI-LRS-slit.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/MIRI/LRS-slit/JWPipeNB-MIRI-LRS-slit.ipynb)  |
+| MIRI       | LRS Slitless   | 11.2       | 1.17.1 | [JWPipeNB-MIRI-LRS-slitless-TSO.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/MIRI/LRS-slitless-TSO/JWPipeNB-MIRI-LRS-slitless-TSO.ipynb)  |
+| MIRI       | MRS            | 11.2       | 1.17.1 | [JWPipeNB-MIRI-MRS.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/MIRI/MRS/JWPipeNB-MIRI-MRS.ipynb)  |
+| NIRCam     | Coronagraphy   | 11.2       | 1.17.1 | [JWPipeNB-nircam-coronagraphy.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRCAM/Coronagraphy/JWPipeNB-nircam-coronagraphy.ipynb)  |
+| NIRCam     | Imaging        | 11.2       | 1.17.1 | [JWPipeNB-nircam-imaging.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRCAM/Imaging/JWPipeNB-nircam-imaging.ipynb)  |
+| NIRISS     | Imaging        | 11.2       | 1.17.1 | [JWPipeNB-niriss-imaging.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRISS/Imaging/JWPipeNB-niriss-imaging.ipynb)  |
+| NIRSpec    | BOTS           | 11.2       | 1.17.1 | [JWPipeNB-NIRSpec-BOTS.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRSPEC/BOTS/JWPipeNB-NIRSpec-BOTS.ipynb)  |
+| NIRSpec    | Fixed Slit     | 11.2       | 1.17.1 | [JWPipeNB-NIRSpec-FS.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRSPEC/FSlit/JWPipeNB-NIRSpec-FS.ipynb)  |
+| NIRSpec    | IFU            | 11.2       | 1.17.1 | [JWPipeNB-NIRSpec-IFU.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRSPEC/IFU/JWPipeNB-NIRSpec-IFU.ipynb)  |
+| NIRSpec    | MOS            | 11.2       | 1.17.1 | [JWPipeNB-NIRSpec-MOS.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRSPEC/MOS/JWPipeNB-NIRSpec-MOS.ipynb)  |
 
 ## Reference Files
 
@@ -57,6 +60,10 @@ Next, move into the directory of the notebook you want to install and set up the
     jupyter notebook
 
 We recommend setting up a new environment for each notebook to ensure that there are no conflicting dependencies.
+
+## Citation
+
+If you use these notebooks in your work, please cite this repository using https://doi.org/10.5281/zenodo.15060584
 
 ## Help
 
