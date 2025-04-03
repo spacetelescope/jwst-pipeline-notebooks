@@ -1,7 +1,8 @@
 notebooks/MIRI/MRS/JWPipeNB-MIRI-MRS.ipynb:jwst-pipeline-notebooks-16gb
 notebooks/NIRISS/Imaging/JWPipeNB-niriss-imaging.ipynb:jwst-pipeline-notebooks-16gb
-notebooks/NIRSPEC/BOTS/JWPipeNB-NIRSpec-BOTS.ipynb:jwst-pipeline-notebooks-32gb
+notebooks/NIRSPEC/BOTS/JWPipeNB-NIRSpec-BOTS.ipynb:jwst-pipeline-notebooks-64gb
 notebooks/NIRSPEC/IFU/JWPipeNB-NIRSpec-IFU.ipynb:jwst-pipeline-notebooks-16gb
-notebooks/MIRI/LRS-slit/JWPipeNB-MIRI-LRS-slit.ipynb:jwst-pipeline-notebooks-32gb
-notebooks/MIRI/Imaging-TSO/JWPipeNB-MIRI-imaging-TSO.ipynb:jwst-pipeline-notebooks-32gb
-notebooks/MIRI/Coronagraphy/JWPipeNB-MIRI-Coron.ipynb:jwst-pipeline-notebooks-32gb
+notebooks/MIRI/LRS-slit/JWPipeNB-MIRI-LRS-slit.ipynb:jwst-pipeline-notebooks-64gb
+notebooks/MIRI/Imaging-TSO/JWPipeNB-MIRI-imaging-TSO.ipynb:jwst-pipeline-notebooks-64gb
+notebooks/MIRI/Coronagraphy/JWPipeNB-MIRI-Coron.ipynb:jwst-pipeline-notebooks-64gb
+notebooks/NIRCAM/Imaging/JWPipeNB-nircam-imaging.ipynb:jwst-pipeline-notebooks-16gb
