@@ -27,6 +27,8 @@ parts:
       title: NIRCam Imaging Notebook
   - caption: NIRISS
     chapters:
+    - file: notebooks/NIRISS/AMI/JWPipeNB-niriss-ami.ipynb
+      title: NIRISS AMI Notebook
     - file: notebooks/NIRISS/Imaging/JWPipeNB-niriss-imaging.ipynb
       title: NIRISS Imaging Notebook
   - caption: NIRSpec
