@@ -1,4 +1,4 @@
 astroquery
-jwst==1.17.1
+jwst==1.18.0
 matplotlib>=3.9.2
 jupyter
