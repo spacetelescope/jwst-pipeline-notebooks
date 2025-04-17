@@ -1,3 +1,4 @@
 astroquery>=0.4.8.dev9474
+jdaviz>=4.2.1
 jwst==1.17.1
 matplotlib>=3.9.2
