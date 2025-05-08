@@ -1,4 +1,4 @@
-astroquery
-jdaviz>=4.2.1
 jwst==1.18.0
-matplotlib
+astroquery>=0.4.8
+jupyter
+jdaviz>=4.2.1
