@@ -5,7 +5,7 @@
 [![DOI](https://zenodo.org/badge/782173509.svg)](https://doi.org/10.5281/zenodo.15060584)
 
 > [!IMPORTANT]
-> JWST requires a C compiler for dependencies and is currently limited to Python 3.10, 3.11, or 3.12.
+> JWST requires a C compiler for dependencies and is currently limited to Python 3.11, 3.12, or 3.13.
 
 > [!NOTE]
 > Linux and MacOS platforms are tested and supported.  Windows is not currently supported.
@@ -20,16 +20,16 @@ The following table summarizes the notebooks currently available and the JWST [p
 
 | Instrument | Observing Mode | JWST Build | ``jwst`` version | Notebook                                         |
 |------------|----------------|------------|--------------------------|-----------------------------------------------|
-| MIRI       | Coronagraphy   | 11.2       | 1.17.1 | [JWPipeNB-MIRI-Coron.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/MIRI/Coronagraphy/JWPipeNB-MIRI-Coron.ipynb) |
-| MIRI       | Imaging        | 11.2       | 1.17.1 | [JWPipeNB-MIRI-imaging.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/MIRI/Imaging/JWPipeNB-MIRI-imaging.ipynb) |
-| MIRI       | Imaging TSO    | 11.2       | 1.17.1 | [JWPipeNB-MIRI-imaging-TSO.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/MIRI/Imaging-TSO/JWPipeNB-MIRI-imaging-TSO.ipynb)  |
-| MIRI       | LRS Slit       | 11.2       | 1.17.1 | [JWPipeNB-MIRI-LRS-slit.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/MIRI/LRS-slit/JWPipeNB-MIRI-LRS-slit.ipynb)  |
-| MIRI       | LRS Slitless   | 11.2       | 1.17.1 | [JWPipeNB-MIRI-LRS-slitless-TSO.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/MIRI/LRS-slitless-TSO/JWPipeNB-MIRI-LRS-slitless-TSO.ipynb)  |
+| MIRI       | Coronagraphy   | 11.3       | 1.18.0 | [JWPipeNB-MIRI-Coron.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/MIRI/Coronagraphy/JWPipeNB-MIRI-Coron.ipynb) |
+| MIRI       | Imaging        | 11.3       | 1.18.0 | [JWPipeNB-MIRI-imaging.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/MIRI/Imaging/JWPipeNB-MIRI-imaging.ipynb) |
+| MIRI       | Imaging TSO    | 11.3       | 1.18.0 | [JWPipeNB-MIRI-imaging-TSO.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/MIRI/Imaging-TSO/JWPipeNB-MIRI-imaging-TSO.ipynb)  |
+| MIRI       | LRS Slit       | 11.3       | 1.18.0 | [JWPipeNB-MIRI-LRS-slit.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/MIRI/LRS-slit/JWPipeNB-MIRI-LRS-slit.ipynb)  |
+| MIRI       | LRS Slitless   | 11.3       | 1.18.0 | [JWPipeNB-MIRI-LRS-slitless-TSO.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/MIRI/LRS-slitless-TSO/JWPipeNB-MIRI-LRS-slitless-TSO.ipynb)  |
 | MIRI       | MRS            | 11.2       | 1.17.1 | [JWPipeNB-MIRI-MRS.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/MIRI/MRS/JWPipeNB-MIRI-MRS.ipynb)  |
-| NIRCam     | Coronagraphy   | 11.2       | 1.17.1 | [JWPipeNB-nircam-coronagraphy.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRCAM/Coronagraphy/JWPipeNB-nircam-coronagraphy.ipynb)  |
-| NIRCam     | Imaging        | 11.2       | 1.17.1 | [JWPipeNB-nircam-imaging.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRCAM/Imaging/JWPipeNB-nircam-imaging.ipynb)  |
+| NIRCam     | Coronagraphy   | 11.3       | 1.18.0 | [JWPipeNB-nircam-coronagraphy.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRCAM/Coronagraphy/JWPipeNB-nircam-coronagraphy.ipynb)  |
+| NIRCam     | Imaging        | 11.3       | 1.18.0 | [JWPipeNB-nircam-imaging.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRCAM/Imaging/JWPipeNB-nircam-imaging.ipynb)  |
 | NIRISS     | AMI            | 11.2       | 1.17.1 | [JWPipeNB-niriss-ami.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRISS/AMI/JWPipeNB-niriss-ami.ipynb)  |
-| NIRISS     | Imaging        | 11.2       | 1.17.1 | [JWPipeNB-niriss-imaging.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRISS/Imaging/JWPipeNB-niriss-imaging.ipynb)  |
+| NIRISS     | Imaging        | 11.3       | 1.18.0 | [JWPipeNB-niriss-imaging.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRISS/Imaging/JWPipeNB-niriss-imaging.ipynb)  |
 | NIRSpec    | BOTS           | 11.2       | 1.17.1 | [JWPipeNB-NIRSpec-BOTS.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRSPEC/BOTS/JWPipeNB-NIRSpec-BOTS.ipynb)  |
 | NIRSpec    | Fixed Slit     | 11.2       | 1.17.1 | [JWPipeNB-NIRSpec-FS.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRSPEC/FSlit/JWPipeNB-NIRSpec-FS.ipynb)  |
 | NIRSpec    | IFU            | 11.2       | 1.17.1 | [JWPipeNB-NIRSpec-IFU.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRSPEC/IFU/JWPipeNB-NIRSpec-IFU.ipynb)  |
