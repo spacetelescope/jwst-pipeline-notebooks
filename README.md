@@ -30,10 +30,10 @@ The following table summarizes the notebooks currently available and the JWST [p
 | NIRCam     | Imaging        | 11.3       | 1.18.0 | [JWPipeNB-nircam-imaging.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRCAM/Imaging/JWPipeNB-nircam-imaging.ipynb)  |
 | NIRISS     | AMI            | 11.3       | 1.18.0 | [JWPipeNB-niriss-ami.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRISS/AMI/JWPipeNB-niriss-ami.ipynb)  |
 | NIRISS     | Imaging        | 11.3       | 1.18.0 | [JWPipeNB-niriss-imaging.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRISS/Imaging/JWPipeNB-niriss-imaging.ipynb)  |
-| NIRSpec    | BOTS           | 11.2       | 1.17.1 | [JWPipeNB-NIRSpec-BOTS.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRSPEC/BOTS/JWPipeNB-NIRSpec-BOTS.ipynb)  |
-| NIRSpec    | Fixed Slit     | 11.2       | 1.17.1 | [JWPipeNB-NIRSpec-FS.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRSPEC/FSlit/JWPipeNB-NIRSpec-FS.ipynb)  |
-| NIRSpec    | IFU            | 11.2       | 1.17.1 | [JWPipeNB-NIRSpec-IFU.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRSPEC/IFU/JWPipeNB-NIRSpec-IFU.ipynb)  |
-| NIRSpec    | MOS            | 11.2       | 1.17.1 | [JWPipeNB-NIRSpec-MOS.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRSPEC/MOS/JWPipeNB-NIRSpec-MOS.ipynb)  |
+| NIRSpec    | BOTS           | 11.3       | 1.18.0 | [JWPipeNB-NIRSpec-BOTS.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRSPEC/BOTS/JWPipeNB-NIRSpec-BOTS.ipynb)  |
+| NIRSpec    | Fixed Slit     | 11.3       | 1.18.0 | [JWPipeNB-NIRSpec-FS.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRSPEC/FSlit/JWPipeNB-NIRSpec-FS.ipynb)  |
+| NIRSpec    | IFU            | 11.3       | 1.18.0 | [JWPipeNB-NIRSpec-IFU.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRSPEC/IFU/JWPipeNB-NIRSpec-IFU.ipynb)  |
+| NIRSpec    | MOS            | 11.3       | 1.18.0 | [JWPipeNB-NIRSpec-MOS.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRSPEC/MOS/JWPipeNB-NIRSpec-MOS.ipynb)  |
 
 ## Reference Files
 

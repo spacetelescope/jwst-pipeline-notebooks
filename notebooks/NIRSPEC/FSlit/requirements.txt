@@ -1,7 +1,5 @@
-astropy>=6.1.4
+jwst==1.18.0
 astroquery>=0.4.8
-jwst==1.17.1
+jupyter
+jdaviz>=4.2.1
 matplotlib>=3.9.2
-numpy==1.26.4
-requests>=2.32.3
-
