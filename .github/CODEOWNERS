@@ -12,7 +12,11 @@
 /notebooks/MIRI/LRS-slit/   @ianyuwong  @skendrew  @drlaw1558
 /notebooks/MIRI/LRS-slitless-TSO/   @ianyuwong  @skendrew  @drlaw1558
 /notebooks/MIRI/MRS/   @kilarson  @skendrew  @drlaw1558
+/notebooks/NIRISS/AMI/   @spacetelescope/niriss  @drlaw1558
 /notebooks/NIRISS/Imaging/   @spacetelescope/niriss  @drlaw1558
-/notebooks/NIRSPEC/Slit/   @spacetelescope/nirspec  @drlaw1558
-/notebooks/NIRCAM/Imaging/   @aliciacanipe  @bhilbert4  @bsunnquist  @drlaw1558
+/notebooks/NIRSPEC/BOTS/   @hayescr  @kglidic  @drlaw1558
+/notebooks/NIRSPEC/FSlit/   @hayescr  @kglidic  @drlaw1558
+/notebooks/NIRSPEC/IFU/   @hayescr  @kglidic  @drlaw1558
+/notebooks/NIRSPEC/MOS/   @hayescr  @kglidic  @drlaw1558
 /notebooks/NIRCAM/Coronagraphy/   @aliciacanipe  @bhilbert4  @bsunnquist  @drlaw1558
+/notebooks/NIRCAM/Imaging/   @aliciacanipe  @bhilbert4  @bsunnquist  @drlaw1558
