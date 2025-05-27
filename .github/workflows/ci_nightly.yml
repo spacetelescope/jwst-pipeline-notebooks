@@ -7,6 +7,6 @@ on:
 
 jobs:
   Scheduled:
-   uses: spacetelescope/notebook-ci-actions/.github/workflows/ci_scheduled.yml@dev
+   uses: spacetelescope/notebook-ci-actions/.github/workflows/ci_scheduled.yml@jwst_pipeline
    with:
       python-version: ${{ vars.PYTHON_VERSION }}
