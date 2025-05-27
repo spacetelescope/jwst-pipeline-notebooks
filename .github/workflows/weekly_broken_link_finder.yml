@@ -2,7 +2,9 @@ name: Weekly broken link check
 on:
   schedule:
     - cron: '0 4 * * 0' # 0400 UTC every Sunday
-
+on:
+  workflow_dispatch:
+  
 jobs:
   Scheduled:
    uses: spacetelescope/notebook-ci-actions/.github/workflows/broken_link_checker.yml@main
