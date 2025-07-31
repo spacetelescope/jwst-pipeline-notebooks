@@ -1,0 +1,6 @@
+notebooks/NIRSPEC/MOS/JWPipeNB-NIRSpec-MOS.ipynb:jwst-pipeline-notebooks-16gb
+notebooks/NIRSPEC/BOTS/JWPipeNB-NIRSpec-BOTS.ipynb:jwst-pipeline-notebooks-32gb
+notebooks/NIRSPEC/IFU/JWPipeNB-NIRSpec-IFU.ipynb:jwst-pipeline-notebooks-16gb
+notebooks/MIRI/LRS-slit/JWPipeNB-MIRI-LRS-slit.ipynb:jwst-pipeline-notebooks-32gb
+notebooks/MIRI/Imaging-TSO/JWPipeNB-MIRI-imaging-TSO.ipynb:jwst-pipeline-notebooks-32gb
+notebooks/MIRI/Coronagraphy/JWPipeNB-MIRI-Coron.ipynb:jwst-pipeline-notebooks-32gb

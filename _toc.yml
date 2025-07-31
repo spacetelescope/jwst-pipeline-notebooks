@@ -1,17 +1,43 @@
 # Table of contents
 # Learn more at https://jupyterbook.org/customize/toc.html
 format: jb-book
-root: intro
+root: README
+defaults:  # The defaults key will be applied to all chapters and sub-sections
+  titlesonly: True
 parts:
- - caption: MIRI Imaging
-   chapters:
-   - file: notebooks/MIRI/Imaging/JWPipeNB-MIRI-imaging.ipynb
- - caption: MIRI MRS
-   chapters:
-   - file: notebooks/MIRI/MRS/JWPipeNB-MIRI-MRS.ipynb
- - caption: NIRISS
-   chapters:
-   - file: notebooks/NIRISS/Imaging/JWPipeNB-niriss-imaging.ipynb
- - caption: NIRCAM Imaging
-   chapters:
-    - file: notebooks/NIRCAM/Imaging/JWPipeNB-nircam-imaging.ipynb 
+  - caption: MIRI
+    chapters:
+    - file: notebooks/MIRI/Coronagraphy/JWPipeNB-MIRI-Coron.ipynb
+      title: MIRI Coronagraphy Notebook
+    - file: notebooks/MIRI/Imaging/JWPipeNB-MIRI-imaging.ipynb
+      title: MIRI Imaging Notebook
+    - file: notebooks/MIRI/Imaging-TSO/JWPipeNB-MIRI-imaging-TSO.ipynb
+      title: MIRI Imaging TSO Notebook
+    - file: notebooks/MIRI/LRS-slit/JWPipeNB-MIRI-LRS-slit.ipynb
+      title: MIRI LRS Slit Notebook
+    - file: notebooks/MIRI/LRS-slitless-TSO/JWPipeNB-MIRI-LRS-slitless-TSO.ipynb
+      title: MIRI LRS Slitless TSO Notebook
+    - file: notebooks/MIRI/MRS/JWPipeNB-MIRI-MRS.ipynb
+      title: MIRI MRS Notebook
+  - caption: NIRCAM
+    chapters:
+    - file: notebooks/NIRCAM/Coronagraphy/JWPipeNB-nircam-coronagraphy.ipynb
+      title: NIRCam Coronagraphy Notebook
+    - file: notebooks/NIRCAM/Imaging/JWPipeNB-nircam-imaging.ipynb
+      title: NIRCam Imaging Notebook
+  - caption: NIRISS
+    chapters:
+    - file: notebooks/NIRISS/AMI/JWPipeNB-niriss-ami.ipynb
+      title: NIRISS AMI Notebook
+    - file: notebooks/NIRISS/Imaging/JWPipeNB-niriss-imaging.ipynb
+      title: NIRISS Imaging Notebook
+  - caption: NIRSpec
+    chapters:
+    - file: notebooks/NIRSPEC/BOTS/JWPipeNB-NIRSpec-BOTS.ipynb
+      title: NIRSpec BOTS Notebook
+    - file: notebooks/NIRSPEC/FSlit/JWPipeNB-NIRSpec-FS.ipynb
+      title: NIRSpec Fixed Slit Notebook
+    - file: notebooks/NIRSPEC/IFU/JWPipeNB-NIRSpec-IFU.ipynb
+      title: NIRSpec IFU Notebook
+    - file: notebooks/NIRSPEC/MOS/JWPipeNB-NIRSpec-MOS.ipynb
+      title: NIRSpec MOS Notebook

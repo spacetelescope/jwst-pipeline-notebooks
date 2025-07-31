@@ -2,11 +2,21 @@
 # the repo. Unless a later match takes precedence
 *   @sosey
 
-/notebooks/ @drlaw1558  @sosey
+/notebooks/ @drlaw1558  @rizeladiaz
 
 # Order is important; the last matching pattern takes the most
 # precedence.
-/MIRI/   @skendrew  @drlaw1558
-/NIRISS/   @spacetelescope/niriss  @drlaw1558
-/NIRSPEC/   @spacetelescope/nirspec  @drlaw1558
-/NIRCAM/   @spacetelescope/nircam  @drlaw1558
+/notebooks/MIRI/Coronagraphy/   @brynickson  @skendrew  @drlaw1558
+/notebooks/MIRI/Imaging-TSO/   @ianyuwong  @skendrew  @drlaw1558
+/notebooks/MIRI/Imaging/   @cracraft  @skendrew  @drlaw1558
+/notebooks/MIRI/LRS-slit/   @ianyuwong  @skendrew  @drlaw1558
+/notebooks/MIRI/LRS-slitless-TSO/   @ianyuwong  @skendrew  @drlaw1558
+/notebooks/MIRI/MRS/   @kilarson  @skendrew  @drlaw1558
+/notebooks/NIRISS/AMI/   @rcooper295 @Rplesha  @drlaw1558
+/notebooks/NIRISS/Imaging/   @goudfroo @Rplesha  @drlaw1558
+/notebooks/NIRSPEC/BOTS/   @hayescr  @kglidic  @drlaw1558
+/notebooks/NIRSPEC/FSlit/   @hayescr  @kglidic  @drlaw1558
+/notebooks/NIRSPEC/IFU/   @hayescr  @kglidic  @drlaw1558
+/notebooks/NIRSPEC/MOS/   @hayescr  @kglidic  @drlaw1558
+/notebooks/NIRCAM/Coronagraphy/   @aliciacanipe  @bhilbert4  @bsunnquist  @drlaw1558
+/notebooks/NIRCAM/Imaging/   @aliciacanipe  @bhilbert4  @bsunnquist  @drlaw1558
