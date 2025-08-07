@@ -1,0 +1,236 @@
+# On-Demand Workflow for JWST Pipeline Notebooks
+# Copy this file to your repository's .github/workflows/ directory
+# Provides flexible manual control for development, testing, and maintenance
+
+name: [test] Notebook On-Demand - JWST Pipeline
+
+on:
+  workflow_dispatch:
+    inputs:
+      action_type:
+        description: 'Action to perform'
+        required: true
+        type: choice
+        options:
+          - 'validate-all'
+          - 'execute-all'
+          - 'execute-single'
+          - 'security-scan-all'
+          - 'performance-benchmark'
+          - 'build-docs-only'
+          - 'deprecate-notebook'
+          - 'environment-test'
+        default: 'validate-all'
+      
+      instrument_filter:
+        description: 'Instrument to target (optional)'
+        required: false
+        type: choice
+        options:
+          - 'all'
+          - 'nircam'
+          - 'nirspec' 
+          - 'miri'
+          - 'niriss'
+          - 'fgs'
+        default: 'all'
+      
+      single_notebook:
+        description: 'Single notebook path (for single-notebook actions)'
+        required: false
+        type: string
+        
+      python_version:
+        description: 'Python version'
+        required: false
+        type: string
+        default: '3.11'
+
+        
+     # runner_override:
+     #   description: 'Override runner selection'
+     #   required: false
+     #   type: choice
+     #   options:
+     #     - 'auto'
+     #     - 'ubuntu-latest'
+     #     - 'jwst-pipeline-notebooks-16gb'
+     #     - 'jwst-pipeline-notebooks-32gb'
+     #     - 'jwst-pipeline-notebooks-64gb'
+     #   default: 'auto'
+        
+      deprecation_days:
+        description: 'Days until deprecation (for deprecate action)'
+        required: false
+        type: string
+        default: '60'
+        
+      enable_debug:
+        description: 'Enable debug logging'
+        required: false
+        type: boolean
+        default: false
+
+jobs:
+  # Validation Actions
+  validate-all:
+    if: inputs.action_type == 'validate-all'
+    uses: spacetelescope/notebook-ci-actions/.github/workflows/notebook-ci-unified.yml@dev-actions-v2-pipeline
+    with:
+      execution-mode: 'on-demand'
+      trigger-event: 'validate'
+      python-version: ${{ inputs.python_version }}
+      conda-environment: ${{ inputs.conda_environment }}
+      affected-directories: ${{ inputs.instrument_filter != 'all' && format('["notebooks/{0}"]', inputs.instrument_filter) || '["notebooks"]' }}
+      enable-validation: true
+      enable-security: false
+      enable-execution: false
+      enable-storage: false
+      enable-html-build: false
+      custom-runner-config: true
+    secrets:
+      CASJOBS_USERID: ${{ secrets.CASJOBS_USERID }}
+      CASJOBS_PW: ${{ secrets.CASJOBS_PW }}
+
+
+
+
+  # Execution Actions  
+  execute-all:
+    if: inputs.action_type == 'execute-all'
+    uses: spacetelescope/notebook-ci-actions/.github/workflows/notebook-ci-unified.yml@dev-actions-v2-pipeline
+    with:
+      execution-mode: 'on-demand'
+      trigger-event: 'execute'
+      python-version: ${{ inputs.python_version }}
+      conda-environment: ${{ inputs.conda_environment }}
+      affected-directories: ${{ inputs.instrument_filter != 'all' && format('["notebooks/{0}"]', inputs.instrument_filter) || '["notebooks"]' }}
+      enable-validation: false
+      enable-security: false
+      enable-execution: true
+      enable-storage: true
+      enable-html-build: false
+      custom-runner-config: true
+    secrets:
+      CASJOBS_USERID: ${{ secrets.CASJOBS_USERID }}
+      CASJOBS_PW: ${{ secrets.CASJOBS_PW }}
+
+
+
+
+  execute-single:
+    if: inputs.action_type == 'execute-single'
+    uses: spacetelescope/notebook-ci-actions/.github/workflows/notebook-ci-unified.yml@dev-actions-v2-pipeline
+    with:
+      execution-mode: 'on-demand'
+      trigger-event: 'execute'
+      single-notebook: ${{ inputs.single_notebook }}
+      affected-directories: '[]'  # Let the workflow auto-detect based on single-notebook
+      python-version: ${{ inputs.python_version }}
+      conda-environment: ${{ inputs.conda_environment }}
+      enable-validation: false
+      enable-security: false
+      enable-execution: true
+      enable-storage: true
+      enable-html-build: false
+      custom-runner-config: true
+    secrets:
+      CASJOBS_USERID: ${{ secrets.CASJOBS_USERID }}
+      CASJOBS_PW: ${{ secrets.CASJOBS_PW }}
+
+  # Security and Performance Actions
+  security-scan-all:
+    if: inputs.action_type == 'security-scan-all'
+    uses: spacetelescope/notebook-ci-actions/.github/workflows/notebook-ci-unified.yml@dev-actions-v2-pipeline
+    with:
+      execution-mode: 'on-demand'
+      trigger-event: 'security'
+      python-version: ${{ inputs.python_version }}
+      conda-environment: ${{ inputs.conda_environment }}
+      affected-directories: '["notebooks"]'
+      enable-validation: false
+      enable-security: true
+      enable-execution: false
+      enable-storage: false
+      enable-html-build: false
+      custom-runner-config: false
+    secrets:
+      CASJOBS_USERID: ${{ secrets.CASJOBS_USERID }}
+      CASJOBS_PW: ${{ secrets.CASJOBS_PW }}
+
+  performance-benchmark:
+    if: inputs.action_type == 'performance-benchmark'
+    uses: spacetelescope/notebook-ci-actions/.github/workflows/notebook-ci-unified.yml@dev-actions-v2-pipeline
+    with:
+      execution-mode: 'on-demand'
+      trigger-event: 'execute'
+      python-version: ${{ inputs.python_version }}
+      conda-environment: ${{ inputs.conda_environment }}
+      affected-directories: '["notebooks/performance"]'
+      enable-validation: false
+      enable-security: false
+      enable-execution: true
+      enable-storage: true
+      enable-html-build: false
+      custom-runner-config: true  # Force use of high-performance runners
+    secrets:
+      CASJOBS_USERID: ${{ secrets.CASJOBS_USERID }}
+      CASJOBS_PW: ${{ secrets.CASJOBS_PW }}
+
+  # Documentation and Maintenance Actions
+  build-docs-only:
+    if: inputs.action_type == 'build-docs-only'
+    uses: spacetelescope/notebook-ci-actions/.github/workflows/notebook-ci-unified.yml@dev-actions-v2-pipeline
+    with:
+      execution-mode: 'on-demand'
+      trigger-event: 'html'
+      python-version: ${{ inputs.python_version }}
+      enable-validation: false
+      enable-security: false
+      enable-execution: false
+      enable-storage: false
+      enable-html-build: true
+      custom-runner-config: false
+    secrets:
+      CASJOBS_USERID: ${{ secrets.CASJOBS_USERID }}
+      CASJOBS_PW: ${{ secrets.CASJOBS_PW }}
+
+  deprecate-notebook:
+    if: inputs.action_type == 'deprecate-notebook'
+    uses: spacetelescope/notebook-ci-actions/.github/workflows/notebook-ci-unified.yml@dev-actions-v2-pipeline
+    with:
+      execution-mode: 'on-demand'
+      trigger-event: 'deprecate'
+      single-notebook: ${{ inputs.single_notebook }}
+      python-version: ${{ inputs.python_version }}
+      deprecation-days: ${{ fromJSON(inputs.deprecation_days) }}
+      enable-validation: false
+      enable-security: false
+      enable-execution: false
+      enable-storage: false
+      enable-html-build: true
+      custom-runner-config: false
+    secrets:
+      CASJOBS_USERID: ${{ secrets.CASJOBS_USERID }}
+      CASJOBS_PW: ${{ secrets.CASJOBS_PW }}
+
+  environment-test:
+    if: inputs.action_type == 'environment-test'
+    uses: spacetelescope/notebook-ci-actions/.github/workflows/notebook-ci-unified.yml@dev-actions-v2-pipeline
+    with:
+      execution-mode: 'on-demand'
+      trigger-event: 'execute'
+      python-version: ${{ inputs.python_version }}
+      conda-environment: ${{ inputs.conda_environment }}
+      affected-directories: '["notebooks/tutorials"]'  # Test with representative sample
+      enable-validation: true
+      enable-security: false
+      enable-execution: true
+      enable-storage: false
+      enable-html-build: false
+      custom-runner-config: true
+    secrets:
+      CASJOBS_USERID: ${{ secrets.CASJOBS_USERID }}
+      CASJOBS_PW: ${{ secrets.CASJOBS_PW }}
+
+
