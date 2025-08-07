@@ -2,7 +2,7 @@
 # Copy this file to your repository's .github/workflows/ directory
 # Provides flexible manual control for development, testing, and maintenance
 
-name: [test] Notebook On-Demand - JWST Pipeline
+name: test Notebook On-Demand - JWST Pipeline
 
 on:
   workflow_dispatch:
