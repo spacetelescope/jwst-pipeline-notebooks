@@ -1,0 +1,5 @@
+jwst==1.19.1
+astroquery>=0.4.10
+jupyter
+matplotlib>=3.8.2
+pandas>=2.2.0
