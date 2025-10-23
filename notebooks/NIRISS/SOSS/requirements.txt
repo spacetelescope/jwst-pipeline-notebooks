@@ -1,0 +1,14 @@
+asdf
+astropy
+astroquery
+batman
+crds
+jupyter
+jwst
+matplotlib
+numpy 
+pandas
+
+
+
+
