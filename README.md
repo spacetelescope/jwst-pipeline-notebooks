@@ -20,7 +20,7 @@ The following table summarizes the notebooks currently available and the JWST [p
 
 | Instrument | Observing Mode | JWST Build | ``jwst`` version | Notebook                                         |
 |------------|----------------|------------|--------------------------|-----------------------------------------------|
-| MIRI       | Coronagraphy   | 12.0       | 1.19.1 | [JWPipeNB-MIRI-Coron.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/MIRI/Coronagraphy/JWPipeNB-MIRI-Coron.ipynb) |
+| MIRI       | Coronagraphy   | 12.1       | 1.20.2 | [JWPipeNB-MIRI-Coron.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/MIRI/Coronagraphy/JWPipeNB-MIRI-Coron.ipynb) |
 | MIRI       | Imaging        | 12.0       | 1.19.1 | [JWPipeNB-MIRI-imaging.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/MIRI/Imaging/JWPipeNB-MIRI-imaging.ipynb) |
 | MIRI       | Imaging TSO    | 12.0       | 1.19.1 | [JWPipeNB-MIRI-imaging-TSO.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/MIRI/Imaging-TSO/JWPipeNB-MIRI-imaging-TSO.ipynb)  |
 | MIRI       | LRS Slit       | 12.0       | 1.19.1 | [JWPipeNB-MIRI-LRS-slit.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/MIRI/LRS-slit/JWPipeNB-MIRI-LRS-slit.ipynb)  |
