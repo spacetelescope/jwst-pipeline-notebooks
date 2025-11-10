@@ -31,6 +31,8 @@ parts:
       title: NIRISS AMI Notebook
     - file: notebooks/NIRISS/Imaging/JWPipeNB-niriss-imaging.ipynb
       title: NIRISS Imaging Notebook
+    - file: notebooks/NIRISS/SOSS/JWPipeNB-niriss-soss.ipynb
+      title: NIRISS Single Object Slitless Spectroscopy Notebook
     - file: notebooks/NIRISS/WFSS/JWPipeNB-niriss-wfss.ipynb
       title: NIRISS Wide Field Slitless Spectroscopy Notebook
   - caption: NIRSpec

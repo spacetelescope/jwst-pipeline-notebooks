@@ -1,0 +1,5 @@
+jwst==1.20.2
+astroquery>=0.4.10
+batman-package
+jupyter
+pandas>=2.2.0
