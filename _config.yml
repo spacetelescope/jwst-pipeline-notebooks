@@ -48,5 +48,4 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: true
-  analytics:
-    google_analytics_id: G-2XDY0S4S5Q
+  google_analytics_id: G-2XDY0S4S5Q
