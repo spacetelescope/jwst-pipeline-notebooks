@@ -20,22 +20,22 @@ The following table summarizes the notebooks currently available and the JWST [p
 
 | Instrument | Observing Mode | JWST Build | ``jwst`` version | Notebook                                         |
 |------------|----------------|------------|--------------------------|-----------------------------------------------|
-| MIRI       | Coronagraphy   | 12.0       | 1.19.1 | [JWPipeNB-MIRI-Coron.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/MIRI/Coronagraphy/JWPipeNB-MIRI-Coron.ipynb) |
-| MIRI       | Imaging        | 12.0       | 1.19.1 | [JWPipeNB-MIRI-imaging.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/MIRI/Imaging/JWPipeNB-MIRI-imaging.ipynb) |
-| MIRI       | Imaging TSO    | 12.0       | 1.19.1 | [JWPipeNB-MIRI-imaging-TSO.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/MIRI/Imaging-TSO/JWPipeNB-MIRI-imaging-TSO.ipynb)  |
+| MIRI       | Coronagraphy   | 12.1       | 1.20.2 | [JWPipeNB-MIRI-Coron.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/MIRI/Coronagraphy/JWPipeNB-MIRI-Coron.ipynb) |
+| MIRI       | Imaging        | 12.1       | 1.20.2 | [JWPipeNB-MIRI-imaging.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/MIRI/Imaging/JWPipeNB-MIRI-imaging.ipynb) |
+| MIRI       | Imaging TSO    | 12.1       | 1.20.2 | [JWPipeNB-MIRI-imaging-TSO.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/MIRI/Imaging-TSO/JWPipeNB-MIRI-imaging-TSO.ipynb)  |
 | MIRI       | LRS Slit       | 12.1       | 1.20.2 | [JWPipeNB-MIRI-LRS-slit.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/MIRI/LRS-slit/JWPipeNB-MIRI-LRS-slit.ipynb)  |
-| MIRI       | LRS Slitless   | 12.0       | 1.19.1 | [JWPipeNB-MIRI-LRS-slitless-TSO.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/MIRI/LRS-slitless-TSO/JWPipeNB-MIRI-LRS-slitless-TSO.ipynb)  |
-| MIRI       | MRS            | 12.0       | 1.19.1 | [JWPipeNB-MIRI-MRS.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/MIRI/MRS/JWPipeNB-MIRI-MRS.ipynb)  |
-| NIRCam     | Coronagraphy   | 12.0       | 1.19.1 | [JWPipeNB-nircam-coronagraphy.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRCAM/Coronagraphy/JWPipeNB-nircam-coronagraphy.ipynb)  |
-| NIRCam     | Imaging        | 12.1       | 1.20.0 | [JWPipeNB-nircam-imaging.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRCAM/Imaging/JWPipeNB-nircam-imaging.ipynb)  |
-| NIRISS     | AMI            | 12.0       | 1.19.1 | [JWPipeNB-niriss-ami.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRISS/AMI/JWPipeNB-niriss-ami.ipynb)  |
-| NIRISS     | Imaging        | 12.0       | 1.19.1 | [JWPipeNB-niriss-imaging.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRISS/Imaging/JWPipeNB-niriss-imaging.ipynb)  |
+| MIRI       | LRS Slitless   | 12.1       | 1.20.2 | [JWPipeNB-MIRI-LRS-slitless-TSO.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/MIRI/LRS-slitless-TSO/JWPipeNB-MIRI-LRS-slitless-TSO.ipynb)  |
+| MIRI       | MRS            | 12.1       | 1.20.2 | [JWPipeNB-MIRI-MRS.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/MIRI/MRS/JWPipeNB-MIRI-MRS.ipynb)  |
+| NIRCam     | Coronagraphy   | 12.1       | 1.20.2 | [JWPipeNB-nircam-coronagraphy.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRCAM/Coronagraphy/JWPipeNB-nircam-coronagraphy.ipynb)  |
+| NIRCam     | Imaging        | 12.1       | 1.20.2 | [JWPipeNB-nircam-imaging.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRCAM/Imaging/JWPipeNB-nircam-imaging.ipynb)  |
+| NIRISS     | AMI            | 12.1       | 1.20.2 | [JWPipeNB-niriss-ami.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRISS/AMI/JWPipeNB-niriss-ami.ipynb)  |
+| NIRISS     | Imaging        | 12.1       | 1.20.2 | [JWPipeNB-niriss-imaging.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRISS/Imaging/JWPipeNB-niriss-imaging.ipynb)  |
 | NIRISS     | SOSS           | 12.1       | 1.20.2 | [JWPipeNB-niriss-soss.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRISS/SOSS/JWPipeNB-niriss-soss.ipynb)  |
-| NIRISS     | WFSS           | 12.0       | 1.19.1 | [JWPipeNB-niriss-wfss.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRISS/WFSS/JWPipeNB-niriss-wfss.ipynb)  |
-| NIRSpec    | BOTS           | 12.0       | 1.19.1 | [JWPipeNB-NIRSpec-BOTS.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRSPEC/BOTS/JWPipeNB-NIRSpec-BOTS.ipynb)  |
-| NIRSpec    | Fixed Slit     | 12.0       | 1.19.1 | [JWPipeNB-NIRSpec-FS.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRSPEC/FSlit/JWPipeNB-NIRSpec-FS.ipynb)  |
-| NIRSpec    | IFU            | 12.0       | 1.19.1 | [JWPipeNB-NIRSpec-IFU.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRSPEC/IFU/JWPipeNB-NIRSpec-IFU.ipynb)  |
-| NIRSpec    | MOS            | 12.0       | 1.19.1 | [JWPipeNB-NIRSpec-MOS.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRSPEC/MOS/JWPipeNB-NIRSpec-MOS.ipynb)  |
+| NIRISS     | WFSS           | 12.1       | 1.20.2 | [JWPipeNB-niriss-wfss.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRISS/WFSS/JWPipeNB-niriss-wfss.ipynb)  |
+| NIRSpec    | BOTS           | 12.1       | 1.20.2 | [JWPipeNB-NIRSpec-BOTS.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRSPEC/BOTS/JWPipeNB-NIRSpec-BOTS.ipynb)  |
+| NIRSpec    | Fixed Slit     | 12.1       | 1.20.2 | [JWPipeNB-NIRSpec-FS.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRSPEC/FSlit/JWPipeNB-NIRSpec-FS.ipynb)  |
+| NIRSpec    | IFU            | 12.1       | 1.20.2 | [JWPipeNB-NIRSpec-IFU.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRSPEC/IFU/JWPipeNB-NIRSpec-IFU.ipynb)  |
+| NIRSpec    | MOS            | 12.1       | 1.20.2 | [JWPipeNB-NIRSpec-MOS.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRSPEC/MOS/JWPipeNB-NIRSpec-MOS.ipynb)  |
 
 ## Reference Files
 
