@@ -1,7 +1,0 @@
-name: Manual Security Scan
-on:
-  workflow_dispatch:
-  
-jobs:
-  Bandit:
-   uses: spacetelescope/notebook-ci-actions/.github/workflows/ci_security_scan.yml@v3
