@@ -1,4 +1,84 @@
-# jwst-pipeline-notebooks 
-This is a repository for providing Jupyter Notebooks that demonstrate how to use the JWST calibration pipeline
+![STScI Logo](_static/stsci_header.png)
 
+# JWST Pipeline Notebooks
 
+[![DOI](https://zenodo.org/badge/782173509.svg)](https://doi.org/10.5281/zenodo.15060584)
+
+> [!IMPORTANT]
+> JWST requires a C compiler for dependencies and is currently limited to Python 3.11, 3.12, or 3.13.
+
+> [!NOTE]
+> Linux and MacOS platforms are tested and supported.  Windows is not currently supported.
+
+The ``jwst-pipeline-notebooks`` repository contains python-based Jupyter notebooks that illustrate how to process JWST data through the STScI science calibration pipeline (``jwst``;  [https://github.com/spacetelescope/jwst](https://github.com/spacetelescope/jwst)).  An overview of the pipeline can be found at [https://jwst-docs.stsci.edu/jwst-science-calibration-pipeline](https://jwst-docs.stsci.edu/jwst-science-calibration-pipeline).
+
+Notebooks are organized according to instrument and observing mode.  Each notebook is designed to process data from uncalibrated raw FITS files to end-stage Level 3 data products (calibrated imaging mosaics, 3-D data cubes, 1-D extracted spectra, etc.).  These notebooks by default run in 'demo' mode, for which they will download and process example data drawn from the [MAST archive](https://archive.stsci.edu/).  They are, however, designed to be simple to run on arbitrary local data sets as well by configuring input directories accordingly.
+
+These notebooks are modular, allowing users to enable or disable different stages of processing.  Likewise, they provide examples of how to customize pipeline processing for specific science cases.
+
+The following table summarizes the notebooks currently available and the JWST [pipeline versions](https://jwst-docs.stsci.edu/jwst-science-calibration-pipeline/jwst-operations-pipeline-build-information) that they have been tested with:
+
+| Instrument | Observing Mode | JWST Build | ``jwst`` version | Notebook                                         |
+|------------|----------------|------------|--------------------------|-----------------------------------------------|
+| MIRI       | Coronagraphy   | 12.1       | 1.20.2 | [JWPipeNB-MIRI-Coron.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/MIRI/Coronagraphy/JWPipeNB-MIRI-Coron.ipynb) |
+| MIRI       | Imaging        | 12.1       | 1.20.2 | [JWPipeNB-MIRI-imaging.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/MIRI/Imaging/JWPipeNB-MIRI-imaging.ipynb) |
+| MIRI       | Imaging TSO    | 12.1       | 1.20.2 | [JWPipeNB-MIRI-imaging-TSO.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/MIRI/Imaging-TSO/JWPipeNB-MIRI-imaging-TSO.ipynb)  |
+| MIRI       | LRS Slit       | 12.1       | 1.20.2 | [JWPipeNB-MIRI-LRS-slit.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/MIRI/LRS-slit/JWPipeNB-MIRI-LRS-slit.ipynb)  |
+| MIRI       | LRS Slitless   | 12.1       | 1.20.2 | [JWPipeNB-MIRI-LRS-slitless-TSO.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/MIRI/LRS-slitless-TSO/JWPipeNB-MIRI-LRS-slitless-TSO.ipynb)  |
+| MIRI       | MRS            | 12.1       | 1.20.2 | [JWPipeNB-MIRI-MRS.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/MIRI/MRS/JWPipeNB-MIRI-MRS.ipynb)  |
+| NIRCam     | Coronagraphy   | 12.1       | 1.20.2 | [JWPipeNB-nircam-coronagraphy.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRCAM/Coronagraphy/JWPipeNB-nircam-coronagraphy.ipynb)  |
+| NIRCam     | Imaging        | 12.1       | 1.20.2 | [JWPipeNB-nircam-imaging.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRCAM/Imaging/JWPipeNB-nircam-imaging.ipynb)  |
+| NIRISS     | AMI            | 12.1       | 1.20.2 | [JWPipeNB-niriss-ami.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRISS/AMI/JWPipeNB-niriss-ami.ipynb)  |
+| NIRISS     | Imaging        | 12.1       | 1.20.2 | [JWPipeNB-niriss-imaging.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRISS/Imaging/JWPipeNB-niriss-imaging.ipynb)  |
+| NIRISS     | SOSS           | 12.1       | 1.20.2 | [JWPipeNB-niriss-soss.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRISS/SOSS/JWPipeNB-niriss-soss.ipynb)  |
+| NIRISS     | WFSS           | 12.1       | 1.20.2 | [JWPipeNB-niriss-wfss.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRISS/WFSS/JWPipeNB-niriss-wfss.ipynb)  |
+| NIRSpec    | BOTS           | 12.1       | 1.20.2 | [JWPipeNB-NIRSpec-BOTS.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRSPEC/BOTS/JWPipeNB-NIRSpec-BOTS.ipynb)  |
+| NIRSpec    | Fixed Slit     | 12.1       | 1.20.2 | [JWPipeNB-NIRSpec-FS.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRSPEC/FSlit/JWPipeNB-NIRSpec-FS.ipynb)  |
+| NIRSpec    | IFU            | 12.1       | 1.20.2 | [JWPipeNB-NIRSpec-IFU.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRSPEC/IFU/JWPipeNB-NIRSpec-IFU.ipynb)  |
+| NIRSpec    | MOS            | 12.1       | 1.20.2 | [JWPipeNB-NIRSpec-MOS.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRSPEC/MOS/JWPipeNB-NIRSpec-MOS.ipynb)  |
+
+## Reference Files
+
+As of October 2024, the JWST pipeline will automatically select the best reference file context appropriate to each pipeline version by default.  The notebooks provided here allow users to override this default if desired and choose specific contexts instead.  See [Choosing a Context](https://jwst-docs.stsci.edu/jwst-science-calibration-pipeline#JWSTScienceCalibrationPipeline-crds_contextChoosingacontext) for guidance.
+
+## Installation
+
+### Individual Notebooks
+
+For advanced users, these notebooks can be downloaded individually from the GitHub repository and run in any python environment in which the [``jwst``](https://github.com/spacetelescope/jwst) package meeting the indicated minimum version has been installed.  Note that some notebooks have additional dependencies (e.g., [jdaviz](https://github.com/spacetelescope/jdaviz/)) as given in the associated requirements files.
+
+### Package Installation
+
+If desired, you can also clone the entire ``jwst-pipeline-notebooks`` repository to your local computer and set up a new virtual or conda environment
+to avoid version conflicts with other packages you may have installed, for example:
+
+    conda create -n jpnb python=3.13
+    conda activate jpnb
+    git clone https://github.com/spacetelescope/jwst-pipeline-notebooks.git
+
+Next, move into the directory of the notebook you want to install and set up the requirements:
+
+    cd jwst-pipeline-notebooks/notebooks/<whatever-notebook>
+    pip install -r requirements.txt
+    jupyter notebook
+
+We recommend setting up a new environment for each notebook to ensure that there are no conflicting dependencies.
+
+## Previous Versions
+
+Previous versions of these notebooks designed for use with prior builds of the JWST calibration pipeline can be found as tags within this repository.
+
+| Notebook Tag | JWST Build |  ``jwst`` version |
+|--------------|------------|-------------------|
+| [1.0.0](https://github.com/spacetelescope/jwst-pipeline-notebooks/tree/1.0.0)        | [11.2](https://jwst-docs.stsci.edu/jwst-science-calibration-pipeline/jwst-operations-pipeline-build-information/jwst-operations-pipeline-build-11-2-release-notes#gsc.tab=0)       | 1.17.1            |
+| [1.1.0](https://github.com/spacetelescope/jwst-pipeline-notebooks/tree/1.1.0)        | [11.3](https://jwst-docs.stsci.edu/jwst-science-calibration-pipeline/jwst-operations-pipeline-build-information/jwst-operations-pipeline-build-11-3-release-notes#gsc.tab=0)       | 1.18.1            |
+| [1.2.0](https://github.com/spacetelescope/jwst-pipeline-notebooks/tree/1.2.0)        | [12.0](https://jwst-docs.stsci.edu/jwst-science-calibration-pipeline/jwst-operations-pipeline-build-information/jwst-operations-pipeline-build-12-0-release-notes#gsc.tab=0)       | 1.19.1            |
+| [1.3.0](https://github.com/spacetelescope/jwst-pipeline-notebooks/tree/1.3.0)        | [12.1](https://jwst-docs.stsci.edu/jwst-science-calibration-pipeline/jwst-operations-pipeline-build-information/jwst-operations-pipeline-build-12-1-release-notes#gsc.tab=0)       | 1.19.1            |
+
+## Citation
+
+If you use these notebooks in your work, please cite this repository using https://doi.org/10.5281/zenodo.15060584
+
+## Help
+
+If you uncover any issues or bugs, you can open an issue on GitHub. For faster responses, however, we encourage you to submit a [JWST Help Desk Ticket](jwsthelp.stsci.edu)
