@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>MIRI MRS Pipeline Notebook &#8212; JWST Pipeline Notebooks</title>
   
@@ -17,46 +16,47 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/main.css?v=b44a18d9" />
   
-  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/main.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/togglebutton.js?v=1ae7504c"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-2XDY0S4S5Q"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -64,17 +64,22 @@
                 gtag('js', new Date());
                 gtag('config', 'G-2XDY0S4S5Q');
             </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-2XDY0S4S5Q');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/MIRI/JWPipeNB-MIRI-MRS';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -90,19 +95,8 @@ const thebe_selector_output = ".output, .cell_output"
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -110,7 +104,6 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -118,8 +111,8 @@ const thebe_selector_output = ".output, .cell_output"
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -137,7 +130,8 @@ const thebe_selector_output = ".output, .cell_output"
       
         
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -161,17 +155,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
-    
-    
-      
-    
-    
-    <img src="../../_static/stsci_logo2.png" class="logo__image only-light" alt="JWST Pipeline Notebooks - Home"/>
-    <script>document.write(`<img src="../../_static/stsci_logo2.png" class="logo__image only-dark" alt="JWST Pipeline Notebooks - Home"/>`);</script>
   
+    <p class="title logo__title">JWST Pipeline Notebooks</p>
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -209,7 +204,6 @@ const thebe_selector_output = ".output, .cell_output"
 
 <li class="toctree-l1"><a class="reference internal" href="../NIRISS/Imaging/JWPipeNB-niriss-imaging.html">NIRISS Imaging Pipeline Notebook</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="../NIRISS/SOSS/JWPipeNB-niriss-soss.html">NIRISS Single Object Slitless Spectroscopy Notebook</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../NIRISS/WFSS/JWPipeNB-niriss-wfss.html">NIRISS Wide Field Slitless Spectroscopy (WFSS) Pipeline Notebook</a></li>
 
 
@@ -236,9 +230,14 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -257,9 +256,9 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -399,7 +398,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -413,27 +412,19 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -455,24 +446,24 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-white-font-configuration-a-class-anchor-id-intro-a">1.<font color="white">-</font>Configuration<a class="anchor" id="intro"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">1.<font color="white">-</font>Configuration<a class="anchor" id="intro"></a></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-crds-context-and-server">Set CRDS context and server</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-white-font-package-imports-a-class-anchor-id-intro-a">2.<font color="white">-</font>Package Imports<a class="anchor" id="intro"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#package-imports">2.<font color="white">-</font>Package Imports<a class="anchor" id="intro"></a></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#define-convenience-functions">Define convenience functions</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-white-font-demo-mode-setup-a-class-anchor-id-intro-a-ignore-if-not-using-demo-data">3.<font color="white">-</font>Demo Mode Setup<a class="anchor" id="intro"></a> (ignore if not using demo data)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-white-font-directory-setup-a-class-anchor-id-intro-a">4.<font color="white">-</font>Directory Setup<a class="anchor" id="intro"></a></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-white-font-detector1-pipeline-a-class-anchor-id-det1-a">5.<font color="white">-</font>Detector1 Pipeline<a class="anchor" id="det1"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demo-mode-setup-ignore-if-not-using-demo-data">3.<font color="white">-</font>Demo Mode Setup<a class="anchor" id="intro"></a> (ignore if not using demo data)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#directory-setup">4.<font color="white">-</font>Directory Setup<a class="anchor" id="intro"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#detector1-pipeline">5.<font color="white">-</font>Detector1 Pipeline<a class="anchor" id="det1"></a></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calibrating-science-files">Calibrating Science Files</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calibrating-background-files">Calibrating Background Files</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-white-font-spec2-pipeline-a-class-anchor-id-spec2-a">6.<font color="white">-</font>Spec2 Pipeline<a class="anchor" id="spec2"></a></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-white-font-spec3-pipeline-a-class-anchor-id-spec3-a">7.<font color="white">-</font>Spec3 Pipeline<a class="anchor" id="spec3"></a></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-white-font-plot-the-spectra-a-class-anchor-id-plots-a">8.<font color="white">-</font>Plot the spectra<a class="anchor" id="plots"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spec2-pipeline">6.<font color="white">-</font>Spec2 Pipeline<a class="anchor" id="spec2"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spec3-pipeline">7.<font color="white">-</font>Spec3 Pipeline<a class="anchor" id="spec3"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-spectra">8.<font color="white">-</font>Plot the spectra<a class="anchor" id="plots"></a></a></li>
 </ul>
             </nav>
         </div>
@@ -484,11 +475,12 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <a class="reference internal image-reference" href="https://github.com/spacetelescope/jwst-pipeline-notebooks/raw/main/_static/stsci_header.png"><img alt="stsci_logo" src="https://github.com/spacetelescope/jwst-pipeline-notebooks/raw/main/_static/stsci_header.png" style="width: 900px;" /></a>
+  <a class="reference internal image-reference" href="https://github.com/spacetelescope/jwst-pipeline-notebooks/raw/main/_static/stsci_header.png"><img alt="stsci_logo" src="https://github.com/spacetelescope/jwst-pipeline-notebooks/raw/main/_static/stsci_header.png" style="width: 900px;" />
+</a>
 <p><font color="red">This notebook currently fails to execute, use as reference only</font></p>
 <p><a id="title_ID"></a></p>
 <section id="miri-mrs-pipeline-notebook">
-<h1>MIRI MRS Pipeline Notebook<a class="headerlink" href="#miri-mrs-pipeline-notebook" title="Permalink to this heading">#</a></h1>
+<h1>MIRI MRS Pipeline Notebook<a class="headerlink" href="#miri-mrs-pipeline-notebook" title="Link to this heading">#</a></h1>
 <p><strong>Authors</strong>: David Law, Kirsten Larson; MIRI branch<br>
 <strong>Last Updated</strong>: September 24, 2024<br>
 <strong>Pipeline Version</strong>: 1.15.1 (Build 11.0)</p>
@@ -498,7 +490,7 @@ Instrument (MIRI) Medium Resolution Spectroscopy (MRS) data through all
 three James Webb Space Telescope (JWST) pipeline stages.  Data is assumed
 to be located in two observation folders (science and background)
 according to paths set up below.  It should not be necessary to edit any
-cells other than in the <span class="xref myst">Configuration</span> section
+cells other than in the <a class="reference internal" href="#1.-Configuration"><span class="xref myst">Configuration</span></a> section
 unless modifying the standard pipeline processing options.</p>
 <p><strong>Data</strong>:<BR>
 This example is set up to use observations of the LMC planetary nebula
@@ -543,20 +535,20 @@ Jul 1 2024: Migrate from MRS_FlightNB1 notebook, adapt to .call()
 format, add post-hook example, add demo mode capability.<br>
 Oct 11 2024: Update to Build 11.0 (jwst 1.15.1); move pixel_replacement to spec3 and enable by default, add option for bad pixel self-calibration in spec2.</p>
 <hr style="border:1px solid gray"> </hr><section id="table-of-contents">
-<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this heading">#</a></h2>
+<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
-<li><p><span class="xref myst">Configuration</span></p></li>
-<li><p><span class="xref myst">Package Imports</span></p></li>
-<li><p><span class="xref myst">Demo Mode Setup</span></p></li>
-<li><p><span class="xref myst">Directory Setup</span></p></li>
-<li><p><span class="xref myst">Detector1 Pipeline</span></p></li>
-<li><p><span class="xref myst">Spec2 Pipeline</span></p></li>
-<li><p><span class="xref myst">Spec3 Pipeline</span></p></li>
-<li><p><span class="xref myst">Plot the spectra</span></p></li>
+<li><p><a class="reference internal" href="#1.-Configuration"><span class="xref myst">Configuration</span></a></p></li>
+<li><p><a class="reference internal" href="#2.-Package-Imports"><span class="xref myst">Package Imports</span></a></p></li>
+<li><p><a class="reference internal" href="#3.-Demo-Mode-Setup-(ignore-if-not-using-demo-data)"><span class="xref myst">Demo Mode Setup</span></a></p></li>
+<li><p><a class="reference internal" href="#4.-Directory-Setup"><span class="xref myst">Directory Setup</span></a></p></li>
+<li><p><a class="reference internal" href="#5.-Detector1-Pipeline"><span class="xref myst">Detector1 Pipeline</span></a></p></li>
+<li><p><a class="reference internal" href="#6.-Spec2-Pipeline"><span class="xref myst">Spec2 Pipeline</span></a></p></li>
+<li><p><a class="reference internal" href="#7.-Spec3-Pipeline"><span class="xref myst">Spec3 Pipeline</span></a></p></li>
+<li><p><a class="reference internal" href="#8.-Plot-the-spectra"><span class="xref myst">Plot the spectra</span></a></p></li>
 </ol>
 <hr style="border:1px solid gray"> </hr></section>
-<section id="font-color-white-font-configuration-a-class-anchor-id-intro-a">
-<h2>1.<font color='white'>-</font>Configuration<a class="anchor" id="intro"></a><a class="headerlink" href="#font-color-white-font-configuration-a-class-anchor-id-intro-a" title="Permalink to this heading">#</a></h2>
+<section id="configuration">
+<h2>1.<font color='white'>-</font>Configuration<a class="anchor" id="intro"></a><a class="headerlink" href="#configuration" title="Link to this heading">#</a></h2>
 <p>Set basic parameters to use with notebook. These will affect
 what data is used, where data is located (if already in disk),
 pipeline modules run in this data, and type of background
@@ -584,7 +576,7 @@ Note that <code>demo_mode</code> must be set appropriately below.
 notebook will download example data from the
 Barbara A. Mikulski Archive for Space Telescopes (MAST) and process it through the pipeline.
 This will all happen in a local directory unless modified
-in <span class="xref myst">Section 3</span> below.</p>
+in <a class="reference internal" href="#3.-Demo-Mode-Setup-(ignore-if-not-using-demo-data)"><span class="xref myst">Section 3</span></a> below.</p>
 <p>Set <code>demo_mode = False</code> if you want to process your own data that has already
 been downloaded and provide the location of the data.<br></p>
 <div class="cell docutils container">
@@ -649,7 +641,7 @@ been downloaded and provide the location of the data.<br></p>
 </div>
 </div>
 <section id="set-crds-context-and-server">
-<h3>Set CRDS context and server<a class="headerlink" href="#set-crds-context-and-server" title="Permalink to this heading">#</a></h3>
+<h3>Set CRDS context and server<a class="headerlink" href="#set-crds-context-and-server" title="Link to this heading">#</a></h3>
 <p>Before importing <code>CRDS</code> and <code>JWST</code> modules, we need to configure our environment. This includes defining a CRDS cache directory in which to keep the reference files that will be used by the calibration pipeline.</p>
 <p>If the root directory for the local CRDS cache directory has not been set already, it will be set to create one in the home directory.</p>
 <div class="cell docutils container">
@@ -678,8 +670,8 @@ been downloaded and provide the location of the data.<br></p>
 </div>
 <hr style="border:1px solid gray"> </hr></section>
 </section>
-<section id="font-color-white-font-package-imports-a-class-anchor-id-intro-a">
-<h2>2.<font color='white'>-</font>Package Imports<a class="anchor" id="intro"></a><a class="headerlink" href="#font-color-white-font-package-imports-a-class-anchor-id-intro-a" title="Permalink to this heading">#</a></h2>
+<section id="package-imports">
+<h2>2.<font color='white'>-</font>Package Imports<a class="anchor" id="intro"></a><a class="headerlink" href="#package-imports" title="Link to this heading">#</a></h2>
 <hr class="docutils" />
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -743,7 +735,7 @@ been downloaded and provide the location of the data.<br></p>
 </div>
 </div>
 <section id="define-convenience-functions">
-<h3>Define convenience functions<a class="headerlink" href="#define-convenience-functions" title="Permalink to this heading">#</a></h3>
+<h3>Define convenience functions<a class="headerlink" href="#define-convenience-functions" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define a convenience function to select only files of a given channel/band from an input set</span>
@@ -776,8 +768,8 @@ been downloaded and provide the location of the data.<br></p>
 </div>
 <hr style="border:1px solid gray"> </hr></section>
 </section>
-<section id="font-color-white-font-demo-mode-setup-a-class-anchor-id-intro-a-ignore-if-not-using-demo-data">
-<h2>3.<font color='white'>-</font>Demo Mode Setup<a class="anchor" id="intro"></a> (ignore if not using demo data)<a class="headerlink" href="#font-color-white-font-demo-mode-setup-a-class-anchor-id-intro-a-ignore-if-not-using-demo-data" title="Permalink to this heading">#</a></h2>
+<section id="demo-mode-setup-ignore-if-not-using-demo-data">
+<h2>3.<font color='white'>-</font>Demo Mode Setup<a class="anchor" id="intro"></a> (ignore if not using demo data)<a class="headerlink" href="#demo-mode-setup-ignore-if-not-using-demo-data" title="Link to this heading">#</a></h2>
 <p>If running in demonstration mode, set up the program information to
 retrieve the uncalibrated data automatically from MAST using
 <a class="reference external" href="https://astroquery.readthedocs.io/en/latest/mast/mast.html">astroquery</a>.
@@ -887,8 +879,8 @@ Warning: If this notebook is halted during this step the downloaded file may be 
 </div>
 </div>
 <hr style="border:1px solid gray"> </hr></section>
-<section id="font-color-white-font-directory-setup-a-class-anchor-id-intro-a">
-<h2>4.<font color='white'>-</font>Directory Setup<a class="anchor" id="intro"></a><a class="headerlink" href="#font-color-white-font-directory-setup-a-class-anchor-id-intro-a" title="Permalink to this heading">#</a></h2>
+<section id="directory-setup">
+<h2>4.<font color='white'>-</font>Directory Setup<a class="anchor" id="intro"></a><a class="headerlink" href="#directory-setup" title="Link to this heading">#</a></h2>
 <p>Set up detailed paths to input/output stages here.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -940,8 +932,8 @@ If there is no background folder, ensure we don't try to process it.
 </div>
 </div>
 <hr style="border:1px solid gray"> </hr></section>
-<section id="font-color-white-font-detector1-pipeline-a-class-anchor-id-det1-a">
-<h2>5.<font color='white'>-</font>Detector1 Pipeline<a class="anchor" id="det1"></a><a class="headerlink" href="#font-color-white-font-detector1-pipeline-a-class-anchor-id-det1-a" title="Permalink to this heading">#</a></h2>
+<section id="detector1-pipeline">
+<h2>5.<font color='white'>-</font>Detector1 Pipeline<a class="anchor" id="det1"></a><a class="headerlink" href="#detector1-pipeline" title="Link to this heading">#</a></h2>
 <p>In this section we process our data through the calwebb_detector1
 pipeline to create Stage 1 data products (i.e., uncalibrated slope
 images of the form *rate.fits).  These data products have units of DN/s.<BR><BR>
@@ -1016,7 +1008,7 @@ pre-hook/post-hook framework.
 </div>
 </div>
 <section id="calibrating-science-files">
-<h3>Calibrating Science Files<a class="headerlink" href="#calibrating-science-files" title="Permalink to this heading">#</a></h3>
+<h3>Calibrating Science Files<a class="headerlink" href="#calibrating-science-files" title="Link to this heading">#</a></h3>
 <p>Look for input science files and run calwebb_detector1 pipeline using the call method.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1046,7 +1038,7 @@ pre-hook/post-hook framework.
 </div>
 </section>
 <section id="calibrating-background-files">
-<h3>Calibrating Background Files<a class="headerlink" href="#calibrating-background-files" title="Permalink to this heading">#</a></h3>
+<h3>Calibrating Background Files<a class="headerlink" href="#calibrating-background-files" title="Link to this heading">#</a></h3>
 <p>Look for input background files and run calwebb_detector1
 pipeline using the call method.</p>
 <div class="cell docutils container">
@@ -1087,8 +1079,8 @@ pipeline using the call method.</p>
 </div>
 <hr style="border:1px solid gray"> </hr></section>
 </section>
-<section id="font-color-white-font-spec2-pipeline-a-class-anchor-id-spec2-a">
-<h2>6.<font color='white'>-</font>Spec2 Pipeline<a class="anchor" id="spec2"></a><a class="headerlink" href="#font-color-white-font-spec2-pipeline-a-class-anchor-id-spec2-a" title="Permalink to this heading">#</a></h2>
+<section id="spec2-pipeline">
+<h2>6.<font color='white'>-</font>Spec2 Pipeline<a class="anchor" id="spec2"></a><a class="headerlink" href="#spec2-pipeline" title="Link to this heading">#</a></h2>
 <p>In this section we process our countrate (slope) image products from
 Stage 1 (calwebb_detector1) through the Spec2 (calwebb_spec2) pipeline
 in order to produce Stage 2
@@ -1275,8 +1267,8 @@ Reduce the backgrounds individually.  This will be needed for the Master Backgro
 </div>
 </div>
 <hr style="border:1px solid gray"> </hr></section>
-<section id="font-color-white-font-spec3-pipeline-a-class-anchor-id-spec3-a">
-<h2>7.<font color='white'>-</font>Spec3 Pipeline<a class="anchor" id="spec3"></a><a class="headerlink" href="#font-color-white-font-spec3-pipeline-a-class-anchor-id-spec3-a" title="Permalink to this heading">#</a></h2>
+<section id="spec3-pipeline">
+<h2>7.<font color='white'>-</font>Spec3 Pipeline<a class="anchor" id="spec3"></a><a class="headerlink" href="#spec3-pipeline" title="Link to this heading">#</a></h2>
 <p>In this section we’ll run the Spec3 (calwebb_spec3) pipeline to produce a
 composite data cube and extracted spectrumfrom all dithered exposures.
 We will need to create an association file from all science (*cal.fits)
@@ -1457,8 +1449,8 @@ Note that science data must be of type cal.fits and background exposures must be
 </div>
 </div>
 <hr style="border:1px solid gray"> </hr></section>
-<section id="font-color-white-font-plot-the-spectra-a-class-anchor-id-plots-a">
-<h2>8.<font color='white'>-</font>Plot the spectra<a class="anchor" id="plots"></a><a class="headerlink" href="#font-color-white-font-plot-the-spectra-a-class-anchor-id-plots-a" title="Permalink to this heading">#</a></h2>
+<section id="plot-the-spectra">
+<h2>8.<font color='white'>-</font>Plot the spectra<a class="anchor" id="plots"></a><a class="headerlink" href="#plot-the-spectra" title="Link to this heading">#</a></h2>
 <p>Here we’ll plot the spectra to see what our source looks like.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1517,7 +1509,8 @@ Note that science data must be of type cal.fits and background exposures must be
 </div>
 </div>
 </div>
-<hr style="border:1px solid gray"> </hr><a class="reference internal image-reference" href="https://github.com/spacetelescope/jwst-pipeline-notebooks/raw/main/_static/stsci_footer.png"><img alt="stsci_logo" src="https://github.com/spacetelescope/jwst-pipeline-notebooks/raw/main/_static/stsci_footer.png" style="width: 200px;" /></a>
+<hr style="border:1px solid gray"> </hr><a class="reference internal image-reference" href="https://github.com/spacetelescope/jwst-pipeline-notebooks/raw/main/_static/stsci_footer.png"><img alt="stsci_logo" src="https://github.com/spacetelescope/jwst-pipeline-notebooks/raw/main/_static/stsci_footer.png" style="width: 200px;" />
+</a>
 </section>
 </section>
 
@@ -1558,34 +1551,36 @@ Note that science data must be of type cal.fits and background exposures must be
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav class="bd-toc-nav page-toc">
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-white-font-configuration-a-class-anchor-id-intro-a">1.<font color="white">-</font>Configuration<a class="anchor" id="intro"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">1.<font color="white">-</font>Configuration<a class="anchor" id="intro"></a></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-crds-context-and-server">Set CRDS context and server</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-white-font-package-imports-a-class-anchor-id-intro-a">2.<font color="white">-</font>Package Imports<a class="anchor" id="intro"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#package-imports">2.<font color="white">-</font>Package Imports<a class="anchor" id="intro"></a></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#define-convenience-functions">Define convenience functions</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-white-font-demo-mode-setup-a-class-anchor-id-intro-a-ignore-if-not-using-demo-data">3.<font color="white">-</font>Demo Mode Setup<a class="anchor" id="intro"></a> (ignore if not using demo data)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-white-font-directory-setup-a-class-anchor-id-intro-a">4.<font color="white">-</font>Directory Setup<a class="anchor" id="intro"></a></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-white-font-detector1-pipeline-a-class-anchor-id-det1-a">5.<font color="white">-</font>Detector1 Pipeline<a class="anchor" id="det1"></a></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demo-mode-setup-ignore-if-not-using-demo-data">3.<font color="white">-</font>Demo Mode Setup<a class="anchor" id="intro"></a> (ignore if not using demo data)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#directory-setup">4.<font color="white">-</font>Directory Setup<a class="anchor" id="intro"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#detector1-pipeline">5.<font color="white">-</font>Detector1 Pipeline<a class="anchor" id="det1"></a></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calibrating-science-files">Calibrating Science Files</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calibrating-background-files">Calibrating Background Files</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-white-font-spec2-pipeline-a-class-anchor-id-spec2-a">6.<font color="white">-</font>Spec2 Pipeline<a class="anchor" id="spec2"></a></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-white-font-spec3-pipeline-a-class-anchor-id-spec3-a">7.<font color="white">-</font>Spec3 Pipeline<a class="anchor" id="spec3"></a></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-white-font-plot-the-spectra-a-class-anchor-id-plots-a">8.<font color="white">-</font>Plot the spectra<a class="anchor" id="plots"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spec2-pipeline">6.<font color="white">-</font>Spec2 Pipeline<a class="anchor" id="spec2"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spec3-pipeline">7.<font color="white">-</font>Spec3 Pipeline<a class="anchor" id="spec3"></a></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-spectra">8.<font color="white">-</font>Plot the spectra<a class="anchor" id="plots"></a></a></li>
 </ul>
   </nav></div>
 
@@ -1634,8 +1629,8 @@ By STScI
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>
