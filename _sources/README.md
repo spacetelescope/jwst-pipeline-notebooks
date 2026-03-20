@@ -73,7 +73,7 @@ Previous versions of these notebooks designed for use with prior builds of the J
 | [1.0.0](https://github.com/spacetelescope/jwst-pipeline-notebooks/tree/1.0.0)        | [11.2](https://jwst-docs.stsci.edu/jwst-science-calibration-pipeline/jwst-operations-pipeline-build-information/jwst-operations-pipeline-build-11-2-release-notes#gsc.tab=0)       | 1.17.1            |
 | [1.1.0](https://github.com/spacetelescope/jwst-pipeline-notebooks/tree/1.1.0)        | [11.3](https://jwst-docs.stsci.edu/jwst-science-calibration-pipeline/jwst-operations-pipeline-build-information/jwst-operations-pipeline-build-11-3-release-notes#gsc.tab=0)       | 1.18.1            |
 | [1.2.0](https://github.com/spacetelescope/jwst-pipeline-notebooks/tree/1.2.0)        | [12.0](https://jwst-docs.stsci.edu/jwst-science-calibration-pipeline/jwst-operations-pipeline-build-information/jwst-operations-pipeline-build-12-0-release-notes#gsc.tab=0)       | 1.19.1            |
-| [1.3.0](https://github.com/spacetelescope/jwst-pipeline-notebooks/tree/1.3.0)        | [12.1](https://jwst-docs.stsci.edu/jwst-science-calibration-pipeline/jwst-operations-pipeline-build-information/jwst-operations-pipeline-build-12-1-release-notes#gsc.tab=0)       | 1.20.2            |
+| [1.3.0](https://github.com/spacetelescope/jwst-pipeline-notebooks/tree/1.3.0)        | [12.1](https://jwst-docs.stsci.edu/jwst-science-calibration-pipeline/jwst-operations-pipeline-build-information/jwst-operations-pipeline-build-12-1-release-notes#gsc.tab=0)       | 1.19.1            |
 
 ## Citation
 
