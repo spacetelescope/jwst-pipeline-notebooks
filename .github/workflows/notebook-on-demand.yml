@@ -145,7 +145,7 @@ jobs:
 
   full-pipeline-all:
     if: inputs.action_type == 'full-pipeline-all'
-    uses:  spacetelescope/notebook-ci-actions/.github/workflows/notebook-ci-unified.yml@v1
+    uses:  spacetelescope/notebook-ci-actions/.github/workflows/notebook-ci-unified.yml@pipeline-dev
     with:
       execution-mode: 'on-demand'
       trigger-event: 'all'
@@ -163,7 +163,7 @@ jobs:
 
   full-pipeline-single:
     if: inputs.action_type == 'full-pipeline-single'
-    uses:  spacetelescope/notebook-ci-actions/.github/workflows/notebook-ci-unified.yml@v1
+    uses:  spacetelescope/notebook-ci-actions/.github/workflows/notebook-ci-unified.yml@pipeline-dev
     with:
       execution-mode: 'on-demand'
       trigger-event: 'all'
