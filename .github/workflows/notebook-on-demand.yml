@@ -145,7 +145,7 @@ jobs:
 
   full-pipeline-all:
     if: inputs.action_type == 'full-pipeline-all'
-    uses:  spacetelescope/notebook-ci-actions/.github/workflows/notebook-ci-unified.yml@pipeline-dev
+    uses:  spacetelescope/notebook-ci-actions/.github/workflows/notebook-ci-unified.yml@v1
     with:
       execution-mode: 'on-demand'
       trigger-event: 'all'
