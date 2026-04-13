@@ -5,7 +5,7 @@
 [![DOI](https://zenodo.org/badge/782173509.svg)](https://doi.org/10.5281/zenodo.15060584)
 
 > [!IMPORTANT]
-> JWST requires a C compiler for dependencies and is currently limited to Python 3.11, 3.12, or 3.13.
+> JWST requires a C compiler for dependencies and is currently limited to Python 3.11 - 3.14.
 
 > [!NOTE]
 > Linux and MacOS platforms are tested and supported.  Windows is not currently supported.
