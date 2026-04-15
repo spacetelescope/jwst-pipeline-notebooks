@@ -2,7 +2,7 @@
 # the repo. Unless a later match takes precedence
 *   @sosey
 
-/notebooks/ @drlaw1558  @rizeladiaz
+/notebooks/ @drlaw1558
 
 # Order is important; the last matching pattern takes the most
 # precedence.
