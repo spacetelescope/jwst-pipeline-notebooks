@@ -1,0 +1,5 @@
+jwst==2.0.0
+astroquery>=0.4.11
+ipython
+jupyter
+pandas
