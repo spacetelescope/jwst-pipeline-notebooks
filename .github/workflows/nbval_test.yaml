@@ -82,7 +82,7 @@ jobs:
       conda-environment: ${{ inputs.conda_environment }}
       enable-validation: true
       enable-security: false
-      enable-execution: tr
+      enable-execution: false
       enable-storage: false
       enable-html-build: false
       custom-runner-config: true  # Enable ci_config.txt lookup
