@@ -12,6 +12,7 @@ on:
         required: true
         type: choice
         options:
+          - 'execute-validate-all'
           - 'validate-all'
           - 'execute-all'
           - 'security-scan-all'
@@ -52,6 +53,25 @@ on:
         default: false
 
 jobs:
+
+  execute-validate-all:
+    if: inputs.action_type == 'execute-validate-all'
+    uses:  spacetelescope/notebook-ci-actions/.github/workflows/notebook-ci-unified.yml@nbval-test
+    with:
+      execution-mode: 'on-demand'
+      trigger-event: 'validate'
+      python-version: ${{ inputs.python_version }}
+      conda-environment: ${{ inputs.conda_environment }}
+      enable-validation: true
+      enable-security: false
+      enable-execution: true
+      enable-storage: false
+      enable-html-build: false
+      custom-runner-config: true  # Enable ci_config.txt lookup
+    secrets:
+      CASJOBS_USERID: ${{ secrets.CASJOBS_USERID }}
+      CASJOBS_PW: ${{ secrets.CASJOBS_PW }}
+      
   validate-all:
     if: inputs.action_type == 'validate-all'
     uses:  spacetelescope/notebook-ci-actions/.github/workflows/notebook-ci-unified.yml@nbval-test
@@ -62,7 +82,7 @@ jobs:
       conda-environment: ${{ inputs.conda_environment }}
       enable-validation: true
       enable-security: false
-      enable-execution: false
+      enable-execution: tr
       enable-storage: false
       enable-html-build: false
       custom-runner-config: true  # Enable ci_config.txt lookup
