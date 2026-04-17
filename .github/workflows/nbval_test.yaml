@@ -193,8 +193,8 @@ jobs:
       enable-validation: true
       enable-security: true
       enable-execution: true
-      enable-storage: true
-      enable-html-build: true
+      enable-storage: false
+      enable-html-build: false
       custom-runner-config: true  # Enable ci_config.txt lookup
     secrets:
       CASJOBS_USERID: ${{ secrets.CASJOBS_USERID }}
