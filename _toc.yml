@@ -25,6 +25,8 @@ parts:
       title: NIRCam Coronagraphy Notebook
     - file: notebooks/NIRCAM/Imaging/JWPipeNB-nircam-imaging.ipynb
       title: NIRCam Imaging Notebook
+    - file: notebooks/NIRCAM/LW_Grism_Time_Series/JWPipeNB-NIRCam-LWGTS.ipynb
+      title: NIRCam Long Wavelength Grism TSO Notebook
   - caption: NIRISS
     chapters:
     - file: notebooks/NIRISS/AMI/JWPipeNB-niriss-ami.ipynb
