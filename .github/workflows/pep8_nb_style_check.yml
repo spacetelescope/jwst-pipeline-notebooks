@@ -8,6 +8,7 @@ on:
     paths:
       - 'notebooks/**.ipynb'
       - '*.yml'
+   workflow_dispatch: 
 
 jobs:
   Notebook_PEP8_Check:
