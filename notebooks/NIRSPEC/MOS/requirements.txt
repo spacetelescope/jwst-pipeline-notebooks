@@ -1,5 +1,5 @@
 jwst==2.0.0
 astroquery>=0.4.8
 jupyter
-jdaviz>=4.2.1
+jdaviz>=4.2.1,<5.0.0
 matplotlib>=3.9.2
