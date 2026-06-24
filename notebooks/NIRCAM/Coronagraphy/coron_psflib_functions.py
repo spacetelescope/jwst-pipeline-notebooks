@@ -170,7 +170,7 @@ def query_coron_datasets(inst,
         row['visit_id'] = 'V' + row['visit_id']
 
     # Add a summary for which kind of observation each is.
-    kind = np.zeros(len(responsetable), dtype='a3')
+    kind = np.zeros(len(responsetable), dtype='S3')
     kind[:] = 'SCI'  # by default assume SCI, then check for REF and BKG and TA
     kind[responsetable.columns['is_psf'] == 't'] = 'REF'
     kind[responsetable.columns['bkgdtarg'] == 't'] = 'BKG'
