@@ -6,12 +6,14 @@ import astropy.table
 from astropy.time import Time
 import requests
 
+
 def set_params(parameters):
     """
     Utility function for making dicts used in MAST queries.
 
     """
     return [{'paramName': p, 'values': v if isinstance(v, list) else [v]} for p, v in parameters.items()]
+
 
 def query_coron_datasets(inst,
                          filt=None,
@@ -129,7 +131,7 @@ def query_coron_datasets(inst,
             keywords['is_psf'] = ['f']
             keywords['bkgdtarg'] = ['t']
 
-    if inst.upper()=='NIRCAM' and channel is not None:
+    if inst.upper() == 'NIRCAM' and channel is not None:
         if channel.upper().startswith('S'):
             keywords['channel'] = ['SHORT',]
         elif channel.upper().startswith('L'):
@@ -170,7 +172,7 @@ def query_coron_datasets(inst,
         row['visit_id'] = 'V' + row['visit_id']
 
     # Add a summary for which kind of observation each is.
-    kind = np.zeros(len(responsetable), dtype='a3')
+    kind = np.zeros(len(responsetable), dtype='S3')
     kind[:] = 'SCI'  # by default assume SCI, then check for REF and BKG and TA
     kind[responsetable.columns['is_psf'] == 't'] = 'REF'
     kind[responsetable.columns['bkgdtarg'] == 't'] = 'BKG'
@@ -189,7 +191,7 @@ def query_coron_datasets(inst,
         if level is not None and level.lower() != 'cal' and level.lower() != '2b':
             # Transform filenames to either rate or uncal files
             # This may not be robust to all possible scenarios yet...
-            if level.lower()=='rate' or level.lower()=='2a':
+            if level.lower() == 'rate' or level.lower() == '2a':
                 responsetable['filename'] = [f.replace('_cal', '_rate') for f in responsetable['filename']]
                 responsetable['productLevel'] = '2a'
             elif level.lower() == 'uncal' or level.lower() == '1b':
@@ -214,6 +216,7 @@ def query_coron_datasets(inst,
     summarytable.sort(keys='start time')
 
     return summarytable
+
 
 def get_mast_filename(filename, outputdir='.',
                       overwrite=False, exists_ok=True, verbose=True,
@@ -325,21 +328,22 @@ def get_obs_info(file):
             'mask': mask,
             'vstart': visit_start}
 
+
 def download_coron_references(files,
-                          num_refs=2,
-                          download_dir='./REFS/',
-                          kind='REF',
-                          subarray=None,
-                          program=None,
-                          obsnum=None,
-                          channel=None,
-                          ignore_cal=True,
-                          ignore_ta=True,
-                          verbose=False,
-                          level='2b',
-                          ignore_exclusive_access=False,
-                          exp_type=None,
-                          return_filenames=True):
+                              num_refs=2,
+                              download_dir='./REFS/',
+                              kind='REF',
+                              subarray=None,
+                              program=None,
+                              obsnum=None,
+                              channel=None,
+                              ignore_cal=True,
+                              ignore_ta=True,
+                              verbose=False,
+                              level='2b',
+                              ignore_exclusive_access=False,
+                              exp_type=None,
+                              return_filenames=True):
     """
     Convenience wrapper around query_coron_datasets to find the closest N coronagraphic
     PSF reference datasets for one or more science files.
@@ -419,7 +423,7 @@ def download_coron_references(files,
     # If MIRI, need to exclude observations from program 1193 and 1386, as they don't have glowstick subtraction
     if obs_info['inst'].upper() == 'MIRI':
         if verbose:
-            print(f"Excluding MIRI observations from programs 1193 and 1386, as they don't have glowstick subtraction")
+            print("Excluding MIRI observations from programs 1193 and 1386, as they don't have glowstick subtraction")
         if 'program' in db.colnames:
             db = db[~np.isin(db['program'], [1193, 1386])]
         else:
