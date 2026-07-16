@@ -1,4 +1,4 @@
-jwst==2.0.0
+jwst==3.0.0
 astroquery>=0.4.8
 jupyter
 jdaviz>=4.2.1,<5.0.0
