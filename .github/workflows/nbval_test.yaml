@@ -33,7 +33,7 @@ on:
         description: 'Python version'
         required: false
         type: string
-        default: '3.11'
+        default: '3.13'
         
       conda_environment:
         description: 'Custom conda environment (optional)'
