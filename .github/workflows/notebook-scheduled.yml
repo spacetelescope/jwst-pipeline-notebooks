@@ -14,7 +14,7 @@ jobs:
     with:
       execution-mode: 'on-demand'
       trigger-event: 'execute'
-      python-version: '3.11'
+      python-version: '3.13'
       enable-validation: false
       enable-security: false
       enable-execution: true
@@ -22,10 +22,3 @@ jobs:
       enable-html-build: false
       custom-runner-config: true  # Enable ci_config.txt lookup
     secrets: inherit
-
-
-
-
-
-
-

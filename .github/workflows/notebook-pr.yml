@@ -22,7 +22,7 @@ jobs:
     uses: spacetelescope/notebook-ci-actions/.github/workflows/notebook-ci-unified.yml@pipeline-dev
     with:
       execution-mode: 'pr'
-      python-version: '3.11'                    # Adjust as needed
+      python-version: '3.13'                    # Adjust as needed
       # conda-environment: 'hstcal'             # Uncomment and adjust for custom conda env
       # custom-requirements: 'custom-reqs.txt'  # Uncomment for custom requirements
       enable-validation: false
@@ -34,5 +34,3 @@ jobs:
     secrets:
       CASJOBS_USERID: ${{ secrets.CASJOBS_USERID }}
       CASJOBS_PW: ${{ secrets.CASJOBS_PW }}
-
-
