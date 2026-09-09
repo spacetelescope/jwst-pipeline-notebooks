@@ -29,6 +29,7 @@ The following table summarizes the notebooks currently available and the JWST [p
 | NIRCam     | Coronagraphy   | 13.0       | 3.0.0 | [JWPipeNB-nircam-coronagraphy.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRCAM/Coronagraphy/JWPipeNB-nircam-coronagraphy.ipynb)  |
 | NIRCam     | Imaging        | 13.0       | 3.0.0 | [JWPipeNB-nircam-imaging.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRCAM/Imaging/JWPipeNB-nircam-imaging.ipynb)  |
 | NIRCam     | LW Grism TSO   | 13.0       | 3.0.0 | [JWPipeNB-NIRCam-LWGTS.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRCAM/LW_Grism_Time_Series/JWPipeNB-NIRCam-LWGTS.ipynb)  |
+| NIRCam     | WFSS           | 13.0       | 3.0.0 | [JWPipeNB-nircam-wfss.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRCAM/WFSS/JWPipeNB-nircam-wfss.ipynb)  |
 | NIRISS     | AMI            | 13.0       | 3.0.0 | [JWPipeNB-niriss-ami.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRISS/AMI/JWPipeNB-niriss-ami.ipynb)  |
 | NIRISS     | Imaging        | 13.0       | 3.0.0 | [JWPipeNB-niriss-imaging.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRISS/Imaging/JWPipeNB-niriss-imaging.ipynb)  |
 | NIRISS     | SOSS           | 13.0       | 3.0.0 | [JWPipeNB-niriss-soss.ipynb](https://github.com/spacetelescope/jwst-pipeline-notebooks/blob/main/notebooks/NIRISS/SOSS/JWPipeNB-niriss-soss.ipynb)  |

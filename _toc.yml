@@ -27,6 +27,8 @@ parts:
       title: NIRCam Imaging Notebook
     - file: notebooks/NIRCAM/LW_Grism_Time_Series/JWPipeNB-NIRCam-LWGTS.ipynb
       title: NIRCam Long Wavelength Grism TSO Notebook
+    - file: notebooks/NIRCAM/WFSS/JWPipeNB-nircam-wfss.ipynb
+      title: NIRCam Wide Field Slitless Spectroscopy Notebook
   - caption: NIRISS
     chapters:
     - file: notebooks/NIRISS/AMI/JWPipeNB-niriss-ami.ipynb
