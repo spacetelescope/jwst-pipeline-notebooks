@@ -658,25 +658,25 @@ been downloaded and provide the location of the data.<br></p>
 <span class="n">demo_mode</span> <span class="o">=</span> <span class="kc">True</span>
 
 <span class="k">if</span> <span class="n">demo_mode</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Running in demonstration mode using online example data!&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Running in demonstration mode using online example data!'</span><span class="p">)</span>
 
 <span class="c1"># --------------------------User Mode Directories------------------------</span>
 <span class="c1"># If demo_mode = False, look for user data in these paths</span>
 <span class="k">if</span> <span class="ow">not</span> <span class="n">demo_mode</span><span class="p">:</span>
     <span class="c1"># Set directory paths for processing specific data; these will need</span>
-    <span class="c1"># to be changed to the user&#39;s local directory setup (paths below are given as</span>
+    <span class="c1"># to be changed to the user's local directory setup (paths below are given as</span>
     <span class="c1"># examples).</span>
-    <span class="n">basedir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="s1">&#39;lrs_tso_demo_data&#39;</span><span class="p">)</span>
+    <span class="n">basedir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="s1">'lrs_tso_demo_data'</span><span class="p">)</span>
 
     <span class="c1"># Point to where the observation data are stored.</span>
     <span class="c1"># Assumes uncalibrated data in sci_dir/uncal/ and bkg_dir/uncal/, with the results stored in stage1,</span>
     <span class="c1"># stage2, stage3 directories.</span>
-    <span class="n">sci_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">basedir</span><span class="p">,</span> <span class="s1">&#39;PID04496Obs004/&#39;</span><span class="p">)</span>
-    <span class="n">bkg_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">basedir</span><span class="p">,</span> <span class="s1">&#39;PID04496Obs005/&#39;</span><span class="p">)</span>
+    <span class="n">sci_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">basedir</span><span class="p">,</span> <span class="s1">'PID04496Obs004/'</span><span class="p">)</span>
+    <span class="n">bkg_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">basedir</span><span class="p">,</span> <span class="s1">'PID04496Obs005/'</span><span class="p">)</span>
 
 <span class="c1"># --------------------------Set Processing Steps--------------------------</span>
 <span class="c1"># Individual pipeline stages can be turned on/off here.  Note that a later</span>
-<span class="c1"># stage won&#39;t be able to run unless data products have already been</span>
+<span class="c1"># stage won't be able to run unless data products have already been</span>
 <span class="c1"># produced from the prior stage.</span>
 
 <span class="c1"># Pipeline processing</span>
@@ -712,20 +712,20 @@ been downloaded and provide the location of the data.<br></p>
 <span class="c1"># the CRDS_CONTEXT environment variable. Here we show how this is done,</span>
 <span class="c1"># although we leave the line commented out in order to use the default context.</span>
 <span class="c1"># If you wish to specify a different context, uncomment the line below.</span>
-<span class="c1">#os.environ[&#39;CRDS_CONTEXT&#39;] = &#39;jwst_1322.pmap&#39;  # CRDS context for 1.17.1</span>
+<span class="c1">#os.environ['CRDS_CONTEXT'] = 'jwst_1322.pmap'  # CRDS context for 1.17.1</span>
 
 <span class="c1"># Check whether the local CRDS cache directory has been set.</span>
 <span class="c1"># If not, set it to the user home directory.</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;CRDS_PATH&#39;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
-    <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;CRDS_PATH&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">&#39;~&#39;</span><span class="p">),</span> <span class="s1">&#39;crds&#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">'CRDS_PATH'</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">'CRDS_PATH'</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">'~'</span><span class="p">),</span> <span class="s1">'crds'</span><span class="p">)</span>
 
 <span class="c1"># Check whether the CRDS server URL has been set.  If not, set it.</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;CRDS_SERVER_URL&#39;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
-    <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;CRDS_SERVER_URL&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;https://jwst-crds.stsci.edu&#39;</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">'CRDS_SERVER_URL'</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">'CRDS_SERVER_URL'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'https://jwst-crds.stsci.edu'</span>
 
 <span class="c1"># Print out CRDS path and context that will be used</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;CRDS local filepath:&#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;CRDS_PATH&#39;</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;CRDS file server:&#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;CRDS_SERVER_URL&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'CRDS local filepath:'</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">'CRDS_PATH'</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'CRDS file server:'</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">'CRDS_SERVER_URL'</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -745,7 +745,7 @@ CRDS file server: https://jwst-crds.stsci.edu
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use the entire available screen width for this notebook</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
-<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&lt;style&gt;.container { width:95% !important; }&lt;/style&gt;&quot;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s2">"&lt;style&gt;.container { width:95% !important; }&lt;/style&gt;"</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -796,8 +796,8 @@ CRDS file server: https://jwst-crds.stsci.edu
 <span class="kn">from</span><span class="w"> </span><span class="nn">jwst.associations.lib.rules_level3_base</span><span class="w"> </span><span class="kn">import</span> <span class="n">DMS_Level3_Base</span>  <span class="c1"># Definition of a Lvl3 association file</span>
 
 <span class="c1"># Print out pipeline version and CRDS context that will be used</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;JWST Calibration Pipeline Version = </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">jwst</span><span class="o">.</span><span class="n">__version__</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Using CRDS Context = </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">crds</span><span class="o">.</span><span class="n">get_context_name</span><span class="p">(</span><span class="s1">&#39;jwst&#39;</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"JWST Calibration Pipeline Version = </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">jwst</span><span class="o">.</span><span class="n">__version__</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Using CRDS Context = </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">crds</span><span class="o">.</span><span class="n">get_context_name</span><span class="p">(</span><span class="s1">'jwst'</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
@@ -835,22 +835,22 @@ https://jwst-pipeline.readthedocs.io/en/latest/jwst/data_products/file_naming.ht
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up the program information and paths for demo program</span>
 <span class="k">if</span> <span class="n">demo_mode</span><span class="p">:</span>
-    <span class="n">program</span> <span class="o">=</span> <span class="s2">&quot;04496&quot;</span>
-    <span class="n">sci_obs</span> <span class="o">=</span> <span class="s2">&quot;004&quot;</span>
-    <span class="n">bkg_obs</span> <span class="o">=</span> <span class="s2">&quot;005&quot;</span>  <span class="c1"># bkg_obs = &quot;&quot; if no background observations </span>
-    <span class="n">basedir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;lrs_tso_demo_data&#39;</span><span class="p">)</span>
-    <span class="n">sci_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">basedir</span><span class="p">,</span> <span class="s1">&#39;PID&#39;</span> <span class="o">+</span> <span class="n">program</span> <span class="o">+</span> <span class="s1">&#39;Obs&#39;</span> <span class="o">+</span> <span class="n">sci_obs</span><span class="p">)</span>
-    <span class="n">uncal_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sci_dir</span><span class="p">,</span> <span class="s1">&#39;uncal&#39;</span><span class="p">)</span>
+    <span class="n">program</span> <span class="o">=</span> <span class="s2">"04496"</span>
+    <span class="n">sci_obs</span> <span class="o">=</span> <span class="s2">"004"</span>
+    <span class="n">bkg_obs</span> <span class="o">=</span> <span class="s2">"005"</span>  <span class="c1"># bkg_obs = "" if no background observations </span>
+    <span class="n">basedir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">'.'</span><span class="p">,</span> <span class="s1">'lrs_tso_demo_data'</span><span class="p">)</span>
+    <span class="n">sci_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">basedir</span><span class="p">,</span> <span class="s1">'PID'</span> <span class="o">+</span> <span class="n">program</span> <span class="o">+</span> <span class="s1">'Obs'</span> <span class="o">+</span> <span class="n">sci_obs</span><span class="p">)</span>
+    <span class="n">uncal_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sci_dir</span><span class="p">,</span> <span class="s1">'uncal'</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">bkg_obs</span> <span class="ow">and</span> <span class="n">bkg_data</span><span class="p">:</span>
-        <span class="n">bkg_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">basedir</span><span class="p">,</span> <span class="s1">&#39;PID&#39;</span> <span class="o">+</span> <span class="n">program</span> <span class="o">+</span> <span class="s1">&#39;Obs&#39;</span> <span class="o">+</span> <span class="n">bkg_obs</span><span class="p">)</span>
-        <span class="n">uncal_bkgdir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">bkg_dir</span><span class="p">,</span> <span class="s1">&#39;uncal&#39;</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Science data will be background subtracted&#39;</span><span class="p">)</span>
+        <span class="n">bkg_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">basedir</span><span class="p">,</span> <span class="s1">'PID'</span> <span class="o">+</span> <span class="n">program</span> <span class="o">+</span> <span class="s1">'Obs'</span> <span class="o">+</span> <span class="n">bkg_obs</span><span class="p">)</span>
+        <span class="n">uncal_bkgdir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">bkg_dir</span><span class="p">,</span> <span class="s1">'uncal'</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'Science data will be background subtracted'</span><span class="p">)</span>
     <span class="k">elif</span> <span class="n">bkg_sub</span><span class="p">:</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">bkg_data</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">bkg_obs</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;bkg_data is set to False or directory for background observations not set&#39;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">'bkg_data is set to False or directory for background observations not set'</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">bkg_dir</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;No background observations will be used&#39;</span><span class="p">)</span>
+        <span class="n">bkg_dir</span> <span class="o">=</span> <span class="s1">''</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'No background observations will be used'</span><span class="p">)</span>
 
     <span class="c1"># Ensure filepaths for input data exists</span>
     <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">uncal_dir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -870,15 +870,15 @@ https://jwst-pipeline.readthedocs.io/en/latest/jwst/data_products/file_naming.ht
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Obtain a list of observation IDs for the specified demo program</span>
 <span class="k">if</span> <span class="n">demo_mode</span><span class="p">:</span>
-    <span class="n">sci_obs_id_table</span> <span class="o">=</span> <span class="n">Observations</span><span class="o">.</span><span class="n">query_criteria</span><span class="p">(</span><span class="n">instrument_name</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;MIRI/SLITLESS&quot;</span><span class="p">],</span>
-                                                   <span class="n">provenance_name</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;CALJWST&quot;</span><span class="p">],</span>  <span class="c1"># Executed observations</span>
-                                                   <span class="n">obs_id</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;jw&#39;</span> <span class="o">+</span> <span class="n">program</span> <span class="o">+</span> <span class="s1">&#39;-o&#39;</span> <span class="o">+</span> <span class="n">sci_obs</span> <span class="o">+</span> <span class="s1">&#39;*&#39;</span><span class="p">]</span>
+    <span class="n">sci_obs_id_table</span> <span class="o">=</span> <span class="n">Observations</span><span class="o">.</span><span class="n">query_criteria</span><span class="p">(</span><span class="n">instrument_name</span><span class="o">=</span><span class="p">[</span><span class="s2">"MIRI/SLITLESS"</span><span class="p">],</span>
+                                                   <span class="n">provenance_name</span><span class="o">=</span><span class="p">[</span><span class="s2">"CALJWST"</span><span class="p">],</span>  <span class="c1"># Executed observations</span>
+                                                   <span class="n">obs_id</span><span class="o">=</span><span class="p">[</span><span class="s1">'jw'</span> <span class="o">+</span> <span class="n">program</span> <span class="o">+</span> <span class="s1">'-o'</span> <span class="o">+</span> <span class="n">sci_obs</span> <span class="o">+</span> <span class="s1">'*'</span><span class="p">]</span>
                                                    <span class="p">)</span>
 
     <span class="k">if</span> <span class="n">bkg_data</span><span class="p">:</span>
-        <span class="n">bkg_obs_id_table</span> <span class="o">=</span> <span class="n">Observations</span><span class="o">.</span><span class="n">query_criteria</span><span class="p">(</span><span class="n">instrument_name</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;MIRI/SLITLESS&quot;</span><span class="p">],</span>
-                                                       <span class="n">provenance_name</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;CALJWST&quot;</span><span class="p">],</span>  <span class="c1"># Executed observations</span>
-                                                       <span class="n">obs_id</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;jw&#39;</span> <span class="o">+</span> <span class="n">program</span> <span class="o">+</span> <span class="n">bkg_obs</span> <span class="o">+</span> <span class="s1">&#39;*&#39;</span><span class="p">]</span>
+        <span class="n">bkg_obs_id_table</span> <span class="o">=</span> <span class="n">Observations</span><span class="o">.</span><span class="n">query_criteria</span><span class="p">(</span><span class="n">instrument_name</span><span class="o">=</span><span class="p">[</span><span class="s2">"MIRI/SLITLESS"</span><span class="p">],</span>
+                                                       <span class="n">provenance_name</span><span class="o">=</span><span class="p">[</span><span class="s2">"CALJWST"</span><span class="p">],</span>  <span class="c1"># Executed observations</span>
+                                                       <span class="n">obs_id</span><span class="o">=</span><span class="p">[</span><span class="s1">'jw'</span> <span class="o">+</span> <span class="n">program</span> <span class="o">+</span> <span class="n">bkg_obs</span> <span class="o">+</span> <span class="s1">'*'</span><span class="p">]</span>
                                                        <span class="p">)</span>
 </pre></div>
 </div>
@@ -889,9 +889,9 @@ https://jwst-pipeline.readthedocs.io/en/latest/jwst/data_products/file_naming.ht
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Turn the list of observations into a list of uncalibrated data files</span>
 <span class="k">if</span> <span class="n">demo_mode</span><span class="p">:</span>
     <span class="c1"># Define types of files to select</span>
-    <span class="n">file_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;uncal&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;product_type&#39;</span><span class="p">:</span> <span class="s1">&#39;SCIENCE&#39;</span><span class="p">,</span> 
-                           <span class="s1">&#39;productSubGroupDescription&#39;</span><span class="p">:</span> <span class="s1">&#39;UNCAL&#39;</span><span class="p">,</span> 
-                           <span class="s1">&#39;calib_level&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">]}}</span>
+    <span class="n">file_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'uncal'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'product_type'</span><span class="p">:</span> <span class="s1">'SCIENCE'</span><span class="p">,</span> 
+                           <span class="s1">'productSubGroupDescription'</span><span class="p">:</span> <span class="s1">'UNCAL'</span><span class="p">,</span> 
+                           <span class="s1">'calib_level'</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">]}}</span>
 
     <span class="c1"># Science files</span>
     <span class="n">sci_files_to_download</span> <span class="o">=</span> <span class="p">[]</span>
@@ -899,10 +899,10 @@ https://jwst-pipeline.readthedocs.io/en/latest/jwst/data_products/file_naming.ht
     <span class="k">for</span> <span class="n">exposure</span> <span class="ow">in</span> <span class="p">(</span><span class="n">sci_obs_id_table</span><span class="p">):</span>
         <span class="n">products</span> <span class="o">=</span> <span class="n">Observations</span><span class="o">.</span><span class="n">get_product_list</span><span class="p">(</span><span class="n">exposure</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">filetype</span><span class="p">,</span> <span class="n">query_dict</span> <span class="ow">in</span> <span class="n">file_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-            <span class="n">filtered_products</span> <span class="o">=</span> <span class="n">Observations</span><span class="o">.</span><span class="n">filter_products</span><span class="p">(</span><span class="n">products</span><span class="p">,</span> <span class="n">productType</span><span class="o">=</span><span class="n">query_dict</span><span class="p">[</span><span class="s1">&#39;product_type&#39;</span><span class="p">],</span>
-                                                             <span class="n">productSubGroupDescription</span><span class="o">=</span><span class="n">query_dict</span><span class="p">[</span><span class="s1">&#39;productSubGroupDescription&#39;</span><span class="p">],</span>
-                                                             <span class="n">calib_level</span><span class="o">=</span><span class="n">query_dict</span><span class="p">[</span><span class="s1">&#39;calib_level&#39;</span><span class="p">])</span>
-            <span class="n">sci_files_to_download</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">filtered_products</span><span class="p">[</span><span class="s1">&#39;dataURI&#39;</span><span class="p">])</span>
+            <span class="n">filtered_products</span> <span class="o">=</span> <span class="n">Observations</span><span class="o">.</span><span class="n">filter_products</span><span class="p">(</span><span class="n">products</span><span class="p">,</span> <span class="n">productType</span><span class="o">=</span><span class="n">query_dict</span><span class="p">[</span><span class="s1">'product_type'</span><span class="p">],</span>
+                                                             <span class="n">productSubGroupDescription</span><span class="o">=</span><span class="n">query_dict</span><span class="p">[</span><span class="s1">'productSubGroupDescription'</span><span class="p">],</span>
+                                                             <span class="n">calib_level</span><span class="o">=</span><span class="n">query_dict</span><span class="p">[</span><span class="s1">'calib_level'</span><span class="p">])</span>
+            <span class="n">sci_files_to_download</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">filtered_products</span><span class="p">[</span><span class="s1">'dataURI'</span><span class="p">])</span>
 
     <span class="c1"># Background files</span>
     <span class="k">if</span> <span class="n">bkg_data</span><span class="p">:</span>
@@ -911,14 +911,14 @@ https://jwst-pipeline.readthedocs.io/en/latest/jwst/data_products/file_naming.ht
         <span class="k">for</span> <span class="n">exposure</span> <span class="ow">in</span> <span class="p">(</span><span class="n">bkg_obs_id_table</span><span class="p">):</span>
             <span class="n">products</span> <span class="o">=</span> <span class="n">Observations</span><span class="o">.</span><span class="n">get_product_list</span><span class="p">(</span><span class="n">exposure</span><span class="p">)</span>
             <span class="k">for</span> <span class="n">filetype</span><span class="p">,</span> <span class="n">query_dict</span> <span class="ow">in</span> <span class="n">file_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-                <span class="n">filtered_products</span> <span class="o">=</span> <span class="n">Observations</span><span class="o">.</span><span class="n">filter_products</span><span class="p">(</span><span class="n">products</span><span class="p">,</span> <span class="n">productType</span><span class="o">=</span><span class="n">query_dict</span><span class="p">[</span><span class="s1">&#39;product_type&#39;</span><span class="p">],</span>
-                                                                 <span class="n">productSubGroupDescription</span><span class="o">=</span><span class="n">query_dict</span><span class="p">[</span><span class="s1">&#39;productSubGroupDescription&#39;</span><span class="p">],</span>
-                                                                 <span class="n">calib_level</span><span class="o">=</span><span class="n">query_dict</span><span class="p">[</span><span class="s1">&#39;calib_level&#39;</span><span class="p">])</span>
-                <span class="n">bkg_files_to_download</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">filtered_products</span><span class="p">[</span><span class="s1">&#39;dataURI&#39;</span><span class="p">])</span>
+                <span class="n">filtered_products</span> <span class="o">=</span> <span class="n">Observations</span><span class="o">.</span><span class="n">filter_products</span><span class="p">(</span><span class="n">products</span><span class="p">,</span> <span class="n">productType</span><span class="o">=</span><span class="n">query_dict</span><span class="p">[</span><span class="s1">'product_type'</span><span class="p">],</span>
+                                                                 <span class="n">productSubGroupDescription</span><span class="o">=</span><span class="n">query_dict</span><span class="p">[</span><span class="s1">'productSubGroupDescription'</span><span class="p">],</span>
+                                                                 <span class="n">calib_level</span><span class="o">=</span><span class="n">query_dict</span><span class="p">[</span><span class="s1">'calib_level'</span><span class="p">])</span>
+                <span class="n">bkg_files_to_download</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">filtered_products</span><span class="p">[</span><span class="s1">'dataURI'</span><span class="p">])</span>
 
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of science files selected for downloading: &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">sci_files_to_download</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Number of science files selected for downloading: "</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">sci_files_to_download</span><span class="p">))</span>
     <span class="k">if</span> <span class="n">bkg_data</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of background files selected for downloading: &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">bkg_files_to_download</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Number of background files selected for downloading: "</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">bkg_files_to_download</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -978,15 +978,15 @@ Warning: If this notebook is halted during this step, the downloaded files may b
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define output subdirectories to keep science data products organized</span>
-<span class="n">uncal_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sci_dir</span><span class="p">,</span> <span class="s1">&#39;uncal&#39;</span><span class="p">)</span>     <span class="c1"># Uncalibrated pipeline inputs should be here</span>
-<span class="n">det1_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sci_dir</span><span class="p">,</span> <span class="s1">&#39;stage1&#39;</span><span class="p">)</span>     <span class="c1"># calwebb_detector1 pipeline outputs will go here</span>
-<span class="n">spec2_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sci_dir</span><span class="p">,</span> <span class="s1">&#39;stage2&#39;</span><span class="p">)</span>    <span class="c1"># calwebb_spec2 pipeline outputs will go here</span>
-<span class="n">tso3_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sci_dir</span><span class="p">,</span> <span class="s1">&#39;stage3&#39;</span><span class="p">)</span>     <span class="c1"># calwebb_tso3 pipeline outputs will go here</span>
+<span class="n">uncal_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sci_dir</span><span class="p">,</span> <span class="s1">'uncal'</span><span class="p">)</span>     <span class="c1"># Uncalibrated pipeline inputs should be here</span>
+<span class="n">det1_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sci_dir</span><span class="p">,</span> <span class="s1">'stage1'</span><span class="p">)</span>     <span class="c1"># calwebb_detector1 pipeline outputs will go here</span>
+<span class="n">spec2_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sci_dir</span><span class="p">,</span> <span class="s1">'stage2'</span><span class="p">)</span>    <span class="c1"># calwebb_spec2 pipeline outputs will go here</span>
+<span class="n">tso3_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sci_dir</span><span class="p">,</span> <span class="s1">'stage3'</span><span class="p">)</span>     <span class="c1"># calwebb_tso3 pipeline outputs will go here</span>
 
 <span class="c1"># Output subdirectories to keep background data products organized</span>
 <span class="k">if</span> <span class="n">bkg_data</span><span class="p">:</span>
-    <span class="n">uncal_bkgdir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">bkg_dir</span><span class="p">,</span> <span class="s1">&#39;uncal&#39;</span><span class="p">)</span>  <span class="c1"># Uncalibrated pipeline inputs should be here</span>
-    <span class="n">det1_bkgdir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">bkg_dir</span><span class="p">,</span> <span class="s1">&#39;stage1&#39;</span><span class="p">)</span>  <span class="c1"># calwebb_detector1 pipeline outputs will go here</span>
+    <span class="n">uncal_bkgdir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">bkg_dir</span><span class="p">,</span> <span class="s1">'uncal'</span><span class="p">)</span>  <span class="c1"># Uncalibrated pipeline inputs should be here</span>
+    <span class="n">det1_bkgdir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">bkg_dir</span><span class="p">,</span> <span class="s1">'stage1'</span><span class="p">)</span>  <span class="c1"># calwebb_detector1 pipeline outputs will go here</span>
 
     <span class="c1"># Create desired output directories, if needed</span>
     <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">det1_bkgdir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -1025,29 +1025,29 @@ E.g., turn on detection of cosmic ray showers.
 <span class="n">det1dict</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">dict</span><span class="p">)</span>
 
 <span class="c1"># Overrides for whether or not certain steps should be skipped (example)</span>
-<span class="c1">#det1dict[&#39;emicorr&#39;][&#39;skip&#39;] = True</span>
+<span class="c1">#det1dict['emicorr']['skip'] = True</span>
 
 <span class="c1"># Overrides for various reference files.</span>
 <span class="c1"># If the files are not in the base local directory, provide full path.</span>
-<span class="c1">#det1dict[&#39;dq_init&#39;][&#39;override_mask&#39;] = &#39;myfile.fits&#39; # Bad pixel mask</span>
-<span class="c1">#det1dict[&#39;saturation&#39;][&#39;override_saturation&#39;] = &#39;myfile.fits&#39; # Saturation</span>
-<span class="c1">#det1dict[&#39;reset&#39;][&#39;override_reset&#39;] = &#39;myfile.fits&#39; # Reset</span>
-<span class="c1">#det1dict[&#39;linearity&#39;][&#39;override_linearity&#39;] = &#39;myfile.fits&#39; # Linearity</span>
-<span class="c1">#det1dict[&#39;rscd&#39;][&#39;override_rscd&#39;] = &#39;myfile.fits&#39; # RSCD</span>
-<span class="c1">#det1dict[&#39;dark_current&#39;][&#39;override_dark&#39;] = &#39;myfile.fits&#39; # Dark current subtraction</span>
-<span class="c1">#det1dict[&#39;jump&#39;][&#39;override_gain&#39;] = &#39;myfile.fits&#39; # Gain used by jump step</span>
-<span class="c1">#det1dict[&#39;ramp_fit&#39;][&#39;override_gain&#39;] = &#39;myfile.fits&#39; # Gain used by ramp fitting step</span>
-<span class="c1">#det1dict[&#39;jump&#39;][&#39;override_readnoise&#39;] = &#39;myfile.fits&#39; # Read noise used by jump step</span>
-<span class="c1">#det1dict[&#39;ramp_fit&#39;][&#39;override_readnoise&#39;] = &#39;myfile.fits&#39; # Read noise used by ramp fitting step</span>
+<span class="c1">#det1dict['dq_init']['override_mask'] = 'myfile.fits' # Bad pixel mask</span>
+<span class="c1">#det1dict['saturation']['override_saturation'] = 'myfile.fits' # Saturation</span>
+<span class="c1">#det1dict['reset']['override_reset'] = 'myfile.fits' # Reset</span>
+<span class="c1">#det1dict['linearity']['override_linearity'] = 'myfile.fits' # Linearity</span>
+<span class="c1">#det1dict['rscd']['override_rscd'] = 'myfile.fits' # RSCD</span>
+<span class="c1">#det1dict['dark_current']['override_dark'] = 'myfile.fits' # Dark current subtraction</span>
+<span class="c1">#det1dict['jump']['override_gain'] = 'myfile.fits' # Gain used by jump step</span>
+<span class="c1">#det1dict['ramp_fit']['override_gain'] = 'myfile.fits' # Gain used by ramp fitting step</span>
+<span class="c1">#det1dict['jump']['override_readnoise'] = 'myfile.fits' # Read noise used by jump step</span>
+<span class="c1">#det1dict['ramp_fit']['override_readnoise'] = 'myfile.fits' # Read noise used by ramp fitting step</span>
 
 <span class="c1"># Turn on multi-core processing for jump step (off by default).  Choose what fraction of cores to use (quarter, half, or all)</span>
-<span class="c1">#det1dict[&#39;jump&#39;][&#39;maximum_cores&#39;] = &#39;half&#39;</span>
+<span class="c1">#det1dict['jump']['maximum_cores'] = 'half'</span>
 
 <span class="c1"># Turn on detection of cosmic ray showers if desired (off by default)</span>
-<span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;jump&#39;</span><span class="p">][</span><span class="s1">&#39;find_showers&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">det1dict</span><span class="p">[</span><span class="s1">'jump'</span><span class="p">][</span><span class="s1">'find_showers'</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
 
 <span class="c1"># Adjust the flagging threshold for cosmic rays (default is 3.0)</span>
-<span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;jump&#39;</span><span class="p">][</span><span class="s1">&#39;rejection_threshold&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">5.0</span>
+<span class="n">det1dict</span><span class="p">[</span><span class="s1">'jump'</span><span class="p">][</span><span class="s1">'rejection_threshold'</span><span class="p">]</span> <span class="o">=</span> <span class="mf">5.0</span>
 </pre></div>
 </div>
 </div>
@@ -1058,12 +1058,12 @@ E.g., turn on detection of cosmic ray showers.
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Grab all downloaded uncal files</span>
-<span class="n">uncal_files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">uncal_dir</span><span class="p">,</span> <span class="s1">&#39;*_uncal.fits&#39;</span><span class="p">)))</span>
+<span class="n">uncal_files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">uncal_dir</span><span class="p">,</span> <span class="s1">'*_uncal.fits'</span><span class="p">)))</span>
 
-<span class="c1"># Only choose science exposures, which have the exposure type setting &#39;MIR_LRS-FIXEDSLIT&#39;</span>
-<span class="n">input_files</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">fi</span> <span class="k">for</span> <span class="n">fi</span> <span class="ow">in</span> <span class="n">uncal_files</span> <span class="k">if</span> <span class="n">fits</span><span class="o">.</span><span class="n">getheader</span><span class="p">(</span><span class="n">fi</span><span class="p">,</span> <span class="s1">&#39;PRIMARY&#39;</span><span class="p">)[</span><span class="s1">&#39;EXP_TYPE&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;MIR_LRS-SLITLESS&#39;</span><span class="p">])</span>
+<span class="c1"># Only choose science exposures, which have the exposure type setting 'MIR_LRS-FIXEDSLIT'</span>
+<span class="n">input_files</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">fi</span> <span class="k">for</span> <span class="n">fi</span> <span class="ow">in</span> <span class="n">uncal_files</span> <span class="k">if</span> <span class="n">fits</span><span class="o">.</span><span class="n">getheader</span><span class="p">(</span><span class="n">fi</span><span class="p">,</span> <span class="s1">'PRIMARY'</span><span class="p">)[</span><span class="s1">'EXP_TYPE'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'MIR_LRS-SLITLESS'</span><span class="p">])</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Found &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">input_files</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39; science uncal files&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Found '</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">input_files</span><span class="p">))</span> <span class="o">+</span> <span class="s1">' science uncal files'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1081,7 +1081,7 @@ E.g., turn on detection of cosmic ray showers.
     <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">input_files</span><span class="p">:</span>
         <span class="n">Detector1Pipeline</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="n">det1dict</span><span class="p">,</span> <span class="n">save_results</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">output_dir</span><span class="o">=</span><span class="n">det1_dir</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Skipping Detector1 processing...&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Skipping Detector1 processing...'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1863,7 +1863,7 @@ E.g., turn on detection of cosmic ray showers.
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:35:02,516 - stpipe.step - INFO - GainScaleStep instance created.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:35:02,693 - stpipe.step - INFO - Step Detector1Pipeline running with args (np.str_(&#39;./lrs_tso_demo_data/PID04496Obs004/uncal/jw04496004001_03103_00001-seg001_mirimage_uncal.fits&#39;),).
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:35:02,693 - stpipe.step - INFO - Step Detector1Pipeline running with args (np.str_('./lrs_tso_demo_data/PID04496Obs004/uncal/jw04496004001_03103_00001-seg001_mirimage_uncal.fits'),).
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:35:02,715 - stpipe.step - INFO - Step Detector1Pipeline parameters are:
@@ -1878,7 +1878,7 @@ E.g., turn on detection of cosmic ray showers.
   skip: False
   suffix: None
   search_output_file: True
-  input_dir: &#39;&#39;
+  input_dir: ''
   save_calibrated_ramp: True
   steps:
     group_scale:
@@ -1893,7 +1893,7 @@ E.g., turn on detection of cosmic ray showers.
       skip: False
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
     dq_init:
       pre_hooks: []
       post_hooks: []
@@ -1906,7 +1906,7 @@ E.g., turn on detection of cosmic ray showers.
       skip: False
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
       user_supplied_dq: None
     emicorr:
       pre_hooks: []
@@ -1920,7 +1920,7 @@ E.g., turn on detection of cosmic ray showers.
       skip: False
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
       algorithm: joint
       nints_to_phase: None
       nbins: None
@@ -1942,7 +1942,7 @@ E.g., turn on detection of cosmic ray showers.
       skip: False
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
       n_pix_grow_sat: 1
       use_readpatt: True
     ipc:
@@ -1957,7 +1957,7 @@ E.g., turn on detection of cosmic ray showers.
       skip: True
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
     superbias:
       pre_hooks: []
       post_hooks: []
@@ -1970,7 +1970,7 @@ E.g., turn on detection of cosmic ray showers.
       skip: False
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
     refpix:
       pre_hooks: []
       post_hooks: []
@@ -1983,7 +1983,7 @@ E.g., turn on detection of cosmic ray showers.
       skip: True
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
       odd_even_columns: True
       use_side_ref_pixels: True
       side_smoothing_length: 11
@@ -2009,7 +2009,7 @@ E.g., turn on detection of cosmic ray showers.
       skip: True
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
     firstframe:
       pre_hooks: []
       post_hooks: []
@@ -2022,7 +2022,7 @@ E.g., turn on detection of cosmic ray showers.
       skip: True
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
       bright_use_group1: True
     lastframe:
       pre_hooks: []
@@ -2036,7 +2036,7 @@ E.g., turn on detection of cosmic ray showers.
       skip: False
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
     linearity:
       pre_hooks: []
       post_hooks: []
@@ -2049,7 +2049,7 @@ E.g., turn on detection of cosmic ray showers.
       skip: False
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
     dark_current:
       pre_hooks: []
       post_hooks: []
@@ -2062,7 +2062,7 @@ E.g., turn on detection of cosmic ray showers.
       skip: False
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
       dark_output: None
       average_dark_current: 1.0
     reset:
@@ -2077,7 +2077,7 @@ E.g., turn on detection of cosmic ray showers.
       skip: False
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
     persistence:
       pre_hooks: []
       post_hooks: []
@@ -2090,7 +2090,7 @@ E.g., turn on detection of cosmic ray showers.
       skip: True
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
       save_persistence: None
       persistence_time: None
       dn_threshold: None
@@ -2108,7 +2108,7 @@ E.g., turn on detection of cosmic ray showers.
       skip: True
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
       signal_threshold: 25000.0
     jump:
       pre_hooks: []
@@ -2122,11 +2122,11 @@ E.g., turn on detection of cosmic ray showers.
       skip: False
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
       rejection_threshold: 5.0
       three_group_rejection_threshold: 6.0
       four_group_rejection_threshold: 5.0
-      maximum_cores: &#39;1&#39;
+      maximum_cores: '1'
       flag_4_neighbors: True
       max_jump_to_flag_neighbors: 1000
       min_jump_to_flag_neighbors: 30
@@ -2170,7 +2170,7 @@ E.g., turn on detection of cosmic ray showers.
       skip: True
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
       mask_science_regions: True
       n_sigma: 2.0
       save_mask: False
@@ -2187,7 +2187,7 @@ E.g., turn on detection of cosmic ray showers.
       skip: True
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
       autoparam: False
       fit_method: median
       fit_by_channel: False
@@ -2214,15 +2214,15 @@ E.g., turn on detection of cosmic ray showers.
       skip: False
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
       algorithm: OLS_C
-      int_name: &#39;&#39;
+      int_name: ''
       save_opt: False
-      opt_name: &#39;&#39;
+      opt_name: ''
       suppress_one_group: True
       firstgroup: None
       lastgroup: None
-      maximum_cores: &#39;1&#39;
+      maximum_cores: '1'
     gain_scale:
       pre_hooks: []
       post_hooks: []
@@ -2235,10 +2235,10 @@ E.g., turn on detection of cosmic ray showers.
       skip: False
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:35:02,744 - stpipe.pipeline - INFO - Prefetching reference files for dataset: &#39;jw04496004001_03103_00001-seg001_mirimage_uncal.fits&#39; reftypes = [&#39;dark&#39;, &#39;emicorr&#39;, &#39;gain&#39;, &#39;linearity&#39;, &#39;mask&#39;, &#39;readnoise&#39;, &#39;reset&#39;, &#39;saturation&#39;, &#39;superbias&#39;]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:35:02,744 - stpipe.pipeline - INFO - Prefetching reference files for dataset: 'jw04496004001_03103_00001-seg001_mirimage_uncal.fits' reftypes = ['dark', 'emicorr', 'gain', 'linearity', 'mask', 'readnoise', 'reset', 'saturation', 'superbias']
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:35:02,748 - CRDS - INFO -  Syncing 8 files
@@ -2268,31 +2268,31 @@ E.g., turn on detection of cosmic ray showers.
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:35:12,876 - CRDS - INFO -  Fetching  /home/runner/crds/references/jwst/miri/jwst_miri_saturation_0034.fits    8.5 M bytes  (8 / 8 files) (299.3 M / 307.8 M bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:35:13,789 - stpipe.pipeline - INFO - Prefetch for DARK reference file is &#39;/home/runner/crds/references/jwst/miri/jwst_miri_dark_0102.fits&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:35:13,789 - stpipe.pipeline - INFO - Prefetch for DARK reference file is '/home/runner/crds/references/jwst/miri/jwst_miri_dark_0102.fits'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:35:13,789 - stpipe.pipeline - INFO - Prefetch for EMICORR reference file is &#39;/home/runner/crds/references/jwst/miri/jwst_miri_emicorr_0006.asdf&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:35:13,789 - stpipe.pipeline - INFO - Prefetch for EMICORR reference file is '/home/runner/crds/references/jwst/miri/jwst_miri_emicorr_0006.asdf'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:35:13,790 - stpipe.pipeline - INFO - Prefetch for GAIN reference file is &#39;/home/runner/crds/references/jwst/miri/jwst_miri_gain_0042.fits&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:35:13,790 - stpipe.pipeline - INFO - Prefetch for GAIN reference file is '/home/runner/crds/references/jwst/miri/jwst_miri_gain_0042.fits'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:35:13,791 - stpipe.pipeline - INFO - Prefetch for LINEARITY reference file is &#39;/home/runner/crds/references/jwst/miri/jwst_miri_linearity_0032.fits&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:35:13,791 - stpipe.pipeline - INFO - Prefetch for LINEARITY reference file is '/home/runner/crds/references/jwst/miri/jwst_miri_linearity_0032.fits'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:35:13,792 - stpipe.pipeline - INFO - Prefetch for MASK reference file is &#39;/home/runner/crds/references/jwst/miri/jwst_miri_mask_0036.fits&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:35:13,792 - stpipe.pipeline - INFO - Prefetch for MASK reference file is '/home/runner/crds/references/jwst/miri/jwst_miri_mask_0036.fits'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:35:13,792 - stpipe.pipeline - INFO - Prefetch for READNOISE reference file is &#39;/home/runner/crds/references/jwst/miri/jwst_miri_readnoise_0093.fits&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:35:13,792 - stpipe.pipeline - INFO - Prefetch for READNOISE reference file is '/home/runner/crds/references/jwst/miri/jwst_miri_readnoise_0093.fits'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:35:13,793 - stpipe.pipeline - INFO - Prefetch for RESET reference file is &#39;/home/runner/crds/references/jwst/miri/jwst_miri_reset_0080.fits&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:35:13,793 - stpipe.pipeline - INFO - Prefetch for RESET reference file is '/home/runner/crds/references/jwst/miri/jwst_miri_reset_0080.fits'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:35:13,793 - stpipe.pipeline - INFO - Prefetch for SATURATION reference file is &#39;/home/runner/crds/references/jwst/miri/jwst_miri_saturation_0034.fits&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:35:13,793 - stpipe.pipeline - INFO - Prefetch for SATURATION reference file is '/home/runner/crds/references/jwst/miri/jwst_miri_saturation_0034.fits'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:35:13,794 - stpipe.pipeline - INFO - Prefetch for SUPERBIAS reference file is &#39;N/A&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:35:13,794 - stpipe.pipeline - INFO - Prefetch for SUPERBIAS reference file is 'N/A'.
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:35:13,795 - jwst.pipeline.calwebb_detector1 - INFO - Starting calwebb_detector1 ...
@@ -2349,10 +2349,10 @@ E.g., turn on detection of cosmic ray showers.
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:35:16,700 - jwst.emicorr.emicorr - INFO - Will correct data for the following 2 frequencies: 
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:35:16,700 - jwst.emicorr.emicorr - INFO -    [&#39;Hz390&#39;, &#39;Hz10&#39;]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:35:16,700 - jwst.emicorr.emicorr - INFO -    ['Hz390', 'Hz10']
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:35:16,701 - jwst.emicorr.emicorr - INFO - Running EMI fit with algorithm = &#39;joint&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:35:16,701 - jwst.emicorr.emicorr - INFO - Running EMI fit with algorithm = 'joint'.
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:35:40,104 - stpipe.step - INFO - Step emicorr done
@@ -2641,14 +2641,14 @@ E.g., turn on detection of cosmic ray showers.
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">bkg_data</span><span class="p">:</span>
     <span class="c1"># Grab all downloaded uncal files</span>
-    <span class="n">uncal_files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">uncal_bkgdir</span><span class="p">,</span> <span class="s1">&#39;*_uncal.fits&#39;</span><span class="p">)))</span>
+    <span class="n">uncal_files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">uncal_bkgdir</span><span class="p">,</span> <span class="s1">'*_uncal.fits'</span><span class="p">)))</span>
 
-    <span class="c1"># Only choose science exposures, which have the exposure type setting &#39;MIR_LRS-FIXEDSLIT&#39;</span>
-    <span class="n">input_files</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">fi</span> <span class="k">for</span> <span class="n">fi</span> <span class="ow">in</span> <span class="n">uncal_files</span> <span class="k">if</span> <span class="n">fits</span><span class="o">.</span><span class="n">getheader</span><span class="p">(</span><span class="n">fi</span><span class="p">,</span> <span class="s1">&#39;PRIMARY&#39;</span><span class="p">)[</span><span class="s1">&#39;EXP_TYPE&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;MIR_LRS-SLITLESS&#39;</span><span class="p">])</span>
+    <span class="c1"># Only choose science exposures, which have the exposure type setting 'MIR_LRS-FIXEDSLIT'</span>
+    <span class="n">input_files</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">fi</span> <span class="k">for</span> <span class="n">fi</span> <span class="ow">in</span> <span class="n">uncal_files</span> <span class="k">if</span> <span class="n">fits</span><span class="o">.</span><span class="n">getheader</span><span class="p">(</span><span class="n">fi</span><span class="p">,</span> <span class="s1">'PRIMARY'</span><span class="p">)[</span><span class="s1">'EXP_TYPE'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'MIR_LRS-SLITLESS'</span><span class="p">])</span>
 
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Found &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">input_files</span><span class="p">))</span> <span class="o">+</span> <span class="s1">&#39; background uncal files&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Found '</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">input_files</span><span class="p">))</span> <span class="o">+</span> <span class="s1">' background uncal files'</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;No background data provided&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'No background data provided'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2666,7 +2666,7 @@ E.g., turn on detection of cosmic ray showers.
     <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">input_files</span><span class="p">:</span>
         <span class="n">Detector1Pipeline</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="n">det1dict</span><span class="p">,</span> <span class="n">save_results</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">output_dir</span><span class="o">=</span><span class="n">det1_bkgdir</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Skipping Detector1 for background files&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Skipping Detector1 for background files'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2746,7 +2746,7 @@ E.g., turn on detection of cosmic ray showers.
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:13,063 - stpipe.step - INFO - GainScaleStep instance created.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:13,236 - stpipe.step - INFO - Step Detector1Pipeline running with args (np.str_(&#39;./lrs_tso_demo_data/PID04496Obs005/uncal/jw04496005001_03102_00001-seg001_mirimage_uncal.fits&#39;),).
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:13,236 - stpipe.step - INFO - Step Detector1Pipeline running with args (np.str_('./lrs_tso_demo_data/PID04496Obs005/uncal/jw04496005001_03102_00001-seg001_mirimage_uncal.fits'),).
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:13,258 - stpipe.step - INFO - Step Detector1Pipeline parameters are:
@@ -2761,7 +2761,7 @@ E.g., turn on detection of cosmic ray showers.
   skip: False
   suffix: None
   search_output_file: True
-  input_dir: &#39;&#39;
+  input_dir: ''
   save_calibrated_ramp: True
   steps:
     group_scale:
@@ -2776,7 +2776,7 @@ E.g., turn on detection of cosmic ray showers.
       skip: False
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
     dq_init:
       pre_hooks: []
       post_hooks: []
@@ -2789,7 +2789,7 @@ E.g., turn on detection of cosmic ray showers.
       skip: False
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
       user_supplied_dq: None
     emicorr:
       pre_hooks: []
@@ -2803,7 +2803,7 @@ E.g., turn on detection of cosmic ray showers.
       skip: False
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
       algorithm: joint
       nints_to_phase: None
       nbins: None
@@ -2825,7 +2825,7 @@ E.g., turn on detection of cosmic ray showers.
       skip: False
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
       n_pix_grow_sat: 1
       use_readpatt: True
     ipc:
@@ -2840,7 +2840,7 @@ E.g., turn on detection of cosmic ray showers.
       skip: True
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
     superbias:
       pre_hooks: []
       post_hooks: []
@@ -2853,7 +2853,7 @@ E.g., turn on detection of cosmic ray showers.
       skip: False
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
     refpix:
       pre_hooks: []
       post_hooks: []
@@ -2866,7 +2866,7 @@ E.g., turn on detection of cosmic ray showers.
       skip: True
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
       odd_even_columns: True
       use_side_ref_pixels: True
       side_smoothing_length: 11
@@ -2892,7 +2892,7 @@ E.g., turn on detection of cosmic ray showers.
       skip: True
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
     firstframe:
       pre_hooks: []
       post_hooks: []
@@ -2905,7 +2905,7 @@ E.g., turn on detection of cosmic ray showers.
       skip: True
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
       bright_use_group1: True
     lastframe:
       pre_hooks: []
@@ -2919,7 +2919,7 @@ E.g., turn on detection of cosmic ray showers.
       skip: False
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
     linearity:
       pre_hooks: []
       post_hooks: []
@@ -2932,7 +2932,7 @@ E.g., turn on detection of cosmic ray showers.
       skip: False
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
     dark_current:
       pre_hooks: []
       post_hooks: []
@@ -2945,7 +2945,7 @@ E.g., turn on detection of cosmic ray showers.
       skip: False
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
       dark_output: None
       average_dark_current: 1.0
     reset:
@@ -2960,7 +2960,7 @@ E.g., turn on detection of cosmic ray showers.
       skip: False
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
     persistence:
       pre_hooks: []
       post_hooks: []
@@ -2973,7 +2973,7 @@ E.g., turn on detection of cosmic ray showers.
       skip: True
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
       save_persistence: None
       persistence_time: None
       dn_threshold: None
@@ -2991,7 +2991,7 @@ E.g., turn on detection of cosmic ray showers.
       skip: True
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
       signal_threshold: 25000.0
     jump:
       pre_hooks: []
@@ -3005,11 +3005,11 @@ E.g., turn on detection of cosmic ray showers.
       skip: False
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
       rejection_threshold: 5.0
       three_group_rejection_threshold: 6.0
       four_group_rejection_threshold: 5.0
-      maximum_cores: &#39;1&#39;
+      maximum_cores: '1'
       flag_4_neighbors: True
       max_jump_to_flag_neighbors: 1000
       min_jump_to_flag_neighbors: 30
@@ -3053,7 +3053,7 @@ E.g., turn on detection of cosmic ray showers.
       skip: True
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
       mask_science_regions: True
       n_sigma: 2.0
       save_mask: False
@@ -3070,7 +3070,7 @@ E.g., turn on detection of cosmic ray showers.
       skip: True
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
       autoparam: False
       fit_method: median
       fit_by_channel: False
@@ -3097,15 +3097,15 @@ E.g., turn on detection of cosmic ray showers.
       skip: False
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
       algorithm: OLS_C
-      int_name: &#39;&#39;
+      int_name: ''
       save_opt: False
-      opt_name: &#39;&#39;
+      opt_name: ''
       suppress_one_group: True
       firstgroup: None
       lastgroup: None
-      maximum_cores: &#39;1&#39;
+      maximum_cores: '1'
     gain_scale:
       pre_hooks: []
       post_hooks: []
@@ -3118,37 +3118,37 @@ E.g., turn on detection of cosmic ray showers.
       skip: False
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:13,286 - stpipe.pipeline - INFO - Prefetching reference files for dataset: &#39;jw04496005001_03102_00001-seg001_mirimage_uncal.fits&#39; reftypes = [&#39;dark&#39;, &#39;emicorr&#39;, &#39;gain&#39;, &#39;linearity&#39;, &#39;mask&#39;, &#39;readnoise&#39;, &#39;reset&#39;, &#39;saturation&#39;, &#39;superbias&#39;]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:13,286 - stpipe.pipeline - INFO - Prefetching reference files for dataset: 'jw04496005001_03102_00001-seg001_mirimage_uncal.fits' reftypes = ['dark', 'emicorr', 'gain', 'linearity', 'mask', 'readnoise', 'reset', 'saturation', 'superbias']
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:13,290 - stpipe.pipeline - INFO - Prefetch for DARK reference file is &#39;/home/runner/crds/references/jwst/miri/jwst_miri_dark_0102.fits&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:13,290 - stpipe.pipeline - INFO - Prefetch for DARK reference file is '/home/runner/crds/references/jwst/miri/jwst_miri_dark_0102.fits'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:13,290 - stpipe.pipeline - INFO - Prefetch for EMICORR reference file is &#39;/home/runner/crds/references/jwst/miri/jwst_miri_emicorr_0006.asdf&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:13,290 - stpipe.pipeline - INFO - Prefetch for EMICORR reference file is '/home/runner/crds/references/jwst/miri/jwst_miri_emicorr_0006.asdf'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:13,291 - stpipe.pipeline - INFO - Prefetch for GAIN reference file is &#39;/home/runner/crds/references/jwst/miri/jwst_miri_gain_0042.fits&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:13,291 - stpipe.pipeline - INFO - Prefetch for GAIN reference file is '/home/runner/crds/references/jwst/miri/jwst_miri_gain_0042.fits'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:13,291 - stpipe.pipeline - INFO - Prefetch for LINEARITY reference file is &#39;/home/runner/crds/references/jwst/miri/jwst_miri_linearity_0032.fits&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:13,291 - stpipe.pipeline - INFO - Prefetch for LINEARITY reference file is '/home/runner/crds/references/jwst/miri/jwst_miri_linearity_0032.fits'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:13,292 - stpipe.pipeline - INFO - Prefetch for MASK reference file is &#39;/home/runner/crds/references/jwst/miri/jwst_miri_mask_0036.fits&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:13,292 - stpipe.pipeline - INFO - Prefetch for MASK reference file is '/home/runner/crds/references/jwst/miri/jwst_miri_mask_0036.fits'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:13,293 - stpipe.pipeline - INFO - Prefetch for READNOISE reference file is &#39;/home/runner/crds/references/jwst/miri/jwst_miri_readnoise_0093.fits&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:13,293 - stpipe.pipeline - INFO - Prefetch for READNOISE reference file is '/home/runner/crds/references/jwst/miri/jwst_miri_readnoise_0093.fits'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:13,293 - stpipe.pipeline - INFO - Prefetch for RESET reference file is &#39;/home/runner/crds/references/jwst/miri/jwst_miri_reset_0080.fits&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:13,293 - stpipe.pipeline - INFO - Prefetch for RESET reference file is '/home/runner/crds/references/jwst/miri/jwst_miri_reset_0080.fits'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:13,294 - stpipe.pipeline - INFO - Prefetch for SATURATION reference file is &#39;/home/runner/crds/references/jwst/miri/jwst_miri_saturation_0034.fits&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:13,294 - stpipe.pipeline - INFO - Prefetch for SATURATION reference file is '/home/runner/crds/references/jwst/miri/jwst_miri_saturation_0034.fits'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:13,295 - stpipe.pipeline - INFO - Prefetch for SUPERBIAS reference file is &#39;N/A&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:13,295 - stpipe.pipeline - INFO - Prefetch for SUPERBIAS reference file is 'N/A'.
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:13,295 - jwst.pipeline.calwebb_detector1 - INFO - Starting calwebb_detector1 ...
@@ -3202,10 +3202,10 @@ E.g., turn on detection of cosmic ray showers.
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:14,100 - jwst.emicorr.emicorr - INFO - Will correct data for the following 2 frequencies: 
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:14,100 - jwst.emicorr.emicorr - INFO -    [&#39;Hz390&#39;, &#39;Hz10&#39;]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:14,100 - jwst.emicorr.emicorr - INFO -    ['Hz390', 'Hz10']
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:14,101 - jwst.emicorr.emicorr - INFO - Running EMI fit with algorithm = &#39;joint&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:14,101 - jwst.emicorr.emicorr - INFO - Running EMI fit with algorithm = 'joint'.
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:20,537 - stpipe.step - INFO - Step emicorr done
@@ -3487,8 +3487,8 @@ E.g., turn on detection of cosmic ray showers.
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print out the time benchmark</span>
 <span class="n">time1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Runtime so far: </span><span class="si">{</span><span class="n">time1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">time0</span><span class="si">:</span><span class="s2">0.4f</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Runtime for Detector1: </span><span class="si">{</span><span class="n">time1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">time_det1</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Runtime so far: </span><span class="si">{</span><span class="n">time1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">time0</span><span class="si">:</span><span class="s2">0.4f</span><span class="si">}</span><span class="s2"> seconds"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Runtime for Detector1: </span><span class="si">{</span><span class="n">time1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">time_det1</span><span class="si">}</span><span class="s2"> seconds"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -3526,21 +3526,21 @@ To override certain steps and reference files, use the examples below.
 
 <span class="c1"># Activate dedicated background subtraction, if requested</span>
 <span class="k">if</span> <span class="p">(</span><span class="n">bkg_sub</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">)</span> <span class="ow">and</span> <span class="n">bkg_data</span><span class="p">:</span>
-    <span class="n">spec2dict</span><span class="p">[</span><span class="s1">&#39;bkg_subtract&#39;</span><span class="p">][</span><span class="s1">&#39;skip&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">spec2dict</span><span class="p">[</span><span class="s1">'bkg_subtract'</span><span class="p">][</span><span class="s1">'skip'</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="n">spec2dict</span><span class="p">[</span><span class="s1">&#39;bkg_subtract&#39;</span><span class="p">][</span><span class="s1">&#39;skip&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">spec2dict</span><span class="p">[</span><span class="s1">'bkg_subtract'</span><span class="p">][</span><span class="s1">'skip'</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
 
 <span class="c1"># Overrides for whether or not certain steps should be skipped (example)</span>
-<span class="c1">#spec2dict[&#39;straylight&#39;][&#39;skip&#39;] = True</span>
+<span class="c1">#spec2dict['straylight']['skip'] = True</span>
 
 <span class="c1"># Overrides for various reference files</span>
 <span class="c1"># Files should be in the base local directory or provide full path</span>
-<span class="c1">#spec2dict[&#39;assign_wcs&#39;][&#39;override_distortion&#39;] = &#39;myfile.asdf&#39; # Spatial distortion (ASDF file)</span>
-<span class="c1">#spec2dict[&#39;assign_wcs&#39;][&#39;override_specwcs&#39;] = &#39;myfile.asdf&#39; # Spectral distortion (ASDF file)</span>
-<span class="c1">#spec2dict[&#39;flat_field&#39;][&#39;override_flat&#39;] = &#39;myfile.fits&#39; # Pixel flatfield</span>
-<span class="c1">#spec2dict[&#39;photom&#39;][&#39;override_photom&#39;] = &#39;myfile.fits&#39; # Photometric calibration array</span>
-<span class="c1">#spec2dict[&#39;extract_1d&#39;][&#39;override_extract1d&#39;] = &#39;myfile.asdf&#39; # Spectral extraction parameters (ASDF file)</span>
-<span class="c1">#spec2dict[&#39;extract_1d&#39;][&#39;override_apcorr&#39;] = &#39;myfile.asdf&#39; # Aperture correction parameters (ASDF file)</span>
+<span class="c1">#spec2dict['assign_wcs']['override_distortion'] = 'myfile.asdf' # Spatial distortion (ASDF file)</span>
+<span class="c1">#spec2dict['assign_wcs']['override_specwcs'] = 'myfile.asdf' # Spectral distortion (ASDF file)</span>
+<span class="c1">#spec2dict['flat_field']['override_flat'] = 'myfile.fits' # Pixel flatfield</span>
+<span class="c1">#spec2dict['photom']['override_photom'] = 'myfile.fits' # Photometric calibration array</span>
+<span class="c1">#spec2dict['extract_1d']['override_extract1d'] = 'myfile.asdf' # Spectral extraction parameters (ASDF file)</span>
+<span class="c1">#spec2dict['extract_1d']['override_apcorr'] = 'myfile.asdf' # Aperture correction parameters (ASDF file)</span>
 </pre></div>
 </div>
 </div>
@@ -3554,11 +3554,11 @@ To override certain steps and reference files, use the examples below.
 
     <span class="c1"># Add the background exposure</span>
     <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">bkgfiles</span><span class="p">:</span>
-        <span class="n">asn</span><span class="p">[</span><span class="s1">&#39;products&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;members&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;expname&#39;</span><span class="p">:</span> <span class="n">file</span><span class="p">,</span> <span class="s1">&#39;exptype&#39;</span><span class="p">:</span> <span class="s1">&#39;background&#39;</span><span class="p">})</span>              
+        <span class="n">asn</span><span class="p">[</span><span class="s1">'products'</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">'members'</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">'expname'</span><span class="p">:</span> <span class="n">file</span><span class="p">,</span> <span class="s1">'exptype'</span><span class="p">:</span> <span class="s1">'background'</span><span class="p">})</span>              
 
     <span class="c1"># Write the association to a json file</span>
     <span class="n">_</span><span class="p">,</span> <span class="n">serialized</span> <span class="o">=</span> <span class="n">asn</span><span class="o">.</span><span class="n">dump</span><span class="p">()</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">asnfile</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">outfile</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">asnfile</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">outfile</span><span class="p">:</span>
         <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">serialized</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -3568,7 +3568,7 @@ To override certain steps and reference files, use the examples below.
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get science rate files from the Detector1 output folder</span>
-<span class="n">sci_files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">det1_dir</span><span class="p">,</span> <span class="s1">&#39;*rateints.fits&#39;</span><span class="p">)))</span>
+<span class="n">sci_files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">det1_dir</span><span class="p">,</span> <span class="s1">'*rateints.fits'</span><span class="p">)))</span>
 
 <span class="c1"># Use the absolute file paths</span>
 <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sci_files</span><span class="p">)):</span>
@@ -3577,7 +3577,7 @@ To override certain steps and reference files, use the examples below.
 
 <span class="c1"># Get background rate files</span>
 <span class="k">if</span> <span class="n">bkg_data</span><span class="p">:</span>
-    <span class="n">bkg_files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">det1_bkgdir</span><span class="p">,</span> <span class="s1">&#39;*rateints.fits&#39;</span><span class="p">)))</span>
+    <span class="n">bkg_files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">det1_bkgdir</span><span class="p">,</span> <span class="s1">'*rateints.fits'</span><span class="p">)))</span>
 
     <span class="c1"># Use the absolute file paths</span>
     <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">bkg_files</span><span class="p">)):</span>
@@ -3595,16 +3595,16 @@ To override certain steps and reference files, use the examples below.
     <span class="k">for</span> <span class="n">ii</span><span class="p">,</span> <span class="n">file</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sci_files</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">bkg_sub</span> <span class="ow">and</span> <span class="n">bkg_data</span><span class="p">:</span>
             <span class="c1"># Create association file to associate science and background observatons </span>
-            <span class="n">asnfile</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">det1_dir</span><span class="p">,</span> <span class="n">Path</span><span class="p">(</span><span class="n">file</span><span class="p">)</span><span class="o">.</span><span class="n">stem</span> <span class="o">+</span> <span class="s1">&#39;_asn.json&#39;</span><span class="p">)</span>
+            <span class="n">asnfile</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">det1_dir</span><span class="p">,</span> <span class="n">Path</span><span class="p">(</span><span class="n">file</span><span class="p">)</span><span class="o">.</span><span class="n">stem</span> <span class="o">+</span> <span class="s1">'_asn.json'</span><span class="p">)</span>
             <span class="n">writel2asn</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">bkg_files</span><span class="p">,</span> <span class="n">asnfile</span><span class="p">)</span>
             <span class="n">Spec2Pipeline</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">asnfile</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="n">spec2dict</span><span class="p">,</span> <span class="n">save_results</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">output_dir</span><span class="o">=</span><span class="n">spec2_dir</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="c1"># For cases with only science observation in the data</span>
             <span class="n">Spec2Pipeline</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="n">spec2dict</span><span class="p">,</span> <span class="n">save_results</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">output_dir</span><span class="o">=</span><span class="n">spec2_dir</span><span class="p">)</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Running Spec2 with no background subtraction&#39;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">'Running Spec2 with no background subtraction'</span><span class="p">)</span>
 
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Skipping Spec2 processing...&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Skipping Spec2 processing...'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -3622,7 +3622,7 @@ To override certain steps and reference files, use the examples below.
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:49,959 - stpipe.step - INFO - PARS-RESAMPLESPECSTEP parameters found: /home/runner/crds/references/jwst/miri/jwst_miri_pars-resamplespecstep_0001.asdf
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:49,971 - CRDS - ERROR -  Error determining best reference for &#39;pars-targcentroidstep&#39;  =   Unknown reference type &#39;pars-targcentroidstep&#39;
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:49,971 - CRDS - ERROR -  Error determining best reference for 'pars-targcentroidstep'  =   Unknown reference type 'pars-targcentroidstep'
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:49,983 - stpipe.step - INFO - PARS-RESAMPLESPECSTEP parameters found: /home/runner/crds/references/jwst/miri/jwst_miri_pars-resamplespecstep_0001.asdf
@@ -3733,7 +3733,7 @@ To override certain steps and reference files, use the examples below.
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:50,260 - stpipe.step - INFO - Extract1dStep instance created.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:50,436 - stpipe.step - INFO - Step Spec2Pipeline running with args (&#39;./lrs_tso_demo_data/PID04496Obs004/stage1/jw04496004001_03103_00001-seg001_mirimage_rateints_asn.json&#39;,).
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:50,436 - stpipe.step - INFO - Step Spec2Pipeline running with args ('./lrs_tso_demo_data/PID04496Obs004/stage1/jw04496004001_03103_00001-seg001_mirimage_rateints_asn.json',).
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:50,473 - stpipe.step - INFO - Step Spec2Pipeline parameters are:
@@ -3748,7 +3748,7 @@ To override certain steps and reference files, use the examples below.
   skip: False
   suffix: None
   search_output_file: True
-  input_dir: &#39;&#39;
+  input_dir: ''
   save_bsub: False
   fail_on_exception: True
   save_wfss_esec: False
@@ -3765,7 +3765,7 @@ To override certain steps and reference files, use the examples below.
       skip: False
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
       sip_approx: True
       sip_max_pix_error: 0.01
       sip_degree: None
@@ -3787,7 +3787,7 @@ To override certain steps and reference files, use the examples below.
       skip: True
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
       flagfrac_lower: 0.001
       flagfrac_upper: 0.001
       kernel_size: 15
@@ -3805,7 +3805,7 @@ To override certain steps and reference files, use the examples below.
       skip: False
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
     clean_flicker_noise:
       pre_hooks: []
       post_hooks: []
@@ -3818,7 +3818,7 @@ To override certain steps and reference files, use the examples below.
       skip: True
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
       autoparam: False
       fit_method: median
       fit_by_channel: False
@@ -3845,7 +3845,7 @@ To override certain steps and reference files, use the examples below.
       skip: False
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
       bkg_list: None
       save_combined_background: False
       sigma: 3.0
@@ -3869,7 +3869,7 @@ To override certain steps and reference files, use the examples below.
       skip: False
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
     extract_2d:
       pre_hooks: []
       post_hooks: []
@@ -3882,7 +3882,7 @@ To override certain steps and reference files, use the examples below.
       skip: False
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
       slit_names: None
       source_ids: None
       source_ra: None
@@ -3906,7 +3906,7 @@ To override certain steps and reference files, use the examples below.
       skip: False
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
       sigma_clip: 3.0
       median_kernel: 1
       force_subtract: False
@@ -3926,7 +3926,7 @@ To override certain steps and reference files, use the examples below.
           skip: False
           suffix: None
           search_output_file: True
-          input_dir: &#39;&#39;
+          input_dir: ''
           save_interpolated_flat: False
           user_supplied_flat: None
           inverse: False
@@ -3942,7 +3942,7 @@ To override certain steps and reference files, use the examples below.
           skip: False
           suffix: None
           search_output_file: True
-          input_dir: &#39;&#39;
+          input_dir: ''
           inverse: False
           source_type: None
           user_slit_loc: None
@@ -3958,7 +3958,7 @@ To override certain steps and reference files, use the examples below.
           skip: False
           suffix: None
           search_output_file: True
-          input_dir: &#39;&#39;
+          input_dir: ''
           inverse: False
           source_type: None
         photom:
@@ -3973,7 +3973,7 @@ To override certain steps and reference files, use the examples below.
           skip: False
           suffix: None
           search_output_file: True
-          input_dir: &#39;&#39;
+          input_dir: ''
           inverse: False
           source_type: None
           apply_time_correction: True
@@ -3989,7 +3989,7 @@ To override certain steps and reference files, use the examples below.
           skip: True
           suffix: None
           search_output_file: True
-          input_dir: &#39;&#39;
+          input_dir: ''
           algorithm: mingrad
           n_adjacent_cols: 3
         resample_spec:
@@ -4004,7 +4004,7 @@ To override certain steps and reference files, use the examples below.
           skip: False
           suffix: None
           search_output_file: True
-          input_dir: &#39;&#39;
+          input_dir: ''
           pixfrac: 1.0
           kernel: square
           fillval: NAN
@@ -4012,7 +4012,7 @@ To override certain steps and reference files, use the examples below.
           output_shape: None
           pixel_scale_ratio: 1.0
           pixel_scale: None
-          output_wcs: &#39;&#39;
+          output_wcs: ''
           single: False
           blendheaders: True
           in_memory: True
@@ -4029,7 +4029,7 @@ To override certain steps and reference files, use the examples below.
           skip: False
           suffix: None
           search_output_file: True
-          input_dir: &#39;&#39;
+          input_dir: ''
           subtract_background: None
           apply_apcorr: True
           extraction_type: box
@@ -4076,7 +4076,7 @@ To override certain steps and reference files, use the examples below.
       skip: True
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
       ta_file: None
     wavecorr:
       pre_hooks: []
@@ -4090,7 +4090,7 @@ To override certain steps and reference files, use the examples below.
       skip: False
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
     flat_field:
       pre_hooks: []
       post_hooks: []
@@ -4103,7 +4103,7 @@ To override certain steps and reference files, use the examples below.
       skip: False
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
       save_interpolated_flat: False
       user_supplied_flat: None
       inverse: False
@@ -4119,7 +4119,7 @@ To override certain steps and reference files, use the examples below.
       skip: False
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
       source_type: None
     straylight:
       pre_hooks: []
@@ -4133,7 +4133,7 @@ To override certain steps and reference files, use the examples below.
       skip: False
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
       clean_showers: False
       shower_plane: 3
       shower_x_stddev: 18.0
@@ -4153,7 +4153,7 @@ To override certain steps and reference files, use the examples below.
       skip: False
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
     residual_fringe:
       pre_hooks: []
       post_hooks: []
@@ -4166,7 +4166,7 @@ To override certain steps and reference files, use the examples below.
       skip: True
       suffix: residual_fringe
       search_output_file: False
-      input_dir: &#39;&#39;
+      input_dir: ''
       save_intermediate_results: False
       ignore_region_min: None
       ignore_region_max: None
@@ -4182,7 +4182,7 @@ To override certain steps and reference files, use the examples below.
       skip: False
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
       inverse: False
       source_type: None
       user_slit_loc: None
@@ -4198,7 +4198,7 @@ To override certain steps and reference files, use the examples below.
       skip: False
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
       inverse: False
       source_type: None
     wfss_contam:
@@ -4213,10 +4213,10 @@ To override certain steps and reference files, use the examples below.
       skip: True
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
       save_simulated_image: False
       save_contam_images: False
-      maximum_cores: &#39;1&#39;
+      maximum_cores: '1'
       orders: None
       magnitude_limit: None
       wl_oversample: 2
@@ -4237,7 +4237,7 @@ To override certain steps and reference files, use the examples below.
       skip: False
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
       inverse: False
       source_type: None
       apply_time_correction: True
@@ -4253,7 +4253,7 @@ To override certain steps and reference files, use the examples below.
       skip: True
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
       fit_threshold: 10.0
       oversample: 1.0
       slope_limit: 0.1
@@ -4272,7 +4272,7 @@ To override certain steps and reference files, use the examples below.
       skip: False
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
       algorithm: mingrad
       n_adjacent_cols: 3
     resample_spec:
@@ -4287,7 +4287,7 @@ To override certain steps and reference files, use the examples below.
       skip: False
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
       pixfrac: 1.0
       kernel: square
       fillval: NAN
@@ -4295,7 +4295,7 @@ To override certain steps and reference files, use the examples below.
       output_shape: None
       pixel_scale_ratio: 1.0
       pixel_scale: None
-      output_wcs: &#39;&#39;
+      output_wcs: ''
       single: False
       blendheaders: True
       in_memory: True
@@ -4312,7 +4312,7 @@ To override certain steps and reference files, use the examples below.
       skip: False
       suffix: s3d
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
       channel: all
       band: all
       grating: all
@@ -4348,7 +4348,7 @@ To override certain steps and reference files, use the examples below.
       skip: False
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
       subtract_background: None
       apply_apcorr: True
       extraction_type: box
@@ -4385,7 +4385,7 @@ To override certain steps and reference files, use the examples below.
       soss_order_3: True
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:50,538 - stpipe.pipeline - INFO - Prefetching reference files for dataset: &#39;jw04496004001_03103_00001-seg001_mirimage_rateints_asn.json&#39; reftypes = [&#39;apcorr&#39;, &#39;area&#39;, &#39;barshadow&#39;, &#39;bkg&#39;, &#39;camera&#39;, &#39;chromcorr&#39;, &#39;collimator&#39;, &#39;cubepar&#39;, &#39;dflat&#39;, &#39;disperser&#39;, &#39;distortion&#39;, &#39;extract1d&#39;, &#39;fflat&#39;, &#39;filteroffset&#39;, &#39;flat&#39;, &#39;fore&#39;, &#39;fpa&#39;, &#39;fringe&#39;, &#39;ifufore&#39;, &#39;ifupost&#39;, &#39;ifuslicer&#39;, &#39;mrsxartcorr&#39;, &#39;msa&#39;, &#39;msaoper&#39;, &#39;ote&#39;, &#39;pastasoss&#39;, &#39;pathloss&#39;, &#39;photom&#39;, &#39;psf&#39;, &#39;regions&#39;, &#39;sflat&#39;, &#39;speckernel&#39;, &#39;specprofile&#39;, &#39;specwcs&#39;, &#39;wavecorr&#39;, &#39;wavelengthrange&#39;]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:50,538 - stpipe.pipeline - INFO - Prefetching reference files for dataset: 'jw04496004001_03103_00001-seg001_mirimage_rateints_asn.json' reftypes = ['apcorr', 'area', 'barshadow', 'bkg', 'camera', 'chromcorr', 'collimator', 'cubepar', 'dflat', 'disperser', 'distortion', 'extract1d', 'fflat', 'filteroffset', 'flat', 'fore', 'fpa', 'fringe', 'ifufore', 'ifupost', 'ifuslicer', 'mrsxartcorr', 'msa', 'msaoper', 'ote', 'pastasoss', 'pathloss', 'photom', 'psf', 'regions', 'sflat', 'speckernel', 'specprofile', 'specwcs', 'wavecorr', 'wavelengthrange']
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:50,545 - CRDS - INFO -  Syncing 7 files
@@ -4412,112 +4412,112 @@ To override certain steps and reference files, use the examples below.
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,250 - CRDS - INFO -  Fetching  /home/runner/crds/references/jwst/miri/jwst_miri_specwcs_0015.fits   46.1 K bytes  (7 / 7 files) (4.8 M / 4.9 M bytes)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,594 - stpipe.pipeline - INFO - Prefetch for APCORR reference file is &#39;/home/runner/crds/references/jwst/miri/jwst_miri_apcorr_0018.fits&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,594 - stpipe.pipeline - INFO - Prefetch for APCORR reference file is '/home/runner/crds/references/jwst/miri/jwst_miri_apcorr_0018.fits'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,595 - stpipe.pipeline - INFO - Prefetch for AREA reference file is &#39;N/A&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,595 - stpipe.pipeline - INFO - Prefetch for AREA reference file is 'N/A'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,596 - stpipe.pipeline - INFO - Prefetch for BARSHADOW reference file is &#39;N/A&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,596 - stpipe.pipeline - INFO - Prefetch for BARSHADOW reference file is 'N/A'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,596 - stpipe.pipeline - INFO - Prefetch for BKG reference file is &#39;N/A&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,596 - stpipe.pipeline - INFO - Prefetch for BKG reference file is 'N/A'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,597 - stpipe.pipeline - INFO - Prefetch for CAMERA reference file is &#39;N/A&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,597 - stpipe.pipeline - INFO - Prefetch for CAMERA reference file is 'N/A'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,597 - stpipe.pipeline - INFO - Prefetch for CHROMCORR reference file is &#39;N/A&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,597 - stpipe.pipeline - INFO - Prefetch for CHROMCORR reference file is 'N/A'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,598 - stpipe.pipeline - INFO - Prefetch for COLLIMATOR reference file is &#39;N/A&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,598 - stpipe.pipeline - INFO - Prefetch for COLLIMATOR reference file is 'N/A'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,598 - stpipe.pipeline - INFO - Prefetch for CUBEPAR reference file is &#39;N/A&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,598 - stpipe.pipeline - INFO - Prefetch for CUBEPAR reference file is 'N/A'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,599 - stpipe.pipeline - INFO - Prefetch for DFLAT reference file is &#39;N/A&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,599 - stpipe.pipeline - INFO - Prefetch for DFLAT reference file is 'N/A'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,599 - stpipe.pipeline - INFO - Prefetch for DISPERSER reference file is &#39;N/A&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,599 - stpipe.pipeline - INFO - Prefetch for DISPERSER reference file is 'N/A'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,600 - stpipe.pipeline - INFO - Prefetch for DISTORTION reference file is &#39;/home/runner/crds/references/jwst/miri/jwst_miri_distortion_0142.asdf&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,600 - stpipe.pipeline - INFO - Prefetch for DISTORTION reference file is '/home/runner/crds/references/jwst/miri/jwst_miri_distortion_0142.asdf'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,601 - stpipe.pipeline - INFO - Prefetch for EXTRACT1D reference file is &#39;/home/runner/crds/references/jwst/miri/jwst_miri_extract1d_0007.json&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,601 - stpipe.pipeline - INFO - Prefetch for EXTRACT1D reference file is '/home/runner/crds/references/jwst/miri/jwst_miri_extract1d_0007.json'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,602 - stpipe.pipeline - INFO - Prefetch for FFLAT reference file is &#39;N/A&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,602 - stpipe.pipeline - INFO - Prefetch for FFLAT reference file is 'N/A'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,603 - stpipe.pipeline - INFO - Prefetch for FILTEROFFSET reference file is &#39;N/A&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,603 - stpipe.pipeline - INFO - Prefetch for FILTEROFFSET reference file is 'N/A'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,603 - stpipe.pipeline - INFO - Prefetch for FLAT reference file is &#39;/home/runner/crds/references/jwst/miri/jwst_miri_flat_0789.fits&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,603 - stpipe.pipeline - INFO - Prefetch for FLAT reference file is '/home/runner/crds/references/jwst/miri/jwst_miri_flat_0789.fits'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,604 - stpipe.pipeline - INFO - Prefetch for FORE reference file is &#39;N/A&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,604 - stpipe.pipeline - INFO - Prefetch for FORE reference file is 'N/A'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,605 - stpipe.pipeline - INFO - Prefetch for FPA reference file is &#39;N/A&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,605 - stpipe.pipeline - INFO - Prefetch for FPA reference file is 'N/A'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,605 - stpipe.pipeline - INFO - Prefetch for FRINGE reference file is &#39;N/A&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,605 - stpipe.pipeline - INFO - Prefetch for FRINGE reference file is 'N/A'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,606 - stpipe.pipeline - INFO - Prefetch for IFUFORE reference file is &#39;N/A&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,606 - stpipe.pipeline - INFO - Prefetch for IFUFORE reference file is 'N/A'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,606 - stpipe.pipeline - INFO - Prefetch for IFUPOST reference file is &#39;N/A&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,606 - stpipe.pipeline - INFO - Prefetch for IFUPOST reference file is 'N/A'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,607 - stpipe.pipeline - INFO - Prefetch for IFUSLICER reference file is &#39;N/A&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,607 - stpipe.pipeline - INFO - Prefetch for IFUSLICER reference file is 'N/A'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,607 - stpipe.pipeline - INFO - Prefetch for MRSXARTCORR reference file is &#39;N/A&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,607 - stpipe.pipeline - INFO - Prefetch for MRSXARTCORR reference file is 'N/A'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,608 - stpipe.pipeline - INFO - Prefetch for MSA reference file is &#39;N/A&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,608 - stpipe.pipeline - INFO - Prefetch for MSA reference file is 'N/A'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,608 - stpipe.pipeline - INFO - Prefetch for MSAOPER reference file is &#39;N/A&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,608 - stpipe.pipeline - INFO - Prefetch for MSAOPER reference file is 'N/A'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,610 - stpipe.pipeline - INFO - Prefetch for OTE reference file is &#39;N/A&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,610 - stpipe.pipeline - INFO - Prefetch for OTE reference file is 'N/A'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,610 - stpipe.pipeline - INFO - Prefetch for PASTASOSS reference file is &#39;N/A&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,610 - stpipe.pipeline - INFO - Prefetch for PASTASOSS reference file is 'N/A'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,611 - stpipe.pipeline - INFO - Prefetch for PATHLOSS reference file is &#39;N/A&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,611 - stpipe.pipeline - INFO - Prefetch for PATHLOSS reference file is 'N/A'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,611 - stpipe.pipeline - INFO - Prefetch for PHOTOM reference file is &#39;/home/runner/crds/references/jwst/miri/jwst_miri_photom_0236.fits&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,611 - stpipe.pipeline - INFO - Prefetch for PHOTOM reference file is '/home/runner/crds/references/jwst/miri/jwst_miri_photom_0236.fits'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,612 - stpipe.pipeline - INFO - Prefetch for PSF reference file is &#39;/home/runner/crds/references/jwst/miri/jwst_miri_psf_0015.fits&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,612 - stpipe.pipeline - INFO - Prefetch for PSF reference file is '/home/runner/crds/references/jwst/miri/jwst_miri_psf_0015.fits'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,613 - stpipe.pipeline - INFO - Prefetch for REGIONS reference file is &#39;N/A&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,613 - stpipe.pipeline - INFO - Prefetch for REGIONS reference file is 'N/A'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,613 - stpipe.pipeline - INFO - Prefetch for SFLAT reference file is &#39;N/A&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,613 - stpipe.pipeline - INFO - Prefetch for SFLAT reference file is 'N/A'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,614 - stpipe.pipeline - INFO - Prefetch for SPECKERNEL reference file is &#39;N/A&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,614 - stpipe.pipeline - INFO - Prefetch for SPECKERNEL reference file is 'N/A'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,614 - stpipe.pipeline - INFO - Prefetch for SPECPROFILE reference file is &#39;N/A&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,614 - stpipe.pipeline - INFO - Prefetch for SPECPROFILE reference file is 'N/A'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,615 - stpipe.pipeline - INFO - Prefetch for SPECWCS reference file is &#39;/home/runner/crds/references/jwst/miri/jwst_miri_specwcs_0015.fits&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,615 - stpipe.pipeline - INFO - Prefetch for SPECWCS reference file is '/home/runner/crds/references/jwst/miri/jwst_miri_specwcs_0015.fits'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,616 - stpipe.pipeline - INFO - Prefetch for WAVECORR reference file is &#39;N/A&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,616 - stpipe.pipeline - INFO - Prefetch for WAVECORR reference file is 'N/A'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,616 - stpipe.pipeline - INFO - Prefetch for WAVELENGTHRANGE reference file is &#39;N/A&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,616 - stpipe.pipeline - INFO - Prefetch for WAVELENGTHRANGE reference file is 'N/A'.
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:53,617 - jwst.pipeline.calwebb_spec2 - INFO - Starting calwebb_spec2 ...
@@ -4538,7 +4538,7 @@ To override certain steps and reference files, use the examples below.
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:54,034 - jwst.assign_wcs.miri - INFO - Applied Barycentric velocity correction : 0.9999338258965862
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:54,105 - jwst.assign_wcs.miri - INFO - Created a MIRI mir_lrs-slitless pipeline with references {&#39;distortion&#39;: &#39;/home/runner/crds/references/jwst/miri/jwst_miri_distortion_0142.asdf&#39;, &#39;filteroffset&#39;: None, &#39;specwcs&#39;: &#39;/home/runner/crds/references/jwst/miri/jwst_miri_specwcs_0015.fits&#39;, &#39;regions&#39;: None, &#39;wavelengthrange&#39;: None, &#39;camera&#39;: None, &#39;chromcorr&#39;: None, &#39;collimator&#39;: None, &#39;disperser&#39;: None, &#39;fore&#39;: None, &#39;fpa&#39;: None, &#39;msa&#39;: None, &#39;ote&#39;: None, &#39;ifupost&#39;: None, &#39;ifufore&#39;: None, &#39;ifuslicer&#39;: None}
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:54,105 - jwst.assign_wcs.miri - INFO - Created a MIRI mir_lrs-slitless pipeline with references {'distortion': '/home/runner/crds/references/jwst/miri/jwst_miri_distortion_0142.asdf', 'filteroffset': None, 'specwcs': '/home/runner/crds/references/jwst/miri/jwst_miri_specwcs_0015.fits', 'regions': None, 'wavelengthrange': None, 'camera': None, 'chromcorr': None, 'collimator': None, 'disperser': None, 'fore': None, 'fpa': None, 'msa': None, 'ote': None, 'ifupost': None, 'ifufore': None, 'ifuslicer': None}
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:54,170 - stcal.alignment.util - INFO - There are NaNs in s_region, S_REGION not updated.
@@ -4553,7 +4553,7 @@ To override certain steps and reference files, use the examples below.
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:54,191 - stpipe.step - INFO - Step assign_wcs done
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:54,365 - stpipe.step - INFO - Step badpix_selfcal running with args (&lt;CubeModel(288, 416, 72) from jw04496004001_03103_00001-seg001_mirimage_rateints.fits&gt;, [], [&#39;/home/runner/work/jwst-pipeline-notebooks/jwst-pipeline-notebooks/notebooks/MIRI/LRS-slitless-TSO/lrs_tso_demo_data/PID04496Obs005/stage1/jw04496005001_03102_00001-seg001_mirimage_rateints.fits&#39;]).
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:54,365 - stpipe.step - INFO - Step badpix_selfcal running with args (&lt;CubeModel(288, 416, 72) from jw04496004001_03103_00001-seg001_mirimage_rateints.fits&gt;, [], ['/home/runner/work/jwst-pipeline-notebooks/jwst-pipeline-notebooks/notebooks/MIRI/LRS-slitless-TSO/lrs_tso_demo_data/PID04496Obs005/stage1/jw04496005001_03102_00001-seg001_mirimage_rateints.fits']).
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:54,366 - stpipe.step - INFO - Step skipped.
@@ -4577,13 +4577,13 @@ To override certain steps and reference files, use the examples below.
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:54,884 - stpipe.step - INFO - Step skipped.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:55,053 - stpipe.step - INFO - Step imprint_subtract running with args (&#39;/home/runner/work/jwst-pipeline-notebooks/jwst-pipeline-notebooks/notebooks/MIRI/LRS-slitless-TSO/lrs_tso_demo_data/PID04496Obs005/stage1/jw04496005001_03102_00001-seg001_mirimage_rateints.fits&#39;, []).
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:55,053 - stpipe.step - INFO - Step imprint_subtract running with args ('/home/runner/work/jwst-pipeline-notebooks/jwst-pipeline-notebooks/notebooks/MIRI/LRS-slitless-TSO/lrs_tso_demo_data/PID04496Obs005/stage1/jw04496005001_03102_00001-seg001_mirimage_rateints.fits', []).
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:55,053 - stpipe.step - INFO - Step skipped.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:55,224 - stpipe.step - INFO - Step bkg_subtract running with args (&lt;CubeModel(288, 416, 72) from jw04496004001_03103_00001-seg001_mirimage_rateints.fits&gt;, [&#39;/home/runner/work/jwst-pipeline-notebooks/jwst-pipeline-notebooks/notebooks/MIRI/LRS-slitless-TSO/lrs_tso_demo_data/PID04496Obs005/stage1/jw04496005001_03102_00001-seg001_mirimage_rateints.fits&#39;]).
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:55,224 - stpipe.step - INFO - Step bkg_subtract running with args (&lt;CubeModel(288, 416, 72) from jw04496004001_03103_00001-seg001_mirimage_rateints.fits&gt;, ['/home/runner/work/jwst-pipeline-notebooks/jwst-pipeline-notebooks/notebooks/MIRI/LRS-slitless-TSO/lrs_tso_demo_data/PID04496Obs005/stage1/jw04496005001_03102_00001-seg001_mirimage_rateints.fits']).
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:36:55,298 - jwst.background.background_step - INFO - Working on input &lt;CubeModel(288, 416, 72) from jw04496004001_03103_00001-seg001_mirimage_rateints.fits&gt; ...
@@ -6536,8 +6536,8 @@ To override certain steps and reference files, use the examples below.
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print out the time benchmark</span>
 <span class="n">time1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Runtime so far: </span><span class="si">{</span><span class="n">time1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">time0</span><span class="si">:</span><span class="s2">0.4f</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Runtime for Spec2: </span><span class="si">{</span><span class="n">time1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">time_spec2</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Runtime so far: </span><span class="si">{</span><span class="n">time1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">time0</span><span class="si">:</span><span class="s2">0.4f</span><span class="si">}</span><span class="s2"> seconds"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Runtime for Spec2: </span><span class="si">{</span><span class="n">time1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">time_spec2</span><span class="si">}</span><span class="s2"> seconds"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -6575,15 +6575,15 @@ To override certain steps and reference files, use the examples below.
 <span class="n">tso3dict</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">dict</span><span class="p">)</span>
 
 <span class="c1"># Overrides for whether or not certain steps should be skipped (example)</span>
-<span class="c1">#tso3dict[&#39;outlier_detection&#39;][&#39;skip&#39;] = True</span>
+<span class="c1">#tso3dict['outlier_detection']['skip'] = True</span>
 
 <span class="c1"># Overrides for various reference files</span>
 <span class="c1"># Files should be in the base local directory or provide full path</span>
-<span class="c1">#tso3dict[&#39;extract_1d&#39;][&#39;override_extract1d&#39;] = &#39;myfile.json&#39;  # Spectral extraction parameters (ASDF file)</span>
-<span class="c1">#tso3dict[&#39;extract_1d&#39;][&#39;override_apcorr&#39;] = &#39;myfile.asdf&#39;  # Aperture correction parameters (ASDF file)</span>
+<span class="c1">#tso3dict['extract_1d']['override_extract1d'] = 'myfile.json'  # Spectral extraction parameters (ASDF file)</span>
+<span class="c1">#tso3dict['extract_1d']['override_apcorr'] = 'myfile.asdf'  # Aperture correction parameters (ASDF file)</span>
 
 <span class="c1"># Adjust moving median outlier detection parameters </span>
-<span class="c1">#tso3dict[&#39;outlier_detection&#39;][&#39;rolling_window_width&#39;] = 31  # Default is 25</span>
+<span class="c1">#tso3dict['outlier_detection']['rolling_window_width'] = 31  # Default is 25</span>
 </pre></div>
 </div>
 </div>
@@ -6593,11 +6593,11 @@ To override certain steps and reference files, use the examples below.
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">writel3asn</span><span class="p">(</span><span class="n">cal_files</span><span class="p">,</span> <span class="n">asnfile</span><span class="p">):</span>
     <span class="c1"># Define the basic association of science files</span>
-    <span class="n">asn</span> <span class="o">=</span> <span class="n">afl</span><span class="o">.</span><span class="n">asn_from_list</span><span class="p">(</span><span class="n">cal_files</span><span class="p">,</span> <span class="n">rule</span><span class="o">=</span><span class="n">DMS_Level3_Base</span><span class="p">,</span> <span class="n">product_name</span><span class="o">=</span><span class="s1">&#39;Stage3&#39;</span><span class="p">)</span>
+    <span class="n">asn</span> <span class="o">=</span> <span class="n">afl</span><span class="o">.</span><span class="n">asn_from_list</span><span class="p">(</span><span class="n">cal_files</span><span class="p">,</span> <span class="n">rule</span><span class="o">=</span><span class="n">DMS_Level3_Base</span><span class="p">,</span> <span class="n">product_name</span><span class="o">=</span><span class="s1">'Stage3'</span><span class="p">)</span>
 
     <span class="c1"># Write the association to a json file</span>
     <span class="n">_</span><span class="p">,</span> <span class="n">serialized</span> <span class="o">=</span> <span class="n">asn</span><span class="o">.</span><span class="n">dump</span><span class="p">()</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">asnfile</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">outfile</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">asnfile</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">outfile</span><span class="p">:</span>
         <span class="n">outfile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">serialized</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -6607,7 +6607,7 @@ To override certain steps and reference files, use the examples below.
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get cal files from the Spec2 output folder</span>
-<span class="n">cal_files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">spec2_dir</span><span class="p">,</span> <span class="s1">&#39;*calints.fits&#39;</span><span class="p">)))</span>
+<span class="n">cal_files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">spec2_dir</span><span class="p">,</span> <span class="s1">'*calints.fits'</span><span class="p">)))</span>
 
 <span class="c1"># Use the absolute file paths</span>
 <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">cal_files</span><span class="p">)):</span>
@@ -6615,7 +6615,7 @@ To override certain steps and reference files, use the examples below.
 <span class="n">cal_files</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">cal_files</span><span class="p">)</span>
 
 <span class="c1"># Create association file</span>
-<span class="n">asnfile</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tso3_dir</span><span class="p">,</span> <span class="s1">&#39;stage3_asn.json&#39;</span><span class="p">)</span>
+<span class="n">asnfile</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tso3_dir</span><span class="p">,</span> <span class="s1">'stage3_asn.json'</span><span class="p">)</span>
 <span class="n">writel3asn</span><span class="p">(</span><span class="n">cal_files</span><span class="p">,</span> <span class="n">asnfile</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -6633,7 +6633,7 @@ To override certain steps and reference files, use the examples below.
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">do_tso3</span><span class="p">:</span>
     <span class="n">Tso3Pipeline</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">asnfile</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="n">tso3dict</span><span class="p">,</span> <span class="n">save_results</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">output_dir</span><span class="o">=</span><span class="n">tso3_dir</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Skipping Spec3 processing...&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Skipping Spec3 processing...'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -6680,7 +6680,7 @@ To override certain steps and reference files, use the examples below.
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:38:06,838 - stpipe.step - INFO - WhiteLightStep instance created.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:38:07,027 - stpipe.step - INFO - Step Tso3Pipeline running with args (&#39;./lrs_tso_demo_data/PID04496Obs004/stage3/stage3_asn.json&#39;,).
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:38:07,027 - stpipe.step - INFO - Step Tso3Pipeline running with args ('./lrs_tso_demo_data/PID04496Obs004/stage3/stage3_asn.json',).
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:38:07,038 - stpipe.step - INFO - Step Tso3Pipeline parameters are:
@@ -6695,7 +6695,7 @@ To override certain steps and reference files, use the examples below.
   skip: False
   suffix: None
   search_output_file: True
-  input_dir: &#39;&#39;
+  input_dir: ''
   steps:
     outlier_detection:
       pre_hooks: []
@@ -6709,7 +6709,7 @@ To override certain steps and reference files, use the examples below.
       skip: False
       suffix: None
       search_output_file: False
-      input_dir: &#39;&#39;
+      input_dir: ''
       weight_type: ivm
       pixfrac: 1.0
       kernel: square
@@ -6740,7 +6740,7 @@ To override certain steps and reference files, use the examples below.
       skip: False
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
       save_catalog: False
       radius: 3.0
       radius_inner: 4.0
@@ -6761,7 +6761,7 @@ To override certain steps and reference files, use the examples below.
       skip: True
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
       fit_threshold: 10.0
       oversample: 1.0
       slope_limit: 0.1
@@ -6780,7 +6780,7 @@ To override certain steps and reference files, use the examples below.
       skip: True
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
       algorithm: mingrad
       n_adjacent_cols: 3
     extract_1d:
@@ -6795,7 +6795,7 @@ To override certain steps and reference files, use the examples below.
       skip: False
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
       subtract_background: None
       apply_apcorr: True
       extraction_type: box
@@ -6842,7 +6842,7 @@ To override certain steps and reference files, use the examples below.
       skip: False
       suffix: None
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
       inverse: False
       source_type: None
       apply_time_correction: True
@@ -6858,18 +6858,18 @@ To override certain steps and reference files, use the examples below.
       skip: False
       suffix: whtlt
       search_output_file: True
-      input_dir: &#39;&#39;
+      input_dir: ''
       min_wavelength: 5.0
       max_wavelength: 12.0
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:38:07,131 - stpipe.pipeline - INFO - Prefetching reference files for dataset: &#39;stage3_asn.json&#39; reftypes = [&#39;gain&#39;, &#39;readnoise&#39;]
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:38:07,131 - stpipe.pipeline - INFO - Prefetching reference files for dataset: 'stage3_asn.json' reftypes = ['gain', 'readnoise']
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:38:07,134 - stpipe.pipeline - INFO - Prefetch for GAIN reference file is &#39;/home/runner/crds/references/jwst/miri/jwst_miri_gain_0042.fits&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:38:07,134 - stpipe.pipeline - INFO - Prefetch for GAIN reference file is '/home/runner/crds/references/jwst/miri/jwst_miri_gain_0042.fits'.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:38:07,135 - stpipe.pipeline - INFO - Prefetch for READNOISE reference file is &#39;/home/runner/crds/references/jwst/miri/jwst_miri_readnoise_0093.fits&#39;.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:38:07,135 - stpipe.pipeline - INFO - Prefetch for READNOISE reference file is '/home/runner/crds/references/jwst/miri/jwst_miri_readnoise_0093.fits'.
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-28 16:38:07,136 - jwst.pipeline.calwebb_tso3 - INFO - Starting calwebb_tso3...
@@ -6998,8 +6998,8 @@ To override certain steps and reference files, use the examples below.
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print out the time benchmark</span>
 <span class="n">time1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Runtime so far: </span><span class="si">{</span><span class="n">time1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">time0</span><span class="si">:</span><span class="s2">0.4f</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Runtime for Tso3: </span><span class="si">{</span><span class="n">time1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">time_tso3</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Runtime so far: </span><span class="si">{</span><span class="n">time1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">time0</span><span class="si">:</span><span class="s2">0.4f</span><span class="si">}</span><span class="s2"> seconds"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Runtime for Tso3: </span><span class="si">{</span><span class="n">time1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">time_tso3</span><span class="si">}</span><span class="s2"> seconds"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7019,10 +7019,10 @@ Runtime for Tso3: 72.452616202 seconds
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">do_viz</span><span class="p">:</span>
     <span class="c1"># Get Stage 3 white-light photometric light curve</span>
-    <span class="n">whtlt_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tso3_dir</span><span class="p">,</span> <span class="s1">&#39;Stage3_whtlt.ecsv&#39;</span><span class="p">)</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">ascii</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">whtlt_file</span><span class="p">,</span> <span class="n">comment</span><span class="o">=</span><span class="s1">&#39;#&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
-    <span class="n">mjd</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;MJD_UTC&#39;</span><span class="p">]</span>
-    <span class="n">wlc</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;whitelight_flux&#39;</span><span class="p">]</span>
+    <span class="n">whtlt_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tso3_dir</span><span class="p">,</span> <span class="s1">'Stage3_whtlt.ecsv'</span><span class="p">)</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">ascii</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">whtlt_file</span><span class="p">,</span> <span class="n">comment</span><span class="o">=</span><span class="s1">'#'</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">' '</span><span class="p">)</span>
+    <span class="n">mjd</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">'MJD_UTC'</span><span class="p">]</span>
+    <span class="n">wlc</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">'whitelight_flux'</span><span class="p">]</span>
 
     <span class="c1"># Make normal plots</span>
     <span class="o">%</span><span class="k">matplotlib</span> inline
@@ -7030,14 +7030,14 @@ Runtime for Tso3: 72.452616202 seconds
     <span class="c1">#%matplotlib notebook</span>
 
     <span class="c1"># Plot light curve</span>
-    <span class="n">rc</span><span class="p">(</span><span class="s1">&#39;axes&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">rc</span><span class="p">(</span><span class="s1">'axes'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
     <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mjd</span><span class="p">,</span> <span class="n">wlc</span><span class="p">,</span> <span class="s1">&#39;b-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;MJD_UTC (d)&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Flux (Jy)&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mjd</span><span class="p">,</span> <span class="n">wlc</span><span class="p">,</span> <span class="s1">'b-'</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'MJD_UTC (d)'</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Flux (Jy)'</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tso3_dir</span><span class="p">,</span> <span class="s1">&#39;lrs_slitless_example_wlc.png&#39;</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tso3_dir</span><span class="p">,</span> <span class="s1">'lrs_slitless_example_wlc.png'</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -7053,16 +7053,16 @@ Runtime for Tso3: 72.452616202 seconds
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">do_viz</span><span class="p">:</span>
     <span class="c1"># Get x1dints files</span>
-    <span class="n">x1d_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tso3_dir</span><span class="p">,</span> <span class="s1">&#39;Stage3_x1dints.fits&#39;</span><span class="p">)</span>
+    <span class="n">x1d_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tso3_dir</span><span class="p">,</span> <span class="s1">'Stage3_x1dints.fits'</span><span class="p">)</span>
 
     <span class="c1"># Choose arbitrary wavelength elements to extract</span>
     <span class="n">wave_idxs</span> <span class="o">=</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">350</span><span class="p">]</span>
-    <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">]</span>
+    <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'r'</span><span class="p">,</span> <span class="s1">'g'</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">]</span>
 
     <span class="c1"># Read in file</span>
     <span class="n">hdul</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">x1d_file</span><span class="p">)</span>
-    <span class="n">int_times</span> <span class="o">=</span> <span class="n">hdul</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;int_mid_MJD_UTC&#39;</span><span class="p">]</span>
-    <span class="n">wave</span> <span class="o">=</span> <span class="n">hdul</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;WAVELENGTH&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">int_times</span> <span class="o">=</span> <span class="n">hdul</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">'int_mid_MJD_UTC'</span><span class="p">]</span>
+    <span class="n">wave</span> <span class="o">=</span> <span class="n">hdul</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">'WAVELENGTH'</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
 
     <span class="c1"># Extract flux values for the requested wavelengths from all integrations/extensions</span>
     <span class="n">flux</span> <span class="o">=</span> <span class="p">{}</span>
@@ -7072,9 +7072,9 @@ Runtime for Tso3: 72.452616202 seconds
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">exten</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">hdul</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span><span class="p">)):</span>
         <span class="n">tmp_spec</span> <span class="o">=</span> <span class="n">hdul</span><span class="p">[</span><span class="n">exten</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
         <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">wave_idxs</span><span class="p">)):</span>
-            <span class="n">flux</span><span class="p">[</span><span class="n">colors</span><span class="p">[</span><span class="n">ii</span><span class="p">]]</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">tmp_spec</span><span class="p">[</span><span class="s1">&#39;FLUX&#39;</span><span class="p">][:,</span> <span class="n">wave_idxs</span><span class="p">[</span><span class="n">ii</span><span class="p">]])</span>
+            <span class="n">flux</span><span class="p">[</span><span class="n">colors</span><span class="p">[</span><span class="n">ii</span><span class="p">]]</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">tmp_spec</span><span class="p">[</span><span class="s1">'FLUX'</span><span class="p">][:,</span> <span class="n">wave_idxs</span><span class="p">[</span><span class="n">ii</span><span class="p">]])</span>
 
-    <span class="n">flux_unit</span> <span class="o">=</span> <span class="n">hdul</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">header</span><span class="p">[</span><span class="s1">&#39;TUNIT3&#39;</span><span class="p">]</span>
+    <span class="n">flux_unit</span> <span class="o">=</span> <span class="n">hdul</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">header</span><span class="p">[</span><span class="s1">'TUNIT3'</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -7083,19 +7083,19 @@ Runtime for Tso3: 72.452616202 seconds
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">do_viz</span><span class="p">:</span>
     <span class="c1"># Plot light curves</span>
-    <span class="n">rc</span><span class="p">(</span><span class="s1">&#39;axes&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">rc</span><span class="p">(</span><span class="s1">'axes'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
     <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">wave_idxs</span><span class="p">)):</span>
-        <span class="n">ax</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">int_times</span><span class="p">,</span> <span class="n">flux</span><span class="p">[</span><span class="n">colors</span><span class="p">[</span><span class="n">ii</span><span class="p">]],</span> <span class="n">colors</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">{:.3f}</span><span class="s2"> um&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">wave</span><span class="p">[</span><span class="n">wave_idxs</span><span class="p">[</span><span class="n">ii</span><span class="p">]]))</span>
+        <span class="n">ax</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">int_times</span><span class="p">,</span> <span class="n">flux</span><span class="p">[</span><span class="n">colors</span><span class="p">[</span><span class="n">ii</span><span class="p">]],</span> <span class="n">colors</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span> <span class="o">+</span> <span class="s1">'-'</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"</span><span class="si">{:.3f}</span><span class="s2"> um"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">wave</span><span class="p">[</span><span class="n">wave_idxs</span><span class="p">[</span><span class="n">ii</span><span class="p">]]))</span>
         <span class="n">medianval</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmedian</span><span class="p">(</span><span class="n">flux</span><span class="p">[</span><span class="n">colors</span><span class="p">[</span><span class="n">ii</span><span class="p">]])</span>
         <span class="n">stdev</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanstd</span><span class="p">(</span><span class="n">flux</span><span class="p">[</span><span class="n">colors</span><span class="p">[</span><span class="n">ii</span><span class="p">]])</span>
         <span class="n">ax</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">medianval</span> <span class="o">-</span> <span class="mi">5</span><span class="o">*</span><span class="n">stdev</span><span class="p">,</span> <span class="n">medianval</span> <span class="o">+</span> <span class="mi">5</span><span class="o">*</span><span class="n">stdev</span><span class="p">)</span>
-        <span class="n">ax</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
-        <span class="n">ax</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;MJD_UTC (d)&#39;</span><span class="p">)</span>
-        <span class="n">ax</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Flux (</span><span class="si">{</span><span class="n">flux_unit</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">'best'</span><span class="p">)</span>
+        <span class="n">ax</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'MJD_UTC (d)'</span><span class="p">)</span>
+        <span class="n">ax</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Flux (</span><span class="si">{</span><span class="n">flux_unit</span><span class="si">}</span><span class="s1">)'</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tso3_dir</span><span class="p">,</span> <span class="s1">&#39;lrs_slitless_example_speclcs.png&#39;</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tso3_dir</span><span class="p">,</span> <span class="s1">'lrs_slitless_example_speclcs.png'</span><span class="p">))</span>
     <span class="n">hdul</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>

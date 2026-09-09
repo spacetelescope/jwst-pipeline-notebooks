@@ -645,7 +645,7 @@ that has already been downloaded and provide the location of the data.<br></p>
 <span class="n">demo_mode</span> <span class="o">=</span> <span class="kc">True</span>
 
 <span class="k">if</span> <span class="n">demo_mode</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Running in demonstration mode using online example data!&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Running in demonstration mode using online example data!'</span><span class="p">)</span>
 
 <span class="c1"># --------------------------User Mode Directories------------------------</span>
 <span class="c1"># If demo_mode = False, look for user data in these paths</span>
@@ -653,16 +653,16 @@ that has already been downloaded and provide the location of the data.<br></p>
     <span class="c1"># Set directory paths for processing specific data; these will need</span>
     <span class="c1"># to be changed to your local directory setup (below are given as</span>
     <span class="c1"># examples)</span>
-    <span class="n">user_home_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">&#39;~&#39;</span><span class="p">)</span>
+    <span class="n">user_home_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">'~'</span><span class="p">)</span>
 
     <span class="c1"># Point to where science observation data are</span>
     <span class="c1"># Assumes uncalibrated data in sci_dir/uncal/ and results in stage1,</span>
     <span class="c1"># stage2, stage3 directories</span>
-    <span class="n">sci_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">user_home_dir</span><span class="p">,</span> <span class="s1">&#39;FlightData/APT1040/data/Obs001/&#39;</span><span class="p">)</span>
+    <span class="n">sci_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">user_home_dir</span><span class="p">,</span> <span class="s1">'FlightData/APT1040/data/Obs001/'</span><span class="p">)</span>
 
 <span class="c1"># --------------------------Set Processing Steps--------------------------</span>
 <span class="c1"># Individual pipeline stages can be turned on/off here.  Note that a later</span>
-<span class="c1"># stage won&#39;t be able to run unless data products have already been</span>
+<span class="c1"># stage won't be able to run unless data products have already been</span>
 <span class="c1"># produced from the prior stage.</span>
 
 <span class="c1"># Science processing</span>
@@ -701,16 +701,16 @@ already, it will be set to create one in the home directory.</p>
 
 <span class="c1"># Check whether the local CRDS cache directory has been set.</span>
 <span class="c1"># If not, set it to the user home directory</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;CRDS_PATH&#39;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
-    <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;CRDS_PATH&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">&#39;~&#39;</span><span class="p">),</span> <span class="s1">&#39;crds&#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">'CRDS_PATH'</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">'CRDS_PATH'</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">'~'</span><span class="p">),</span> <span class="s1">'crds'</span><span class="p">)</span>
 
 <span class="c1"># Check whether the CRDS server URL has been set.  If not, set it.</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;CRDS_SERVER_URL&#39;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
-    <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;CRDS_SERVER_URL&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;https://jwst-crds.stsci.edu&#39;</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">'CRDS_SERVER_URL'</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">'CRDS_SERVER_URL'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'https://jwst-crds.stsci.edu'</span>
 
 <span class="c1"># Echo CRDS path in use</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;CRDS local filepath: </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;CRDS_PATH&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;CRDS file server: </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;CRDS_SERVER_URL&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"CRDS local filepath: </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">'CRDS_PATH'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"CRDS file server: </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">'CRDS_SERVER_URL'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -731,7 +731,7 @@ CRDS CONTEXT: jwst_1295.pmap
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use the entire available screen width for this notebook</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
-<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&lt;style&gt;.container { width:95% !important; }&lt;/style&gt;&quot;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s2">"&lt;style&gt;.container { width:95% !important; }&lt;/style&gt;"</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -752,7 +752,7 @@ CRDS CONTEXT: jwst_1295.pmap
 
 <span class="c1"># To display full ouptut of cell, not just the last result</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">IPython.core.interactiveshell</span><span class="w"> </span><span class="kn">import</span> <span class="n">InteractiveShell</span>
-<span class="n">InteractiveShell</span><span class="o">.</span><span class="n">ast_node_interactivity</span> <span class="o">=</span> <span class="s2">&quot;all&quot;</span>
+<span class="n">InteractiveShell</span><span class="o">.</span><span class="n">ast_node_interactivity</span> <span class="o">=</span> <span class="s2">"all"</span>
 
 <span class="c1"># --------------------Astroquery Imports------------------------------</span>
 <span class="c1"># ASCII files, and downloading demo files</span>
@@ -779,8 +779,8 @@ CRDS CONTEXT: jwst_1295.pmap
 <span class="kn">from</span><span class="w"> </span><span class="nn">jwst.associations.lib.rules_level3_base</span><span class="w"> </span><span class="kn">import</span> <span class="n">DMS_Level3_Base</span>  <span class="c1"># Definition of a Lvl3 association file</span>
 
 <span class="c1"># Echo pipeline version and CRDS context in use</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;JWST Calibration Pipeline Version: </span><span class="si">{</span><span class="n">jwst</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Using CRDS Context: </span><span class="si">{</span><span class="n">crds</span><span class="o">.</span><span class="n">get_context_name</span><span class="p">(</span><span class="s1">&#39;jwst&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"JWST Calibration Pipeline Version: </span><span class="si">{</span><span class="n">jwst</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Using CRDS Context: </span><span class="si">{</span><span class="n">crds</span><span class="o">.</span><span class="n">get_context_name</span><span class="p">(</span><span class="s1">'jwst'</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -819,14 +819,14 @@ https://jwst-pipeline.readthedocs.io/en/latest/jwst/data_products/file_naming.ht
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up the program information and paths for demo program</span>
 <span class="k">if</span> <span class="n">demo_mode</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Running in demonstration mode and will download example data from MAST!&#39;</span><span class="p">)</span>
-    <span class="n">program</span> <span class="o">=</span> <span class="s1">&#39;01040&#39;</span>
-    <span class="n">sci_observtn</span> <span class="o">=</span> <span class="s2">&quot;001&quot;</span>
-    <span class="n">visit</span> <span class="o">=</span> <span class="s2">&quot;005&quot;</span>
-    <span class="n">data_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;mir_im_demo_data&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Running in demonstration mode and will download example data from MAST!'</span><span class="p">)</span>
+    <span class="n">program</span> <span class="o">=</span> <span class="s1">'01040'</span>
+    <span class="n">sci_observtn</span> <span class="o">=</span> <span class="s2">"001"</span>
+    <span class="n">visit</span> <span class="o">=</span> <span class="s2">"005"</span>
+    <span class="n">data_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">'.'</span><span class="p">,</span> <span class="s1">'mir_im_demo_data'</span><span class="p">)</span>
     <span class="n">download_dir</span> <span class="o">=</span> <span class="n">data_dir</span>
-    <span class="n">sci_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="s1">&#39;Obs&#39;</span> <span class="o">+</span> <span class="n">sci_observtn</span><span class="p">)</span>
-    <span class="n">uncal_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sci_dir</span><span class="p">,</span> <span class="s1">&#39;uncal&#39;</span><span class="p">)</span>
+    <span class="n">sci_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="s1">'Obs'</span> <span class="o">+</span> <span class="n">sci_observtn</span><span class="p">)</span>
+    <span class="n">uncal_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sci_dir</span><span class="p">,</span> <span class="s1">'uncal'</span><span class="p">)</span>
 
     <span class="c1"># Ensure filepaths for input data exist</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">uncal_dir</span><span class="p">):</span>
@@ -852,10 +852,10 @@ Selects only filter <i>f770w</i> data
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Obtain a list of observation IDs for the specified demo program</span>
 <span class="k">if</span> <span class="n">demo_mode</span><span class="p">:</span>
     <span class="c1"># Science data</span>
-    <span class="n">sci_obs_id_table</span> <span class="o">=</span> <span class="n">Observations</span><span class="o">.</span><span class="n">query_criteria</span><span class="p">(</span><span class="n">instrument_name</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;MIRI/IMAGE&quot;</span><span class="p">],</span>
-                                                   <span class="n">provenance_name</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;CALJWST&quot;</span><span class="p">],</span>  <span class="c1"># Executed observations</span>
-                                                   <span class="n">filters</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;F770W&#39;</span><span class="p">],</span>  <span class="c1"># Data for Specific Filter</span>
-                                                   <span class="n">obs_id</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;jw&#39;</span> <span class="o">+</span> <span class="n">program</span> <span class="o">+</span> <span class="s1">&#39;-o&#39;</span> <span class="o">+</span> <span class="n">sci_observtn</span> <span class="o">+</span> <span class="s1">&#39;*&#39;</span><span class="p">]</span>
+    <span class="n">sci_obs_id_table</span> <span class="o">=</span> <span class="n">Observations</span><span class="o">.</span><span class="n">query_criteria</span><span class="p">(</span><span class="n">instrument_name</span><span class="o">=</span><span class="p">[</span><span class="s2">"MIRI/IMAGE"</span><span class="p">],</span>
+                                                   <span class="n">provenance_name</span><span class="o">=</span><span class="p">[</span><span class="s2">"CALJWST"</span><span class="p">],</span>  <span class="c1"># Executed observations</span>
+                                                   <span class="n">filters</span><span class="o">=</span><span class="p">[</span><span class="s1">'F770W'</span><span class="p">],</span>  <span class="c1"># Data for Specific Filter</span>
+                                                   <span class="n">obs_id</span><span class="o">=</span><span class="p">[</span><span class="s1">'jw'</span> <span class="o">+</span> <span class="n">program</span> <span class="o">+</span> <span class="s1">'-o'</span> <span class="o">+</span> <span class="n">sci_observtn</span> <span class="o">+</span> <span class="s1">'*'</span><span class="p">]</span>
                                                    <span class="p">)</span>
 </pre></div>
 </div>
@@ -866,9 +866,9 @@ Selects only filter <i>f770w</i> data
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Turn the list of visits into a list of uncalibrated data files</span>
 <span class="k">if</span> <span class="n">demo_mode</span><span class="p">:</span>
     <span class="c1"># Define types of files to select</span>
-    <span class="n">file_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;uncal&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;product_type&#39;</span><span class="p">:</span> <span class="s1">&#39;SCIENCE&#39;</span><span class="p">,</span>
-                           <span class="s1">&#39;productSubGroupDescription&#39;</span><span class="p">:</span> <span class="s1">&#39;UNCAL&#39;</span><span class="p">,</span>
-                           <span class="s1">&#39;calib_level&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">]}}</span>
+    <span class="n">file_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'uncal'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'product_type'</span><span class="p">:</span> <span class="s1">'SCIENCE'</span><span class="p">,</span>
+                           <span class="s1">'productSubGroupDescription'</span><span class="p">:</span> <span class="s1">'UNCAL'</span><span class="p">,</span>
+                           <span class="s1">'calib_level'</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">]}}</span>
 
     <span class="c1"># Science files</span>
     <span class="n">sci_files_to_download</span> <span class="o">=</span> <span class="p">[]</span>
@@ -878,15 +878,15 @@ Selects only filter <i>f770w</i> data
     <span class="k">for</span> <span class="n">exposure</span> <span class="ow">in</span> <span class="p">(</span><span class="n">sci_obs_id_table</span><span class="p">):</span>
         <span class="n">products</span> <span class="o">=</span> <span class="n">Observations</span><span class="o">.</span><span class="n">get_product_list</span><span class="p">(</span><span class="n">exposure</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">filetype</span><span class="p">,</span> <span class="n">query_dict</span> <span class="ow">in</span> <span class="n">file_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-            <span class="n">filtered_products</span> <span class="o">=</span> <span class="n">Observations</span><span class="o">.</span><span class="n">filter_products</span><span class="p">(</span><span class="n">products</span><span class="p">,</span> <span class="n">productType</span><span class="o">=</span><span class="n">query_dict</span><span class="p">[</span><span class="s1">&#39;product_type&#39;</span><span class="p">],</span>
-                                                             <span class="n">productSubGroupDescription</span><span class="o">=</span><span class="n">query_dict</span><span class="p">[</span><span class="s1">&#39;productSubGroupDescription&#39;</span><span class="p">],</span>
-                                                             <span class="n">calib_level</span><span class="o">=</span><span class="n">query_dict</span><span class="p">[</span><span class="s1">&#39;calib_level&#39;</span><span class="p">])</span>
-            <span class="n">sci_files_to_download</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">filtered_products</span><span class="p">[</span><span class="s1">&#39;dataURI&#39;</span><span class="p">])</span>
+            <span class="n">filtered_products</span> <span class="o">=</span> <span class="n">Observations</span><span class="o">.</span><span class="n">filter_products</span><span class="p">(</span><span class="n">products</span><span class="p">,</span> <span class="n">productType</span><span class="o">=</span><span class="n">query_dict</span><span class="p">[</span><span class="s1">'product_type'</span><span class="p">],</span>
+                                                             <span class="n">productSubGroupDescription</span><span class="o">=</span><span class="n">query_dict</span><span class="p">[</span><span class="s1">'productSubGroupDescription'</span><span class="p">],</span>
+                                                             <span class="n">calib_level</span><span class="o">=</span><span class="n">query_dict</span><span class="p">[</span><span class="s1">'calib_level'</span><span class="p">])</span>
+            <span class="n">sci_files_to_download</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">filtered_products</span><span class="p">[</span><span class="s1">'dataURI'</span><span class="p">])</span>
 
     <span class="c1"># Download only the files in a single visit</span>
-    <span class="n">sci_files_to_download</span> <span class="o">=</span> <span class="p">[</span><span class="n">match</span> <span class="k">for</span> <span class="n">match</span> <span class="ow">in</span> <span class="n">sci_files_to_download</span> <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;jw&#39;</span> <span class="o">+</span> <span class="n">program</span> <span class="o">+</span> <span class="n">sci_observtn</span> <span class="o">+</span> <span class="n">visit</span><span class="p">)</span> <span class="ow">in</span> <span class="n">match</span><span class="p">]</span>
+    <span class="n">sci_files_to_download</span> <span class="o">=</span> <span class="p">[</span><span class="n">match</span> <span class="k">for</span> <span class="n">match</span> <span class="ow">in</span> <span class="n">sci_files_to_download</span> <span class="k">if</span> <span class="p">(</span><span class="s1">'jw'</span> <span class="o">+</span> <span class="n">program</span> <span class="o">+</span> <span class="n">sci_observtn</span> <span class="o">+</span> <span class="n">visit</span><span class="p">)</span> <span class="ow">in</span> <span class="n">match</span><span class="p">]</span>
     <span class="n">sci_files_to_download</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">sci_files_to_download</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Science files selected for downloading: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">sci_files_to_download</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Science files selected for downloading: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">sci_files_to_download</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -914,10 +914,10 @@ may be incomplete, and cause crashes later on!
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define output subdirectories to keep science data products organized</span>
-<span class="n">uncal_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sci_dir</span><span class="p">,</span> <span class="s1">&#39;uncal&#39;</span><span class="p">)</span>  <span class="c1"># Uncalibrated pipeline inputs should be here</span>
-<span class="n">det1_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sci_dir</span><span class="p">,</span> <span class="s1">&#39;stage1&#39;</span><span class="p">)</span>  <span class="c1"># calwebb_detector1 pipeline outputs will go here</span>
-<span class="n">image2_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sci_dir</span><span class="p">,</span> <span class="s1">&#39;stage2&#39;</span><span class="p">)</span>  <span class="c1"># calwebb_spec2 pipeline outputs will go here</span>
-<span class="n">image3_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sci_dir</span><span class="p">,</span> <span class="s1">&#39;stage3&#39;</span><span class="p">)</span>  <span class="c1"># calwebb_spec3 pipeline outputs will go here</span>
+<span class="n">uncal_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sci_dir</span><span class="p">,</span> <span class="s1">'uncal'</span><span class="p">)</span>  <span class="c1"># Uncalibrated pipeline inputs should be here</span>
+<span class="n">det1_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sci_dir</span><span class="p">,</span> <span class="s1">'stage1'</span><span class="p">)</span>  <span class="c1"># calwebb_detector1 pipeline outputs will go here</span>
+<span class="n">image2_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sci_dir</span><span class="p">,</span> <span class="s1">'stage2'</span><span class="p">)</span>  <span class="c1"># calwebb_spec2 pipeline outputs will go here</span>
+<span class="n">image3_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sci_dir</span><span class="p">,</span> <span class="s1">'stage3'</span><span class="p">)</span>  <span class="c1"># calwebb_spec3 pipeline outputs will go here</span>
 
 <span class="c1"># We need to check that the desired output directories exist, and if not</span>
 <span class="c1"># create them</span>
@@ -935,7 +935,7 @@ may be incomplete, and cause crashes later on!
 JWST datamodels¶</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">uncal_files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">uncal_dir</span><span class="p">,</span> <span class="s1">&#39;*_uncal.fits&#39;</span><span class="p">)))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">uncal_files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">uncal_dir</span><span class="p">,</span> <span class="s1">'*_uncal.fits'</span><span class="p">)))</span>
 
 <span class="c1"># print file name</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">uncal_files</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
@@ -944,13 +944,13 @@ JWST datamodels¶</p>
 <span class="n">examine</span> <span class="o">=</span> <span class="n">datamodels</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">uncal_files</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 
 <span class="c1"># Print out exposure info</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Instrument: </span><span class="si">{</span><span class="n">examine</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">instrument</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Filter: </span><span class="si">{</span><span class="n">examine</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">instrument</span><span class="o">.</span><span class="n">filter</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number of integrations: </span><span class="si">{</span><span class="n">examine</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">exposure</span><span class="o">.</span><span class="n">nints</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number of groups: </span><span class="si">{</span><span class="n">examine</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">exposure</span><span class="o">.</span><span class="n">ngroups</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Readout pattern: </span><span class="si">{</span><span class="n">examine</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">exposure</span><span class="o">.</span><span class="n">readpatt</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dither position number: </span><span class="si">{</span><span class="n">examine</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">dither</span><span class="o">.</span><span class="n">position_number</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Instrument: </span><span class="si">{</span><span class="n">examine</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">instrument</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Filter: </span><span class="si">{</span><span class="n">examine</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">instrument</span><span class="o">.</span><span class="n">filter</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Number of integrations: </span><span class="si">{</span><span class="n">examine</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">exposure</span><span class="o">.</span><span class="n">nints</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Number of groups: </span><span class="si">{</span><span class="n">examine</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">exposure</span><span class="o">.</span><span class="n">ngroups</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Readout pattern: </span><span class="si">{</span><span class="n">examine</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">exposure</span><span class="o">.</span><span class="n">readpatt</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Dither position number: </span><span class="si">{</span><span class="n">examine</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">dither</span><span class="o">.</span><span class="n">position_number</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -979,7 +979,7 @@ than the dither position number.</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print out the time benchmark</span>
 <span class="n">time1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Runtime so far: </span><span class="si">{</span><span class="n">time1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">time0</span><span class="si">:</span><span class="s2">0.0f</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Runtime so far: </span><span class="si">{</span><span class="n">time1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">time0</span><span class="si">:</span><span class="s2">0.0f</span><span class="si">}</span><span class="s2"> seconds"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1029,36 +1029,36 @@ shower residuals. Available parameters are discussed in the
 
 <span class="c1"># Boilerplate dictionary setup</span>
 <span class="n">det1dict</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;group_scale&#39;</span><span class="p">],</span> <span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;dq_init&#39;</span><span class="p">],</span> <span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;emicorr&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{}</span>
-<span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;saturation&#39;</span><span class="p">],</span> <span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;firstframe&#39;</span><span class="p">],</span> <span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;lastframe&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{}</span>
-<span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;reset&#39;</span><span class="p">],</span> <span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;linearity&#39;</span><span class="p">],</span> <span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;rscd&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{}</span>
-<span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;dark_current&#39;</span><span class="p">],</span> <span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;refpix&#39;</span><span class="p">],</span> <span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;jump&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{}</span>
-<span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;ramp_fit&#39;</span><span class="p">],</span> <span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;gain_scale&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{}</span>
+<span class="n">det1dict</span><span class="p">[</span><span class="s1">'group_scale'</span><span class="p">],</span> <span class="n">det1dict</span><span class="p">[</span><span class="s1">'dq_init'</span><span class="p">],</span> <span class="n">det1dict</span><span class="p">[</span><span class="s1">'emicorr'</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{}</span>
+<span class="n">det1dict</span><span class="p">[</span><span class="s1">'saturation'</span><span class="p">],</span> <span class="n">det1dict</span><span class="p">[</span><span class="s1">'firstframe'</span><span class="p">],</span> <span class="n">det1dict</span><span class="p">[</span><span class="s1">'lastframe'</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{}</span>
+<span class="n">det1dict</span><span class="p">[</span><span class="s1">'reset'</span><span class="p">],</span> <span class="n">det1dict</span><span class="p">[</span><span class="s1">'linearity'</span><span class="p">],</span> <span class="n">det1dict</span><span class="p">[</span><span class="s1">'rscd'</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{}</span>
+<span class="n">det1dict</span><span class="p">[</span><span class="s1">'dark_current'</span><span class="p">],</span> <span class="n">det1dict</span><span class="p">[</span><span class="s1">'refpix'</span><span class="p">],</span> <span class="n">det1dict</span><span class="p">[</span><span class="s1">'jump'</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{}</span>
+<span class="n">det1dict</span><span class="p">[</span><span class="s1">'ramp_fit'</span><span class="p">],</span> <span class="n">det1dict</span><span class="p">[</span><span class="s1">'gain_scale'</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{}</span>
 
 <span class="c1"># Overrides for whether or not certain steps should be skipped</span>
 <span class="c1"># skipping the refpix step</span>
-<span class="c1">#det1dict[&#39;refpix&#39;][&#39;skip&#39;] = True</span>
-<span class="c1">#det1dict[&#39;jump&#39;][&#39;find_showers&#39;] = False # Turn off detection of cosmic ray showers</span>
+<span class="c1">#det1dict['refpix']['skip'] = True</span>
+<span class="c1">#det1dict['jump']['find_showers'] = False # Turn off detection of cosmic ray showers</span>
 
 <span class="c1"># Overrides for various reference files</span>
 <span class="c1"># Files should be in the base local directory or provide full path</span>
-<span class="c1">#det1dict[&#39;dq_init&#39;][&#39;override_mask&#39;] = &#39;myfile.fits&#39;  # Bad pixel mask</span>
-<span class="c1">#det1dict[&#39;saturation&#39;][&#39;override_saturation&#39;] = &#39;myfile.fits&#39;  # Saturation</span>
-<span class="c1">#det1dict[&#39;reset&#39;][&#39;override_reset&#39;] = &#39;myfile.fits&#39;  # Reset</span>
-<span class="c1">#det1dict[&#39;linearity&#39;][&#39;override_linearity&#39;] = &#39;myfile.fits&#39;  # Linearity</span>
-<span class="c1">#det1dict[&#39;rscd&#39;][&#39;override_rscd&#39;] = &#39;myfile.fits&#39;  # RSCD</span>
-<span class="c1">#det1dict[&#39;dark_current&#39;][&#39;override_dark&#39;] = &#39;myfile.fits&#39;  # Dark current subtraction</span>
-<span class="c1">#det1dict[&#39;jump&#39;][&#39;override_gain&#39;] = &#39;myfile.fits&#39;  # Gain used by jump step</span>
-<span class="c1">#det1dict[&#39;ramp_fit&#39;][&#39;override_gain&#39;] = &#39;myfile.fits&#39;  # Gain used by ramp fitting step</span>
-<span class="c1">#det1dict[&#39;jump&#39;][&#39;override_readnoise&#39;] = &#39;myfile.fits&#39;  # Read noise used by jump step</span>
-<span class="c1">#det1dict[&#39;ramp_fit&#39;][&#39;override_readnoise&#39;] = &#39;myfile.fits&#39;  # Read noise used by ramp fitting step</span>
+<span class="c1">#det1dict['dq_init']['override_mask'] = 'myfile.fits'  # Bad pixel mask</span>
+<span class="c1">#det1dict['saturation']['override_saturation'] = 'myfile.fits'  # Saturation</span>
+<span class="c1">#det1dict['reset']['override_reset'] = 'myfile.fits'  # Reset</span>
+<span class="c1">#det1dict['linearity']['override_linearity'] = 'myfile.fits'  # Linearity</span>
+<span class="c1">#det1dict['rscd']['override_rscd'] = 'myfile.fits'  # RSCD</span>
+<span class="c1">#det1dict['dark_current']['override_dark'] = 'myfile.fits'  # Dark current subtraction</span>
+<span class="c1">#det1dict['jump']['override_gain'] = 'myfile.fits'  # Gain used by jump step</span>
+<span class="c1">#det1dict['ramp_fit']['override_gain'] = 'myfile.fits'  # Gain used by ramp fitting step</span>
+<span class="c1">#det1dict['jump']['override_readnoise'] = 'myfile.fits'  # Read noise used by jump step</span>
+<span class="c1">#det1dict['ramp_fit']['override_readnoise'] = 'myfile.fits'  # Read noise used by ramp fitting step</span>
 
 <span class="c1"># Turn on multi-core processing (off by default).  Choose what fraction of cores to use (quarter, half, or all)</span>
-<span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;jump&#39;</span><span class="p">][</span><span class="s1">&#39;maximum_cores&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;half&#39;</span>
+<span class="n">det1dict</span><span class="p">[</span><span class="s1">'jump'</span><span class="p">][</span><span class="s1">'maximum_cores'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'half'</span>
 
 <span class="c1"># Alter parameters to optimize removal of shower residuals (example)</span>
-<span class="c1">#det1dict[&#39;jump&#39;][&#39;after_jump_flag_dn1&#39;] = X  # A floating point value in units of DN</span>
-<span class="c1">#det1dict[&#39;jump&#39;][&#39;after_jump_flag_time1&#39;] = x.x # A floating point value in units of seconds</span>
+<span class="c1">#det1dict['jump']['after_jump_flag_dn1'] = X  # A floating point value in units of DN</span>
+<span class="c1">#det1dict['jump']['after_jump_flag_time1'] = x.x # A floating point value in units of seconds</span>
 </pre></div>
 </div>
 </div>
@@ -1073,7 +1073,7 @@ shower residuals. Available parameters are discussed in the
     <span class="k">for</span> <span class="n">uncal</span> <span class="ow">in</span> <span class="n">uncal_files</span><span class="p">:</span>
         <span class="n">rate_result</span> <span class="o">=</span> <span class="n">Detector1Pipeline</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">uncal</span><span class="p">,</span> <span class="n">output_dir</span><span class="o">=</span><span class="n">det1_dir</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="n">det1dict</span><span class="p">,</span> <span class="n">save_results</span><span class="o">=</span><span class="kc">True</span><span class="p">,)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Skipping Detector1 processing&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Skipping Detector1 processing'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1082,7 +1082,7 @@ shower residuals. Available parameters are discussed in the
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print out the time benchmark</span>
 <span class="n">time1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Runtime for Detector1: </span><span class="si">{</span><span class="n">time1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">time0</span><span class="si">:</span><span class="s2">0.0f</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Runtime for Detector1: </span><span class="si">{</span><span class="n">time1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">time0</span><span class="si">:</span><span class="s2">0.0f</span><span class="si">}</span><span class="s2"> seconds"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1097,7 +1097,7 @@ data.<br></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># find rate files</span>
-<span class="n">rate_files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">det1_dir</span><span class="p">,</span> <span class="s1">&#39;*_rate.fits&#39;</span><span class="p">)))</span>
+<span class="n">rate_files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">det1_dir</span><span class="p">,</span> <span class="s1">'*_rate.fits'</span><span class="p">)))</span>
 
 <span class="c1"># Read in file as datamodel</span>
 <span class="n">rate_f</span> <span class="o">=</span> <span class="n">datamodels</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">rate_files</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
@@ -1111,34 +1111,34 @@ data.<br></p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;charge_migration&#39;: &#39;SKIPPED&#39;,
- &#39;dark_sub&#39;: &#39;COMPLETE&#39;,
- &#39;dq_init&#39;: &#39;COMPLETE&#39;,
- &#39;emicorr&#39;: &#39;COMPLETE&#39;,
- &#39;firstframe&#39;: &#39;COMPLETE&#39;,
- &#39;gain_scale&#39;: &#39;SKIPPED&#39;,
- &#39;group_scale&#39;: &#39;SKIPPED&#39;,
- &#39;ipc&#39;: &#39;SKIPPED&#39;,
- &#39;jump&#39;: &#39;COMPLETE&#39;,
- &#39;lastframe&#39;: &#39;COMPLETE&#39;,
- &#39;linearity&#39;: &#39;COMPLETE&#39;,
- &#39;ramp_fit&#39;: &#39;COMPLETE&#39;,
- &#39;refpix&#39;: &#39;SKIPPED&#39;,
- &#39;reset&#39;: &#39;COMPLETE&#39;,
- &#39;rscd&#39;: &#39;COMPLETE&#39;,
- &#39;saturation&#39;: &#39;COMPLETE&#39;}
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{'charge_migration': 'SKIPPED',
+ 'dark_sub': 'COMPLETE',
+ 'dq_init': 'COMPLETE',
+ 'emicorr': 'COMPLETE',
+ 'firstframe': 'COMPLETE',
+ 'gain_scale': 'SKIPPED',
+ 'group_scale': 'SKIPPED',
+ 'ipc': 'SKIPPED',
+ 'jump': 'COMPLETE',
+ 'lastframe': 'COMPLETE',
+ 'linearity': 'COMPLETE',
+ 'ramp_fit': 'COMPLETE',
+ 'refpix': 'SKIPPED',
+ 'reset': 'COMPLETE',
+ 'rscd': 'COMPLETE',
+ 'saturation': 'COMPLETE'}
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;crds&#39;: {&#39;context_used&#39;: &#39;jwst_1295.pmap&#39;, &#39;sw_version&#39;: &#39;11.18.1&#39;},
- &#39;dark&#39;: {&#39;name&#39;: &#39;crds://jwst_miri_dark_0103.fits&#39;},
- &#39;emicorr&#39;: {&#39;name&#39;: &#39;crds://jwst_miri_emicorr_0002.asdf&#39;},
- &#39;gain&#39;: {&#39;name&#39;: &#39;crds://jwst_miri_gain_0034.fits&#39;},
- &#39;linearity&#39;: {&#39;name&#39;: &#39;crds://jwst_miri_linearity_0032.fits&#39;},
- &#39;mask&#39;: {&#39;name&#39;: &#39;crds://jwst_miri_mask_0036.fits&#39;},
- &#39;readnoise&#39;: {&#39;name&#39;: &#39;crds://jwst_miri_readnoise_0085.fits&#39;},
- &#39;reset&#39;: {&#39;name&#39;: &#39;crds://jwst_miri_reset_0077.fits&#39;},
- &#39;rscd&#39;: {&#39;name&#39;: &#39;crds://jwst_miri_rscd_0017.fits&#39;},
- &#39;saturation&#39;: {&#39;name&#39;: &#39;crds://jwst_miri_saturation_0034.fits&#39;}}
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{'crds': {'context_used': 'jwst_1295.pmap', 'sw_version': '11.18.1'},
+ 'dark': {'name': 'crds://jwst_miri_dark_0103.fits'},
+ 'emicorr': {'name': 'crds://jwst_miri_emicorr_0002.asdf'},
+ 'gain': {'name': 'crds://jwst_miri_gain_0034.fits'},
+ 'linearity': {'name': 'crds://jwst_miri_linearity_0032.fits'},
+ 'mask': {'name': 'crds://jwst_miri_mask_0036.fits'},
+ 'readnoise': {'name': 'crds://jwst_miri_readnoise_0085.fits'},
+ 'reset': {'name': 'crds://jwst_miri_reset_0077.fits'},
+ 'rscd': {'name': 'crds://jwst_miri_rscd_0017.fits'},
+ 'saturation': {'name': 'crds://jwst_miri_saturation_0034.fits'}}
 </pre></div>
 </div>
 </div>
@@ -1178,20 +1178,20 @@ removed.</p>
 
 <span class="c1"># Boilerplate dictionary setup</span>
 <span class="n">image2dict</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="n">image2dict</span><span class="p">[</span><span class="s1">&#39;assign_wcs&#39;</span><span class="p">],</span> <span class="n">image2dict</span><span class="p">[</span><span class="s1">&#39;flat_field&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{}</span>
-<span class="n">image2dict</span><span class="p">[</span><span class="s1">&#39;photom&#39;</span><span class="p">],</span> <span class="n">image2dict</span><span class="p">[</span><span class="s1">&#39;resample&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{}</span>
+<span class="n">image2dict</span><span class="p">[</span><span class="s1">'assign_wcs'</span><span class="p">],</span> <span class="n">image2dict</span><span class="p">[</span><span class="s1">'flat_field'</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{}</span>
+<span class="n">image2dict</span><span class="p">[</span><span class="s1">'photom'</span><span class="p">],</span> <span class="n">image2dict</span><span class="p">[</span><span class="s1">'resample'</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{}</span>
 
 <span class="c1"># Overrides for whether or not certain steps should be skipped (example)</span>
-<span class="c1">#image2dict[&#39;resample&#39;][&#39;skip&#39;] = False</span>
+<span class="c1">#image2dict['resample']['skip'] = False</span>
 
 <span class="c1"># Overrides for various reference files</span>
 <span class="c1"># Files should be in the base local directory or provide full path</span>
-<span class="c1">#image2dict[&#39;assign_wcs&#39;][&#39;override_distortion&#39;] = &#39;myfile.asdf&#39;  # Spatial distortion (ASDF file)</span>
-<span class="c1">#image2dict[&#39;assign_wcs&#39;][&#39;override_filteroffset&#39;] = &#39;myfile.asdf&#39;  # Imager filter offsets (ASDF file)</span>
-<span class="c1">#image2dict[&#39;assign_wcs&#39;][&#39;override_specwcs&#39;] = &#39;myfile.asdf&#39;  # Spectral distortion (ASDF file)</span>
-<span class="c1">#image2dict[&#39;assign_wcs&#39;][&#39;override_wavelengthrange&#39;] = &#39;myfile.asdf&#39;  # Wavelength channel mapping (ASDF file)</span>
-<span class="c1">#image2dict[&#39;flat_field&#39;][&#39;override_flat&#39;] = &#39;myfile.fits&#39;  # Pixel flatfield</span>
-<span class="c1">#image2dict[&#39;photom&#39;][&#39;override_photom&#39;] = &#39;myfile.fits&#39;  # Photometric calibration array</span>
+<span class="c1">#image2dict['assign_wcs']['override_distortion'] = 'myfile.asdf'  # Spatial distortion (ASDF file)</span>
+<span class="c1">#image2dict['assign_wcs']['override_filteroffset'] = 'myfile.asdf'  # Imager filter offsets (ASDF file)</span>
+<span class="c1">#image2dict['assign_wcs']['override_specwcs'] = 'myfile.asdf'  # Spectral distortion (ASDF file)</span>
+<span class="c1">#image2dict['assign_wcs']['override_wavelengthrange'] = 'myfile.asdf'  # Wavelength channel mapping (ASDF file)</span>
+<span class="c1">#image2dict['flat_field']['override_flat'] = 'myfile.fits'  # Pixel flatfield</span>
+<span class="c1">#image2dict['photom']['override_photom'] = 'myfile.fits'  # Photometric calibration array</span>
 </pre></div>
 </div>
 </div>
@@ -1200,14 +1200,14 @@ removed.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Find all rate.fits files</span>
-<span class="n">sstring</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">det1_dir</span><span class="p">,</span> <span class="s1">&#39;jw*rate.fits&#39;</span><span class="p">)</span>  <span class="c1"># Use files from the detector1 output folder</span>
+<span class="n">sstring</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">det1_dir</span><span class="p">,</span> <span class="s1">'jw*rate.fits'</span><span class="p">)</span>  <span class="c1"># Use files from the detector1 output folder</span>
 <span class="n">rate_files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">sstring</span><span class="p">))</span>
 
 <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">rate_files</span><span class="p">)):</span>
     <span class="n">rate_files</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">rate_files</span><span class="p">[</span><span class="n">ii</span><span class="p">])</span>
 <span class="n">rate_files</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">rate_files</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Found  </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">rate_files</span><span class="p">))</span><span class="si">}</span><span class="s2"> science files&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Found  </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">rate_files</span><span class="p">))</span><span class="si">}</span><span class="s2"> science files"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1221,7 +1221,7 @@ removed.</p>
     <span class="k">for</span> <span class="n">rate</span> <span class="ow">in</span> <span class="n">rate_files</span><span class="p">:</span>
         <span class="n">cal_result</span> <span class="o">=</span> <span class="n">Image2Pipeline</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">rate</span><span class="p">,</span> <span class="n">output_dir</span><span class="o">=</span><span class="n">image2_dir</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="n">image2dict</span><span class="p">,</span> <span class="n">save_results</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Skipping Image2 processing.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Skipping Image2 processing."</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1230,8 +1230,8 @@ removed.</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print out the time benchmark</span>
 <span class="n">time1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Runtime so far: </span><span class="si">{</span><span class="n">time1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">time0</span><span class="si">:</span><span class="s2">0.0f</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Runtime for Image2: </span><span class="si">{</span><span class="n">time1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">time_image2</span><span class="si">:</span><span class="s2">0.0f</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Runtime so far: </span><span class="si">{</span><span class="n">time1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">time0</span><span class="si">:</span><span class="s2">0.0f</span><span class="si">}</span><span class="s2"> seconds"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Runtime for Image2: </span><span class="si">{</span><span class="n">time1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">time_image2</span><span class="si">:</span><span class="s2">0.0f</span><span class="si">}</span><span class="s2"> seconds"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1241,7 +1241,7 @@ removed.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Identify *_cal.fits files</span>
-<span class="n">cal_files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image2_dir</span><span class="p">,</span> <span class="s1">&#39;*_cal.fits&#39;</span><span class="p">)))</span>
+<span class="n">cal_files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image2_dir</span><span class="p">,</span> <span class="s1">'*_cal.fits'</span><span class="p">)))</span>
 
 <span class="n">cal_f</span> <span class="o">=</span> <span class="n">datamodels</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">cal_files</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 
@@ -1302,20 +1302,20 @@ to ‘1.0 0.8’ and to set the resample parameter <code class="docutils literal
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up a dictionary to define how the Image3 pipeline should be configured</span>
 <span class="c1"># Boilerplate dictionary setup</span>
 <span class="n">image3dict</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="n">image3dict</span><span class="p">[</span><span class="s1">&#39;assign_mtwcs&#39;</span><span class="p">],</span> <span class="n">image3dict</span><span class="p">[</span><span class="s1">&#39;tweakreg&#39;</span><span class="p">],</span> <span class="n">image3dict</span><span class="p">[</span><span class="s1">&#39;skymatch&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{}</span>
-<span class="n">image3dict</span><span class="p">[</span><span class="s1">&#39;outlier_detection&#39;</span><span class="p">],</span> <span class="n">image3dict</span><span class="p">[</span><span class="s1">&#39;resample&#39;</span><span class="p">],</span> <span class="n">image3dict</span><span class="p">[</span><span class="s1">&#39;source_catalog&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{}</span>
+<span class="n">image3dict</span><span class="p">[</span><span class="s1">'assign_mtwcs'</span><span class="p">],</span> <span class="n">image3dict</span><span class="p">[</span><span class="s1">'tweakreg'</span><span class="p">],</span> <span class="n">image3dict</span><span class="p">[</span><span class="s1">'skymatch'</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{}</span>
+<span class="n">image3dict</span><span class="p">[</span><span class="s1">'outlier_detection'</span><span class="p">],</span> <span class="n">image3dict</span><span class="p">[</span><span class="s1">'resample'</span><span class="p">],</span> <span class="n">image3dict</span><span class="p">[</span><span class="s1">'source_catalog'</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{}</span>
 
 <span class="c1"># Overrides for whether or not certain steps should be skipped (example)</span>
-<span class="c1">#image3dict[&#39;outlier_detection&#39;][&#39;skip&#39;] = True</span>
+<span class="c1">#image3dict['outlier_detection']['skip'] = True</span>
 
 <span class="c1"># Overrides for various reference files</span>
 <span class="c1"># Files should be in the base local directory or provide full path</span>
-<span class="c1">#image3dict[&#39;source_catalog&#39;][&#39;override_apcorr&#39;] = &#39;myfile.fits&#39;  # Aperture correction parameters</span>
-<span class="c1">#image3dict[&#39;source_catalog&#39;][&#39;override_abvegaoffset&#39;] = &#39;myfile.asdf&#39;  # Data to convert from AB to Vega magnitudes (ASDF file)</span>
+<span class="c1">#image3dict['source_catalog']['override_apcorr'] = 'myfile.fits'  # Aperture correction parameters</span>
+<span class="c1">#image3dict['source_catalog']['override_abvegaoffset'] = 'myfile.asdf'  # Data to convert from AB to Vega magnitudes (ASDF file)</span>
 
 <span class="c1"># Overrides for specific parameters in the step (examples)</span>
-<span class="c1">#image3dict[&#39;resample&#39;][&#39;weight_type&#39;] = [&#39;exptime&#39;]</span>
-<span class="c1">#image3dict[&#39;outlier_detection&#39;][&#39;scale&#39;] = [&#39;1.0 0.8&#39;]</span>
+<span class="c1">#image3dict['resample']['weight_type'] = ['exptime']</span>
+<span class="c1">#image3dict['outlier_detection']['scale'] = ['1.0 0.8']</span>
 </pre></div>
 </div>
 </div>
@@ -1324,13 +1324,13 @@ to ‘1.0 0.8’ and to set the resample parameter <code class="docutils literal
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Science Files need are the cal.fits files</span>
-<span class="n">sstring</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image2_dir</span><span class="p">,</span> <span class="s1">&#39;jw*cal.fits&#39;</span><span class="p">)</span>
+<span class="n">sstring</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image2_dir</span><span class="p">,</span> <span class="s1">'jw*cal.fits'</span><span class="p">)</span>
 <span class="n">cal_files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">sstring</span><span class="p">))</span>
 <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">cal_files</span><span class="p">)):</span>
     <span class="n">cal_files</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">cal_files</span><span class="p">[</span><span class="n">ii</span><span class="p">])</span>
 <span class="n">calfiles</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">cal_files</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Found </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">cal_files</span><span class="p">))</span><span class="si">}</span><span class="s1"> science files to process&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Found </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">cal_files</span><span class="p">))</span><span class="si">}</span><span class="s1"> science files to process'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1351,17 +1351,17 @@ this tutorial, the rootname of the output products will be
 <span class="k">if</span> <span class="n">doimage3</span><span class="p">:</span>
     <span class="n">associations</span> <span class="o">=</span> <span class="n">asn_from_list</span><span class="o">.</span><span class="n">asn_from_list</span><span class="p">(</span><span class="n">cal_files</span><span class="p">,</span>
                                                <span class="n">rule</span><span class="o">=</span><span class="n">DMS_Level3_Base</span><span class="p">,</span>
-                                               <span class="n">product_name</span><span class="o">=</span><span class="s1">&#39;image3_association&#39;</span><span class="p">)</span>
+                                               <span class="n">product_name</span><span class="o">=</span><span class="s1">'image3_association'</span><span class="p">)</span>
 
-    <span class="n">associations</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;asn_type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;image3&#39;</span>
-    <span class="n">associations</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;program&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">program</span>
+    <span class="n">associations</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">'asn_type'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'image3'</span>
+    <span class="n">associations</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">'program'</span><span class="p">]</span> <span class="o">=</span> <span class="n">program</span>
 
     <span class="c1"># Format association as .json file</span>
-    <span class="n">asn_filename</span><span class="p">,</span> <span class="n">serialized</span> <span class="o">=</span> <span class="n">associations</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">&quot;json&quot;</span><span class="p">)</span>
+    <span class="n">asn_filename</span><span class="p">,</span> <span class="n">serialized</span> <span class="o">=</span> <span class="n">associations</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"json"</span><span class="p">)</span>
 
     <span class="c1"># Write out association file</span>
     <span class="n">association_im3</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sci_dir</span><span class="p">,</span> <span class="n">asn_filename</span><span class="p">)</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">association_im3</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fd</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">association_im3</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">fd</span><span class="p">:</span>
         <span class="n">fd</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">serialized</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1384,7 +1384,7 @@ this tutorial, the rootname of the output products will be
 <span class="k">if</span> <span class="n">doimage3</span><span class="p">:</span>
     <span class="n">i2d_result</span> <span class="o">=</span> <span class="n">Image3Pipeline</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">association_im3</span><span class="p">,</span> <span class="n">output_dir</span><span class="o">=</span><span class="n">image3_dir</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="n">image3dict</span><span class="p">,</span> <span class="n">save_results</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Skipping Spec3 processing&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Skipping Spec3 processing'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1393,8 +1393,8 @@ this tutorial, the rootname of the output products will be
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print out the time benchmark</span>
 <span class="n">time1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Runtime so far: </span><span class="si">{</span><span class="n">time1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">time0</span><span class="si">:</span><span class="s2">0.0f</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Runtime for Image3: </span><span class="si">{</span><span class="n">time1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">time_image3</span><span class="si">:</span><span class="s2">0.0f</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Runtime so far: </span><span class="si">{</span><span class="n">time1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">time0</span><span class="si">:</span><span class="s2">0.0f</span><span class="si">}</span><span class="s2"> seconds"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Runtime for Image3: </span><span class="si">{</span><span class="n">time1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">time_image3</span><span class="si">:</span><span class="s2">0.0f</span><span class="si">}</span><span class="s2"> seconds"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1405,7 +1405,7 @@ this tutorial, the rootname of the output products will be
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Identify *_i2d file and open as datamodel</span>
-<span class="n">i2d</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image3_dir</span><span class="p">,</span> <span class="s2">&quot;*_i2d.fits&quot;</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">i2d</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image3_dir</span><span class="p">,</span> <span class="s2">"*_i2d.fits"</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">i2d_f</span> <span class="o">=</span> <span class="n">datamodels</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">i2d</span><span class="p">)</span>
 
 <span class="c1"># Check which steps were run</span>
@@ -1417,62 +1417,62 @@ this tutorial, the rootname of the output products will be
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;assign_wcs&#39;: &#39;COMPLETE&#39;,
- &#39;charge_migration&#39;: &#39;SKIPPED&#39;,
- &#39;dark_sub&#39;: &#39;COMPLETE&#39;,
- &#39;dq_init&#39;: &#39;COMPLETE&#39;,
- &#39;emicorr&#39;: &#39;COMPLETE&#39;,
- &#39;firstframe&#39;: &#39;COMPLETE&#39;,
- &#39;flat_field&#39;: &#39;COMPLETE&#39;,
- &#39;gain_scale&#39;: &#39;SKIPPED&#39;,
- &#39;group_scale&#39;: &#39;SKIPPED&#39;,
- &#39;ipc&#39;: &#39;SKIPPED&#39;,
- &#39;jump&#39;: &#39;COMPLETE&#39;,
- &#39;lastframe&#39;: &#39;COMPLETE&#39;,
- &#39;linearity&#39;: &#39;COMPLETE&#39;,
- &#39;outlier_detection&#39;: &#39;COMPLETE&#39;,
- &#39;photom&#39;: &#39;COMPLETE&#39;,
- &#39;ramp_fit&#39;: &#39;COMPLETE&#39;,
- &#39;refpix&#39;: &#39;SKIPPED&#39;,
- &#39;resample&#39;: &#39;COMPLETE&#39;,
- &#39;reset&#39;: &#39;COMPLETE&#39;,
- &#39;rscd&#39;: &#39;COMPLETE&#39;,
- &#39;saturation&#39;: &#39;COMPLETE&#39;,
- &#39;skymatch&#39;: &#39;COMPLETE&#39;,
- &#39;tweakreg&#39;: &#39;COMPLETE&#39;}
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{'assign_wcs': 'COMPLETE',
+ 'charge_migration': 'SKIPPED',
+ 'dark_sub': 'COMPLETE',
+ 'dq_init': 'COMPLETE',
+ 'emicorr': 'COMPLETE',
+ 'firstframe': 'COMPLETE',
+ 'flat_field': 'COMPLETE',
+ 'gain_scale': 'SKIPPED',
+ 'group_scale': 'SKIPPED',
+ 'ipc': 'SKIPPED',
+ 'jump': 'COMPLETE',
+ 'lastframe': 'COMPLETE',
+ 'linearity': 'COMPLETE',
+ 'outlier_detection': 'COMPLETE',
+ 'photom': 'COMPLETE',
+ 'ramp_fit': 'COMPLETE',
+ 'refpix': 'SKIPPED',
+ 'resample': 'COMPLETE',
+ 'reset': 'COMPLETE',
+ 'rscd': 'COMPLETE',
+ 'saturation': 'COMPLETE',
+ 'skymatch': 'COMPLETE',
+ 'tweakreg': 'COMPLETE'}
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;area&#39;: {&#39;name&#39;: &#39;crds://jwst_miri_area_0006.fits&#39;},
- &#39;camera&#39;: {&#39;name&#39;: &#39;N/A&#39;},
- &#39;collimator&#39;: {&#39;name&#39;: &#39;N/A&#39;},
- &#39;crds&#39;: {&#39;context_used&#39;: &#39;jwst_1295.pmap&#39;, &#39;sw_version&#39;: &#39;11.18.1&#39;},
- &#39;dark&#39;: {&#39;name&#39;: &#39;crds://jwst_miri_dark_0103.fits&#39;},
- &#39;dflat&#39;: {&#39;name&#39;: &#39;N/A&#39;},
- &#39;disperser&#39;: {&#39;name&#39;: &#39;N/A&#39;},
- &#39;distortion&#39;: {&#39;name&#39;: &#39;crds://jwst_miri_distortion_0047.asdf&#39;},
- &#39;emicorr&#39;: {&#39;name&#39;: &#39;crds://jwst_miri_emicorr_0002.asdf&#39;},
- &#39;fflat&#39;: {&#39;name&#39;: &#39;N/A&#39;},
- &#39;filteroffset&#39;: {&#39;name&#39;: &#39;crds://jwst_miri_filteroffset_0008.asdf&#39;},
- &#39;flat&#39;: {&#39;name&#39;: &#39;crds://jwst_miri_flat_0785.fits&#39;},
- &#39;fore&#39;: {&#39;name&#39;: &#39;N/A&#39;},
- &#39;fpa&#39;: {&#39;name&#39;: &#39;N/A&#39;},
- &#39;gain&#39;: {&#39;name&#39;: &#39;crds://jwst_miri_gain_0034.fits&#39;},
- &#39;ifufore&#39;: {&#39;name&#39;: &#39;N/A&#39;},
- &#39;ifupost&#39;: {&#39;name&#39;: &#39;N/A&#39;},
- &#39;ifuslicer&#39;: {&#39;name&#39;: &#39;N/A&#39;},
- &#39;linearity&#39;: {&#39;name&#39;: &#39;crds://jwst_miri_linearity_0032.fits&#39;},
- &#39;mask&#39;: {&#39;name&#39;: &#39;crds://jwst_miri_mask_0036.fits&#39;},
- &#39;msa&#39;: {&#39;name&#39;: &#39;N/A&#39;},
- &#39;ote&#39;: {&#39;name&#39;: &#39;N/A&#39;},
- &#39;photom&#39;: {&#39;name&#39;: &#39;crds://jwst_miri_photom_0218.fits&#39;},
- &#39;readnoise&#39;: {&#39;name&#39;: &#39;crds://jwst_miri_readnoise_0085.fits&#39;},
- &#39;regions&#39;: {&#39;name&#39;: &#39;N/A&#39;},
- &#39;reset&#39;: {&#39;name&#39;: &#39;crds://jwst_miri_reset_0077.fits&#39;},
- &#39;rscd&#39;: {&#39;name&#39;: &#39;crds://jwst_miri_rscd_0017.fits&#39;},
- &#39;saturation&#39;: {&#39;name&#39;: &#39;crds://jwst_miri_saturation_0034.fits&#39;},
- &#39;sflat&#39;: {&#39;name&#39;: &#39;N/A&#39;},
- &#39;specwcs&#39;: {&#39;name&#39;: &#39;N/A&#39;},
- &#39;wavelengthrange&#39;: {&#39;name&#39;: &#39;N/A&#39;}}
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{'area': {'name': 'crds://jwst_miri_area_0006.fits'},
+ 'camera': {'name': 'N/A'},
+ 'collimator': {'name': 'N/A'},
+ 'crds': {'context_used': 'jwst_1295.pmap', 'sw_version': '11.18.1'},
+ 'dark': {'name': 'crds://jwst_miri_dark_0103.fits'},
+ 'dflat': {'name': 'N/A'},
+ 'disperser': {'name': 'N/A'},
+ 'distortion': {'name': 'crds://jwst_miri_distortion_0047.asdf'},
+ 'emicorr': {'name': 'crds://jwst_miri_emicorr_0002.asdf'},
+ 'fflat': {'name': 'N/A'},
+ 'filteroffset': {'name': 'crds://jwst_miri_filteroffset_0008.asdf'},
+ 'flat': {'name': 'crds://jwst_miri_flat_0785.fits'},
+ 'fore': {'name': 'N/A'},
+ 'fpa': {'name': 'N/A'},
+ 'gain': {'name': 'crds://jwst_miri_gain_0034.fits'},
+ 'ifufore': {'name': 'N/A'},
+ 'ifupost': {'name': 'N/A'},
+ 'ifuslicer': {'name': 'N/A'},
+ 'linearity': {'name': 'crds://jwst_miri_linearity_0032.fits'},
+ 'mask': {'name': 'crds://jwst_miri_mask_0036.fits'},
+ 'msa': {'name': 'N/A'},
+ 'ote': {'name': 'N/A'},
+ 'photom': {'name': 'crds://jwst_miri_photom_0218.fits'},
+ 'readnoise': {'name': 'crds://jwst_miri_readnoise_0085.fits'},
+ 'regions': {'name': 'N/A'},
+ 'reset': {'name': 'crds://jwst_miri_reset_0077.fits'},
+ 'rscd': {'name': 'crds://jwst_miri_rscd_0017.fits'},
+ 'saturation': {'name': 'crds://jwst_miri_saturation_0034.fits'},
+ 'sflat': {'name': 'N/A'},
+ 'specwcs': {'name': 'N/A'},
+ 'wavelengthrange': {'name': 'N/A'}}
 </pre></div>
 </div>
 </div>
@@ -1493,7 +1493,7 @@ this tutorial, the rootname of the output products will be
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Look at the final i2d image (combined mosaic)</span>
-<span class="n">sstring</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image3_dir</span><span class="p">,</span> <span class="s1">&#39;*i2d.fits&#39;</span><span class="p">)</span>
+<span class="n">sstring</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image3_dir</span><span class="p">,</span> <span class="s1">'*i2d.fits'</span><span class="p">)</span>
 <span class="n">miri_mosaic_file</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">sstring</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">miri_mosaic_file</span><span class="p">)</span>
 
@@ -1505,16 +1505,16 @@ this tutorial, the rootname of the output products will be
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
 
 <span class="c1"># Set up image</span>
-<span class="n">cax</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">miri_mosaic</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Greys&#39;</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">display_vals</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">vmax</span><span class="o">=</span><span class="n">display_vals</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">cax</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">miri_mosaic</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">'Greys'</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">'lower'</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">display_vals</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">vmax</span><span class="o">=</span><span class="n">display_vals</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 
 <span class="c1"># Set up colorbar</span>
 <span class="n">cb</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">cax</span><span class="p">,</span> <span class="n">fraction</span><span class="o">=</span><span class="mf">0.046</span><span class="p">)</span>
-<span class="n">cb</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;MJy/str&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">cb</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'MJy/str'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
 
 <span class="c1"># Set labels </span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Final MIRI mosaic&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'X'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Y'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Final MIRI mosaic'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1531,19 +1531,19 @@ and extended sources. The source catalog is saved in
 <h3>Read in catalog file and identify point/extended sources<a class="headerlink" href="#read-in-catalog-file-and-identify-point-extended-sources" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">catalog_file</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image3_dir</span><span class="p">,</span> <span class="s2">&quot;*_cat.ecsv&quot;</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">catalog_file</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image3_dir</span><span class="p">,</span> <span class="s2">"*_cat.ecsv"</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">catalog</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">catalog_file</span><span class="p">)</span>
 
 <span class="c1"># find where sources are considered extended or point sources</span>
-<span class="n">pt_src</span><span class="p">,</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="o">~</span><span class="n">catalog</span><span class="p">[</span><span class="s1">&#39;is_extended&#39;</span><span class="p">])</span>
-<span class="n">ext_src</span><span class="p">,</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">catalog</span><span class="p">[</span><span class="s1">&#39;is_extended&#39;</span><span class="p">])</span>
+<span class="n">pt_src</span><span class="p">,</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="o">~</span><span class="n">catalog</span><span class="p">[</span><span class="s1">'is_extended'</span><span class="p">])</span>
+<span class="n">ext_src</span><span class="p">,</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">catalog</span><span class="p">[</span><span class="s1">'is_extended'</span><span class="p">])</span>
 
 <span class="c1"># Get x and y coordinates of the objects found </span>
-<span class="n">miri_x</span> <span class="o">=</span> <span class="n">catalog</span><span class="p">[</span><span class="s1">&#39;xcentroid&#39;</span><span class="p">][</span><span class="n">pt_src</span><span class="p">]</span>
-<span class="n">miri_y</span> <span class="o">=</span> <span class="n">catalog</span><span class="p">[</span><span class="s1">&#39;ycentroid&#39;</span><span class="p">][</span><span class="n">pt_src</span><span class="p">]</span>
+<span class="n">miri_x</span> <span class="o">=</span> <span class="n">catalog</span><span class="p">[</span><span class="s1">'xcentroid'</span><span class="p">][</span><span class="n">pt_src</span><span class="p">]</span>
+<span class="n">miri_y</span> <span class="o">=</span> <span class="n">catalog</span><span class="p">[</span><span class="s1">'ycentroid'</span><span class="p">][</span><span class="n">pt_src</span><span class="p">]</span>
 
-<span class="n">ext_x</span> <span class="o">=</span> <span class="n">catalog</span><span class="p">[</span><span class="s1">&#39;xcentroid&#39;</span><span class="p">][</span><span class="n">ext_src</span><span class="p">]</span>
-<span class="n">ext_y</span> <span class="o">=</span> <span class="n">catalog</span><span class="p">[</span><span class="s1">&#39;ycentroid&#39;</span><span class="p">][</span><span class="n">ext_src</span><span class="p">]</span>
+<span class="n">ext_x</span> <span class="o">=</span> <span class="n">catalog</span><span class="p">[</span><span class="s1">'xcentroid'</span><span class="p">][</span><span class="n">ext_src</span><span class="p">]</span>
+<span class="n">ext_y</span> <span class="o">=</span> <span class="n">catalog</span><span class="p">[</span><span class="s1">'ycentroid'</span><span class="p">][</span><span class="n">ext_src</span><span class="p">]</span>
 
 <span class="c1"># Show catalog</span>
 <span class="n">catalog</span>
@@ -1561,18 +1561,18 @@ and extended sources. The source catalog is saved in
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
 
 <span class="c1"># Set up image</span>
-<span class="n">cax</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">miri_mosaic</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Greys&#39;</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">display_vals</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">vmax</span><span class="o">=</span><span class="n">display_vals</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">miri_x</span><span class="p">,</span> <span class="n">miri_y</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>  <span class="c1"># overplot point source positions</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">ext_x</span><span class="p">,</span> <span class="n">ext_y</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;v&#39;</span><span class="p">)</span>  <span class="c1"># overplot extended source positions</span>
+<span class="n">cax</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">miri_mosaic</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">'Greys'</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">'lower'</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">display_vals</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">vmax</span><span class="o">=</span><span class="n">display_vals</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">miri_x</span><span class="p">,</span> <span class="n">miri_y</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'red'</span><span class="p">)</span>  <span class="c1"># overplot point source positions</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">ext_x</span><span class="p">,</span> <span class="n">ext_y</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'blue'</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">'v'</span><span class="p">)</span>  <span class="c1"># overplot extended source positions</span>
 
 <span class="c1"># Set up colorbar</span>
 <span class="n">cb</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">cax</span><span class="p">,</span> <span class="n">fraction</span><span class="o">=</span><span class="mf">0.046</span><span class="p">)</span>
-<span class="n">cb</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;MJy/str&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">cb</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'MJy/str'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
 
 <span class="c1"># Set labels</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Final MIRI mosaic&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'X'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Y'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Final MIRI mosaic'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
 </div>

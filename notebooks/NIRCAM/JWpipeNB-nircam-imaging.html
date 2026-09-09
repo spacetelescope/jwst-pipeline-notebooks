@@ -664,7 +664,7 @@ that has already been downloaded and provide the location of the data.<br></p>
 <span class="n">demo_mode</span> <span class="o">=</span> <span class="kc">True</span>
 
 <span class="k">if</span> <span class="n">demo_mode</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Running in demonstration mode using online example data!&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Running in demonstration mode using online example data!'</span><span class="p">)</span>
 
 <span class="c1"># --------------------------User Mode Directories------------------------</span>
 <span class="c1"># If demo_mode = False, look for user data in these paths</span>
@@ -672,16 +672,16 @@ that has already been downloaded and provide the location of the data.<br></p>
     <span class="c1"># Set directory paths for processing specific data; these will need</span>
     <span class="c1"># to be changed to your local directory setup (below are given as</span>
     <span class="c1"># examples)</span>
-    <span class="n">user_home_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">&#39;~&#39;</span><span class="p">)</span>
+    <span class="n">user_home_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">'~'</span><span class="p">)</span>
 
     <span class="c1"># Point to where science observation data are</span>
     <span class="c1"># Assumes uncalibrated data in &lt;sci_dir&gt;/uncal/ and results in stage1,</span>
     <span class="c1"># stage2, stage3 directories</span>
-    <span class="n">sci_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">user_home_dir</span><span class="p">,</span> <span class="s1">&#39;PID2739/Obs001/&#39;</span><span class="p">)</span>
+    <span class="n">sci_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">user_home_dir</span><span class="p">,</span> <span class="s1">'PID2739/Obs001/'</span><span class="p">)</span>
 
 <span class="c1"># --------------------------Set Processing Steps--------------------------</span>
 <span class="c1"># Individual pipeline stages can be turned on/off here.  Note that a later</span>
-<span class="c1"># stage won&#39;t be able to run unless data products have already been</span>
+<span class="c1"># stage won't be able to run unless data products have already been</span>
 <span class="c1"># produced from the prior stage.</span>
 
 <span class="c1"># Science processing</span>
@@ -716,17 +716,17 @@ already, it will be set to create one in the home directory.</p>
 
 <span class="c1"># Check whether the local CRDS cache directory has been set.</span>
 <span class="c1"># If not, set it to the user home directory</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;CRDS_PATH&#39;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
-    <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;CRDS_PATH&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">&#39;~&#39;</span><span class="p">),</span> <span class="s1">&#39;crds&#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">'CRDS_PATH'</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">'CRDS_PATH'</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">'~'</span><span class="p">),</span> <span class="s1">'crds'</span><span class="p">)</span>
 <span class="c1"># Check whether the CRDS server URL has been set.  If not, set it.</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;CRDS_SERVER_URL&#39;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
-    <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;CRDS_SERVER_URL&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;https://jwst-crds.stsci.edu&#39;</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">'CRDS_SERVER_URL'</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">'CRDS_SERVER_URL'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'https://jwst-crds.stsci.edu'</span>
 
 <span class="c1"># Echo CRDS path in use</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;CRDS local filepath: </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;CRDS_PATH&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;CRDS file server: </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;CRDS_SERVER_URL&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">&#39;CRDS_CONTEXT&#39;</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;CRDS CONTEXT: </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;CRDS_CONTEXT&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"CRDS local filepath: </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">'CRDS_PATH'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"CRDS file server: </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">'CRDS_SERVER_URL'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">'CRDS_CONTEXT'</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"CRDS CONTEXT: </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">'CRDS_CONTEXT'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -739,7 +739,7 @@ already, it will be set to create one in the home directory.</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use the entire available screen width for this notebook</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
-<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&lt;style&gt;.container { width:95% !important; }&lt;/style&gt;&quot;</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s2">"&lt;style&gt;.container { width:95% !important; }&lt;/style&gt;"</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -757,7 +757,7 @@ already, it will be set to create one in the home directory.</p>
 
 <span class="c1"># To display full ouptut of cell, not just the last result</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">IPython.core.interactiveshell</span><span class="w"> </span><span class="kn">import</span> <span class="n">InteractiveShell</span>
-<span class="n">InteractiveShell</span><span class="o">.</span><span class="n">ast_node_interactivity</span> <span class="o">=</span> <span class="s2">&quot;all&quot;</span>
+<span class="n">InteractiveShell</span><span class="o">.</span><span class="n">ast_node_interactivity</span> <span class="o">=</span> <span class="s2">"all"</span>
 
 <span class="c1"># -----------------------Astroquery Imports--------------------------------</span>
 <span class="c1"># ASCII files, and downloading demo files</span>
@@ -787,8 +787,8 @@ already, it will be set to create one in the home directory.</p>
 <span class="kn">from</span><span class="w"> </span><span class="nn">jdaviz</span><span class="w"> </span><span class="kn">import</span> <span class="n">Imviz</span>
 
 <span class="c1"># Echo pipeline version and CRDS context in use</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;JWST Calibration Pipeline Version: </span><span class="si">{</span><span class="n">jwst</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Using CRDS Context: </span><span class="si">{</span><span class="n">crds</span><span class="o">.</span><span class="n">get_context_name</span><span class="p">(</span><span class="s1">&#39;jwst&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"JWST Calibration Pipeline Version: </span><span class="si">{</span><span class="n">jwst</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Using CRDS Context: </span><span class="si">{</span><span class="n">crds</span><span class="o">.</span><span class="n">get_context_name</span><span class="p">(</span><span class="s1">'jwst'</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -830,14 +830,14 @@ https://jwst-pipeline.readthedocs.io/en/latest/jwst/data_products/file_naming.ht
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up the program information and paths for demo program</span>
 <span class="k">if</span> <span class="n">demo_mode</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Running in demonstration mode and will download example data from MAST!&#39;</span><span class="p">)</span>
-    <span class="n">program</span> <span class="o">=</span> <span class="s2">&quot;02739&quot;</span>
-    <span class="n">sci_observtn</span> <span class="o">=</span> <span class="s2">&quot;001&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Running in demonstration mode and will download example data from MAST!'</span><span class="p">)</span>
+    <span class="n">program</span> <span class="o">=</span> <span class="s2">"02739"</span>
+    <span class="n">sci_observtn</span> <span class="o">=</span> <span class="s2">"001"</span>
     
-    <span class="n">data_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;nrc_im_demo_data&#39;</span><span class="p">)</span>
+    <span class="n">data_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">'.'</span><span class="p">,</span> <span class="s1">'nrc_im_demo_data'</span><span class="p">)</span>
     <span class="n">download_dir</span> <span class="o">=</span> <span class="n">data_dir</span>
-    <span class="n">sci_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="s1">&#39;Obs&#39;</span> <span class="o">+</span> <span class="n">sci_observtn</span><span class="p">)</span>
-    <span class="n">uncal_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sci_dir</span><span class="p">,</span> <span class="s1">&#39;uncal&#39;</span><span class="p">)</span>
+    <span class="n">sci_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="s1">'Obs'</span> <span class="o">+</span> <span class="n">sci_observtn</span><span class="p">)</span>
+    <span class="n">uncal_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sci_dir</span><span class="p">,</span> <span class="s1">'uncal'</span><span class="p">)</span>
 
     <span class="c1"># Ensure filepaths for input data exist</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">uncal_dir</span><span class="p">):</span>
@@ -860,10 +860,10 @@ Work one filter at a time, so that we can more easily filter by detector and kee
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Obtain a list of observation IDs for the specified demo program</span>
 <span class="k">if</span> <span class="n">demo_mode</span><span class="p">:</span>
     <span class="c1"># Science data</span>
-    <span class="n">sci_obs_id_table</span> <span class="o">=</span> <span class="n">Observations</span><span class="o">.</span><span class="n">query_criteria</span><span class="p">(</span><span class="n">instrument_name</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;NIRCAM/IMAGE&quot;</span><span class="p">],</span>
-                                                   <span class="n">provenance_name</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;CALJWST&quot;</span><span class="p">],</span>  <span class="c1"># Executed observations</span>
-                                                   <span class="n">filters</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;F200W&#39;</span><span class="p">],</span>  <span class="c1"># Data for Specific Filter</span>
-                                                   <span class="n">obs_id</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;jw&#39;</span> <span class="o">+</span> <span class="n">program</span> <span class="o">+</span> <span class="s1">&#39;-o&#39;</span> <span class="o">+</span> <span class="n">sci_observtn</span> <span class="o">+</span> <span class="s1">&#39;*&#39;</span><span class="p">]</span>
+    <span class="n">sci_obs_id_table</span> <span class="o">=</span> <span class="n">Observations</span><span class="o">.</span><span class="n">query_criteria</span><span class="p">(</span><span class="n">instrument_name</span><span class="o">=</span><span class="p">[</span><span class="s2">"NIRCAM/IMAGE"</span><span class="p">],</span>
+                                                   <span class="n">provenance_name</span><span class="o">=</span><span class="p">[</span><span class="s2">"CALJWST"</span><span class="p">],</span>  <span class="c1"># Executed observations</span>
+                                                   <span class="n">filters</span><span class="o">=</span><span class="p">[</span><span class="s1">'F200W'</span><span class="p">],</span>  <span class="c1"># Data for Specific Filter</span>
+                                                   <span class="n">obs_id</span><span class="o">=</span><span class="p">[</span><span class="s1">'jw'</span> <span class="o">+</span> <span class="n">program</span> <span class="o">+</span> <span class="s1">'-o'</span> <span class="o">+</span> <span class="n">sci_observtn</span> <span class="o">+</span> <span class="s1">'*'</span><span class="p">]</span>
                                                    <span class="p">)</span>
 </pre></div>
 </div>
@@ -882,9 +882,9 @@ Work one filter at a time, so that we can more easily filter by detector and kee
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Turn the list of visits into a list of uncalibrated data files</span>
 <span class="k">if</span> <span class="n">demo_mode</span><span class="p">:</span>
     <span class="c1"># Define types of files to select</span>
-    <span class="n">file_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;uncal&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;product_type&#39;</span><span class="p">:</span> <span class="s1">&#39;SCIENCE&#39;</span><span class="p">,</span>
-                           <span class="s1">&#39;productSubGroupDescription&#39;</span><span class="p">:</span> <span class="s1">&#39;UNCAL&#39;</span><span class="p">,</span>
-                           <span class="s1">&#39;calib_level&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">]}}</span>
+    <span class="n">file_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'uncal'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'product_type'</span><span class="p">:</span> <span class="s1">'SCIENCE'</span><span class="p">,</span>
+                           <span class="s1">'productSubGroupDescription'</span><span class="p">:</span> <span class="s1">'UNCAL'</span><span class="p">,</span>
+                           <span class="s1">'calib_level'</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">]}}</span>
 
     <span class="c1"># Science files</span>
     <span class="n">sci_files_to_download</span> <span class="o">=</span> <span class="p">[]</span>
@@ -893,16 +893,16 @@ Work one filter at a time, so that we can more easily filter by detector and kee
     <span class="k">for</span> <span class="n">exposure</span> <span class="ow">in</span> <span class="p">(</span><span class="n">sci_obs_id_table</span><span class="p">):</span>
         <span class="n">products</span> <span class="o">=</span> <span class="n">Observations</span><span class="o">.</span><span class="n">get_product_list</span><span class="p">(</span><span class="n">exposure</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">filetype</span><span class="p">,</span> <span class="n">query_dict</span> <span class="ow">in</span> <span class="n">file_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-            <span class="n">filtered_products</span> <span class="o">=</span> <span class="n">Observations</span><span class="o">.</span><span class="n">filter_products</span><span class="p">(</span><span class="n">products</span><span class="p">,</span> <span class="n">productType</span><span class="o">=</span><span class="n">query_dict</span><span class="p">[</span><span class="s1">&#39;product_type&#39;</span><span class="p">],</span>
-                                                             <span class="n">productSubGroupDescription</span><span class="o">=</span><span class="n">query_dict</span><span class="p">[</span><span class="s1">&#39;productSubGroupDescription&#39;</span><span class="p">],</span>
-                                                             <span class="n">calib_level</span><span class="o">=</span><span class="n">query_dict</span><span class="p">[</span><span class="s1">&#39;calib_level&#39;</span><span class="p">])</span>
-            <span class="n">sci_files_to_download</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">filtered_products</span><span class="p">[</span><span class="s1">&#39;dataURI&#39;</span><span class="p">])</span>
+            <span class="n">filtered_products</span> <span class="o">=</span> <span class="n">Observations</span><span class="o">.</span><span class="n">filter_products</span><span class="p">(</span><span class="n">products</span><span class="p">,</span> <span class="n">productType</span><span class="o">=</span><span class="n">query_dict</span><span class="p">[</span><span class="s1">'product_type'</span><span class="p">],</span>
+                                                             <span class="n">productSubGroupDescription</span><span class="o">=</span><span class="n">query_dict</span><span class="p">[</span><span class="s1">'productSubGroupDescription'</span><span class="p">],</span>
+                                                             <span class="n">calib_level</span><span class="o">=</span><span class="n">query_dict</span><span class="p">[</span><span class="s1">'calib_level'</span><span class="p">])</span>
+            <span class="n">sci_files_to_download</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">filtered_products</span><span class="p">[</span><span class="s1">'dataURI'</span><span class="p">])</span>
 
     <span class="c1"># To limit data volume, keep only files from visit 002, dithers 1 and 2, and only A-module</span>
-    <span class="n">sw_sci_files_to_download</span> <span class="o">=</span> <span class="p">[</span><span class="n">fname</span> <span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="n">sci_files_to_download</span> <span class="k">if</span> <span class="s1">&#39;jw02739001002_02105&#39;</span> <span class="ow">in</span> <span class="n">fname</span> <span class="ow">and</span> 
-                                <span class="p">(</span><span class="s1">&#39;nrca2&#39;</span> <span class="ow">in</span> <span class="n">fname</span> <span class="ow">or</span> <span class="s1">&#39;nrca4&#39;</span> <span class="ow">in</span> <span class="n">fname</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="s1">&#39;00001&#39;</span> <span class="ow">in</span> <span class="n">fname</span> <span class="ow">or</span> <span class="s1">&#39;00002&#39;</span> <span class="ow">in</span> <span class="n">fname</span><span class="p">)]</span>
+    <span class="n">sw_sci_files_to_download</span> <span class="o">=</span> <span class="p">[</span><span class="n">fname</span> <span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="n">sci_files_to_download</span> <span class="k">if</span> <span class="s1">'jw02739001002_02105'</span> <span class="ow">in</span> <span class="n">fname</span> <span class="ow">and</span> 
+                                <span class="p">(</span><span class="s1">'nrca2'</span> <span class="ow">in</span> <span class="n">fname</span> <span class="ow">or</span> <span class="s1">'nrca4'</span> <span class="ow">in</span> <span class="n">fname</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="s1">'00001'</span> <span class="ow">in</span> <span class="n">fname</span> <span class="ow">or</span> <span class="s1">'00002'</span> <span class="ow">in</span> <span class="n">fname</span><span class="p">)]</span>
     <span class="n">sw_sci_files_to_download</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">sw_sci_files_to_download</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Science files selected for downloading: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">sw_sci_files_to_download</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Science files selected for downloading: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">sw_sci_files_to_download</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -922,10 +922,10 @@ Work one filter at a time, so that we can more easily filter by detector and kee
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Obtain a list of observation IDs for the specified demo program</span>
 <span class="k">if</span> <span class="n">demo_mode</span><span class="p">:</span>
     <span class="c1"># Science data</span>
-    <span class="n">sci_obs_id_table</span> <span class="o">=</span> <span class="n">Observations</span><span class="o">.</span><span class="n">query_criteria</span><span class="p">(</span><span class="n">instrument_name</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;NIRCAM/IMAGE&quot;</span><span class="p">],</span>
-                                                   <span class="n">provenance_name</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;CALJWST&quot;</span><span class="p">],</span>  <span class="c1"># Executed observations</span>
-                                                   <span class="n">filters</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;F444W&#39;</span><span class="p">],</span>  <span class="c1"># Data for Specific Filter</span>
-                                                   <span class="n">obs_id</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;jw&#39;</span> <span class="o">+</span> <span class="n">program</span> <span class="o">+</span> <span class="s1">&#39;-o&#39;</span> <span class="o">+</span> <span class="n">sci_observtn</span> <span class="o">+</span> <span class="s1">&#39;*&#39;</span><span class="p">]</span>
+    <span class="n">sci_obs_id_table</span> <span class="o">=</span> <span class="n">Observations</span><span class="o">.</span><span class="n">query_criteria</span><span class="p">(</span><span class="n">instrument_name</span><span class="o">=</span><span class="p">[</span><span class="s2">"NIRCAM/IMAGE"</span><span class="p">],</span>
+                                                   <span class="n">provenance_name</span><span class="o">=</span><span class="p">[</span><span class="s2">"CALJWST"</span><span class="p">],</span>  <span class="c1"># Executed observations</span>
+                                                   <span class="n">filters</span><span class="o">=</span><span class="p">[</span><span class="s1">'F444W'</span><span class="p">],</span>  <span class="c1"># Data for Specific Filter</span>
+                                                   <span class="n">obs_id</span><span class="o">=</span><span class="p">[</span><span class="s1">'jw'</span> <span class="o">+</span> <span class="n">program</span> <span class="o">+</span> <span class="s1">'-o'</span> <span class="o">+</span> <span class="n">sci_observtn</span> <span class="o">+</span> <span class="s1">'*'</span><span class="p">]</span>
                                                    <span class="p">)</span>
 </pre></div>
 </div>
@@ -944,9 +944,9 @@ Work one filter at a time, so that we can more easily filter by detector and kee
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Turn the list of visits into a list of uncalibrated data files</span>
 <span class="k">if</span> <span class="n">demo_mode</span><span class="p">:</span>
     <span class="c1"># Define types of files to select</span>
-    <span class="n">file_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;uncal&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;product_type&#39;</span><span class="p">:</span> <span class="s1">&#39;SCIENCE&#39;</span><span class="p">,</span>
-                           <span class="s1">&#39;productSubGroupDescription&#39;</span><span class="p">:</span> <span class="s1">&#39;UNCAL&#39;</span><span class="p">,</span>
-                           <span class="s1">&#39;calib_level&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">]}}</span>
+    <span class="n">file_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'uncal'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'product_type'</span><span class="p">:</span> <span class="s1">'SCIENCE'</span><span class="p">,</span>
+                           <span class="s1">'productSubGroupDescription'</span><span class="p">:</span> <span class="s1">'UNCAL'</span><span class="p">,</span>
+                           <span class="s1">'calib_level'</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">]}}</span>
 
     <span class="c1"># Science files</span>
     <span class="n">sci_files_to_download</span> <span class="o">=</span> <span class="p">[]</span>
@@ -955,16 +955,16 @@ Work one filter at a time, so that we can more easily filter by detector and kee
     <span class="k">for</span> <span class="n">exposure</span> <span class="ow">in</span> <span class="p">(</span><span class="n">sci_obs_id_table</span><span class="p">):</span>
         <span class="n">products</span> <span class="o">=</span> <span class="n">Observations</span><span class="o">.</span><span class="n">get_product_list</span><span class="p">(</span><span class="n">exposure</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">filetype</span><span class="p">,</span> <span class="n">query_dict</span> <span class="ow">in</span> <span class="n">file_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-            <span class="n">filtered_products</span> <span class="o">=</span> <span class="n">Observations</span><span class="o">.</span><span class="n">filter_products</span><span class="p">(</span><span class="n">products</span><span class="p">,</span> <span class="n">productType</span><span class="o">=</span><span class="n">query_dict</span><span class="p">[</span><span class="s1">&#39;product_type&#39;</span><span class="p">],</span>
-                                                             <span class="n">productSubGroupDescription</span><span class="o">=</span><span class="n">query_dict</span><span class="p">[</span><span class="s1">&#39;productSubGroupDescription&#39;</span><span class="p">],</span>
-                                                             <span class="n">calib_level</span><span class="o">=</span><span class="n">query_dict</span><span class="p">[</span><span class="s1">&#39;calib_level&#39;</span><span class="p">])</span>
-            <span class="n">sci_files_to_download</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">filtered_products</span><span class="p">[</span><span class="s1">&#39;dataURI&#39;</span><span class="p">])</span>
+            <span class="n">filtered_products</span> <span class="o">=</span> <span class="n">Observations</span><span class="o">.</span><span class="n">filter_products</span><span class="p">(</span><span class="n">products</span><span class="p">,</span> <span class="n">productType</span><span class="o">=</span><span class="n">query_dict</span><span class="p">[</span><span class="s1">'product_type'</span><span class="p">],</span>
+                                                             <span class="n">productSubGroupDescription</span><span class="o">=</span><span class="n">query_dict</span><span class="p">[</span><span class="s1">'productSubGroupDescription'</span><span class="p">],</span>
+                                                             <span class="n">calib_level</span><span class="o">=</span><span class="n">query_dict</span><span class="p">[</span><span class="s1">'calib_level'</span><span class="p">])</span>
+            <span class="n">sci_files_to_download</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">filtered_products</span><span class="p">[</span><span class="s1">'dataURI'</span><span class="p">])</span>
 
     <span class="c1"># To limit data volume, keep only files from visit 002, dithers 1 and 2, and only A-module</span>
-    <span class="n">lw_sci_files_to_download</span> <span class="o">=</span> <span class="p">[</span><span class="n">fname</span> <span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="n">sci_files_to_download</span> <span class="k">if</span> <span class="s1">&#39;jw02739001002_02105&#39;</span> <span class="ow">in</span> <span class="n">fname</span> <span class="ow">and</span> 
-                                <span class="s1">&#39;nrca&#39;</span> <span class="ow">in</span> <span class="n">fname</span> <span class="ow">and</span> <span class="p">(</span><span class="s1">&#39;00001&#39;</span> <span class="ow">in</span> <span class="n">fname</span> <span class="ow">or</span> <span class="s1">&#39;00002&#39;</span> <span class="ow">in</span> <span class="n">fname</span><span class="p">)]</span>
+    <span class="n">lw_sci_files_to_download</span> <span class="o">=</span> <span class="p">[</span><span class="n">fname</span> <span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="n">sci_files_to_download</span> <span class="k">if</span> <span class="s1">'jw02739001002_02105'</span> <span class="ow">in</span> <span class="n">fname</span> <span class="ow">and</span> 
+                                <span class="s1">'nrca'</span> <span class="ow">in</span> <span class="n">fname</span> <span class="ow">and</span> <span class="p">(</span><span class="s1">'00001'</span> <span class="ow">in</span> <span class="n">fname</span> <span class="ow">or</span> <span class="s1">'00002'</span> <span class="ow">in</span> <span class="n">fname</span><span class="p">)]</span>
     <span class="n">lw_sci_files_to_download</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">lw_sci_files_to_download</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Science files selected for downloading: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">lw_sci_files_to_download</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Science files selected for downloading: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">lw_sci_files_to_download</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1012,10 +1012,10 @@ may be incomplete, and cause crashes later on!
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define output subdirectories to keep science data products organized</span>
-<span class="n">uncal_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sci_dir</span><span class="p">,</span> <span class="s1">&#39;uncal&#39;</span><span class="p">)</span>  <span class="c1"># Uncalibrated pipeline inputs should be here</span>
-<span class="n">det1_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sci_dir</span><span class="p">,</span> <span class="s1">&#39;stage1&#39;</span><span class="p">)</span>  <span class="c1"># calwebb_detector1 pipeline outputs will go here</span>
-<span class="n">image2_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sci_dir</span><span class="p">,</span> <span class="s1">&#39;stage2&#39;</span><span class="p">)</span>  <span class="c1"># calwebb_spec2 pipeline outputs will go here</span>
-<span class="n">image3_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sci_dir</span><span class="p">,</span> <span class="s1">&#39;stage3&#39;</span><span class="p">)</span>  <span class="c1"># calwebb_spec3 pipeline outputs will go here</span>
+<span class="n">uncal_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sci_dir</span><span class="p">,</span> <span class="s1">'uncal'</span><span class="p">)</span>  <span class="c1"># Uncalibrated pipeline inputs should be here</span>
+<span class="n">det1_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sci_dir</span><span class="p">,</span> <span class="s1">'stage1'</span><span class="p">)</span>  <span class="c1"># calwebb_detector1 pipeline outputs will go here</span>
+<span class="n">image2_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sci_dir</span><span class="p">,</span> <span class="s1">'stage2'</span><span class="p">)</span>  <span class="c1"># calwebb_spec2 pipeline outputs will go here</span>
+<span class="n">image3_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sci_dir</span><span class="p">,</span> <span class="s1">'stage3'</span><span class="p">)</span>  <span class="c1"># calwebb_spec3 pipeline outputs will go here</span>
 
 <span class="c1"># We need to check that the desired output directories exist, and if not</span>
 <span class="c1"># create them</span>
@@ -1034,15 +1034,15 @@ JWST datamodels¶</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># List uncal files</span>
-<span class="n">uncal_files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">uncal_dir</span><span class="p">,</span> <span class="s1">&#39;*_uncal.fits&#39;</span><span class="p">)))</span>
+<span class="n">uncal_files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">uncal_dir</span><span class="p">,</span> <span class="s1">'*_uncal.fits'</span><span class="p">)))</span>
     
 <span class="c1"># Separate SW from LW files</span>
-<span class="n">sw_uncal_files</span> <span class="o">=</span> <span class="p">[</span><span class="n">uncfile</span> <span class="k">for</span> <span class="n">uncfile</span> <span class="ow">in</span> <span class="n">uncal_files</span> <span class="k">if</span> <span class="s1">&#39;long&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">uncfile</span><span class="p">]</span>
-<span class="n">lw_uncal_files</span> <span class="o">=</span> <span class="p">[</span><span class="n">uncfile</span> <span class="k">for</span> <span class="n">uncfile</span> <span class="ow">in</span> <span class="n">uncal_files</span> <span class="k">if</span> <span class="s1">&#39;long&#39;</span> <span class="ow">in</span> <span class="n">uncfile</span><span class="p">]</span>
+<span class="n">sw_uncal_files</span> <span class="o">=</span> <span class="p">[</span><span class="n">uncfile</span> <span class="k">for</span> <span class="n">uncfile</span> <span class="ow">in</span> <span class="n">uncal_files</span> <span class="k">if</span> <span class="s1">'long'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">uncfile</span><span class="p">]</span>
+<span class="n">lw_uncal_files</span> <span class="o">=</span> <span class="p">[</span><span class="n">uncfile</span> <span class="k">for</span> <span class="n">uncfile</span> <span class="ow">in</span> <span class="n">uncal_files</span> <span class="k">if</span> <span class="s1">'long'</span> <span class="ow">in</span> <span class="n">uncfile</span><span class="p">]</span>
 
-<span class="n">colnames</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Instrument&#39;</span><span class="p">,</span> <span class="s1">&#39;Filter&#39;</span><span class="p">,</span> <span class="s1">&#39;Pupil&#39;</span><span class="p">,</span> <span class="s1">&#39;Number of Integrations&#39;</span><span class="p">,</span> <span class="s1">&#39;Number of Groups&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;Readout pattern&#39;</span><span class="p">,</span> <span class="s1">&#39;Dither position number&#39;</span><span class="p">)</span>
-<span class="n">dtypes</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;S7&#39;</span><span class="p">,</span> <span class="s1">&#39;S10&#39;</span><span class="p">,</span> <span class="s1">&#39;S10&#39;</span><span class="p">,</span> <span class="s1">&#39;i4&#39;</span><span class="p">,</span> <span class="s1">&#39;i4&#39;</span><span class="p">,</span> <span class="s1">&#39;S15&#39;</span><span class="p">,</span> <span class="s1">&#39;i4&#39;</span><span class="p">)</span>
+<span class="n">colnames</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'Instrument'</span><span class="p">,</span> <span class="s1">'Filter'</span><span class="p">,</span> <span class="s1">'Pupil'</span><span class="p">,</span> <span class="s1">'Number of Integrations'</span><span class="p">,</span> <span class="s1">'Number of Groups'</span><span class="p">,</span>
+            <span class="s1">'Readout pattern'</span><span class="p">,</span> <span class="s1">'Dither position number'</span><span class="p">)</span>
+<span class="n">dtypes</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'S7'</span><span class="p">,</span> <span class="s1">'S10'</span><span class="p">,</span> <span class="s1">'S10'</span><span class="p">,</span> <span class="s1">'i4'</span><span class="p">,</span> <span class="s1">'i4'</span><span class="p">,</span> <span class="s1">'S15'</span><span class="p">,</span> <span class="s1">'i4'</span><span class="p">)</span>
 <span class="n">meta_check</span> <span class="o">=</span> <span class="n">Table</span><span class="p">(</span><span class="n">names</span><span class="o">=</span><span class="p">(</span><span class="n">colnames</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtypes</span><span class="p">)</span>
 
 <span class="c1"># Open example files and get metadata for display</span>
@@ -1086,7 +1086,7 @@ about how JWST exposures are defined by up-the-ramp sampling, see the
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print out the time benchmark</span>
 <span class="n">time_det1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Runtime so far: </span><span class="si">{</span><span class="n">time_det1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">time0</span><span class="si">:</span><span class="s2">0.0f</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Runtime so far: </span><span class="si">{</span><span class="n">time_det1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">time0</span><span class="si">:</span><span class="s2">0.0f</span><span class="si">}</span><span class="s2"> seconds"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1114,7 +1114,7 @@ argument, to correct the subsequent science exposure for persistence. Since pers
 is not well calibrated for NIRCam, the step has been turned off in order to speed up
 calibration and to not create empty <code class="docutils literal notranslate"><span class="pre">*_trapsfilled.fits</span></code> files. This step
 can be turned on when running the pipeline in Python by doing:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rate_result</span> <span class="o">=</span> <span class="n">Detector1Pipeline</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">uncal</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;persistence&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;skip&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}})</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rate_result</span> <span class="o">=</span> <span class="n">Detector1Pipeline</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">uncal</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="p">{</span><span class="s1">'persistence'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'skip'</span><span class="p">:</span> <span class="kc">False</span><span class="p">}})</span>
 </pre></div>
 </div>
 <p>or as indicated in the cell bellow using a dictionary.</p>
@@ -1133,35 +1133,35 @@ in the <a class="reference external" href="https://www.stsci.edu/files/live/site
 
 <span class="c1"># Boilerplate dictionary setup</span>
 <span class="n">det1dict</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;group_scale&#39;</span><span class="p">],</span> <span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;dq_init&#39;</span><span class="p">],</span> <span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;saturation&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{}</span>
-<span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;ipc&#39;</span><span class="p">],</span> <span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;superbias&#39;</span><span class="p">],</span> <span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;refpix&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{}</span>
-<span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;linearity&#39;</span><span class="p">],</span> <span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;persistence&#39;</span><span class="p">],</span> <span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;dark_current&#39;</span><span class="p">],</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{}</span>
-<span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;charge_migration&#39;</span><span class="p">],</span> <span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;jump&#39;</span><span class="p">],</span> <span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;ramp_fit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{}</span>
-<span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;gain_scale&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">det1dict</span><span class="p">[</span><span class="s1">'group_scale'</span><span class="p">],</span> <span class="n">det1dict</span><span class="p">[</span><span class="s1">'dq_init'</span><span class="p">],</span> <span class="n">det1dict</span><span class="p">[</span><span class="s1">'saturation'</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{}</span>
+<span class="n">det1dict</span><span class="p">[</span><span class="s1">'ipc'</span><span class="p">],</span> <span class="n">det1dict</span><span class="p">[</span><span class="s1">'superbias'</span><span class="p">],</span> <span class="n">det1dict</span><span class="p">[</span><span class="s1">'refpix'</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{}</span>
+<span class="n">det1dict</span><span class="p">[</span><span class="s1">'linearity'</span><span class="p">],</span> <span class="n">det1dict</span><span class="p">[</span><span class="s1">'persistence'</span><span class="p">],</span> <span class="n">det1dict</span><span class="p">[</span><span class="s1">'dark_current'</span><span class="p">],</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{}</span>
+<span class="n">det1dict</span><span class="p">[</span><span class="s1">'charge_migration'</span><span class="p">],</span> <span class="n">det1dict</span><span class="p">[</span><span class="s1">'jump'</span><span class="p">],</span> <span class="n">det1dict</span><span class="p">[</span><span class="s1">'ramp_fit'</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{}</span>
+<span class="n">det1dict</span><span class="p">[</span><span class="s1">'gain_scale'</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
 
 <span class="c1"># Overrides for whether or not certain steps should be skipped</span>
 <span class="c1"># skipping the persistence step</span>
-<span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;persistence&#39;</span><span class="p">][</span><span class="s1">&#39;skip&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">det1dict</span><span class="p">[</span><span class="s1">'persistence'</span><span class="p">][</span><span class="s1">'skip'</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
 
 <span class="c1"># Overrides for various reference files</span>
 <span class="c1"># Files should be in the base local directory or provide full path</span>
-<span class="c1">#det1dict[&#39;dq_init&#39;][&#39;override_mask&#39;] = &#39;myfile.fits&#39; # Bad pixel mask</span>
-<span class="c1">#det1dict[&#39;saturation&#39;][&#39;override_saturation&#39;] = &#39;myfile.fits&#39;  # Saturation</span>
-<span class="c1">#det1dict[&#39;reset&#39;][&#39;override_reset&#39;] = &#39;myfile.fits&#39;  # Reset</span>
-<span class="c1">#det1dict[&#39;linearity&#39;][&#39;override_linearity&#39;] = &#39;myfile.fits&#39;  # Linearity</span>
-<span class="c1">#det1dict[&#39;rscd&#39;][&#39;override_rscd&#39;] = &#39;myfile.fits&#39;  # RSCD</span>
-<span class="c1">#det1dict[&#39;dark_current&#39;][&#39;override_dark&#39;] = &#39;myfile.fits&#39;  # Dark current subtraction</span>
-<span class="c1">#det1dict[&#39;jump&#39;][&#39;override_gain&#39;] = &#39;myfile.fits&#39;  # Gain used by jump step</span>
-<span class="c1">#det1dict[&#39;ramp_fit&#39;][&#39;override_gain&#39;] = &#39;myfile.fits&#39;  # Gain used by ramp fitting step</span>
-<span class="c1">#det1dict[&#39;jump&#39;][&#39;override_readnoise&#39;] = &#39;myfile.fits&#39;  # Read noise used by jump step</span>
-<span class="c1">#det1dict[&#39;ramp_fit&#39;][&#39;override_readnoise&#39;] = &#39;myfile.fits&#39;  # Read noise used by ramp fitting step</span>
+<span class="c1">#det1dict['dq_init']['override_mask'] = 'myfile.fits' # Bad pixel mask</span>
+<span class="c1">#det1dict['saturation']['override_saturation'] = 'myfile.fits'  # Saturation</span>
+<span class="c1">#det1dict['reset']['override_reset'] = 'myfile.fits'  # Reset</span>
+<span class="c1">#det1dict['linearity']['override_linearity'] = 'myfile.fits'  # Linearity</span>
+<span class="c1">#det1dict['rscd']['override_rscd'] = 'myfile.fits'  # RSCD</span>
+<span class="c1">#det1dict['dark_current']['override_dark'] = 'myfile.fits'  # Dark current subtraction</span>
+<span class="c1">#det1dict['jump']['override_gain'] = 'myfile.fits'  # Gain used by jump step</span>
+<span class="c1">#det1dict['ramp_fit']['override_gain'] = 'myfile.fits'  # Gain used by ramp fitting step</span>
+<span class="c1">#det1dict['jump']['override_readnoise'] = 'myfile.fits'  # Read noise used by jump step</span>
+<span class="c1">#det1dict['ramp_fit']['override_readnoise'] = 'myfile.fits'  # Read noise used by ramp fitting step</span>
 
 <span class="c1"># Turn on multi-core processing (This is off by default). Choose what fraction</span>
 <span class="c1"># of cores to use (quarter, half, all, or an integer number)</span>
-<span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;jump&#39;</span><span class="p">][</span><span class="s1">&#39;maximum_cores&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;half&#39;</span>
+<span class="n">det1dict</span><span class="p">[</span><span class="s1">'jump'</span><span class="p">][</span><span class="s1">'maximum_cores'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'half'</span>
 
 <span class="c1"># Explicitly turn on snowball correction. (Even though it is on by default)</span>
-<span class="n">det1dict</span><span class="p">[</span><span class="s1">&#39;jump&#39;</span><span class="p">][</span><span class="s1">&#39;expand_large_events&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">det1dict</span><span class="p">[</span><span class="s1">'jump'</span><span class="p">][</span><span class="s1">'expand_large_events'</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
 </pre></div>
 </div>
 </div>
@@ -1176,7 +1176,7 @@ in the <a class="reference external" href="https://www.stsci.edu/files/live/site
     <span class="k">for</span> <span class="n">uncal</span> <span class="ow">in</span> <span class="n">uncal_files</span><span class="p">:</span>
         <span class="n">rate_result</span> <span class="o">=</span> <span class="n">Detector1Pipeline</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">uncal</span><span class="p">,</span> <span class="n">output_dir</span><span class="o">=</span><span class="n">det1_dir</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="n">det1dict</span><span class="p">,</span> <span class="n">save_results</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Skipping Detector1 processing&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Skipping Detector1 processing'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1185,8 +1185,8 @@ in the <a class="reference external" href="https://www.stsci.edu/files/live/site
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print out the time benchmark</span>
 <span class="n">time1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Runtime so far: </span><span class="si">{</span><span class="n">time1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">time0</span><span class="si">:</span><span class="s2">0.0f</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Runtime for Detector1: </span><span class="si">{</span><span class="n">time1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">time_det1</span><span class="si">:</span><span class="s2">0.0f</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Runtime so far: </span><span class="si">{</span><span class="n">time1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">time0</span><span class="si">:</span><span class="s2">0.0f</span><span class="si">}</span><span class="s2"> seconds"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Runtime for Detector1: </span><span class="si">{</span><span class="n">time1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">time_det1</span><span class="si">:</span><span class="s2">0.0f</span><span class="si">}</span><span class="s2"> seconds"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1201,7 +1201,7 @@ data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># find rate files</span>
-<span class="n">rate_files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">det1_dir</span><span class="p">,</span> <span class="s1">&#39;*_rate.fits&#39;</span><span class="p">)))</span>
+<span class="n">rate_files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">det1_dir</span><span class="p">,</span> <span class="s1">'*_rate.fits'</span><span class="p">)))</span>
 
 <span class="c1"># Read in file as datamodel</span>
 <span class="n">rate_f</span> <span class="o">=</span> <span class="n">datamodels</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">rate_files</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
@@ -1261,20 +1261,20 @@ dicitionary below which sets <code class="docutils literal notranslate"><span cl
 
 <span class="c1"># Boilerplate dictionary setup</span>
 <span class="n">image2dict</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="n">image2dict</span><span class="p">[</span><span class="s1">&#39;assign_wcs&#39;</span><span class="p">],</span> <span class="n">image2dict</span><span class="p">[</span><span class="s1">&#39;flat_field&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{}</span>
-<span class="n">image2dict</span><span class="p">[</span><span class="s1">&#39;photom&#39;</span><span class="p">],</span> <span class="n">image2dict</span><span class="p">[</span><span class="s1">&#39;resample&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{}</span>
+<span class="n">image2dict</span><span class="p">[</span><span class="s1">'assign_wcs'</span><span class="p">],</span> <span class="n">image2dict</span><span class="p">[</span><span class="s1">'flat_field'</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{}</span>
+<span class="n">image2dict</span><span class="p">[</span><span class="s1">'photom'</span><span class="p">],</span> <span class="n">image2dict</span><span class="p">[</span><span class="s1">'resample'</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{}</span>
 
 <span class="c1"># Overrides for whether or not certain steps should be skipped (example)</span>
-<span class="c1">#image2dict[&#39;resample&#39;][&#39;skip&#39;] = False</span>
+<span class="c1">#image2dict['resample']['skip'] = False</span>
 
 <span class="c1"># Overrides for various reference files</span>
 <span class="c1"># Files should be in the base local directory or provide full path</span>
-<span class="c1">#image2dict[&#39;assign_wcs&#39;][&#39;override_distortion&#39;] = &#39;myfile.asdf&#39; # Spatial distortion (ASDF file)</span>
-<span class="c1">#image2dict[&#39;assign_wcs&#39;][&#39;override_filteroffset&#39;] = &#39;myfile.asdf&#39; # Imager filter offsets (ASDF file)</span>
-<span class="c1">#image2dict[&#39;assign_wcs&#39;][&#39;override_specwcs&#39;] = &#39;myfile.asdf&#39; # Spectral distortion (ASDF file)</span>
-<span class="c1">#image2dict[&#39;assign_wcs&#39;][&#39;override_wavelengthrange&#39;] = &#39;myfile.asdf&#39; # Wavelength channel mapping (ASDF file)</span>
-<span class="c1">#image2dict[&#39;flat_field&#39;][&#39;override_flat&#39;] = &#39;myfile.fits&#39; # Pixel flatfield</span>
-<span class="c1">#image2dict[&#39;photom&#39;][&#39;override_photom&#39;] = &#39;myfile.fits&#39; # Photometric calibration array</span>
+<span class="c1">#image2dict['assign_wcs']['override_distortion'] = 'myfile.asdf' # Spatial distortion (ASDF file)</span>
+<span class="c1">#image2dict['assign_wcs']['override_filteroffset'] = 'myfile.asdf' # Imager filter offsets (ASDF file)</span>
+<span class="c1">#image2dict['assign_wcs']['override_specwcs'] = 'myfile.asdf' # Spectral distortion (ASDF file)</span>
+<span class="c1">#image2dict['assign_wcs']['override_wavelengthrange'] = 'myfile.asdf' # Wavelength channel mapping (ASDF file)</span>
+<span class="c1">#image2dict['flat_field']['override_flat'] = 'myfile.fits' # Pixel flatfield</span>
+<span class="c1">#image2dict['photom']['override_photom'] = 'myfile.fits' # Photometric calibration array</span>
 </pre></div>
 </div>
 </div>
@@ -1282,11 +1282,11 @@ dicitionary below which sets <code class="docutils literal notranslate"><span cl
 <p>Find and sort all of the input files, ensuring use of absolute paths</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sstring</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">det1_dir</span><span class="p">,</span> <span class="s1">&#39;jw*rate.fits&#39;</span><span class="p">)</span>  <span class="c1"># Use files from the detector1 output folder</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sstring</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">det1_dir</span><span class="p">,</span> <span class="s1">'jw*rate.fits'</span><span class="p">)</span>  <span class="c1"># Use files from the detector1 output folder</span>
 <span class="n">rate_files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">sstring</span><span class="p">))</span>
 <span class="n">rate_files</span> <span class="o">=</span> <span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span> <span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="n">rate_files</span><span class="p">]</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Found  </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">rate_files</span><span class="p">)</span><span class="si">}</span><span class="s2"> science files&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Found  </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">rate_files</span><span class="p">)</span><span class="si">}</span><span class="s2"> science files"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1310,7 +1310,7 @@ dicitionary below which sets <code class="docutils literal notranslate"><span cl
     <span class="k">for</span> <span class="n">rate</span> <span class="ow">in</span> <span class="n">rate_files</span><span class="p">:</span>
         <span class="n">cal_result</span> <span class="o">=</span> <span class="n">Image2Pipeline</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">rate</span><span class="p">,</span> <span class="n">output_dir</span><span class="o">=</span><span class="n">image2_dir</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="n">image2dict</span><span class="p">,</span> <span class="n">save_results</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Skipping Image2 processing.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Skipping Image2 processing."</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1319,8 +1319,8 @@ dicitionary below which sets <code class="docutils literal notranslate"><span cl
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print out the time benchmark</span>
 <span class="n">time1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Runtime so far: </span><span class="si">{</span><span class="n">time1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">time0</span><span class="si">:</span><span class="s2">0.0f</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Runtime for Image2: </span><span class="si">{</span><span class="n">time1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">time_image2</span><span class="si">:</span><span class="s2">0.0f</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Runtime so far: </span><span class="si">{</span><span class="n">time1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">time0</span><span class="si">:</span><span class="s2">0.0f</span><span class="si">}</span><span class="s2"> seconds"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Runtime for Image2: </span><span class="si">{</span><span class="n">time1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">time_image2</span><span class="si">:</span><span class="s2">0.0f</span><span class="si">}</span><span class="s2"> seconds"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1330,7 +1330,7 @@ dicitionary below which sets <code class="docutils literal notranslate"><span cl
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Identify *_cal.fits file products</span>
-<span class="n">cal_files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image2_dir</span><span class="p">,</span> <span class="s1">&#39;*_cal.fits&#39;</span><span class="p">)))</span>
+<span class="n">cal_files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image2_dir</span><span class="p">,</span> <span class="s1">'*_cal.fits'</span><span class="p">)))</span>
 
 <span class="c1"># Select first file to gather information</span>
 <span class="n">cal_f</span> <span class="o">=</span> <span class="n">datamodels</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">cal_files</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
@@ -1382,22 +1382,22 @@ dicitionary below which sets <code class="docutils literal notranslate"><span cl
 
 <span class="c1"># Boilerplate dictionary setup</span>
 <span class="n">image3dict</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="n">image3dict</span><span class="p">[</span><span class="s1">&#39;assign_mtwcs&#39;</span><span class="p">],</span> <span class="n">image3dict</span><span class="p">[</span><span class="s1">&#39;tweakreg&#39;</span><span class="p">],</span> <span class="n">image3dict</span><span class="p">[</span><span class="s1">&#39;skymatch&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{}</span>
-<span class="n">image3dict</span><span class="p">[</span><span class="s1">&#39;outlier_detection&#39;</span><span class="p">],</span> <span class="n">image3dict</span><span class="p">[</span><span class="s1">&#39;resample&#39;</span><span class="p">],</span> <span class="n">image3dict</span><span class="p">[</span><span class="s1">&#39;source_catalog&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{}</span>
+<span class="n">image3dict</span><span class="p">[</span><span class="s1">'assign_mtwcs'</span><span class="p">],</span> <span class="n">image3dict</span><span class="p">[</span><span class="s1">'tweakreg'</span><span class="p">],</span> <span class="n">image3dict</span><span class="p">[</span><span class="s1">'skymatch'</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{}</span>
+<span class="n">image3dict</span><span class="p">[</span><span class="s1">'outlier_detection'</span><span class="p">],</span> <span class="n">image3dict</span><span class="p">[</span><span class="s1">'resample'</span><span class="p">],</span> <span class="n">image3dict</span><span class="p">[</span><span class="s1">'source_catalog'</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{},</span> <span class="p">{}</span>
 
 <span class="c1"># Overrides for whether or not certain steps should be skipped (example)</span>
-<span class="c1">#image3dict[&#39;outlier_detection&#39;][&#39;skip&#39;] = True</span>
+<span class="c1">#image3dict['outlier_detection']['skip'] = True</span>
 
 <span class="c1"># Overrides for various reference files</span>
 <span class="c1"># Files should be in the base local directory or provide full path</span>
-<span class="c1">#image3dict[&#39;source_catalog&#39;][&#39;override_apcorr&#39;] = &#39;myfile.fits&#39;  # Aperture correction parameters</span>
-<span class="c1">#image3dict[&#39;source_catalog&#39;][&#39;override_abvegaoffset&#39;] = &#39;myfile.asdf&#39;  # Data to convert from AB to Vega magnitudes (ASDF file)</span>
+<span class="c1">#image3dict['source_catalog']['override_apcorr'] = 'myfile.fits'  # Aperture correction parameters</span>
+<span class="c1">#image3dict['source_catalog']['override_abvegaoffset'] = 'myfile.asdf'  # Data to convert from AB to Vega magnitudes (ASDF file)</span>
 
 <span class="c1"># Turn on alignment to GAIA in the tweakreg step</span>
 <span class="c1"># For data such as these demo data, where there are some heavily saturated stars in the field</span>
 <span class="c1"># of view, alignment to GAIA sometimes does not work well due to tweakreg doing a poor job</span>
 <span class="c1"># finding the centroids of the sources.</span>
-<span class="c1">#image3dict[&#39;tweakreg&#39;][&#39;abs_refcat&#39;] = &#39;GAIADR3&#39;</span>
+<span class="c1">#image3dict['tweakreg']['abs_refcat'] = 'GAIADR3'</span>
 </pre></div>
 </div>
 </div>
@@ -1407,8 +1407,8 @@ Keep files for the two filters separated.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Science Files need the cal.fits files</span>
-<span class="n">sw_sstring</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image2_dir</span><span class="p">,</span> <span class="s1">&#39;jw*nrc??_cal.fits&#39;</span><span class="p">)</span>     <span class="c1"># shortwave files. Detectors a1-a4, b1-b4</span>
-<span class="n">lw_sstring</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image2_dir</span><span class="p">,</span> <span class="s1">&#39;jw*nrc*long_cal.fits&#39;</span><span class="p">)</span>  <span class="c1"># longwave files. Detectors along, blong </span>
+<span class="n">sw_sstring</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image2_dir</span><span class="p">,</span> <span class="s1">'jw*nrc??_cal.fits'</span><span class="p">)</span>     <span class="c1"># shortwave files. Detectors a1-a4, b1-b4</span>
+<span class="n">lw_sstring</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image2_dir</span><span class="p">,</span> <span class="s1">'jw*nrc*long_cal.fits'</span><span class="p">)</span>  <span class="c1"># longwave files. Detectors along, blong </span>
 
 <span class="c1"># Identify SW and LW cal files</span>
 <span class="n">sw_cal_files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">sw_sstring</span><span class="p">))</span>
@@ -1418,8 +1418,8 @@ Keep files for the two filters separated.</p>
 <span class="n">sw_cal_files</span> <span class="o">=</span> <span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span> <span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="n">sw_cal_files</span><span class="p">]</span>
 <span class="n">lw_cal_files</span> <span class="o">=</span> <span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span> <span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="n">lw_cal_files</span><span class="p">]</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Found </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">sw_cal_files</span><span class="p">)</span><span class="si">}</span><span class="s1"> shortwave science files to process&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Found </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">lw_cal_files</span><span class="p">)</span><span class="si">}</span><span class="s1"> longwave science files to process&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Found </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">sw_cal_files</span><span class="p">)</span><span class="si">}</span><span class="s1"> shortwave science files to process'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Found </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">lw_cal_files</span><span class="p">)</span><span class="si">}</span><span class="s1"> longwave science files to process'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1431,9 +1431,9 @@ Keep files for the two filters separated.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># List of data to use</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;List of SW cal files to use:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'List of SW cal files to use:'</span><span class="p">)</span>
 <span class="n">sw_cal_files</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">List of LW cal files to use:&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">List of LW cal files to use:'</span><span class="p">)</span>
 <span class="n">lw_cal_files</span>
 </pre></div>
 </div>
@@ -1447,20 +1447,20 @@ Keep files for the two filters separated.</p>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sw_cal_files</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
         <span class="c1"># Only create an association file if there are SW data files to process</span>
         <span class="n">do_swimage3</span> <span class="o">=</span> <span class="kc">True</span>
-        <span class="n">sw_product_name</span> <span class="o">=</span> <span class="s1">&#39;image3_sw&#39;</span>
+        <span class="n">sw_product_name</span> <span class="o">=</span> <span class="s1">'image3_sw'</span>
         <span class="n">sw_association</span> <span class="o">=</span> <span class="n">asn_from_list</span><span class="o">.</span><span class="n">asn_from_list</span><span class="p">(</span><span class="n">sw_cal_files</span><span class="p">,</span>
                                                      <span class="n">rule</span><span class="o">=</span><span class="n">DMS_Level3_Base</span><span class="p">,</span>
                                                      <span class="n">product_name</span><span class="o">=</span><span class="n">sw_product_name</span><span class="p">)</span>
     
-        <span class="n">sw_association</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;asn_type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;image3&#39;</span>
-        <span class="n">sw_association</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;program&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">program</span>
+        <span class="n">sw_association</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">'asn_type'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'image3'</span>
+        <span class="n">sw_association</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">'program'</span><span class="p">]</span> <span class="o">=</span> <span class="n">program</span>
     
         <span class="c1"># Format association as .json file</span>
-        <span class="n">sw_asn_filename</span><span class="p">,</span> <span class="n">sw_serialized</span> <span class="o">=</span> <span class="n">sw_association</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">&quot;json&quot;</span><span class="p">)</span>
+        <span class="n">sw_asn_filename</span><span class="p">,</span> <span class="n">sw_serialized</span> <span class="o">=</span> <span class="n">sw_association</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"json"</span><span class="p">)</span>
 
         <span class="c1"># Write out association file</span>
         <span class="n">sw_association_im3</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sci_dir</span><span class="p">,</span> <span class="n">sw_asn_filename</span><span class="p">)</span>
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">sw_association_im3</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fd</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">sw_association_im3</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">fd</span><span class="p">:</span>
             <span class="n">fd</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">sw_serialized</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1474,21 +1474,21 @@ Keep files for the two filters separated.</p>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">lw_cal_files</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
         <span class="c1"># Only create an association file if there are SW data files to process</span>
         <span class="n">do_lwimage3</span> <span class="o">=</span> <span class="kc">True</span>
-        <span class="n">lw_product_name</span> <span class="o">=</span> <span class="s1">&#39;image3_lw&#39;</span>
+        <span class="n">lw_product_name</span> <span class="o">=</span> <span class="s1">'image3_lw'</span>
         <span class="n">lw_association</span> <span class="o">=</span> <span class="n">asn_from_list</span><span class="o">.</span><span class="n">asn_from_list</span><span class="p">(</span><span class="n">lw_cal_files</span><span class="p">,</span>
                                                      <span class="n">rule</span><span class="o">=</span><span class="n">DMS_Level3_Base</span><span class="p">,</span>
                                                      <span class="n">product_name</span><span class="o">=</span><span class="n">lw_product_name</span><span class="p">)</span>
     
-        <span class="n">lw_association</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;asn_type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;image3&#39;</span>
-        <span class="n">lw_association</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;program&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">program</span>
+        <span class="n">lw_association</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">'asn_type'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'image3'</span>
+        <span class="n">lw_association</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">'program'</span><span class="p">]</span> <span class="o">=</span> <span class="n">program</span>
     
         <span class="c1"># Format association as .json file</span>
-        <span class="n">lw_asn_filename</span><span class="p">,</span> <span class="n">lw_serialized</span> <span class="o">=</span> <span class="n">lw_association</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">&quot;json&quot;</span><span class="p">)</span>
+        <span class="n">lw_asn_filename</span><span class="p">,</span> <span class="n">lw_serialized</span> <span class="o">=</span> <span class="n">lw_association</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"json"</span><span class="p">)</span>
 
         <span class="c1"># Write out association file. Note that you can use your own filename in</span>
         <span class="c1"># place of lw_asn_filename and everything will still work.</span>
         <span class="n">lw_association_im3</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sci_dir</span><span class="p">,</span> <span class="n">lw_asn_filename</span><span class="p">)</span>
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">lw_association_im3</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fd</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">lw_association_im3</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">fd</span><span class="p">:</span>
             <span class="n">fd</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">lw_serialized</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1512,7 +1512,7 @@ Keep files for the two filters separated.</p>
 <span class="k">if</span> <span class="n">doimage3</span> <span class="ow">and</span> <span class="n">do_lwimage3</span><span class="p">:</span>
     <span class="n">lw_i2d_result</span> <span class="o">=</span> <span class="n">Image3Pipeline</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">lw_association_im3</span><span class="p">,</span> <span class="n">output_dir</span><span class="o">=</span><span class="n">image3_dir</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="n">image3dict</span><span class="p">,</span> <span class="n">save_results</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Skipping Image3 LW processing&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Skipping Image3 LW processing'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1522,14 +1522,14 @@ Keep files for the two filters separated.</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">doimage3</span> <span class="ow">and</span> <span class="n">do_lwimage3</span><span class="p">:</span>
     <span class="c1"># First we identify the dataset and read it using datamodels.</span>
-    <span class="n">lw_i2d_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image3_dir</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">lw_product_name</span><span class="si">}</span><span class="s1">_i2d.fits&#39;</span><span class="p">)</span>
+    <span class="n">lw_i2d_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image3_dir</span><span class="p">,</span> <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">lw_product_name</span><span class="si">}</span><span class="s1">_i2d.fits'</span><span class="p">)</span>
     <span class="n">lw_data</span> <span class="o">=</span> <span class="n">datamodels</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">lw_i2d_file</span><span class="p">)</span>
     
     <span class="c1"># Pull out the resulting gWCS and save it in an asdf file</span>
-    <span class="n">tree</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;wcs&quot;</span><span class="p">:</span> <span class="n">lw_data</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">wcs</span><span class="p">}</span>
+    <span class="n">tree</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"wcs"</span><span class="p">:</span> <span class="n">lw_data</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">wcs</span><span class="p">}</span>
     <span class="n">wcs_file</span> <span class="o">=</span> <span class="n">AsdfFile</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span>
-    <span class="n">gwcs_filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image3_dir</span> <span class="o">+</span> <span class="s1">&#39;lw_gwcs.asdf&#39;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Saving gWCS into </span><span class="si">{</span><span class="n">gwcs_filename</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">gwcs_filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image3_dir</span> <span class="o">+</span> <span class="s1">'lw_gwcs.asdf'</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Saving gWCS into </span><span class="si">{</span><span class="n">gwcs_filename</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
     <span class="n">wcs_file</span><span class="o">.</span><span class="n">write_to</span><span class="p">(</span><span class="n">gwcs_filename</span><span class="p">)</span>
 
     <span class="c1"># Get the size of the mosaic image</span>
@@ -1546,8 +1546,8 @@ Keep files for the two filters separated.</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Uncoment this cell in order to resample the SW data onto the same pixel grid as the LW data</span>
 <span class="c1">#if doimage3:</span>
-<span class="c1">#    image3dict[&#39;resample&#39;][&#39;output_wcs&#39;] = gwcs_filename</span>
-<span class="c1">#    image3dict[&#39;resample&#39;][&#39;output_shape&#39;] = (xsize, ysize)</span>
+<span class="c1">#    image3dict['resample']['output_wcs'] = gwcs_filename</span>
+<span class="c1">#    image3dict['resample']['output_shape'] = (xsize, ysize)</span>
 </pre></div>
 </div>
 </div>
@@ -1557,7 +1557,7 @@ Keep files for the two filters separated.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">doimage3</span> <span class="ow">and</span> <span class="n">do_swimage3</span><span class="p">:</span>
     <span class="n">sw_i2d_result</span> <span class="o">=</span> <span class="n">Image3Pipeline</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">sw_association_im3</span><span class="p">,</span> <span class="n">output_dir</span><span class="o">=</span><span class="n">image3_dir</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="n">image3dict</span><span class="p">,</span> <span class="n">save_results</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Skipping Image3 SW processing&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Skipping Image3 SW processing'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1566,8 +1566,8 @@ Keep files for the two filters separated.</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print out the time benchmark</span>
 <span class="n">time1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Runtime so far: </span><span class="si">{</span><span class="n">time1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">time0</span><span class="si">:</span><span class="s2">0.0f</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Runtime for Image3: </span><span class="si">{</span><span class="n">time1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">time_image3</span><span class="si">:</span><span class="s2">0.0f</span><span class="si">}</span><span class="s2"> seconds&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Runtime so far: </span><span class="si">{</span><span class="n">time1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">time0</span><span class="si">:</span><span class="s2">0.0f</span><span class="si">}</span><span class="s2"> seconds"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Runtime for Image3: </span><span class="si">{</span><span class="n">time1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">time_image3</span><span class="si">:</span><span class="s2">0.0f</span><span class="si">}</span><span class="s2"> seconds"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1581,12 +1581,12 @@ Keep files for the two filters separated.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Identify *_i2d file and open as datamodel</span>
 <span class="k">if</span> <span class="n">doimage3</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">do_swimage3</span><span class="p">:</span>
-        <span class="n">sw_i2d_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image3_dir</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">sw_product_name</span><span class="si">}</span><span class="s1">_i2d.fits&#39;</span><span class="p">)</span>
+        <span class="n">sw_i2d_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image3_dir</span><span class="p">,</span> <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">sw_product_name</span><span class="si">}</span><span class="s1">_i2d.fits'</span><span class="p">)</span>
         <span class="n">i2d_sw_model</span> <span class="o">=</span> <span class="n">datamodels</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">sw_i2d_file</span><span class="p">)</span>
         <span class="n">step_check_model</span> <span class="o">=</span> <span class="n">i2d_sw_model</span>
         
     <span class="k">if</span> <span class="n">do_lwimage3</span><span class="p">:</span>
-        <span class="n">lw_i2d_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image3_dir</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">lw_product_name</span><span class="si">}</span><span class="s1">_i2d.fits&#39;</span><span class="p">)</span>
+        <span class="n">lw_i2d_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image3_dir</span><span class="p">,</span> <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">lw_product_name</span><span class="si">}</span><span class="s1">_i2d.fits'</span><span class="p">)</span>
         <span class="n">i2d_lw_model</span> <span class="o">=</span> <span class="n">datamodels</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">lw_i2d_file</span><span class="p">)</span>
         <span class="n">step_check_model</span> <span class="o">=</span> <span class="n">i2d_lw_model</span>
 
@@ -1634,9 +1634,9 @@ Keep files for the two filters separated.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">doimage3</span> <span class="ow">and</span> <span class="n">do_swimage3</span><span class="p">:</span>
-    <span class="n">viewer_sw_i2d</span><span class="o">.</span><span class="n">stretch</span> <span class="o">=</span> <span class="s1">&#39;sqrt&#39;</span>
-    <span class="n">viewer_sw_i2d</span><span class="o">.</span><span class="n">set_colormap</span><span class="p">(</span><span class="s1">&#39;Viridis&#39;</span><span class="p">)</span>
-    <span class="n">viewer_sw_i2d</span><span class="o">.</span><span class="n">cuts</span> <span class="o">=</span> <span class="s1">&#39;95%&#39;</span>
+    <span class="n">viewer_sw_i2d</span><span class="o">.</span><span class="n">stretch</span> <span class="o">=</span> <span class="s1">'sqrt'</span>
+    <span class="n">viewer_sw_i2d</span><span class="o">.</span><span class="n">set_colormap</span><span class="p">(</span><span class="s1">'Viridis'</span><span class="p">)</span>
+    <span class="n">viewer_sw_i2d</span><span class="o">.</span><span class="n">cuts</span> <span class="o">=</span> <span class="s1">'95%'</span>
 </pre></div>
 </div>
 </div>
@@ -1663,9 +1663,9 @@ Keep files for the two filters separated.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">doimage3</span> <span class="ow">and</span> <span class="n">do_lwimage3</span><span class="p">:</span>
-    <span class="n">viewer_lw_i2d</span><span class="o">.</span><span class="n">stretch</span> <span class="o">=</span> <span class="s1">&#39;sqrt&#39;</span>
-    <span class="n">viewer_lw_i2d</span><span class="o">.</span><span class="n">set_colormap</span><span class="p">(</span><span class="s1">&#39;Viridis&#39;</span><span class="p">)</span>
-    <span class="n">viewer_lw_i2d</span><span class="o">.</span><span class="n">cuts</span> <span class="o">=</span> <span class="s1">&#39;95%&#39;</span>
+    <span class="n">viewer_lw_i2d</span><span class="o">.</span><span class="n">stretch</span> <span class="o">=</span> <span class="s1">'sqrt'</span>
+    <span class="n">viewer_lw_i2d</span><span class="o">.</span><span class="n">set_colormap</span><span class="p">(</span><span class="s1">'Viridis'</span><span class="p">)</span>
+    <span class="n">viewer_lw_i2d</span><span class="o">.</span><span class="n">cuts</span> <span class="o">=</span> <span class="s1">'95%'</span>
 </pre></div>
 </div>
 </div>
@@ -1681,12 +1681,12 @@ Keep files for the two filters separated.</p>
     <span class="n">viewer_color</span> <span class="o">=</span> <span class="n">imviz_color</span><span class="o">.</span><span class="n">default_viewer</span>
 
     <span class="c1"># Load the datasets into Imviz</span>
-    <span class="n">imviz_color</span><span class="o">.</span><span class="n">load_data</span><span class="p">(</span><span class="n">sw_i2d_file</span><span class="p">,</span> <span class="n">data_label</span><span class="o">=</span><span class="s1">&#39;sw&#39;</span><span class="p">)</span>
-    <span class="n">imviz_color</span><span class="o">.</span><span class="n">load_data</span><span class="p">(</span><span class="n">lw_i2d_file</span><span class="p">,</span> <span class="n">data_label</span><span class="o">=</span><span class="s1">&#39;lw&#39;</span><span class="p">)</span>
+    <span class="n">imviz_color</span><span class="o">.</span><span class="n">load_data</span><span class="p">(</span><span class="n">sw_i2d_file</span><span class="p">,</span> <span class="n">data_label</span><span class="o">=</span><span class="s1">'sw'</span><span class="p">)</span>
+    <span class="n">imviz_color</span><span class="o">.</span><span class="n">load_data</span><span class="p">(</span><span class="n">lw_i2d_file</span><span class="p">,</span> <span class="n">data_label</span><span class="o">=</span><span class="s1">'lw'</span><span class="p">)</span>
 
     <span class="c1"># Link images by WCS (without affine approximation)</span>
-    <span class="n">imviz_color</span><span class="o">.</span><span class="n">plugins</span><span class="p">[</span><span class="s1">&#39;Links Control&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">link_type</span> <span class="o">=</span> <span class="s1">&#39;WCS&#39;</span>
-    <span class="n">imviz_color</span><span class="o">.</span><span class="n">plugins</span><span class="p">[</span><span class="s1">&#39;Links Control&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">wcs_use_affine</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">imviz_color</span><span class="o">.</span><span class="n">plugins</span><span class="p">[</span><span class="s1">'Links Control'</span><span class="p">]</span><span class="o">.</span><span class="n">link_type</span> <span class="o">=</span> <span class="s1">'WCS'</span>
+    <span class="n">imviz_color</span><span class="o">.</span><span class="n">plugins</span><span class="p">[</span><span class="s1">'Links Control'</span><span class="p">]</span><span class="o">.</span><span class="n">wcs_use_affine</span> <span class="o">=</span> <span class="kc">False</span>
 </pre></div>
 </div>
 </div>
@@ -1696,21 +1696,21 @@ Keep files for the two filters separated.</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set the colors for the two images. </span>
 <span class="k">if</span> <span class="n">doimage3</span> <span class="ow">and</span> <span class="n">do_swimage3</span> <span class="ow">and</span> <span class="n">do_lwimage3</span><span class="p">:</span>
-    <span class="n">plot_options</span> <span class="o">=</span> <span class="n">imviz_color</span><span class="o">.</span><span class="n">plugins</span><span class="p">[</span><span class="s1">&#39;Plot Options&#39;</span><span class="p">]</span>
-    <span class="n">plot_options</span><span class="o">.</span><span class="n">image_color_mode</span> <span class="o">=</span> <span class="s1">&#39;Color&#39;</span>
-    <span class="n">img_settings</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;sw&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;image_color&#39;</span><span class="p">:</span> <span class="s1">&#39;#61d3e1&#39;</span><span class="p">,</span>
-                           <span class="c1">#&#39;stretch_vmin&#39;: 0,</span>
-                           <span class="c1">#&#39;stretch_vmax&#39;: 4,</span>
-                           <span class="c1">#&#39;image_opacity&#39;: 0.32,</span>
-                           <span class="c1">#&#39;image_contrast&#39;: 0.69,</span>
-                           <span class="c1">#&#39;image_bias&#39;: 0.39</span>
+    <span class="n">plot_options</span> <span class="o">=</span> <span class="n">imviz_color</span><span class="o">.</span><span class="n">plugins</span><span class="p">[</span><span class="s1">'Plot Options'</span><span class="p">]</span>
+    <span class="n">plot_options</span><span class="o">.</span><span class="n">image_color_mode</span> <span class="o">=</span> <span class="s1">'Color'</span>
+    <span class="n">img_settings</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'sw'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'image_color'</span><span class="p">:</span> <span class="s1">'#61d3e1'</span><span class="p">,</span>
+                           <span class="c1">#'stretch_vmin': 0,</span>
+                           <span class="c1">#'stretch_vmax': 4,</span>
+                           <span class="c1">#'image_opacity': 0.32,</span>
+                           <span class="c1">#'image_contrast': 0.69,</span>
+                           <span class="c1">#'image_bias': 0.39</span>
                            <span class="p">},</span>
-                    <span class="s1">&#39;lw&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;image_color&#39;</span><span class="p">:</span> <span class="s1">&#39;#ff767c&#39;</span><span class="p">,</span>
-                           <span class="c1">#&#39;stretch_vmin&#39;: 0,</span>
-                           <span class="c1">#&#39;stretch_vmax&#39;: 16,</span>
-                           <span class="c1">#&#39;image_opacity&#39;: 0.4,</span>
-                           <span class="c1">#&#39;image_contrast&#39;: 0.94,</span>
-                           <span class="c1">#&#39;image_bias&#39;: 0.74</span>
+                    <span class="s1">'lw'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'image_color'</span><span class="p">:</span> <span class="s1">'#ff767c'</span><span class="p">,</span>
+                           <span class="c1">#'stretch_vmin': 0,</span>
+                           <span class="c1">#'stretch_vmax': 16,</span>
+                           <span class="c1">#'image_opacity': 0.4,</span>
+                           <span class="c1">#'image_contrast': 0.94,</span>
+                           <span class="c1">#'image_bias': 0.74</span>
                            <span class="p">}</span>
                     <span class="p">}</span>
 </pre></div>
@@ -1723,7 +1723,7 @@ Keep files for the two filters separated.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Now populate the imviz instance with the settings in the cell above.</span>
 <span class="k">if</span> <span class="n">doimage3</span> <span class="ow">and</span> <span class="n">do_swimage3</span> <span class="ow">and</span> <span class="n">do_lwimage3</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">layer</span><span class="p">,</span> <span class="n">settings</span> <span class="ow">in</span> <span class="n">img_settings</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-        <span class="n">plot_options</span><span class="o">.</span><span class="n">layer</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">layer</span><span class="si">}</span><span class="s1">[DATA]&#39;</span>
+        <span class="n">plot_options</span><span class="o">.</span><span class="n">layer</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">layer</span><span class="si">}</span><span class="s1">[DATA]'</span>
         <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">settings</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
             <span class="nb">setattr</span><span class="p">(</span><span class="n">plot_options</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
 </pre></div>
@@ -1750,32 +1750,32 @@ Keep files for the two filters separated.</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">doimage3</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">do_swimage3</span><span class="p">:</span>
-        <span class="n">sw_catalog_file</span> <span class="o">=</span> <span class="n">sw_i2d_file</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;i2d.fits&#39;</span><span class="p">,</span> <span class="s1">&#39;cat.ecsv&#39;</span><span class="p">)</span>
+        <span class="n">sw_catalog_file</span> <span class="o">=</span> <span class="n">sw_i2d_file</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'i2d.fits'</span><span class="p">,</span> <span class="s1">'cat.ecsv'</span><span class="p">)</span>
         <span class="n">sw_catalog</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">sw_catalog_file</span><span class="p">)</span>
     
-        <span class="c1"># To identify point/extended sources, use the &#39;is_extended&#39; column in the source catalog</span>
-        <span class="n">sw_pt_src</span><span class="p">,</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="o">~</span><span class="n">sw_catalog</span><span class="p">[</span><span class="s1">&#39;is_extended&#39;</span><span class="p">])</span>
-        <span class="n">sw_ext_src</span><span class="p">,</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">sw_catalog</span><span class="p">[</span><span class="s1">&#39;is_extended&#39;</span><span class="p">])</span>
+        <span class="c1"># To identify point/extended sources, use the 'is_extended' column in the source catalog</span>
+        <span class="n">sw_pt_src</span><span class="p">,</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="o">~</span><span class="n">sw_catalog</span><span class="p">[</span><span class="s1">'is_extended'</span><span class="p">])</span>
+        <span class="n">sw_ext_src</span><span class="p">,</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">sw_catalog</span><span class="p">[</span><span class="s1">'is_extended'</span><span class="p">])</span>
     
         <span class="c1"># Define coordinates of point and extended sources</span>
-        <span class="n">sw_pt_coord</span> <span class="o">=</span> <span class="n">Table</span><span class="p">({</span><span class="s1">&#39;coord&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">SkyCoord</span><span class="p">(</span><span class="n">ra</span><span class="o">=</span><span class="n">sw_catalog</span><span class="p">[</span><span class="s1">&#39;sky_centroid&#39;</span><span class="p">][</span><span class="n">sw_pt_src</span><span class="p">]</span><span class="o">.</span><span class="n">ra</span><span class="p">,</span>
-                                                <span class="n">dec</span><span class="o">=</span><span class="n">sw_catalog</span><span class="p">[</span><span class="s1">&#39;sky_centroid&#39;</span><span class="p">][</span><span class="n">sw_pt_src</span><span class="p">]</span><span class="o">.</span><span class="n">dec</span><span class="p">)]})</span>
-        <span class="n">sw_ext_coord</span> <span class="o">=</span> <span class="n">Table</span><span class="p">({</span><span class="s1">&#39;coord&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">SkyCoord</span><span class="p">(</span><span class="n">ra</span><span class="o">=</span><span class="n">sw_catalog</span><span class="p">[</span><span class="s1">&#39;sky_centroid&#39;</span><span class="p">][</span><span class="n">sw_ext_src</span><span class="p">]</span><span class="o">.</span><span class="n">ra</span><span class="p">,</span>
-                                                 <span class="n">dec</span><span class="o">=</span><span class="n">sw_catalog</span><span class="p">[</span><span class="s1">&#39;sky_centroid&#39;</span><span class="p">][</span><span class="n">sw_ext_src</span><span class="p">]</span><span class="o">.</span><span class="n">dec</span><span class="p">)]})</span>
+        <span class="n">sw_pt_coord</span> <span class="o">=</span> <span class="n">Table</span><span class="p">({</span><span class="s1">'coord'</span><span class="p">:</span> <span class="p">[</span><span class="n">SkyCoord</span><span class="p">(</span><span class="n">ra</span><span class="o">=</span><span class="n">sw_catalog</span><span class="p">[</span><span class="s1">'sky_centroid'</span><span class="p">][</span><span class="n">sw_pt_src</span><span class="p">]</span><span class="o">.</span><span class="n">ra</span><span class="p">,</span>
+                                                <span class="n">dec</span><span class="o">=</span><span class="n">sw_catalog</span><span class="p">[</span><span class="s1">'sky_centroid'</span><span class="p">][</span><span class="n">sw_pt_src</span><span class="p">]</span><span class="o">.</span><span class="n">dec</span><span class="p">)]})</span>
+        <span class="n">sw_ext_coord</span> <span class="o">=</span> <span class="n">Table</span><span class="p">({</span><span class="s1">'coord'</span><span class="p">:</span> <span class="p">[</span><span class="n">SkyCoord</span><span class="p">(</span><span class="n">ra</span><span class="o">=</span><span class="n">sw_catalog</span><span class="p">[</span><span class="s1">'sky_centroid'</span><span class="p">][</span><span class="n">sw_ext_src</span><span class="p">]</span><span class="o">.</span><span class="n">ra</span><span class="p">,</span>
+                                                 <span class="n">dec</span><span class="o">=</span><span class="n">sw_catalog</span><span class="p">[</span><span class="s1">'sky_centroid'</span><span class="p">][</span><span class="n">sw_ext_src</span><span class="p">]</span><span class="o">.</span><span class="n">dec</span><span class="p">)]})</span>
 
     <span class="k">if</span> <span class="n">do_lwimage3</span><span class="p">:</span>
-        <span class="n">lw_catalog_file</span> <span class="o">=</span> <span class="n">lw_i2d_file</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;i2d.fits&#39;</span><span class="p">,</span> <span class="s1">&#39;cat.ecsv&#39;</span><span class="p">)</span>
+        <span class="n">lw_catalog_file</span> <span class="o">=</span> <span class="n">lw_i2d_file</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'i2d.fits'</span><span class="p">,</span> <span class="s1">'cat.ecsv'</span><span class="p">)</span>
         <span class="n">lw_catalog</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">lw_catalog_file</span><span class="p">)</span>
 
-        <span class="c1"># To identify point/extended sources, use the &#39;is_extended&#39; column in the source catalog</span>
-        <span class="n">lw_pt_src</span><span class="p">,</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="o">~</span><span class="n">lw_catalog</span><span class="p">[</span><span class="s1">&#39;is_extended&#39;</span><span class="p">])</span>
-        <span class="n">lw_ext_src</span><span class="p">,</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">lw_catalog</span><span class="p">[</span><span class="s1">&#39;is_extended&#39;</span><span class="p">])</span>
+        <span class="c1"># To identify point/extended sources, use the 'is_extended' column in the source catalog</span>
+        <span class="n">lw_pt_src</span><span class="p">,</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="o">~</span><span class="n">lw_catalog</span><span class="p">[</span><span class="s1">'is_extended'</span><span class="p">])</span>
+        <span class="n">lw_ext_src</span><span class="p">,</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">lw_catalog</span><span class="p">[</span><span class="s1">'is_extended'</span><span class="p">])</span>
 
         <span class="c1"># Define coordinates of point and extended sources</span>
-        <span class="n">lw_pt_coord</span> <span class="o">=</span> <span class="n">Table</span><span class="p">({</span><span class="s1">&#39;coord&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">SkyCoord</span><span class="p">(</span><span class="n">ra</span><span class="o">=</span><span class="n">lw_catalog</span><span class="p">[</span><span class="s1">&#39;sky_centroid&#39;</span><span class="p">][</span><span class="n">lw_pt_src</span><span class="p">]</span><span class="o">.</span><span class="n">ra</span><span class="p">,</span>
-                                                <span class="n">dec</span><span class="o">=</span><span class="n">lw_catalog</span><span class="p">[</span><span class="s1">&#39;sky_centroid&#39;</span><span class="p">][</span><span class="n">lw_pt_src</span><span class="p">]</span><span class="o">.</span><span class="n">dec</span><span class="p">)]})</span>
-        <span class="n">lw_ext_coord</span> <span class="o">=</span> <span class="n">Table</span><span class="p">({</span><span class="s1">&#39;coord&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">SkyCoord</span><span class="p">(</span><span class="n">ra</span><span class="o">=</span><span class="n">lw_catalog</span><span class="p">[</span><span class="s1">&#39;sky_centroid&#39;</span><span class="p">][</span><span class="n">lw_ext_src</span><span class="p">]</span><span class="o">.</span><span class="n">ra</span><span class="p">,</span>
-                                                 <span class="n">dec</span><span class="o">=</span><span class="n">lw_catalog</span><span class="p">[</span><span class="s1">&#39;sky_centroid&#39;</span><span class="p">][</span><span class="n">lw_ext_src</span><span class="p">]</span><span class="o">.</span><span class="n">dec</span><span class="p">)]})</span>
+        <span class="n">lw_pt_coord</span> <span class="o">=</span> <span class="n">Table</span><span class="p">({</span><span class="s1">'coord'</span><span class="p">:</span> <span class="p">[</span><span class="n">SkyCoord</span><span class="p">(</span><span class="n">ra</span><span class="o">=</span><span class="n">lw_catalog</span><span class="p">[</span><span class="s1">'sky_centroid'</span><span class="p">][</span><span class="n">lw_pt_src</span><span class="p">]</span><span class="o">.</span><span class="n">ra</span><span class="p">,</span>
+                                                <span class="n">dec</span><span class="o">=</span><span class="n">lw_catalog</span><span class="p">[</span><span class="s1">'sky_centroid'</span><span class="p">][</span><span class="n">lw_pt_src</span><span class="p">]</span><span class="o">.</span><span class="n">dec</span><span class="p">)]})</span>
+        <span class="n">lw_ext_coord</span> <span class="o">=</span> <span class="n">Table</span><span class="p">({</span><span class="s1">'coord'</span><span class="p">:</span> <span class="p">[</span><span class="n">SkyCoord</span><span class="p">(</span><span class="n">ra</span><span class="o">=</span><span class="n">lw_catalog</span><span class="p">[</span><span class="s1">'sky_centroid'</span><span class="p">][</span><span class="n">lw_ext_src</span><span class="p">]</span><span class="o">.</span><span class="n">ra</span><span class="p">,</span>
+                                                 <span class="n">dec</span><span class="o">=</span><span class="n">lw_catalog</span><span class="p">[</span><span class="s1">'sky_centroid'</span><span class="p">][</span><span class="n">lw_ext_src</span><span class="p">]</span><span class="o">.</span><span class="n">dec</span><span class="p">)]})</span>
 </pre></div>
 </div>
 </div>
@@ -1794,9 +1794,9 @@ Keep files for the two filters separated.</p>
     <span class="n">imviz_sw_cat</span><span class="o">.</span><span class="n">load_data</span><span class="p">(</span><span class="n">sw_i2d_file</span><span class="p">)</span>
 
     <span class="c1"># Adjust settings for viewer</span>
-    <span class="n">viewer_sw_cat</span><span class="o">.</span><span class="n">stretch</span> <span class="o">=</span> <span class="s1">&#39;sqrt&#39;</span>
-    <span class="n">viewer_sw_cat</span><span class="o">.</span><span class="n">set_colormap</span><span class="p">(</span><span class="s1">&#39;Viridis&#39;</span><span class="p">)</span>
-    <span class="n">viewer_sw_cat</span><span class="o">.</span><span class="n">cuts</span> <span class="o">=</span> <span class="s1">&#39;95%&#39;</span>
+    <span class="n">viewer_sw_cat</span><span class="o">.</span><span class="n">stretch</span> <span class="o">=</span> <span class="s1">'sqrt'</span>
+    <span class="n">viewer_sw_cat</span><span class="o">.</span><span class="n">set_colormap</span><span class="p">(</span><span class="s1">'Viridis'</span><span class="p">)</span>
+    <span class="n">viewer_sw_cat</span><span class="o">.</span><span class="n">cuts</span> <span class="o">=</span> <span class="s1">'95%'</span>
 
     <span class="n">imviz_sw_cat</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -1808,14 +1808,14 @@ Keep files for the two filters separated.</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add marker for point sources:</span>
 <span class="k">if</span> <span class="n">doimage3</span> <span class="ow">and</span> <span class="n">do_swimage3</span><span class="p">:</span>
-    <span class="n">viewer_sw_cat</span><span class="o">.</span><span class="n">marker</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;pink&#39;</span><span class="p">,</span> <span class="s1">&#39;markersize&#39;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="s1">&#39;fill&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
+    <span class="n">viewer_sw_cat</span><span class="o">.</span><span class="n">marker</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'color'</span><span class="p">:</span> <span class="s1">'pink'</span><span class="p">,</span> <span class="s1">'markersize'</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="s1">'fill'</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
 
-    <span class="n">viewer_sw_cat</span><span class="o">.</span><span class="n">add_markers</span><span class="p">(</span><span class="n">sw_pt_coord</span><span class="p">,</span> <span class="n">use_skycoord</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">marker_name</span><span class="o">=</span><span class="s1">&#39;point_sources&#39;</span><span class="p">)</span>
+    <span class="n">viewer_sw_cat</span><span class="o">.</span><span class="n">add_markers</span><span class="p">(</span><span class="n">sw_pt_coord</span><span class="p">,</span> <span class="n">use_skycoord</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">marker_name</span><span class="o">=</span><span class="s1">'point_sources'</span><span class="p">)</span>
 
     <span class="c1"># Add marker for extended sources:</span>
-    <span class="n">viewer_sw_cat</span><span class="o">.</span><span class="n">marker</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="s1">&#39;markersize&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;fill&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
+    <span class="n">viewer_sw_cat</span><span class="o">.</span><span class="n">marker</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'color'</span><span class="p">:</span> <span class="s1">'white'</span><span class="p">,</span> <span class="s1">'markersize'</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s1">'fill'</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
 
-    <span class="n">viewer_sw_cat</span><span class="o">.</span><span class="n">add_markers</span><span class="p">(</span><span class="n">sw_ext_coord</span><span class="p">,</span> <span class="n">use_skycoord</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">marker_name</span><span class="o">=</span><span class="s1">&#39;extended_sources&#39;</span><span class="p">)</span>
+    <span class="n">viewer_sw_cat</span><span class="o">.</span><span class="n">add_markers</span><span class="p">(</span><span class="n">sw_ext_coord</span><span class="p">,</span> <span class="n">use_skycoord</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">marker_name</span><span class="o">=</span><span class="s1">'extended_sources'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1830,9 +1830,9 @@ Keep files for the two filters separated.</p>
     <span class="n">imviz_lw_cat</span><span class="o">.</span><span class="n">load_data</span><span class="p">(</span><span class="n">lw_i2d_file</span><span class="p">)</span>
 
     <span class="c1"># Adjust settings for viewer</span>
-    <span class="n">viewer_lw_cat</span><span class="o">.</span><span class="n">stretch</span> <span class="o">=</span> <span class="s1">&#39;sqrt&#39;</span>
-    <span class="n">viewer_lw_cat</span><span class="o">.</span><span class="n">set_colormap</span><span class="p">(</span><span class="s1">&#39;Viridis&#39;</span><span class="p">)</span>
-    <span class="n">viewer_lw_cat</span><span class="o">.</span><span class="n">cuts</span> <span class="o">=</span> <span class="s1">&#39;95%&#39;</span>
+    <span class="n">viewer_lw_cat</span><span class="o">.</span><span class="n">stretch</span> <span class="o">=</span> <span class="s1">'sqrt'</span>
+    <span class="n">viewer_lw_cat</span><span class="o">.</span><span class="n">set_colormap</span><span class="p">(</span><span class="s1">'Viridis'</span><span class="p">)</span>
+    <span class="n">viewer_lw_cat</span><span class="o">.</span><span class="n">cuts</span> <span class="o">=</span> <span class="s1">'95%'</span>
 
     <span class="n">imviz_lw_cat</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -1844,14 +1844,14 @@ Keep files for the two filters separated.</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add marker for point sources:</span>
 <span class="k">if</span> <span class="n">doimage3</span> <span class="ow">and</span> <span class="n">do_lwimage3</span><span class="p">:</span>
-    <span class="n">viewer_lw_cat</span><span class="o">.</span><span class="n">marker</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;pink&#39;</span><span class="p">,</span> <span class="s1">&#39;markersize&#39;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="s1">&#39;fill&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
+    <span class="n">viewer_lw_cat</span><span class="o">.</span><span class="n">marker</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'color'</span><span class="p">:</span> <span class="s1">'pink'</span><span class="p">,</span> <span class="s1">'markersize'</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="s1">'fill'</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
 
-    <span class="n">viewer_lw_cat</span><span class="o">.</span><span class="n">add_markers</span><span class="p">(</span><span class="n">lw_pt_coord</span><span class="p">,</span> <span class="n">use_skycoord</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">marker_name</span><span class="o">=</span><span class="s1">&#39;point_sources&#39;</span><span class="p">)</span>
+    <span class="n">viewer_lw_cat</span><span class="o">.</span><span class="n">add_markers</span><span class="p">(</span><span class="n">lw_pt_coord</span><span class="p">,</span> <span class="n">use_skycoord</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">marker_name</span><span class="o">=</span><span class="s1">'point_sources'</span><span class="p">)</span>
 
     <span class="c1"># Add marker for extended sources:</span>
-    <span class="n">viewer_lw_cat</span><span class="o">.</span><span class="n">marker</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="s1">&#39;markersize&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;fill&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
+    <span class="n">viewer_lw_cat</span><span class="o">.</span><span class="n">marker</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'color'</span><span class="p">:</span> <span class="s1">'white'</span><span class="p">,</span> <span class="s1">'markersize'</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s1">'fill'</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
 
-    <span class="n">viewer_lw_cat</span><span class="o">.</span><span class="n">add_markers</span><span class="p">(</span><span class="n">lw_ext_coord</span><span class="p">,</span> <span class="n">use_skycoord</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">marker_name</span><span class="o">=</span><span class="s1">&#39;extended_sources&#39;</span><span class="p">)</span>
+    <span class="n">viewer_lw_cat</span><span class="o">.</span><span class="n">add_markers</span><span class="p">(</span><span class="n">lw_ext_coord</span><span class="p">,</span> <span class="n">use_skycoord</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">marker_name</span><span class="o">=</span><span class="s1">'extended_sources'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
