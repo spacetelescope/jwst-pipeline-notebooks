@@ -30,6 +30,7 @@ jobs:
       enable-execution: true
       enable-storage: true                          # Store outputs to gh-storage
       enable-html-build: true                       # Build and deploy HTML docs
+      enable-a11y-html-check: true                  # Check generated HTML pages for accessibility issues
       post-processing-script: 'scripts/jdaviz_image_replacement.sh'  # Adjust path as needed
       custom-runner-config: true  # Enable ci_config.txt lookup
     secrets:

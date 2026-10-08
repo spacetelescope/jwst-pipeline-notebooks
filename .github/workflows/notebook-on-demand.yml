@@ -182,7 +182,7 @@ jobs:
 
   build-html-only:
     if: inputs.action_type == 'build-html-only'
-    uses:  spacetelescope/notebook-ci-actions/.github/workflows/notebook-ci-unified.yml@pipeline-dev
+    uses:  spacetelescope/notebook-ci-actions/.github/workflows/notebook-ci-unified.yml@v1
     with:
       execution-mode: 'on-demand'
       trigger-event: 'html'
